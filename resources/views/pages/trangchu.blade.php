@@ -59,19 +59,22 @@
                     <img width="262" height="450" class="slider-items__layer slider-items__layer--1"
                         src="{{ display_image($SLIDER_1) }}"
                         alt="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | {{$companyNameValue}}"
-                        data-lazy-src="{{ display_image($SLIDER_1) }}"><noscript><img width="262" height="450"
+                        data-lazy-src="{{ display_image($SLIDER_1) }}"><noscript>
+                          <img width="262" height="450"
                             class="slider-items__layer slider-items__layer--1" src="{{ display_image($SLIDER_1) }}"
                             alt="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | {{$companyNameValue}}"></noscript>
-                    <img width="778" height="599" class="slider-items__layer slider-items__layer--2"
+                    <img width="778" height="599" class="slider-items__layer slider-items__layer--2" style="width: 585px; height: 450px;"
                         src="{{ display_image($SLIDER_2) }}"
                         alt="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | {{$companyNameValue}}"
-                        data-lazy-src="{{ display_image($SLIDER_2) }}"><noscript><img width="778" height="599"
+                        data-lazy-src="{{ display_image($SLIDER_2) }}"><noscript>
+                          <img width="778" height="599"
                             class="slider-items__layer slider-items__layer--2" src="{{ display_image($SLIDER_2) }}"
                             alt="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | {{$companyNameValue}}"></noscript>
                     <img width="542" height="255" class="slider-items__layer slider-items__layer--3"
                         src="{{ display_image($SLIDER_3) }}"
                         alt="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | {{$companyNameValue}}"
-                        data-lazy-src="{{ display_image($SLIDER_3) }}"><noscript><img width="542" height="255"
+                        data-lazy-src="{{ display_image($SLIDER_3) }}"><noscript>
+                          <img width="542" height="255"
                             class="slider-items__layer slider-items__layer--3" src="{{ display_image($SLIDER_3) }}"
                             alt="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | {{$companyNameValue}}"></noscript>
                 </div>
@@ -175,7 +178,9 @@
                                         <div class="website-items">
                                             <img width="1200" height="800"
                                                 src="{{ display_image($solutions[$i]->image) }}" alt=""
-                                                data-lazy-src="{{ display_image($solutions[$i]->image) }}"><noscript><img
+                                                data-lazy-src="{{ display_image($solutions[$i]->image) }}"><noscript>
+                                                  <img
+                                                    style="width: 470px; height: 313px"
                                                     width="1200" height="800"
                                                     src="{{ display_image($solutions[$i]->image) }}"
                                                     alt=""></noscript>
@@ -597,7 +602,7 @@
                                                 class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
                                                 src="{{ display_image($feedback->slide_1) }}" alt="Minigo shop"
                                                 data-lazy-src="{{ display_image($feedback->slide_1) }}"><noscript>
-                                                <img width="1280" height="800"
+                                                <img width="1280" height="800" style="width: 699px; height: 436px"
                                                     class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
                                                     src="{{ display_image($feedback->slide_1) }}"
                                                     alt="Minigo shop"></noscript>
@@ -785,7 +790,7 @@
                                       class="block rounded-t-2xl cursor-pointer"
                                       src="{{ display_image($feedback->slide_2) }}" alt="Minigo shop"
                                       data-lazy-src="{{ display_image($feedback->slide_2) }}"><noscript><img
-                                          width="800" height="500"
+                                          width="800" height="500" style="width: 891; height: 685px"
                                           class="block rounded-t-2xl cursor-pointer"
                                           src="{{ display_image($feedback->slide_2) }}"
                                           alt="Minigo shop"></noscript>

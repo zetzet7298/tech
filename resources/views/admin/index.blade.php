@@ -110,7 +110,7 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 2') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 2 (585x450)') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->

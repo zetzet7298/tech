@@ -2,11 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\Cachable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
+    use Cachable;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::bootCacheable('all');
+    }
+
     protected $fillable = ['key', 'value', 'additional_value', 'type'];
 
     public static function get($key, $default = null)

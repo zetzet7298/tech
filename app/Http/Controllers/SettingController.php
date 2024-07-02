@@ -69,13 +69,14 @@ class SettingController extends Controller
             //     'value' => 'required',
             // ]);
                     // include to save avatar
-            if (request()->hasFile('SLIDER_1') && $path = upload_image('SLIDER_1', 'SLIDER_1')) {
+            // dd($path = upload_image2('SLIDER_1', 'SLIDER_1'));
+            if (request()->hasFile('SLIDER_1') && $path = upload_image2('SLIDER_1', 'SLIDER_1')) {
                 Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SLIDER_1'), $path);
             }
-            if (request()->hasFile('SLIDER_2') && $path = upload_image('SLIDER_2', 'SLIDER_2')) {
+            if (request()->hasFile('SLIDER_2') && $path = upload_image2('SLIDER_2', 'SLIDER_2')) {
                 Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SLIDER_2'), $path);
             }
-            if (request()->hasFile('SLIDER_3') && $path = upload_image('SLIDER_3', 'SLIDER_3')) {
+            if (request()->hasFile('SLIDER_3') && $path = upload_image2('SLIDER_3', 'SLIDER_3')) {
                 Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SLIDER_3'), $path);
             }
 

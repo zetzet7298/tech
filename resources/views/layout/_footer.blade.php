@@ -579,7 +579,7 @@
                 </div>
             </div>
             <div class="footer__col footer__col--form footer-mobile-hidden">
-                <div class="footer__title">Gửi yêu cầu báo giá dịch vụ</div>
+                <div class="footer__title">Gửi yêu cầu báo giá</div>
                 <p class="mb-4">MIKO TECH luôn tư vấn dịch vụ miễn phí. Chúng tôi sẽ liên hệ báo giá theo thông tin
                     mà bạn để
                     lại.</p>
@@ -613,7 +613,8 @@
                                         class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number check-phone"
                                         aria-required="true" aria-invalid="false" placeholder="Số điện thoại"
                                         value="" type="number" name="your-phone" /></span><span
-                                    class="wpcf7-form-control-wrap" data-name="menu-63"><select
+                                    class="wpcf7-form-control-wrap" data-name="menu-63">
+                                    {{-- <select
                                         class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
                                         aria-required="true" aria-invalid="false" name="menu-63">
                                         <option value="Chọn dịch vụ">Chọn dịch vụ</option>
@@ -633,7 +634,8 @@
                                         <option value="Chụp hình sản phẩm">Chụp hình sản phẩm</option>
                                         <option value="Đăng ký, thông báo website với Bộ Công thương">Đăng ký, thông
                                             báo website với Bộ Công thương</option>
-                                    </select></span><span class="wpcf7-form-control-wrap" data-name="your-message">
+                                    </select> --}}
+                                </span><span class="wpcf7-form-control-wrap" data-name="your-message">
                                     <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
                                         placeholder="Nội dung tin nhắn" name="your-message"></textarea>
                                 </span><input
@@ -693,7 +695,7 @@
                     </div>
                 </div> --}}
 
-                <div class="footer__title">Gửi yêu cầu báo giá dịch vụ
+                <div class="footer__title">Gửi yêu cầu báo giá
                     <span class="footer-xemthem-btn" data-id="6">
                         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330"
@@ -726,8 +728,8 @@
                                         <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
                                         <input type="hidden" name="_wpcf7_recaptcha_response" value="" />
                                     </div>
-                                    <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input
-                                                size="40"
+                                    <p><span class="wpcf7-form-control-wrap" data-name="your-name">
+                                            <input size="40"
                                                 class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                 aria-required="true" aria-invalid="false" placeholder="Họ tên"
                                                 value="" type="text" name="your-name" /></span><span
@@ -740,7 +742,8 @@
                                                 class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number check-phone"
                                                 aria-required="true" aria-invalid="false" placeholder="Số điện thoại"
                                                 value="" type="number" name="your-phone" /></span><span
-                                            class="wpcf7-form-control-wrap" data-name="menu-63"><select
+                                            class="wpcf7-form-control-wrap" data-name="menu-63">
+                                            {{-- <select
                                                 class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
                                                 aria-required="true" aria-invalid="false" name="menu-63">
                                                 <option value="Chọn dịch vụ">Chọn dịch vụ</option>
@@ -760,7 +763,8 @@
                                                 <option value="Chụp hình sản phẩm">Chụp hình sản phẩm</option>
                                                 <option value="Đăng ký, thông báo website với Bộ Công thương">Đăng ký,
                                                     thông báo website với Bộ Công thương</option>
-                                            </select></span><span class="wpcf7-form-control-wrap"
+                                            </select> --}}
+                                        </span><span class="wpcf7-form-control-wrap"
                                             data-name="your-message">
                                             <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
                                                 placeholder="Nội dung tin nhắn" name="your-message"></textarea>

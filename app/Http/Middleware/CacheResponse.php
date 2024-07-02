@@ -16,7 +16,8 @@ class CacheResponse
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $key = 'response|' . $request->fullUrl();
+        $routeName = $request->route()->getName();
+        $key = 'response|' . $routeName;
         if (Cache::has($key)) {
             return response(Cache::get($key));
         }
