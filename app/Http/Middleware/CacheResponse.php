@@ -16,15 +16,14 @@ class CacheResponse
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // $key = 'response|' . $request->fullUrl();
-        // if (Cache::has($key)) {
-        //     dd(Cache::get($key));
-        //     return response(Cache::get($key));
-        // }
+        $key = 'response|' . $request->fullUrl();
+        if (Cache::has($key)) {
+            return response(Cache::get($key));
+        }
 
         $response = $next($request);
 
-        // Cache::put($key, $response->getContent(), 60); // 60 minutes
+        Cache::put($key, $response->getContent(), 60); // 60 minutes
 
         return $response;
     }

@@ -29,7 +29,6 @@ class SolutionController extends Controller
             $content->title = $request->title;
             // $content->name = $request->name;
             $content->description = $request->description;
-            dd(upload_image2('image', 'image'));
             if (request()->hasFile('image') && $path = upload_image2('image', 'image')) {
                 $content->image = $path;
             }
