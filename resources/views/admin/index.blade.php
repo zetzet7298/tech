@@ -223,6 +223,64 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Logo') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10">
+                                <!--begin::Image input-->
+                                <div class="image-input image-input-outline {{ $LOGO ? '' : 'image-input-empty' }}"
+                                    data-kt-image-input="true"
+                                    style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
+                                    <!--begin::Preview existing avatar-->
+                                    <div class="image-input-wrapper w-250px h-250px"
+                                        style="background-image: url({{ display_image($LOGO) }})"></div>
+                                    <!--end::Preview existing avatar-->
+
+                                    <!--begin::Label-->
+                                    <label
+                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                        data-kt-image-input-action="change" data-bs-toggle="tooltip"
+                                        title="Change avatar">
+                                        <i class="bi bi-pencil-fill fs-7"></i>
+
+                                        <!--begin::Inputs-->
+                                        <input type="file" name="LOGO" accept=".png, .jpg, .jpeg" />
+                                        <input type="hidden" name="avatar_remove" />
+                                        <!--end::Inputs-->
+                                    </label>
+                                    <!--end::Label-->
+
+                                    <!--begin::Cancel-->
+                                    <span
+                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                        data-kt-image-input-action="cancel" data-bs-toggle="tooltip"
+                                        title="Cancel avatar">
+                                        <i class="bi bi-x fs-2"></i>
+                                    </span>
+                                    <!--end::Cancel-->
+
+                                    <!--begin::Remove-->
+                                    <span
+                                        class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                        data-kt-image-input-action="remove" data-bs-toggle="tooltip"
+                                        title="Remove avatar">
+                                        <i class="bi bi-x fs-2"></i>
+                                    </span>
+                                    <!--end::Remove-->
+                                </div>
+                                <!--end::Image input-->
+
+                                <!--begin::Hint-->
+                                <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
+                                <!--end::Hint-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
 
                         <!--begin::Input group-->
                         <div class="row mb-6">
@@ -297,9 +355,167 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Điện thoại') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="PHONE"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('PHONE', $PHONE ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Địa chỉ') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="ADDRESS"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('ADDRESS', $ADDRESS ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Email') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="EMAIL"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('EMAIL', $EMAIL ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Sứ mệnh') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="MISSION"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('MISSION', $MISSION ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Thời gian làm việc') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="TIME_WORKING"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('TIME_WORKING', $TIME_WORKING ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Số đăng ký kinh doanh') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="DKKD"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('DKKD', $DKKD ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Link Facebook') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="FACEBOOK"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('FACEBOOK', $FACEBOOK ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Link Zalo') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="ZALO"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('ZALO', $ZALO ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Link messenger') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="MESSENGER"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('MESSENGER', $MESSENGER ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Giới thiệu báo giá') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="PRICE_QUOTE"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('PRICE_QUOTE', $PRICE_QUOTE ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="row mb-6">
+                            <!--begin::Label-->
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Link Google Map') }}</label>
+                            <!--end::Label-->
+
+                            <!--begin::Col-->
+                            <div class="col-lg-10 fv-row">
+                                <textarea rows="5" type="text" name="GOOGLE_MAP"
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('GOOGLE_MAP', $GOOGLE_MAP ?? '') }}</textarea>
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+
                     </div>
                     <!--end::Card body-->
-
+                        
                     <!--begin::Actions-->
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}

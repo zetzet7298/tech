@@ -25,6 +25,7 @@ Route::get('/dich-vu', [PageController::class, 'dichvu'])->name('dichvu');
 Route::get('/tin-tuc', [PageController::class, 'tintuc'])->name('tintuc');
 Route::get('/nhan-su', [PageController::class, 'nhansu'])->name('nhansu');
 Route::get('/lien-he', [PageController::class, 'lienhe'])->name('lienhe');
+Route::get('/wp-json', [PageController::class, 'json'])->name('json');
 // });
 
 //...

@@ -60,6 +60,19 @@ class SettingController extends Controller
         DB::beginTransaction();
         try {
             Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.COMPANY_NAME'), $request->COMPANY_NAME);
+            // Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.LOGO'), $request->LOGO);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.PRICE_QUOTE'), $request->PRICE_QUOTE);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.MISSION'), $request->MISSION);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.ADDRESS'), $request->ADDRESS);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.PHONE'), $request->PHONE);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.EMAIL'), $request->EMAIL);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.DKKD'), $request->DKKD);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.ZALO'), $request->ZALO);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.MESSENGER'), $request->MESSENGER);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.FACEBOOK'), $request->FACEBOOK);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.TIME_WORKING'), $request->TIME_WORKING);
+            Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.GOOGLE_MAP'), $request->GOOGLE_MAP);
+
             Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.ABOUT_TITLE'), $request->ABOUT_TITLE);
             Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.ABOUT_DESC'), $request->ABOUT_DESC);
             Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SOLUTION_TITLE'), $request->SOLUTION_TITLE);
@@ -78,6 +91,9 @@ class SettingController extends Controller
             }
             if (request()->hasFile('SLIDER_3') && $path = upload_image2('SLIDER_3', 'SLIDER_3')) {
                 Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SLIDER_3'), $path);
+            }
+            if (request()->hasFile('LOGO') && $path = upload_image2('LOGO', 'LOGO')) {
+                Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.LOGO'), $path);
             }
 
             DB::commit();

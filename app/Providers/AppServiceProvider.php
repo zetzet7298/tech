@@ -47,6 +47,9 @@ class AppServiceProvider extends ServiceProvider
         $PHONE = $settings[config('constants.PHONE')]['value'];
         $ADDRESS = $settings[config('constants.ADDRESS')]['value'];
         $MISSION = $settings[config('constants.MISSION')]['value'];
+        $LOGO = $settings[config('constants.LOGO')]['value'];
+        $PRICE_QUOTE = $settings[config('constants.PRICE_QUOTE')]['value'];
+        $GOOGLE_MAP = $settings[config('constants.GOOGLE_MAP')]['value'];
         // Share theme adapter class
         View::share('theme', $theme);
         View::share('companyNameValue', $companyNameValue);
@@ -60,6 +63,9 @@ class AppServiceProvider extends ServiceProvider
         View::share('PHONE', $PHONE);
         View::share('ADDRESS', $ADDRESS);
         View::share('MISSION', $MISSION);
+        View::share('LOGO', $LOGO);
+        View::share('PRICE_QUOTE', $PRICE_QUOTE);
+        View::share('GOOGLE_MAP', $GOOGLE_MAP);
 
         // Set demo globally
         $theme->setDemo(request()->input('demo', 'demo1'));

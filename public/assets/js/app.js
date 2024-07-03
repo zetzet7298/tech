@@ -1,4 +1,4 @@
-AOS.init();
+// AOS.init();
 /* ===============================  Mouse effect  =============================== */
 function mousecursor() {
     if ($("body")) {
@@ -92,11 +92,11 @@ jQuery(document).ready(function ($) {
  
 
   new WOW().init();
-  $("img").each(function () {
-    if ($(this).attr("alt") == "") {
-      $(this).attr("alt", "Miko Tech - thiết kế website chuyên nghiệp");
-    }
-  });
+  // $("img").each(function () {
+  //   if ($(this).attr("alt") == "") {
+  //     $(this).attr("alt", "Miko Tech - thiết kế website chuyên nghiệp");
+  //   }
+  // });
   $('.service-xemthem-btn').click(function() {
       let parent= $(this).parent();
       let parent_view= $(this).parent().find('.service-xemthem-content');
@@ -141,21 +141,7 @@ jQuery(document).ready(function ($) {
           $(this).find('.footer-xemthem-btn').html('<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve"><path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"/></svg>');
       }
   });
-  const aTag = document.getElementsByTagName("a");
-  for (var i = 0; i < aTag.length; i++) {
-    if ((aTag[i].href != "javascript:;" && !aTag[i].href.includes("mikotech.vn")) || aTag[i].href.includes("/thiet-ke-website")) {
-      aTag[i].target = "_blank";
-    }
-  }
-  
-  if (window.location.href=='https://mikotech.vn/thiet-ke-website/') {
-      for (var i = 0; i < aTag.length; i++) {
-        if ((aTag[i].href != "javascript:;" && !aTag[i].href.includes("/thiet-ke-website/"))) {
-          aTag[i].target = "_blank";
-        }
-      }
-  }
-   
+
   $(".header__nav a").each(function(){
      $(this).attr("target","_self");
   });
@@ -228,29 +214,32 @@ function animateFrom(elem, duration_time, delay_time, direction) {
   duration_time = duration_time || 1.5;
   delay_time = delay_time || 0;
   var x = 0,
-    y = direction * 100;
+      y = direction * 100;
   if (elem.classList.contains("gs_reveal_fromLeft")) {
-    x = -100;
-    y = 0;
+      x = -100;
+      y = 0;
   } else if (elem.classList.contains("gs_reveal_fromRight")) {
-    x = 100;
-    y = 0;
+      x = 100;
+      y = 0;
   }
   elem.style.transform = "translate(" + x + "px, " + y + "px)";
   elem.style.opacity = "0";
   gsap.fromTo(
-    elem,
-    { x: x, y: y, autoAlpha: 0 },
-    {
-      duration: duration_time,
-      delay: delay_time,
-      x: 0,
-      y: 0,
-      start: "top center",
-      autoAlpha: 1,
-      ease: "expo",
-      overwrite: "auto",
-    }
+      elem,
+      { x: x, y: y, autoAlpha: 0 },
+      {
+          duration: duration_time,
+          delay: delay_time,
+          x: 0,
+          y: 0,
+          autoAlpha: 1,
+          ease: "expo",
+          overwrite: "auto",
+          scrollTrigger: {
+              trigger: elem,
+              start: "top center",
+          },
+      }
   );
 }
 
@@ -260,19 +249,20 @@ function hide(elem) {
 
 document.addEventListener("DOMContentLoaded", function () {
   gsap.utils.toArray(".gs_reveal").forEach(function (elem) {
-    hide(elem);
-    let trigger_target = elem.getAttribute("data-trigger") || elem;
-    ScrollTrigger.create({
-      trigger: trigger_target,
-      onEnter: function () {
-        animateFrom(
-          elem,
-          elem.getAttribute("data-duration"),
-          elem.getAttribute("data-delay"),
-          1
-        );
-      },
-    });
+      hide(elem);
+      let trigger_target = elem.getAttribute("data-trigger") || elem;
+      ScrollTrigger.create({
+          trigger: trigger_target,
+          start: "top center",
+          onEnter: function () {
+              animateFrom(
+                  elem,
+                  elem.getAttribute("data-duration"),
+                  elem.getAttribute("data-delay"),
+                  1
+              );
+          },
+      });
   });
 });
 
@@ -450,4 +440,17 @@ $(".check-phone").change(function () {
         .prop("disabled", true);
     }
   }
+});
+
+jQuery(document).ready(function ($) {
+	$("body" ).trigger( "click" );
+	setTimeout(function () {
+		$(".loading-icon").addClass("show");
+	}, 200);
+	setTimeout(function () {
+		$(".loading-icon").addClass("finish");
+	}, 600);
+	setTimeout(function () {
+		$(".loading-icon").remove();
+	}, 1500);
 });

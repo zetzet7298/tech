@@ -12,7 +12,7 @@
         $feedbacks = \App\Models\Feedback::orderBy('index', 'asc')->get();
         $solutions = \App\Models\Solution::orderBy('index', 'asc')->get();
     @endphp
-    <div class="hmmenu__footer">Copyright © 2021 MIKO TECH</div>
+    <div class="hmmenu__footer">Copyright © 2021 {{$companyNameValue}}</div>
     <div class="svg-menu"><svg id="scene" preserveAspectRatio="xMinYMid slice" viewBox="0 0 1440 800" class="style-1">
             <defs>
                 <linearGradient id="ColorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -130,7 +130,7 @@
                     <h2 class="website__name">{{ $SOLUTION_TITLE }}</h2>
                     <div class="website__desc">{{ $SOLUTION_DESCRIPTION }}</div>
                     <div class="d-flex justify-content-start">
-                        <a href="https://mikotech.vn/dich-vu/" class="hbtn hbtn--white">Tìm hiểu ngay</a>
+                        <a href="{{route('dichvu')}}" class="hbtn hbtn--white">Tìm hiểu ngay</a>
                     </div>
                 </div>
             </div>
@@ -139,40 +139,6 @@
                     <div class="website__swiper swiper">
                         <div class="swiper-wrapper">
                             @if ($solutions->isNotEmpty())
-                                {{-- @foreach ($solutions as $k => $solution)
-                                  @if ($k % 2 == 0)
-                                  <div class="swiper-slide">
-                                    <div class="website-items">
-                                        <img width="1200" height="800" src="{{ display_image($solution->image) }}"
-                                            alt="" data-lazy-src="{{ display_image($solution->image) }}"><noscript><img
-                                                width="1200" height="800" src="{{ display_image($solution->image) }}"
-                                                alt=""></noscript>
-                                        <div class="website-items__info">
-                                            <div class="website-items__name">{{ $solution->title }}</div>
-                                            <div class="website-items__desc">{{ $solution->description }}</div>
-                                            <!--<a class="hbtn" href=""><span>Trải nghiệm ngay</span></a>-->
-                                        </div>
-                                    </div>
-                                </div>
-                                  @else
-                                    <div class="website-items">
-                                        <img width="1200" height="800" src="{{ display_image($solution->image) }}"
-                                            alt="" data-lazy-src="{{ display_image($solution->image) }}"><noscript><img
-                                                width="1200" height="800" src="{{ display_image($solution->image) }}"
-                                                alt=""></noscript>
-                                        <div class="website-items__info">
-                                            <div class="website-items__name">{{ $solution->title }}</div>
-                                            <div class="website-items__desc">{{ $solution->description }}</div>
-                                            <!--<a class="hbtn" href=""><span>Trải nghiệm ngay</span></a>-->
-                                        </div>
-                                    </div>
-                                  @endif
-                                  @if ($k % 2 == 0)
-                                </div></div>
-                                  @else
-                                </div>
-                                  @endif
-                                @endforeach --}}
                                 @for ($i = 0; $i < count($solutions); $i += 2)
                                     <div class="swiper-slide">
                                         <div class="website-items">
@@ -243,238 +209,7 @@
             class="overflow-hidden feedback py-12 sm:py-[6.25rem] pl-0 lg:pl-[1.75rem] xl:pl-[3.75rem] flex items-start lg:items-end">
             <h2
                 class="text-[1.8rem] sm:text-[2rem] xl:text-[2.25rem] font-normal text-black uppercase relative left-auto top-auto mb-8 lg:mb-0 px-[30px] lg:px-0 lg:absolute lg:left-14 lg:top-20 xl:top-28 gs_reveal gs_reveal_fromLeft">
-                Khách hàng <br> nói về Miko Tech</h2>
-
-            {{-- <div
-                class="w-[100%] px-[30px] lg:px-0 lg:w-[44%] overflow-hidden relative before:w-full before:absolute before:left-0 before:top-0 before:bg-[#efe9e3] before:content-[''] before:rounded-l-0 before:rounded-t-2xl lg:before:rounded-t-0 lg:before:rounded-l-2xl  before:min-h-[475px] lg:before:min-h-[475px] xl:before:min-h-[442px] 2xl:before:min-h-[542px] gs_reveal gs_reveal_fromLeft">
-                <div class="swiper feedback__content__swiper">
-                    <div class="swiper-wrapper">
-                        @if ($feedbacks->isNotEmpty())
-                            @foreach ($feedbacks as $feedback)
-                                <div class="swiper-slide">
-                                    <div class="relative pb-0 lg:pb-[52px]">
-                                        <div
-                                            class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                                            <img width="46" height="33" class="mb-4"
-                                                src="{{ display_image($feedback->image) }}"
-                                                alt="Khách hàng nói về {{ $companyNameValue }}"
-                                                data-lazy-src="{{ display_image($feedback->image) }}"><noscript>
-                                                <img width="46" height="33" class="mb-4"
-                                                    src="{{ display_image($feedback->image) }}"
-                                                    alt="Khách hàng nói về {{ $companyNameValue }}"></noscript>
-                                            <div
-                                                class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">
-                                                {{ $feedback->content }}</div>
-                                            <div
-                                                class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                                                <div
-                                                    class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                                                    <img width="80" height="107" class="block"
-                                                        src="{{ display_image($feedback->image) }}"
-                                                        alt="{{ $feedback->name }}"
-                                                        data-lazy-src="{{ display_image($feedback->image) }}"><noscript><img
-                                                            width="80" height="107" class="block"
-                                                            src="{{ display_image($feedback->image) }}"
-                                                            alt="{{ $feedback->name }}"></noscript>
-                                                </div>
-                                                <div
-                                                    class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">
-                                                    {{ $feedback->name }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="swiper-slide">
-                                <div class="relative pb-0 lg:pb-[52px]">
-                                    <div
-                                        class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                                        <img width="46" height="33" class="mb-4"
-                                            src="{{ display_image('') }}"
-                                            alt="Khách hàng nói về {{ $companyNameValue }}"
-                                            data-lazy-src="{{ display_image('') }}"><noscript>
-                                            <img width="46" height="33" class="mb-4"
-                                                src="{{ display_image('') }}"
-                                                alt="Khách hàng nói về {{ $companyNameValue }}"></noscript>
-                                        <div
-                                            class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">
-                                        </div>
-                                        <div
-                                            class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                                            <div
-                                                class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                                                <img width="80" height="107" class="block"
-                                                    src="{{ display_image('') }}" alt="Khách hàng nói"
-                                                    data-lazy-src="{{ display_image('') }}"><noscript><img
-                                                        width="80" height="107" class="block"
-                                                        src="{{ display_image('') }}"
-                                                        alt="Khách hàng nói"></noscript>
-                                            </div>
-                                            <div
-                                                class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div> --}}
-            {{-- <div class="w-[100%] px-[30px] lg:px-0 lg:w-[44%] overflow-hidden relative before:w-full before:absolute before:left-0 before:top-0 before:bg-[#efe9e3] before:content-[''] before:rounded-l-0 before:rounded-t-2xl lg:before:rounded-t-0 lg:before:rounded-l-2xl  before:min-h-[475px] lg:before:min-h-[475px] xl:before:min-h-[442px] 2xl:before:min-h-[542px] gs_reveal gs_reveal_fromLeft">
-          <div class="swiper feedback__content__swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="{{display_image($SLIDER_1)}}" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="{{display_image($SLIDER_1)}}"><noscript>
-                      <img width="46" height="33" class="mb-4" src="{{display_image($SLIDER_1)}}" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Từ sau đại dịch, tôi nhận thức được rằng một website bán hàng là điều cần thiết cho việc phát triển kinh doanh hiện nay. Vì vậy, tôi đã nhanh chóng tìm đến Miko Tech để giúp định hướng và xây dựng website ấn tượng, khác biệt hơn so với những gian hàng online khác. Đơn vị đã không chỉ hỗ trợ nhiệt tình trong giai đoạn thiết kế website mà còn hướng dẫn tôi vận hành website chu đáo. Hơn nữa, những giải pháp Marketing tổng thể của đơn vị như: branding,  sáng tạo nội dung, quảng cáo đa nền tảng,... cũng làm gia tăng hơn hiệu quả bán hàng. Chỉ trong 1 năm triển khai bán hàng trên website mà shop tôi đã có lượng đơn đặt hàng tăng vượt trội, chạm mốc trên 1000 đơn 1 tháng.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="107" class="block" src="{{display_image($SLIDER_1)}}" alt="{{$feedback->name}}" data-lazy-src="{{display_image($SLIDER_1)}}"><noscript><img width="80" height="107" class="block" src="{{display_image($SLIDER_1)}}" alt="{{$feedback->name}}"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">{{$feedback->name}}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Từ xưởng sản xuất nội thất nhỏ với số đơn đặt hàng hạn chế mỗi tháng. 
-                      Tôi đã quyết định thiết kế website và sử dụng những giải pháp hỗ trợ Marketing toàn diện tại MIKO TECH 
-                      để đẩy mạnh việc kinh doanh. Kết quả đạt được sau quá trình vận hành website vượt xa những kỳ vọng ban đầu của tôi, 
-                      website được rất nhiều người biến đến, đơn đặt hàng liên tục gia tăng. Website nội thất Meon đã trở thành trang web dẫn 
-                    đầu xu hướng  kinh doanh trực tuyến trong ngành nội thất. Quy mô công ty cũng được mở rộng trên toàn khu vực TPHCM.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="80" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E" alt="Anh Hưng - đại diện Công ty TNHH Meon Việt Nam" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/anh-hung-meon.webp"><noscript><img width="80" height="80" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/anh-hung-meon.webp" alt="Anh Hưng - đại diện Công ty TNHH Meon Việt Nam"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Hưng - đại diện Công ty TNHH Meon Việt Nam</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="{{display_image($SLIDER_1)}}" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">PMGĐ mong muốn thiết kế website đăng tin tại Miko Tech với mục đích tạo ra một kênh rao vặt bất động sản trung gian, kết nối người mua với người bán lại với nhau bằng những giao dịch cực kỳ đơn giản, tiện lợi, nhanh chóng, an toàn, mang đến hiệu quả bất ngờ. Miko Tech đã giúp PMGĐ hoàn thiện website với các tính năng vượt trội, khả năng hiển thị tốt trên nhiều thiết bị. PMGĐ rất hài lòng và sẽ tiếp tục lựa chọn Miko Tech là đơn vị đồng hành phát triển và nâng cấp website ở thời gian sắp tới</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="720" height="720" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20720%20720'%3E%3C/svg%3E"
-                        alt="Anh Tiến - Công ty TNHH Phú Mỹ Giàu Đẹp" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Phú Mỹ-hình đại diện.jpeg"><noscript><img width="720" height="720" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Phú Mỹ-hình đại diện.jpeg"
-                        alt="Anh Tiến - Công ty TNHH Phú Mỹ Giàu Đẹp"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Tiến - Công ty TNHH Phú Mỹ Giàu Đẹp</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Sau đợt dịch, nhu cầu mua hàng online tăng mạnh nên mình nhận thấy rằng việc xây dựng website bây giờ là điều hết sức cần thiết giúp tiết kiệm tối đa thời gian xử lý đơn hàng. Từ suy nghĩ đó, mình đã tìm đến Miko Tech để hợp tác xây dựng website. Miko Tech đã hỗ trợ mình thiết kế website chuyên nghiệp bố trí theo từng danh mục sản phẩm rõ ràng kết hợp với các nút liên kết được bố trí trực quan giúp việc mua sắm trở nên dễ dàng hơn. Các tiện ích website cũng được trang bị đa dạng bao gồm giỏ hàng, thanh toán, vận chuyển,...</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="81" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2081'%3E%3C/svg%3E" alt="Anh Tân - Chủ cửa hàng Shinrai Foods" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/chushinrai.webp"><noscript><img width="80" height="81" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/chushinrai.webp" alt="Anh Tân - Chủ cửa hàng Shinrai Foods"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Tân - Chủ cửa hàng Shinrai Foods</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Tôi từng lướt xem nhiều trang web của các đơn vị thiết kế website nhưng đa số đều không để lại ấn tượng quá sâu sắc với tôi. Nhưng cho đến khi xem trang web của MIiko Tech, tôi đã vô cùng ấn tượng và liên hệ ngay với đơn vị để mong muốn được hợp tác xây dựng website. MIiko Tech đã đáp ứng tốt những yêu cầu đề ra của tôi bao gồm: website đẹp mắt, nội dung bố trí rõ ràng, hình ảnh sắc nét mô tả sống động về đất nước Bồ Đào Nha. Ngoài ra, đội ngũ nhân viên tại Miko Tech luôn hỗ trợ tư vấn và giải đáp kịp thời khiến tôi cảm thấy rất hài lòng và tin tưởng vào đơn vị.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="80" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E" alt="Chị Phụng - Phó giám đốc Công ty TNHH Tư vấn Diệp Gia" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/avatar_diepgia.webp"><noscript><img width="80" height="80" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/avatar_diepgia.webp" alt="Chị Phụng - Phó giám đốc Công ty TNHH Tư vấn Diệp Gia"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Chị Phụng - Phó giám đốc Công ty TNHH Tư vấn Diệp Gia</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">RINO là ứng dụng công nghệ tiên tiến “Siêu thị online” kiểu mới, thực hiện giao hàng siêu tốc chỉ trong 10 phút. Ứng dụng hoạt động 24/7 giúp đẩy nhanh thời gian mua hàng cho người tiêu dùng. Để ứng dụng tiếp cận được nhiều đối tượng người dùng và thu hút các tài xế tham gia hơn, tôi đã tìm đến Miko Tech để thiết kế một website chuyên nghiệp. Website với giao diện đẹp đã giúp tôi giới thiệu và phổ biến app rộng rãi đến nhiều người. Lượt tải app trên nhiều nền tảng và lượng tài xế liên hệ tham gia cũng được ghi nhận gia tăng từ khi website được vận hành.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="80" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E" alt="Anh Thành - Tổng giám đốc RINO" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/avatar_rino.webp"><noscript><img width="80" height="80" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/avatar_rino.webp" alt="Anh Thành - Tổng giám đốc RINO"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Thành - Tổng giám đốc RINO</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Sau khi xem qua những dự án của Miko Tech tôi đã hoàn toàn tin tưởng và quyết định lựa chọn Miko Tech để hợp tác thiết kế website. Sau khi website được hoàn thiện đã  giúp ích rất nhiều cho cửa hàng, giải quyết các vấn đề tư vấn, chăm sóc khách hàng được nhanh chóng và chu đáo hơn, quá trình bán hàng cũng diễn ra tiện lợi. Hơn nữa, website còn giúp cửa hàng tôi thu hút được nhiều khách hàng tại nhiều khu vực tỉnh thành khác nhau. Trong quá trình hợp tác, tôi đã nhận được những sự tư vấn rất nhiệt tình từ phía Miko Tech, tôi cảm thấy rất hài lòng với những dịch vụ mà đơn vị đã cung cấp.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="80" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E" alt="Chị My - Chủ shop Kiều My" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kieumy.webp"><noscript><img width="80" height="80" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kieumy.webp" alt="Chị My - Chủ shop Kiều My"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Chị My - Chủ shop Kiều My</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Mô hình kinh doanh cà phê rất phổ biến trong ngành F&B. Vì vậy, để tăng sự nhận diện và quảng bá hình ảnh Warehouse, mình đã lựa chọn Miko Tech để xây dựng website. Mục đích thiết kế website của mình là để truyền tải hình ảnh quán cà phê một cách sống động cũng như thực hiện các chương trình truyền thông cho quán. Ngoài ra, mình còn sử dụng website để thông báo các sự kiện hấp dẫn diễn ra tại quán hay cập nhật nhanh các chương trình ưu đãi đến khách hàng. Với sự hỗ trợ nhiệt tình và chuyên nghiệp từ Miko Tech, mà quán mình đã tiếp đón lượng khách đến ngày càng đông hơn.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="107" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%20107'%3E%3C/svg%3E" alt="Anh Luân - Đại diện WareHouse Coffee & Beer" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/warehouse.webp"><noscript><img width="80" height="107" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/warehouse.webp" alt="Anh Luân - Đại diện WareHouse Coffee & Beer"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Luân - Đại diện WareHouse Coffee & Beer</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Do có kinh nghiệm làm nghề lâu năm trong lĩnh vực thiết kế bể thủy sinh nên tôi luôn mong muốn tạo nên website có bố cục bất đối xứng theo xu hướng ngành nghề. Qua thời gian dài tìm hiểu nhiều đơn vị thiết kế website khác nhau, tôi đã tin tưởng vào khả năng thiết kế web của Miko Tech và lựa chọn đơn vị để cùng đồng hành xây dựng website. Sau quá trình thực hiện dự án, tôi thấy rất hài lòng về trang web. Website được thiết kế chuyên nghiệp theo chuẩn UX/UI, giao diện hiện đại, bố cục đáp ứng đúng yêu cầu, trải nghiệm người dùng được tối ưu. Giờ đây, website của tôi đã trở thành trang web đi đầu trong ngành thủy sinh với lượng khách hàng tìm đến ngày một gia tăng. </div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="109" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%20109'%3E%3C/svg%3E" alt="Anh Sơn - Chủ cửa hàng cá cảnh The Rium" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/the_rium.webp"><noscript><img width="80" height="109" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/the_rium.webp" alt="Anh Sơn - Chủ cửa hàng cá cảnh The Rium"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Sơn - Chủ cửa hàng cá cảnh The Rium</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-0 lg:pb-[52px]">
-                  <div class="p-[2rem] pb-0 lg:px-0 rounded-l-0 rounded-t-2xl lg:rounded-t-0 lg:rounded-l-2xl lg:pl-12 lg:pr-32 lg:pb-0 lg:pt-12 2xl:p-16 2xl:pb-0 relative min-h-[475px] lg:min-h-[475px] xl:min-h-[442px] 2xl:min-h-[542px]">
-                    <img width="46" height="33" class="mb-4" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2046%2033'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp"><noscript><img width="46" height="33" class="mb-4" src="https://mikotech.vn/wp-content/themes/mikotech/assets/common/icon.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-                    <div class="textoverflow lg:w-[80%] xl:w-[85%] 2xl:w-[75%] text-sm 2xl:text-base text-black">Do mong muốn nâng cấp website trở nên đẳng cấp và sang trọng hơn, phù hợp với những thiết bị sản phẩm thuộc dòng cao cấp tại KIO. Mà tôi tìm đến Miko Tech để được hỗ trợ tư vấn và thiết kế website chuyên nghiệp chuẩn UX/UI. Với kết quả dự án website nhận được, tôi cảm thấy rất ưng ý. Website đảm bảo được bố cục trình bày sản phẩm đẹp mắt giúp thể hiện được giá trị của từng sản phẩm. Nhờ có website mà doanh thu công ty cũng có sự trưởng mạnh qua mỗi tháng.</div>
-                    <div class="relative left-auto bottom-auto mt-[2rem] lg:mt-0 lg:absolute lg:left-[3.75rem] lg:-bottom-[2.5rem] flex items-end cursor-pointer">
-                      <div class="himg shadow-[0_2px_10px_#999999] rounded-full border-[5px] border-solid border-white overflow-hidden h-[5.625rem] w-[5.625rem]">
-                        <img width="80" height="80" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2080%2080'%3E%3C/svg%3E" alt="Anh Điền - Trưởng phòng Marketing Kio Việt" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kio-đại diện.webp"><noscript><img width="80" height="80" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kio-đại diện.webp" alt="Anh Điền - Trưởng phòng Marketing Kio Việt"></noscript>
-                      </div>
-                      <div class="pl-[0.625rem] pb-[0.875rem] font-bold text-[0.75rem] text-black w-[calc(100%_-_5.625rem)]">Anh Điền - Trưởng phòng Marketing Kio Việt</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
+                Khách hàng <br> nói về {{$companyNameValue}}</h2>
             <div
                 class="w-[100%] px-[30px] lg:px-0 lg:w-[44%] overflow-hidden relative before:w-full before:absolute before:left-0 before:top-0 before:bg-[#efe9e3] before:content-[''] before:rounded-l-0 before:rounded-t-2xl lg:before:rounded-t-0 lg:before:rounded-l-2xl  before:min-h-[475px] lg:before:min-h-[475px] xl:before:min-h-[442px] 2xl:before:min-h-[542px] gs_reveal gs_reveal_fromLeft">
                 <div class="swiper feedback__content__swiper">
@@ -552,44 +287,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="w-[100%] lg:w-[56%] rounded-0 lg:rounded-tl-4 overflow-hidden gs_reveal gs_reveal_fromRight">
-                <div class="swiper feedback__image__swiper">
-                    <div class="swiper-wrapper">
-                        @if ($feedbacks->isNotEmpty())
-                            @foreach ($feedbacks as $feedback)
-                                <div class="swiper-slide">
-                                    <div class="relative pb-[52px] bg-white">
-                                        <div class="block">
-                                            <img width="1280" height="800"
-                                                class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
-                                                src="{{ display_image($feedback->slide_1) }}" alt="Minigo shop"
-                                                data-lazy-src="{{ display_image($feedback->slide_1) }}"><noscript>
-                                                <img width="1280" height="800"
-                                                    class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
-                                                    src="{{ display_image($feedback->slide_1) }}"
-                                                    alt="Minigo shop"></noscript>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @else
-                            <div class="swiper-slide">
-                                <div class="relative pb-[52px] bg-white">
-                                    <div class="block">
-                                        <img width="1280" height="800"
-                                            class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
-                                            src="{{ display_image('') }}" alt="Minigo shop"
-                                            data-lazy-src="{{ display_image('') }}"><noscript>
-                                            <img width="1280" height="800"
-                                                class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
-                                                src="{{ display_image('') }}" alt="Minigo shop"></noscript>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div> --}}
             <div class="w-[100%] lg:w-[56%] rounded-0 lg:rounded-tl-4 overflow-hidden gs_reveal gs_reveal_fromRight">
                 <div class="swiper feedback__image__swiper">
                     <div class="swiper-wrapper">
@@ -628,145 +325,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="w-[100%] lg:w-[56%] rounded-0 lg:rounded-tl-4 overflow-hidden gs_reveal gs_reveal_fromRight">
-          <div class="swiper feedback__image__swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="Minigo shop" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Minigo-Background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Minigo-Background.webp" alt="Minigo shop"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="Công ty TNHH Meon Việt Nam" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Meon-background-1.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Meon-background-1.webp" alt="Công ty TNHH Meon Việt Nam"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="Công ty TNHH Phú Mỹ Giàu Đẹp" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/phumy-background-1.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/phumy-background-1.webp" alt="Công ty TNHH Phú Mỹ Giàu Đẹp"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="cửa hàng Shinrai Foods" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/shinrai-background-1.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/shinrai-background-1.webp" alt="cửa hàng Shinrai Foods"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="Công ty TNHH Tư vấn Diệp Gia" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/diepgia-Background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/diepgia-Background.webp" alt="Công ty TNHH Tư vấn Diệp Gia"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="RINO" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/rino-background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/rino-background.webp" alt="RINO"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="Kiều My shop" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Kiều My - background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Kiều My - background.webp" alt="Kiều My shop"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="WareHouse Coffee & Beer" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Warehouse - Background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Warehouse - Background.webp" alt="WareHouse Coffee & Beer"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="cửa hàng cá cảnh The Rium" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Cá cảnh-Background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Cá cảnh-Background.webp" alt="cửa hàng cá cảnh The Rium"></noscript>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="relative pb-[52px] bg-white">
-                  <div class="block">
-                    <img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20800'%3E%3C/svg%3E" alt="Kio Việt" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kio-Background.webp"><noscript><img width="1280" height="800" class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kio-Background.webp" alt="Kio Việt"></noscript>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
-            {{-- <div
-                class="relative w-[120%] -ml-[10%] sm:ml-0 sm:w-full right-0 top-0 mt-[-135px] sm:mt-[-200px] lg:mt-0 lg:absolute lg:w-[65%] lg:right-[5%] lg:top-[48%] xl:right-[7%] 2xl:right-[10.5%] 2xl:w-[60.5%] translate-y-[0%] lg:translate-y-[-50%] z-[999]">
-                <div class="gs_reveal gs_reveal_fromBottom" data-delay="0.5">
-                    @if ($feedbacks->isNotEmpty())
-                        @foreach ($feedbacks as $feedback)
-                            <div class="block">
-                                <img width="1812" height="1123" class="block"
-                                    src="{{ display_image($feedback->slide_2) }}"
-                                    alt="Khách hàng nói về {{ $companyNameValue }}"
-                                    data-lazy-src="{{ display_image($feedback->slide_2) }}"><noscript><img
-                                        width="1812" height="1123" class="block"
-                                        src="{{ display_image($feedback->slide_2) }}"
-                                        alt="Khách hàng nói về {{ $companyNameValue }}"></noscript>
-                            </div>
-                            <div class="swiper feedback__design__swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="block">
-                                            <div class="overflow-hidden">
-                                                <img width="800" height="500"
-                                                    class="block rounded-t-2xl cursor-pointer"
-                                                    src="{{ display_image($feedback->slide_2) }}" alt="Minigo shop"
-                                                    data-lazy-src="{{ display_image($feedback->slide_2) }}"><noscript><img
-                                                        width="800" height="500"
-                                                        class="block rounded-t-2xl cursor-pointer"
-                                                        src="{{ display_image($feedback->slide_2) }}"
-                                                        alt="Minigo shop"></noscript>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @else
-                        <div class="block">
-                            <img width="1812" height="1123" class="block" src="{{ display_image('') }}"
-                                alt="Khách hàng nói về {{ $companyNameValue }}"
-                                data-lazy-src="{{ display_image('') }}"><noscript><img width="1812" height="1123"
-                                    class="block" src="{{ display_image('') }}"
-                                    alt="Khách hàng nói về {{ $companyNameValue }}"></noscript>
-                        </div>
-                        <div class="swiper feedback__design__swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="block">
-                                        <div class="overflow-hidden">
-                                            <img width="800" height="500"
-                                                class="block rounded-t-2xl cursor-pointer"
-                                                src="{{ display_image('') }}" alt="Minigo shop"
-                                                data-lazy-src="{{ display_image('') }}"><noscript><img width="800"
-                                                    height="500" class="block rounded-t-2xl cursor-pointer"
-                                                    src="{{ display_image('') }}" alt="Minigo shop"></noscript>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-
-
-                </div>
-            </div> --}}
             <div
                 class="relative w-[120%] -ml-[10%] sm:ml-0 sm:w-full right-0 top-0 mt-[-135px] sm:mt-[-200px] lg:mt-0 lg:absolute lg:w-[65%] lg:right-[5%] lg:top-[48%] xl:right-[7%] 2xl:right-[10.5%] 2xl:w-[60.5%] translate-y-[0%] lg:translate-y-[-50%] z-[999]">
                 <div class="gs_reveal gs_reveal_fromBottom" data-delay="0.5">
@@ -774,9 +332,9 @@
                         <img width="1812" height="1123" class="block"
                             src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201812%201123'%3E%3C/svg%3E"
                             alt="Khách hàng nói về {{ $companyNameValue }}"
-                            data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/MacBook@2x.webp"><noscript><img
+                            data-lazy-src="{{asset('image/macbook.webp')}}"><noscript><img
                                 width="1812" height="1123" class="block"
-                                src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/MacBook@2x.webp"
+                                src="{{asset('image/macbook.webp')}}"
                                 alt="Khách hàng nói về {{ $companyNameValue }}"></noscript>
                     </div>
                     <div class="swiper feedback__design__swiper">
@@ -818,88 +376,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- <div class="relative w-[120%] -ml-[10%] sm:ml-0 sm:w-full right-0 top-0 mt-[-135px] sm:mt-[-200px] lg:mt-0 lg:absolute lg:w-[65%] lg:right-[5%] lg:top-[48%] xl:right-[7%] 2xl:right-[10.5%] 2xl:w-[60.5%] translate-y-[0%] lg:translate-y-[-50%] z-[999]">
-          <div class="gs_reveal gs_reveal_fromBottom" data-delay="0.5">
-            <div class="block">
-              <img width="1812" height="1123" class="block" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201812%201123'%3E%3C/svg%3E" alt="Khách hàng nói về {{$companyNameValue}}" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/MacBook@2x.webp"><noscript><img width="1812" height="1123" class="block" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/MacBook@2x.webp" alt="Khách hàng nói về {{$companyNameValue}}"></noscript>
-            </div>
-            <div class="swiper feedback__design__swiper">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="Minigo shop" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/photo_2021-10-26_11-53-12.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/photo_2021-10-26_11-53-12.webp" alt="Minigo shop"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="1333" height="905" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201333%20905'%3E%3C/svg%3E" alt="Công ty TNHH Meon Việt Nam" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/Meon-Mockup.webp"><noscript><img width="1333" height="905" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/Meon-Mockup.webp" alt="Công ty TNHH Meon Việt Nam"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="1280" height="799" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201280%20799'%3E%3C/svg%3E"  alt="Công ty TNHH Phú Mỹ Giàu Đẹp" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/photo_2021-11-06_10-37-19.webp"><noscript><img width="1280" height="799" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/photo_2021-11-06_10-37-19.webp"  alt="Công ty TNHH Phú Mỹ Giàu Đẹp"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="1122" height="694" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201122%20694'%3E%3C/svg%3E" alt="cửa hàng Shinrai Foods" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Shinrai-Mockup.webp"><noscript><img width="1122" height="694" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Shinrai-Mockup.webp" alt="cửa hàng Shinrai Foods"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="Công ty TNHH Tư vấn Diệp Gia" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/diepgia-mockup.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/diepgia-mockup.webp" alt="Công ty TNHH Tư vấn Diệp Gia"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="RINO" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/rino-mockup.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/rino-mockup.webp" alt="RINO"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="Kiều My shop" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Kiều My - Mockup.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Kiều My - Mockup.webp" alt="Kiều My shop"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="WareHouse Coffee & Beer" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Warehouse - Mockup.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Warehouse - Mockup.webp" alt="WareHouse Coffee & Beer"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="cửa hàng cá cảnh The Rium" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Cá cảnh - Mock up.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/Cá cảnh - Mock up.webp" alt="cửa hàng cá cảnh The Rium"></noscript>
-                    </div>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="block">
-                    <div class="overflow-hidden">
-                      <img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20500'%3E%3C/svg%3E" alt="Kio Việt" data-lazy-src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kio-Mockup.webp"><noscript><img width="800" height="500" class="block rounded-t-2xl cursor-pointer" src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/kio-Mockup.webp" alt="Kio Việt"></noscript>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> --}}
             <div
                 class="absolute  px-6 pr-4 lg:pl-0 w-full lg:w-[calc(50%_-_1.875rem)] right-0 bottom-[2.25rem] sm:bottom-[6.25rem] lg:pr-[3.75rem] flex justify-between items-center z-[2]">
                 <div class="d-flex">
@@ -996,7 +472,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="swiper-slide">
                                 <div class="font-secondary bg-[#efe9e3] rounded-2xl p-[0.813rem]">
                                     <a href="https://mikotech.vn/bonus-la-gi/" target="_blank"
@@ -1093,7 +568,7 @@
                                             <p>Ngày nay, TikTok đã trở thành một nền tảng phổ biến với hàng triệu người
                                                 dùng trên khắp thế giới. Đối với các content creator, việc tăng follow
                                                 TikTok không chỉ giúp nâng cao độ nổi tiếng mà còn mở ra nhiều cơ hội
-                                                kinh doanh. Trong bài viết sau, Miko Tech sẽ giới thiệu [&hellip;]</p>
+                                                kinh doanh. Trong bài viết sau, {{$companyNameValue}} sẽ giới thiệu [&hellip;]</p>
                                         </div>
                                     </div>
                                 </div>

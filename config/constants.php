@@ -11,6 +11,9 @@ return [
     'FACEBOOK' => 'facebook',
     'ZALO' => 'zalo',
     'MESSENGER' => 'messenger',
+    'LOGO' => 'logo',
+    'PRICE_QUOTE' => 'price_quote',
+    'GOOGLE_MAP' => 'google_map',
 
     'ABOUT_TITLE' => 'about-title',
     'ABOUT_DESC' => 'about-desc',
