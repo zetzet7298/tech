@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Core\Adapters\Theme;
+use Blade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -34,7 +35,10 @@ class AppServiceProvider extends ServiceProvider
         // $visitorsData = json_decode(File::get($visitorsFile), true);
         // $totalViews = isset($visitorsData['total']) ? $visitorsData['total'] : 0;
         // view()->share(['totalViews'=>$totalViews += 45200, 'uri' => $segment, 'canonical' => 'https://hongnhanbinhhung.com']);
-        
+        Blade::directive('currentMenuItem', function ($routeName) {
+            return "<?php echo request()->url() == route($routeName) ? 'current_page_item' : ''; ?>";
+        });
+
         $theme = theme();
         $settings = \App\Models\Setting::getByType(config('constants.SETTING_TYPE_COMMON'));
         $companyNameValue = $settings[config('constants.COMPANY_NAME')]['value'];

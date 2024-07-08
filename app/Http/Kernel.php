@@ -12,6 +12,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         // Các middleware khác...
         'cache.response' => CacheResponse::class,
+        'throttle' => \App\Http\Middleware\ThrottleRequests::class,
     ];
 
     /**

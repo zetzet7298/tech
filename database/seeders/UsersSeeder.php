@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -19,6 +20,11 @@ class UsersSeeder extends Seeder
             'name'        => 'admin',
             'email'             => 'admin@admin.com',
             'password'          => Hash::make('admin'),
+        ]);
+
+        Category::create([
+            'name' => 'Dịch vụ',
+            'slug' => 'dich-vu'
         ]);
     }
 }

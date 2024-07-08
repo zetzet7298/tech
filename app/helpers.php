@@ -1,5 +1,48 @@
 <?php
 use Intervention\Image\Facades\Image;
+function generateSlug($string) {
+    // Mảng ánh xạ các ký tự có dấu thành không dấu
+    $vietnameseMap = [
+        'a' => ['à', 'á', 'ạ', 'ả', 'ã', 'â', 'ầ', 'ấ', 'ậ', 'ẩ', 'ẫ', 'ă', 'ằ', 'ắ', 'ặ', 'ẳ', 'ẵ'],
+        'e' => ['è', 'é', 'ẹ', 'ẻ', 'ẽ', 'ê', 'ề', 'ế', 'ệ', 'ể', 'ễ'],
+        'i' => ['ì', 'í', 'ị', 'ỉ', 'ĩ'],
+        'o' => ['ò', 'ó', 'ọ', 'ỏ', 'õ', 'ô', 'ồ', 'ố', 'ộ', 'ổ', 'ỗ', 'ơ', 'ờ', 'ớ', 'ợ', 'ở', 'ỡ'],
+        'u' => ['ù', 'ú', 'ụ', 'ủ', 'ũ', 'ư', 'ừ', 'ứ', 'ự', 'ử', 'ữ'],
+        'y' => ['ỳ', 'ý', 'ỵ', 'ỷ', 'ỹ'],
+        'd' => ['đ'],
+        'A' => ['À', 'Á', 'Ạ', 'Ả', 'Ã', 'Â', 'Ầ', 'Ấ', 'Ậ', 'Ẩ', 'Ẫ', 'Ă', 'Ằ', 'Ắ', 'Ặ', 'Ẳ', 'Ẵ'],
+        'E' => ['È', 'É', 'Ẹ', 'Ẻ', 'Ẽ', 'Ê', 'Ề', 'Ế', 'Ệ', 'Ể', 'Ễ'],
+        'I' => ['Ì', 'Í', 'Ị', 'Ỉ', 'Ĩ'],
+        'O' => ['Ò', 'Ó', 'Ọ', 'Ỏ', 'Õ', 'Ô', 'Ồ', 'Ố', 'Ộ', 'Ổ', 'Ỗ', 'Ơ', 'Ờ', 'Ớ', 'Ợ', 'Ở', 'Ỡ'],
+        'U' => ['Ù', 'Ú', 'Ụ', 'Ủ', 'Ũ', 'Ư', 'Ừ', 'Ứ', 'Ự', 'Ử', 'Ữ'],
+        'Y' => ['Ỳ', 'Ý', 'Ỵ', 'Ỷ', 'Ỹ'],
+        'D' => ['Đ']
+    ];
+
+    // Loại bỏ các dấu từ các ký tự tiếng Việt
+    foreach ($vietnameseMap as $nonDiacritic => $diacritics) {
+        $string = str_replace($diacritics, $nonDiacritic, $string);
+    }
+
+    // Chuyển đổi chuỗi thành chữ thường
+    $string = mb_strtolower($string, 'UTF-8');
+    
+    // Loại bỏ các ký tự không phải là chữ và số
+    $string = preg_replace('/[^a-z0-9\s-]/u', '', $string);
+    
+    // Thay thế khoảng trắng và các ký tự đặc biệt bằng dấu gạch ngang
+    $string = preg_replace('/[\s-]+/', '-', $string);
+    
+    // Loại bỏ các dấu gạch ngang thừa
+    $string = trim($string, '-');
+    
+    return $string;
+}
+if (!function_exists('formatDate')) {
+    function formatDate($date) {
+        return \Carbon\Carbon::parse($date)->format('d/m/Y');
+    }
+}
 if (!function_exists('limitString')) {
     function limitString($string, $limit) {
         // Kiểm tra độ dài của chuỗi
@@ -12,7 +55,7 @@ if (!function_exists('limitString')) {
     }
 }
 if (!function_exists('upload_image2')) {
-    function upload_image2($folder = 'images', $key = 'avatar', $validation = 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|sometimes')
+    function upload_image2($folder = 'images', $key = 'avatar', $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes')
     {
         request()->validate([$key => $validation]);
 
@@ -32,12 +75,40 @@ if (!function_exists('upload_image2')) {
             $webp_file_name = pathinfo($file_name, PATHINFO_FILENAME) . '.webp';
             // dd($webp_file_name);
             $webp_file_path = Storage::disk('public')->path($folder . '/' . $webp_file_name);
-            Image::make($uploadedFile)->encode('webp', 75)->save($webp_file_path);
             // Delete the original uploaded file
-            Storage::disk('public')->delete($original_path);
+            if($file_extension != 'webp'){
+                
+                Image::make($uploadedFile)->encode('webp', 75)->save($webp_file_path);
+                Storage::disk('public')->delete($original_path);
+            }
+            
             $file = $folder . '/' . $webp_file_name; // Đường dẫn đầy đủ của file WebP
         }
         // dd($file);
+        return $file;
+    }
+}
+if (!function_exists('upload_video')) {
+    function upload_video($folder = 'videos', $key = 'video', $validation = 'mimes:mp4,mov,avi|max:102400|sometimes')
+    {
+        request()->validate([$key => $validation]);
+
+        $file = null;
+
+        if (request()->hasFile($key)) {
+            $uploadedFile = request()->file($key);
+            
+            // Generate unique file name
+            $file_extension = $uploadedFile->getClientOriginalExtension();
+            $file_name = time() . '.' . $file_extension;
+            
+            // Save original video
+            $original_path = $uploadedFile->storeAs($folder, $file_name, 'public');
+            
+            // No need to convert video to another format
+            $file = $folder . '/' . $file_name; // Đường dẫn đầy đủ của file video
+        }
+        
         return $file;
     }
 }
@@ -61,6 +132,12 @@ if (!function_exists('display_image')) {
         return $path && Storage::disk('public')->exists($path) ? asset('storage/' . $path) : asset('demo1/media/default.jpg');
     }
 }
+if (!function_exists('display_video')) {
+    function display_video($path, $type = 'videos') {
+        return $path && Storage::disk('public')->exists($path) ? asset('storage/' . $path) : asset('path/to/default/video.mp4');
+    }
+}
+
 if (!function_exists('display_default_image')) {
     function display_default_image() {
         // TODO leave this /dline in production.

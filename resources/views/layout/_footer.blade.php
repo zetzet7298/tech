@@ -1,3 +1,11 @@
+@if ($errors->any())
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cuộn tới form nếu có lỗi
+            document.getElementById('footer-form').scrollIntoView();
+        });
+    </script>
+@endif
 <div class="footer">
     <div class="center-layout pd0__mobile_layout">
         <div class="footer__grid">
@@ -68,54 +76,39 @@
                             <p role="status" aria-live="polite" aria-atomic="true"></p>
                             <ul></ul>
                         </div>
-                        <form action="/#wpcf7-f5200-p264-o2" method="post" class="wpcf7-form init"
+                        <form id="footer-form" action="{{ route('contact.fe.store') }}" method="post" class="wpcf7-form init"
                             aria-label="Contact form" novalidate="novalidate" data-status="init">
-                            <div style="display: none;">
-                                <input type="hidden" name="_wpcf7" value="5200" />
-                                <input type="hidden" name="_wpcf7_version" value="5.9.3" />
-                                <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f5200-p264-o2" />
-                                <input type="hidden" name="_wpcf7_container_post" value="264" />
-                                <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                                <input type="hidden" name="_wpcf7_recaptcha_response" value="" />
-                            </div>
+                            @csrf
                             <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40"
-                                        class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                                required
+                                        class="wpcf7-form-control wpcf7-text "
                                         aria-required="true" aria-invalid="false" placeholder="Họ tên"
-                                        value="" type="text" name="your-name" /></span><span
+                                        value="" type="text" name="fullname" />
+                                        @if ($errors->has('fullname'))
+                                        <span class="text-danger">{{ $errors->first('fullname') }}</span>
+                                    @endif
+                                    </span><span
                                     class="wpcf7-form-control-wrap" data-name="your-email"><input size="40"
-                                        class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
+                                    required
+                                        class="wpcf7-form-control wpcf7-email  wpcf7-text wpcf7-validates-as-email"
                                         aria-required="true" aria-invalid="false" placeholder="Email" value=""
-                                        type="email" name="your-email" /></span><span
+                                        type="email" name="email" />
+                                        @if ($errors->has('email'))
+                                        <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    @endif
+                                </span><span
                                     class="wpcf7-form-control-wrap" data-name="your-phone"><input
-                                        class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number check-phone"
+                                    required
+                                        class="wpcf7-form-control wpcf7-number  wpcf7-validates-as-number check-phone"
                                         aria-required="true" aria-invalid="false" placeholder="Số điện thoại"
-                                        value="" type="number" name="your-phone" /></span><span
+                                        value="" type="number" name="phone" />
+                                        @if ($errors->has('phone'))
+                                        <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                    @endif</span><span
                                     class="wpcf7-form-control-wrap" data-name="menu-63">
-                                    {{-- <select
-                                        class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
-                                        aria-required="true" aria-invalid="false" name="menu-63">
-                                        <option value="Chọn dịch vụ">Chọn dịch vụ</option>
-                                        <option value="Thiết kế Website">Thiết kế Website</option>
-                                        <option value="Thiết kế sàn thương mại điện tử">Thiết kế sàn thương mại điện tử
-                                        </option>
-                                        <option value="Thiết Kế Mobile App">Thiết Kế Mobile App</option>
-                                        <option value="Thiết kế Web App">Thiết kế Web App</option>
-                                        <option value="Dịch Vụ SEO tổng thể">Dịch Vụ SEO tổng thể</option>
-                                        <option value="Quản trị website">Quản trị website</option>
-                                        <option value="Hosting">Hosting</option>
-                                        <option value="Domain">Domain</option>
-                                        <option value="Quảng cáo Google/Facebook (Ads)">Quảng cáo Google/Facebook (Ads)
-                                        </option>
-                                        <option value="Thiết kế Branding- Thương hiệu">Thiết kế Branding- Thương hiệu
-                                        </option>
-                                        <option value="Chụp hình sản phẩm">Chụp hình sản phẩm</option>
-                                        <option value="Đăng ký, thông báo website với Bộ Công thương">Đăng ký, thông
-                                            báo website với Bộ Công thương</option>
-                                    </select> --}}
-                                </span><span class="wpcf7-form-control-wrap" data-name="your-message">
+                                </span><span class="wpcf7-form-control-wrap" data-name="message">
                                     <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
-                                        placeholder="Nội dung tin nhắn" name="your-message"></textarea>
+                                        placeholder="Nội dung tin nhắn" name="message"></textarea>
                                 </span><input
                                     class="wpcf7-form-control wpcf7-submit has-spinner hbtn submit-baogia-ftm"
                                     type="submit" value="Gửi" />
@@ -150,67 +143,49 @@
                                     <p role="status" aria-live="polite" aria-atomic="true"></p>
                                     <ul></ul>
                                 </div>
-                                <form action="/#wpcf7-f1029-p264-o3" method="post" class="wpcf7-form init"
-                                    aria-label="Contact form" novalidate="novalidate" data-status="init">
-                                    <div style="display: none;">
-                                        <input type="hidden" name="_wpcf7" value="1029" />
-                                        <input type="hidden" name="_wpcf7_version" value="5.9.3" />
-                                        <input type="hidden" name="_wpcf7_locale" value="en_US" />
-                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f1029-p264-o3" />
-                                        <input type="hidden" name="_wpcf7_container_post" value="264" />
-                                        <input type="hidden" name="_wpcf7_posted_data_hash" value="" />
-                                        <input type="hidden" name="_wpcf7_recaptcha_response" value="" />
-                                    </div>
-                                    <p><span class="wpcf7-form-control-wrap" data-name="your-name">
-                                            <input size="40"
-                                                class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
-                                                aria-required="true" aria-invalid="false" placeholder="Họ tên"
-                                                value="" type="text" name="your-name" /></span><span
-                                            class="wpcf7-form-control-wrap" data-name="your-email"><input
-                                                size="40"
-                                                class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email"
-                                                aria-required="true" aria-invalid="false" placeholder="Email"
-                                                value="" type="email" name="your-email" /></span><span
-                                            class="wpcf7-form-control-wrap" data-name="your-phone"><input
-                                                class="wpcf7-form-control wpcf7-number wpcf7-validates-as-required wpcf7-validates-as-number check-phone"
-                                                aria-required="true" aria-invalid="false" placeholder="Số điện thoại"
-                                                value="" type="number" name="your-phone" /></span><span
-                                            class="wpcf7-form-control-wrap" data-name="menu-63">
-                                            {{-- <select
-                                                class="wpcf7-form-control wpcf7-select wpcf7-validates-as-required"
-                                                aria-required="true" aria-invalid="false" name="menu-63">
-                                                <option value="Chọn dịch vụ">Chọn dịch vụ</option>
-                                                <option value="Thiết kế Website">Thiết kế Website</option>
-                                                <option value="Thiết kế sàn thương mại điện tử">Thiết kế sàn thương mại
-                                                    điện tử</option>
-                                                <option value="Thiết Kế Mobile App">Thiết Kế Mobile App</option>
-                                                <option value="Thiết kế Web App">Thiết kế Web App</option>
-                                                <option value="Dịch Vụ SEO tổng thể">Dịch Vụ SEO tổng thể</option>
-                                                <option value="Quản trị website">Quản trị website</option>
-                                                <option value="Hosting">Hosting</option>
-                                                <option value="Domain">Domain</option>
-                                                <option value="Quảng cáo Google/Facebook (Ads)">Quảng cáo
-                                                    Google/Facebook (Ads)</option>
-                                                <option value="Thiết kế Branding- Thương hiệu">Thiết kế Branding-
-                                                    Thương hiệu</option>
-                                                <option value="Chụp hình sản phẩm">Chụp hình sản phẩm</option>
-                                                <option value="Đăng ký, thông báo website với Bộ Công thương">Đăng ký,
-                                                    thông báo website với Bộ Công thương</option>
-                                            </select> --}}
-                                        </span><span class="wpcf7-form-control-wrap"
-                                            data-name="your-message">
-                                            <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
-                                                placeholder="Nội dung tin nhắn" name="your-message"></textarea>
-                                        </span><input
-                                            class="wpcf7-form-control wpcf7-submit has-spinner hbtn submit-website-ft"
-                                            type="submit" value="Gửi" />
-                                    </p>
-                                    <p style="display: none !important;"><label>&#916;
-                                            <textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea>
-                                        </label><input type="hidden" id="ak_js_3" name="_wpcf7_ak_js"
-                                            value="26" /></p>
-                                    <div class="wpcf7-response-output" aria-hidden="true"></div>
-                                </form>
+                                <form id="footer-form" action="{{ route('contact.fe.store') }}" method="post" class="wpcf7-form init"
+                                aria-label="Contact form" novalidate="novalidate" data-status="init">
+                                @csrf
+                                <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40"
+                                    required
+                                            class="wpcf7-form-control wpcf7-text "
+                                            aria-required="true" aria-invalid="false" placeholder="Họ tên"
+                                            value="" type="text" name="fullname" />
+                                            @if ($errors->has('fullname'))
+                                            <span class="text-danger">{{ $errors->first('fullname') }}</span>
+                                        @endif
+                                        </span><span
+                                        class="wpcf7-form-control-wrap" data-name="your-email"><input size="40"
+                                        required
+                                            class="wpcf7-form-control wpcf7-email  wpcf7-text wpcf7-validates-as-email"
+                                            aria-required="true" aria-invalid="false" placeholder="Email" value=""
+                                            type="email" name="email" />
+                                            @if ($errors->has('email'))
+                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                        @endif
+                                    </span><span
+                                        class="wpcf7-form-control-wrap" data-name="your-phone"><input
+                                        required
+                                            class="wpcf7-form-control wpcf7-number  wpcf7-validates-as-number check-phone"
+                                            aria-required="true" aria-invalid="false" placeholder="Số điện thoại"
+                                            value="" type="number" name="phone" />
+                                            @if ($errors->has('phone'))
+                                            <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                        @endif</span><span
+                                        class="wpcf7-form-control-wrap" data-name="menu-63">
+                                    </span><span class="wpcf7-form-control-wrap" data-name="message">
+                                        <textarea cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
+                                            placeholder="Nội dung tin nhắn" name="message"></textarea>
+                                    </span><input
+                                        class="wpcf7-form-control wpcf7-submit has-spinner hbtn submit-baogia-ftm"
+                                        type="submit" value="Gửi" />
+                                </p>
+                                <p style="display: none !important;"><label>&#916;
+                                        <textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea>
+                                    </label><input type="hidden" id="ak_js_2" name="_wpcf7_ak_js" value="45" />
+                                </p>
+                                <div class="wpcf7-response-output" aria-hidden="true"></div>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -229,25 +204,5 @@
             <div class="footer__col non-view-mobile">
             </div>
         </div>
-    </div>
-</div>
-<div class="copyright">
-    <div class="center-layout">
-        <div class="copyright__layout">
-            <div>&copy; 2021 Miko Tech. All rights reserved.</div>
-            <div class="policy--mobile">
-                <span>Chính sách</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    viewBox="0 0 256 512">
-                    <path
-                        d="M119.5 326.9L3.5 209.1c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0L128 287.3l100.4-102.2c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.7 4.7 12.3 0 17L136.5 327c-4.7 4.6-12.3 4.6-17-.1z" />
-                </svg>
-            </div>
-        </div>
-        {{-- <div class="d-flex policy">
-            <a href="" rel="nofollow">
-                <span>Điều khoản sử dụng</span>
-            </a>
-        </div> --}}
     </div>
 </div>

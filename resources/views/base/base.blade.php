@@ -21,6 +21,7 @@ License: {{ theme()->getOption('product', 'license') }}
     <link rel="canonical" href="{{ ucfirst(theme()->getOption('meta', 'canonical')) }}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="shortcut icon" href="{{ asset(theme()->getDemo() . '/' .theme()->getOption('assets', 'favicon')) }}"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- begin::Fonts --}}
@@ -156,6 +157,8 @@ License: {{ theme()->getOption('product', 'license') }}
         }, 3000); // 5 secs
     });
 </script>
+<script src="{{ asset('demo1/plugins/custom/cropper/cropper.bundle.js') }}" data-minify="1" defer></script>
+<script src="{{ asset('demo1/js/app.js') }}" data-minify="1" defer></script>
 </body>
 {{-- end::Body --}}
 </html>

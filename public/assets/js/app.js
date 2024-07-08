@@ -1,4 +1,3 @@
-// AOS.init();
 /* ===============================  Mouse effect  =============================== */
 function mousecursor() {
     if ($("body")) {
@@ -6,7 +5,7 @@ function mousecursor() {
             t = document.querySelector(".cursor-outer");
         let n, i = 0,
             o = !1;
-        window.onmousemove = function (s) {
+        window.onmousemove = function (s) {   
             o || (t.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)"), e.style.transform = "translate(" + s.clientX + "px, " + s.clientY + "px)", n = s.clientY, i = s.clientX
         }, $("body").on("mouseenter", "a, .cursor-pointer", function () {
             e.classList.add("cursor-hover"), t.classList.add("cursor-hover")
@@ -150,17 +149,17 @@ jQuery(document).ready(function ($) {
      $(this).attr("target","_self");
   });
 
-  const policyHeader = document.querySelector(".policy--mobile");
-  policyHeader.addEventListener("click", () => {
-    const policyBody = document.querySelector(".policy");
-    if (policyBody.classList.contains("policy-open")) {
-      policyBody.removeAttribute("style");
-      policyBody.classList.remove("policy-open");
-    } else {
-      policyBody.style.height = policyBody.scrollHeight + "px";
-      policyBody.classList.add("policy-open");
-    }
-  });
+  // const policyHeader = document.querySelector(".policy--mobile");
+  // policyHeader.addEventListener("click", () => {
+  //   const policyBody = document.querySelector(".policy");
+  //   if (policyBody.classList.contains("policy-open")) {
+  //     policyBody.removeAttribute("style");
+  //     policyBody.classList.remove("policy-open");
+  //   } else {
+  //     policyBody.style.height = policyBody.scrollHeight + "px";
+  //     policyBody.classList.add("policy-open");
+  //   }
+  // });
 
  
 
@@ -349,98 +348,98 @@ $("img").each(function () {
     $(this).attr("alt", "Miko Tech - thiết kế website chuyên nghiệp");
   }
 });
-$(".check-phone").change(function () {
-  let phoneNumber = $(this).val();
-  phoneNumber = phoneNumber.replace(" ", "");
-  let arrNumber = phoneNumber.split("");
-  if (arrNumber[0] + arrNumber[1] == "02") {
-    if (
-      arrNumber[0] + arrNumber[1] + arrNumber[2] == "028" ||
-      arrNumber[0] + arrNumber[1] + arrNumber[2] == "024"
-    ) {
-      if (arrNumber.length != 10) {
-        Swal.fire({
-          title: "Quý khách vui lòng nhập đúng số điện thoại",
-          icon: "error",
-          showConfirmButton: true,
-          timer: 25000,
-          confirmButtonText: "Đóng",
-          confirmButtonColor: "#1bc1c1",
-        });
-        $(this)
-          .parents(".wpcf7-form")
-          .find(".wpcf7-submit")
-          .prop("disabled", true);
-      } else {
-        $(this)
-          .parents(".wpcf7-form")
-          .find(".wpcf7-submit")
-          .prop("disabled", false);
-      }
-    } else {
-      if (arrNumber.length != 11) {
-        Swal.fire({
-          title: "Quý khách vui lòng nhập đúng số điện thoại",
-          icon: "error",
-          showConfirmButton: true,
-          timer: 25000,
-          confirmButtonText: "Đóng",
-          confirmButtonColor: "#1bc1c1",
-        });
-        $(this)
-          .parents(".wpcf7-form")
-          .find(".wpcf7-submit")
-          .prop("disabled", true);
-      } else {
-        $(this)
-          .parents(".wpcf7-form")
-          .find(".wpcf7-submit")
-          .prop("disabled", false);
-      }
-    }
-  } else {
-    if (
-      arrNumber[0] + arrNumber[1] == "03" ||
-      arrNumber[0] + arrNumber[1] == "05" ||
-      arrNumber[0] + arrNumber[1] == "07" ||
-      arrNumber[0] + arrNumber[1] == "08" ||
-      arrNumber[0] + arrNumber[1] == "09"
-    ) {
-      if (arrNumber.length != 10) {
-        Swal.fire({
-          title: "Quý khách vui lòng nhập đúng số điện thoại",
-          icon: "error",
-          showConfirmButton: true,
-          timer: 25000,
-          confirmButtonText: "Đóng",
-          confirmButtonColor: "#1bc1c1",
-        });
-        $(this)
-          .parents(".wpcf7-form")
-          .find(".wpcf7-submit")
-          .prop("disabled", true);
-      } else {
-        $(this)
-          .parents(".wpcf7-form")
-          .find(".wpcf7-submit")
-          .prop("disabled", false);
-      }
-    } else {
-      Swal.fire({
-        title: "Quý khách vui lòng nhập đúng số điện thoại",
-        icon: "error",
-        showConfirmButton: true,
-        timer: 2500,
-        confirmButtonText: "Đóng",
-        confirmButtonColor: "#1bc1c1",
-      });
-      $(this)
-        .parents(".wpcf7-form")
-        .find(".wpcf7-submit")
-        .prop("disabled", true);
-    }
-  }
-});
+// $(".check-phone").change(function () {
+//   let phoneNumber = $(this).val();
+//   phoneNumber = phoneNumber.replace(" ", "");
+//   let arrNumber = phoneNumber.split("");
+//   if (arrNumber[0] + arrNumber[1] == "02") {
+//     if (
+//       arrNumber[0] + arrNumber[1] + arrNumber[2] == "028" ||
+//       arrNumber[0] + arrNumber[1] + arrNumber[2] == "024"
+//     ) {
+//       if (arrNumber.length != 10) {
+//         Swal.fire({
+//           title: "Quý khách vui lòng nhập đúng số điện thoại",
+//           icon: "error",
+//           showConfirmButton: true,
+//           timer: 25000,
+//           confirmButtonText: "Đóng",
+//           confirmButtonColor: "#1bc1c1",
+//         });
+//         $(this)
+//           .parents(".wpcf7-form")
+//           .find(".wpcf7-submit")
+//           .prop("disabled", true);
+//       } else {
+//         $(this)
+//           .parents(".wpcf7-form")
+//           .find(".wpcf7-submit")
+//           .prop("disabled", false);
+//       }
+//     } else {
+//       if (arrNumber.length != 11) {
+//         Swal.fire({
+//           title: "Quý khách vui lòng nhập đúng số điện thoại",
+//           icon: "error",
+//           showConfirmButton: true,
+//           timer: 25000,
+//           confirmButtonText: "Đóng",
+//           confirmButtonColor: "#1bc1c1",
+//         });
+//         $(this)
+//           .parents(".wpcf7-form")
+//           .find(".wpcf7-submit")
+//           .prop("disabled", true);
+//       } else {
+//         $(this)
+//           .parents(".wpcf7-form")
+//           .find(".wpcf7-submit")
+//           .prop("disabled", false);
+//       }
+//     }
+//   } else {
+//     if (
+//       arrNumber[0] + arrNumber[1] == "03" ||
+//       arrNumber[0] + arrNumber[1] == "05" ||
+//       arrNumber[0] + arrNumber[1] == "07" ||
+//       arrNumber[0] + arrNumber[1] == "08" ||
+//       arrNumber[0] + arrNumber[1] == "09"
+//     ) {
+//       if (arrNumber.length != 10) {
+//         Swal.fire({
+//           title: "Quý khách vui lòng nhập đúng số điện thoại",
+//           icon: "error",
+//           showConfirmButton: true,
+//           timer: 25000,
+//           confirmButtonText: "Đóng",
+//           confirmButtonColor: "#1bc1c1",
+//         });
+//         $(this)
+//           .parents(".wpcf7-form")
+//           .find(".wpcf7-submit")
+//           .prop("disabled", true);
+//       } else {
+//         $(this)
+//           .parents(".wpcf7-form")
+//           .find(".wpcf7-submit")
+//           .prop("disabled", false);
+//       }
+//     } else {
+//       Swal.fire({
+//         title: "Quý khách vui lòng nhập đúng số điện thoại",
+//         icon: "error",
+//         showConfirmButton: true,
+//         timer: 2500,
+//         confirmButtonText: "Đóng",
+//         confirmButtonColor: "#1bc1c1",
+//       });
+//       $(this)
+//         .parents(".wpcf7-form")
+//         .find(".wpcf7-submit")
+//         .prop("disabled", true);
+//     }
+//   }
+// });
 
 jQuery(document).ready(function ($) {
 	$("body" ).trigger( "click" );
@@ -454,3 +453,25 @@ jQuery(document).ready(function ($) {
 		$(".loading-icon").remove();
 	}, 1500);
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var flashMessage = document.getElementById('flash-message');
+  var closeBtn = document.getElementById('close-flash');
+
+  if (flashMessage) {
+      // Hiển thị flash message
+      flashMessage.style.display = 'block';
+
+      // Đóng flash message khi nhấn nút đóng
+      closeBtn.addEventListener('click', function() {
+          flashMessage.style.display = 'none';
+      });
+
+      // Đóng flash message tự động sau 5 giây (thay đổi thời gian tùy ý)
+      setTimeout(function() {
+          flashMessage.style.display = 'none';
+      }, 5000);
+  }
+});
+
+

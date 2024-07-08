@@ -251,35 +251,156 @@ return array(
         // Account
         array(
             'role' => 'admin|member',
-            'path'   => 'admin',
-            'title'      => 'Cấu hình trang chủ',
+            'title'      => 'Cấu hình',
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-person fs-2"></i>',
             ),
-        ),
-        array(
-            'role' => 'admin|member',
-            'path'   => 'admin/solutions',
-            'title'      => 'Giải pháp',
-            'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
-                'font' => '<i class="bi bi-person fs-2"></i>',
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
             ),
-        ),
-        array(
-            'role' => 'admin|member',
-            'path'   => 'admin/feedbacks',
-            'title'      => 'Feedback',
-            'icon'       => array(
-                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
-                'font' => '<i class="bi bi-person fs-2"></i>',
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Cấu hình trang chủ',
+                        'path'   => 'admin/settings/dashboard',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Cấu hình giới thiệu',
+                        'path'   => 'admin/settings/about',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Cấu hình dịch vụ',
+                        'path'   => 'admin/settings/service',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Cấu hình tuyển dụng',
+                        'path'   => 'admin/settings/recruitment',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Cấu hình nhân sự',
+                        'path'   => 'admin/settings/hr',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Cấu hình tin tức',
+                        'path'   => 'admin/settings/post',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Giải pháp',
+                        'path'   => 'admin/solutions',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Feedback',
+                        'path'   => 'admin/feedbacks',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
             ),
         ),
 
-        // Separator
+        // array(
+        //     'role' => 'admin|member',
+        //     'path'   => 'admin/solutions',
+        //     'title'      => 'Giải pháp',
+        //     'icon'       => array(
+        //         'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
+        //         'font' => '<i class="bi bi-person fs-2"></i>',
+        //     ),
+        // ),
+        // array(
+        //     'role' => 'admin|member',
+        //     'path'   => 'admin/feedbacks',
+        //     'title'      => 'Feedback',
+        //     'icon'       => array(
+        //         'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
+        //         'font' => '<i class="bi bi-person fs-2"></i>',
+        //     ),
+        // ),
         array(
-            'content' => '<div class="separator mx-1 my-4"></div>',
+            'role' => 'admin|member',
+            'title'      => 'Tin tức',
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-person fs-2"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Danh sách tin tức',
+                        'path'   => 'admin/posts',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Danh sách danh mục',
+                        'path'   => 'admin/categories',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
+            ),
+        ),
+        array(
+            'role' => 'admin|member',
+            'title'      => 'Tin tuyển dụng',
+            'path'   => 'admin/recruitments',
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-person fs-2"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+
+        ),
+        array(
+            'role' => 'admin|member',
+            'title'      => 'Nhân sự',
+            'icon'       => array(
+                'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
+                'font' => '<i class="bi bi-person fs-2"></i>',
+            ),
+            'classes'    => array('item' => 'menu-accordion'),
+            'attributes' => array(
+                "data-kt-menu-trigger" => "click",
+            ),
+            'sub'        => array(
+                'class' => 'menu-sub-accordion menu-active-bg',
+                'items' => array(
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Danh sách nhân sự',
+                        'path'   => 'admin/employees',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                    array(
+                        'role' => 'admin|member',
+                        'title'  => 'Danh sách chuyên ngành',
+                        'path'   => 'admin/specialties',
+                        'bullet' => '<span class="bullet bullet-dot"></span>',
+                    ),
+                ),
+            ),
         ),
     ),
 

@@ -3,11 +3,16 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FeedbackController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RecruitmentController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SolutionController;
+use App\Http\Controllers\SpecialtyController;
 
 Route::prefix('admin')->group(function () {
 // Route::get('/register', [RegisteredUserController::class, 'create'])
@@ -68,7 +73,7 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 //         $route = Route::get($val['path'], [PagesController::class, 'index']);
                 // // dd($route);
                 //         // Exclude documentation from auth middleware
-                //         if (!Str::contains($val['path'], 'documentation')) {
+            //         if (!Str::contains($val['path'], 'documentation')) {
                 //             $route->middleware('auth');
                 //         }
                 //     }
@@ -76,8 +81,23 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
                 Route::middleware('auth')->group(function () {
                     // Route::resource('slider', SliderController::class);
                     Route::get('/', [PagesController::class, 'index']);
-                    Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+                    Route::get('settings/{type}', [SettingController::class, 'index'])->name('settings.index');
+                    Route::put('settings/{type}', [SettingController::class, 'update'])->name('settings.update');
                     Route::resource('solutions', SolutionController::class);
                     Route::resource('feedbacks', FeedbackController::class);
+                    Route::resource('recruitments', RecruitmentController::class);
+                    Route::resource('categories', CategoryController::class);
+                    Route::resource('employees', EmployeeController::class);
+                    Route::resource('specialties', SpecialtyController::class);
+                    // Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
+                    // Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
+                    // Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+                    // Route::post('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+                    // Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
+
+                    Route::resource('posts', PostController::class);
+                    Route::get('post/approve/{post}', [PostController::class, 'approve'])->name('post.approve');
+                    Route::get('post/delete/{post}', [PostController::class, 'delete'])->name('post.delete');
+                    Route::get('post/set-featured/{post}', [PostController::class, 'setFeatured'])->name('post.set_featured');
                 });
 });

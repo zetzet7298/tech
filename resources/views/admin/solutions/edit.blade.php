@@ -133,7 +133,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <input required type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="{{$solution->id}}"/>
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="{{$solution->index}}"/>
                             </div>
                             <!--end::Col-->
                         </div>

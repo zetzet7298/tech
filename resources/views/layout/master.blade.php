@@ -1,8 +1,8 @@
 @extends('base')
 
 @section('content')
-@include('layout._header')
-{{-- @include('layout._header')
+    @include('layout._header')
+    {{-- @include('layout._header')
 
 @include('layout._footer')
 @include('layout._scrolltop')
@@ -13,7 +13,7 @@
     <!-- Your Plugin chat code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div> --}}
-@include('layout._content')
-@include('layout._footer')
-@include('layout._scrolltop')
+    @include('layout._content')
+    @include('layout._footer')
+    @include('layout._scrolltop')
 @endsection

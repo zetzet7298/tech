@@ -13,7 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="prifile" href="http://gmgp.org/xfn/11">
+    {{-- <link rel="prifile" href="http://gmgp.org/xfn/11"> --}}
     {{-- <link rel="pingback" href="{{$app_url}}xmlrpc.php"> --}}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,13 @@
 
 
     <style>
+        /* .about-us__desc{
+            font-size: 15px;
+        } */
+        body {
+            font-size: 16px !important;
+        }
+
         #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
             content: "\f160";
             color: #02CA02;
@@ -30,19 +37,54 @@
         #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
             transform: rotate(45deg);
         }
-    </style>
 
+        .flash-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            /* Không hiển thị ban đầu */
+        }
+
+        .flash-message p {
+            margin: 0;
+        }
+
+        .flash-message.success {
+            background-color: #4CAF50;
+        }
+
+        #close-flash {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-    <title>Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | Levo Security</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all"
-        data-minify="1" />
+    <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
     <meta name="description"
         content="Tech: Dịch vụ Digital Marketing tổng thể cho doanh nghiệp cam kết chuyển đổi: Thiết kế web, Thiết kế web TMĐT, Thiết kế mobile app, tối ưu SEO,..." />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
     <link rel="canonical" href="{{ $app_url }}" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | Levo Security" />
+    <meta property="og:title" content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
     <meta property="og:description"
         content="Tech: Dịch vụ Digital Marketing tổng thể cho doanh nghiệp cam kết chuyển đổi: Thiết kế web, Thiết kế web TMĐT, Thiết kế mobile app, tối ưu SEO,..." />
     <meta property="og:url" content="{{ $app_url }}" />
@@ -55,7 +97,7 @@
     <meta property="article:published_time" content="2022-04-04T10:39:28+07:00" />
     <meta property="article:modified_time" content="2022-09-15T13:33:24+07:00" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Dịch vụ Digital Marketing Tổng Thể Doanh Nghiệp | Levo Security" />
+    <meta name="twitter:title" content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
     <meta name="twitter:description"
         content="Tech: Dịch vụ Digital Marketing tổng thể cho doanh nghiệp cam kết chuyển đổi: Thiết kế web, Thiết kế web TMĐT, Thiết kế mobile app, tối ưu SEO,..." />
     <meta name="twitter:site" content="@seoadmin" />
@@ -1112,12 +1154,17 @@
         .mb-selectqtw div {
             position: relative;
         }
-
     </style>
     @yield('styles')
 </head>
 
 <body class="home page-template page-template-index page-template-index-php page page-id-264 unselectable">
+    @if (session('success'))
+        <div id="flash-message" class="flash-message success">
+            <p>{{ session('success') }}</p>
+            <button id="close-flash">Đóng</button>
+        </div>
+    @endif
     @yield('content')
     <style>
         @media print {
@@ -1265,19 +1312,18 @@
         }();
         /* ]]> */
     </script>
-    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}"" id=" jquery-js-js"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/gsap.min.js') }}"" id=" gsap-js-js"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/ScrollToPlugin.min.js') }}"" id=" ScrollToPlugin-js-js">
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}" id=" jquery-js-js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/gsap.min.js') }}" id=" gsap-js-js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/ScrollToPlugin.min.js') }}" id=" ScrollToPlugin-js-js">
     </script>
-    <script type="text/javascript" src="{{ asset('assets/js/ScrollTrigger.min.js') }}"" id=" ScrollTrigger-js-js"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/wow.min.js') }}"" id=" wow-js-js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/ScrollTrigger.min.js') }}" id=" ScrollTrigger-js-js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/wow.min.js') }}" id=" wow-js-js"></script>
     {{-- <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script> --}}
-    <script type="text/javascript" src="{{ asset('assets/js/app.js') }}"" id=" app-js-js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/app.js') }}" id=" app-js-js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/hmmenu.js') }}"" id=" hmmenu-js-js"></script>
     {{-- <script type="text/javascript" src="{{ asset('assets/js/not-optimize.js') }}"" id=" optimize-js-js"></script> --}}
     {{-- <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6Lezp4UjAAAAAJ5g48hRjVP2mFz2EDLGxyEb00si&amp;ver=3.0" id="google-recaptcha-js"></script> --}}
     <script>
-        
         window.lazyLoadOptions = [{
             elements_selector: "img[data-lazy-src],.rocket-lazyload",
             data_src: "lazy-src",
@@ -1352,9 +1398,8 @@
             }
         }, !1)
     </script>
-    <script data-no-minify="1" async src="{{ 'assets/js/lazyload.min.js' }}"></script>
-
-    <script src="{{ asset('assets/js/main.js') }}" data-minify="1" defer></script>
+    <script data-no-minify="1" async src="{{ asset('assets/js/lazyload.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
     <script>
         window.addEventListener("load", footer_startup1);
 
