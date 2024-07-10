@@ -1,7 +1,8 @@
 <!--begin::Basic info-->
 <div class="card {{ $class }}">
     <!--begin::Card header-->
-    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+    <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+        data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
         <!--begin::Card title-->
         <div class="card-title m-0">
             <h3 class="fw-bolder m-0">{{ __('Profile Details') }}</h3>
@@ -13,10 +14,11 @@
     <!--begin::Content-->
     <div id="kt_account_profile_details" class="collapse show">
         <!--begin::Form-->
-        <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('settings.update') }}" enctype="multipart/form-data">
-        @csrf
-        @method('PUT')
-        <!--begin::Card body-->
+        <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('settings.update') }}"
+            enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <!--begin::Card body-->
             <div class="card-body border-top p-9">
                 <!--begin::Input group-->
                 {{--  <div class="row mb-6">
@@ -37,7 +39,7 @@
                                 <i class="bi bi-pencil-fill fs-7"></i>
 
                                 <!--begin::Inputs-->
-                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg"/>
+                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg, .webp"/>
                                 <input type="hidden" name="avatar_remove"/>
                                 <!--end::Inputs-->
                             </label>
@@ -77,13 +79,18 @@
                         <div class="row">
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row">
-                                <input type="text" name="first_name" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" placeholder="First name" value="{{ old('first_name', auth()->user()->first_name ?? '') }}"/>
+                                <input type="text" name="first_name"
+                                    class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                    placeholder="First name"
+                                    value="{{ old('first_name', auth()->user()->first_name ?? '') }}" />
                             </div>
                             <!--end::Col-->
 
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row">
-                                <input type="text" name="last_name" class="form-control form-control-lg form-control-solid" placeholder="Last name" value="{{ old('last_name', auth()->user()->last_name ?? '') }}"/>
+                                <input type="text" name="last_name"
+                                    class="form-control form-control-lg form-control-solid" placeholder="Last name"
+                                    value="{{ old('last_name', auth()->user()->last_name ?? '') }}" />
                             </div>
                             <!--end::Col-->
                         </div>

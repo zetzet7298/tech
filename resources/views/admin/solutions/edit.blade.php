@@ -17,7 +17,8 @@
             <div id="kt_account_profile_details" class="collapse show">
                 <!--begin::Form-->
                 <form id="kt_account_profile_details_form" class="form" method="POST"
-                    action="{{ route('solutions.update', ['solution' => $solution->id]) }}" enctype="multipart/form-data">
+                    action="{{ route('solutions.update', ['solution' => $solution->id]) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <!--begin::Card body-->
@@ -49,7 +50,7 @@
                                     style="background-image: url({{ display_image($solution->image) }})">
                                     <!--begin::Preview existing avatar-->
                                     <div class="image-input-wrapper w-250px h-250px"
-                                    style="background-image: url({{ display_image($solution->image) }})"></div>
+                                        style="background-image: url({{ display_image($solution->image) }})"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -60,7 +61,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="image" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -96,14 +97,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tiêu đề') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tiêu đề') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <textarea required rows="2" type="text" name="title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{$solution->title}}</textarea>
+                                    placeholder="" value="">{{ $solution->title }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -111,14 +111,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Mô tả') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Mô tả') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <textarea required rows="10" type="text" name="description"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{$solution->description}}</textarea>
+                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ $solution->description }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -126,14 +125,14 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Vị trí') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Vị trí') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <input required type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="{{$solution->index}}"/>
+                                    class="form-control form-control-lg form-control-solid" placeholder=""
+                                    value="{{ $solution->index }}" />
                             </div>
                             <!--end::Col-->
                         </div>

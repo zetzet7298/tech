@@ -17,7 +17,8 @@
             <div id="kt_account_profile_details" class="collapse show">
                 <!--begin::Form-->
                 <form id="kt_account_profile_details_form" class="form" method="POST"
-                    action="{{ route('feedbacks.update', ['feedback' => $feedback->id]) }}" enctype="multipart/form-data">
+                    action="{{ route('feedbacks.update', ['feedback' => $feedback->id]) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <!--begin::Card body-->
@@ -49,7 +50,7 @@
                                     style="background-image: url({{ display_image($feedback->image) }})">
                                     <!--begin::Preview existing avatar-->
                                     <div class="image-input-wrapper w-250px h-250px"
-                                    style="background-image: url({{ display_image($feedback->image) }})"></div>
+                                        style="background-image: url({{ display_image($feedback->image) }})"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -60,7 +61,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="image" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -96,7 +97,8 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 1 (699x436)') }}</label>
+                            <label
+                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 1 (699x436)') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -106,8 +108,7 @@
                                     data-kt-image-input="true"
                                     style="background-image: url({{ display_image($feedback->slide_1) }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"
-                                        ></div>
+                                    <div class="image-input-wrapper w-250px h-250px"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -118,7 +119,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="slide_1" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="slide_1" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -154,7 +155,8 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 2 (891x685)') }}</label>
+                            <label
+                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 2 (891x685)') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -164,8 +166,7 @@
                                     data-kt-image-input="true"
                                     style="background-image: url({{ display_image($feedback->slide_2) }})"">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"
-                                        ></div>
+                                    <div class="image-input-wrapper w-250px h-250px"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -176,7 +177,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="slide_2" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="slide_2" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -213,14 +214,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tên KH') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tên KH') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <textarea rows="1" type="text" name="name" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{$feedback->name}}</textarea>
+                                    placeholder="" value="">{{ $feedback->name }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -234,7 +234,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <textarea rows="1" type="text" name="company" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{$feedback->company}}</textarea>
+                                    placeholder="" value="">{{ $feedback->company }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -242,14 +242,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Nội dung') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Nội dung') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="10" type="text" name="content"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{$feedback->content}}</textarea>
+                                <textarea rows="10" type="text" name="content" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ $feedback->content }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -257,14 +256,14 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Vị trí') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Vị trí') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <input type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="{{$feedback->index}}"/>
+                                    class="form-control form-control-lg form-control-solid" placeholder=""
+                                    value="{{ $feedback->index }}" />
                             </div>
                             <!--end::Col-->
                         </div>

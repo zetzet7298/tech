@@ -1,6 +1,6 @@
 <x-base-auth-layout>
     @php
-     $settings = \App\Models\Setting::getByType('hr');
+        $settings = \App\Models\Setting::getByType('hr');
         $title = $settings['title']['value'];
         $description = $settings['description']['value'];
         $banner = $settings['banner']['value'];
@@ -56,7 +56,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="banner" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="banner" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -114,7 +114,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="banner_mobile" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="banner_mobile" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>

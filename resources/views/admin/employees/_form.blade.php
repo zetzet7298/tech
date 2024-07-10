@@ -61,7 +61,7 @@
                                         data-bs-original-title="Change thumbnail">
                                         <i class="bi bi-pencil-fill fs-7"></i>
                                         <!--begin::Inputs-->
-                                        <input type="file" name="photo" accept=".png, .jpg, .jpeg">
+                                        <input type="file" name="photo" accept=".png, .jpg, .jpeg, .webp">
                                         <input type="hidden" name="thumbnail_remove">
                                         <!--end::Inputs-->
                                     </label>
@@ -99,18 +99,20 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <select name="specialties[]" multiple aria-label="Select a Timezone" data-control="select2"
-                                    data-placeholder="Chọn chuyên ngành"
+                                <select name="specialties[]" multiple aria-label="Select a Timezone"
+                                    data-control="select2" data-placeholder="Chọn chuyên ngành"
                                     class="form-select form-select-solid form-select-lg select2-hidden-accessible"
                                     data-select2-id="select2-data-19-0gmf" tabindex="-1" aria-hidden="true">
                                     {{-- <option value="" data-select2-id="select2-data-21-6bmk">Tất cả</option> --}}
                                     @foreach ($specialties as $k => $specialty)
-                                    @if(isset($item))
-                                    <option value="{{ $specialty->id }}" {{ $item && $item->specialties->contains($specialty->id) ? 'selected' : '' }}>{{ $specialty->name }}</option>
-                                    @else
-                                    <option @if (isset($item) && $specialty->id == $item->specialty->id) selected @endif
-                                        value="{{ $specialty->id }}">{{ $specialty->name }}</option>
-                                    @endif
+                                        @if (isset($item))
+                                            <option value="{{ $specialty->id }}"
+                                                {{ $item && $item->specialties->contains($specialty->id) ? 'selected' : '' }}>
+                                                {{ $specialty->name }}</option>
+                                        @else
+                                            <option @if (isset($item) && $specialty->id == $item->specialty->id) selected @endif
+                                                value="{{ $specialty->id }}">{{ $specialty->name }}</option>
+                                        @endif
                                     @endforeach
 
                                 </select>

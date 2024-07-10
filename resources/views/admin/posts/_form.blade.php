@@ -38,7 +38,8 @@
                                     data-select2-id="select2-data-19-0gmf" tabindex="-1" aria-hidden="true">
                                     {{-- <option value="" data-select2-id="select2-data-21-6bmk">Tất cả</option> --}}
                                     @foreach ($categories as $k => $category)
-                                        <option @if(isset($item) && $category->id == $item->category->id) selected @endif value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option @if (isset($item) && $category->id == $item->category->id) selected @endif
+                                            value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
 
                                 </select>
@@ -57,7 +58,8 @@
                                 <div class="image-input image-input-outline" data-kt-image-input="true"
                                     style="background-image: url(assets/media/avatars/blank.png)">
                                     <!--begin::Preview existing thumbnail-->
-                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url({{ display_image($item->thumbnail ?? '') }})">
+                                    <div class="image-input-wrapper w-125px h-125px"
+                                        style="background-image: url({{ display_image($item->thumbnail ?? '') }})">
                                     </div>
                                     <!--end::Preview existing thumbnail-->
                                     <!--begin::Label-->
@@ -67,7 +69,7 @@
                                         data-bs-original-title="Change thumbnail">
                                         <i class="bi bi-pencil-fill fs-7"></i>
                                         <!--begin::Inputs-->
-                                        <input type="file" name="thumbnail" accept=".png, .jpg, .jpeg">
+                                        <input type="file" name="thumbnail" accept=".png, .jpg, .jpeg, .webp">
                                         <input type="hidden" name="thumbnail_remove">
                                         <!--end::Inputs-->
                                     </label>
@@ -160,17 +162,17 @@
         </div>
     </div>
     @section('scripts')
-    <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+        <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
 
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#kt_docs_ckeditor_classic'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    </script>
-@endsection
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#kt_docs_ckeditor_classic'))
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+    @endsection
 </x-base-auth-layout>

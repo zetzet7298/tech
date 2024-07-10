@@ -58,7 +58,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="banner" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="banner" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -116,7 +116,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="banner_mobile" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="banner_mobile" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -152,7 +152,8 @@
                         <!--end::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh đại diện bài viết tuyển dụng') }}</label>
+                            <label
+                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh đại diện bài viết tuyển dụng') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -174,7 +175,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="avatar_post" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="avatar_post" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>

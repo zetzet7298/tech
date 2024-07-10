@@ -48,8 +48,7 @@
                                     data-kt-image-input="true"
                                     style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"
-                                        ></div>
+                                    <div class="image-input-wrapper w-250px h-250px"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -60,7 +59,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="image" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -96,8 +95,7 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tiêu đề') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tiêu đề') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -111,8 +109,7 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Mô tả') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Mô tả') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -126,14 +123,14 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Vị trí') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Vị trí') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <input required type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="1"/>
+                                    class="form-control form-control-lg form-control-solid" placeholder=""
+                                    value="1" />
                             </div>
                             <!--end::Col-->
                         </div>

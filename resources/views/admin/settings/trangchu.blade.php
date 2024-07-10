@@ -74,7 +74,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="SLIDER_1" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="SLIDER_1" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -110,7 +110,8 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 2 (585x450)') }}</label>
+                            <label
+                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Ảnh Slide 2 (585x450)') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -132,7 +133,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="SLIDER_2" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="SLIDER_2" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -190,7 +191,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="SLIDER_3" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="SLIDER_3" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -248,7 +249,7 @@
                                         <i class="bi bi-pencil-fill fs-7"></i>
 
                                         <!--begin::Inputs-->
-                                        <input type="file" name="LOGO" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" name="LOGO" accept=".png, .jpg, .jpeg, .webp" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -285,8 +286,7 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tên công ty') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tên công ty') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -363,8 +363,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="PHONE"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('PHONE', $PHONE ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="PHONE" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('PHONE', $PHONE ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -377,8 +377,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="ADDRESS"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('ADDRESS', $ADDRESS ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="ADDRESS" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('ADDRESS', $ADDRESS ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -391,8 +391,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="EMAIL"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('EMAIL', $EMAIL ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="EMAIL" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('EMAIL', $EMAIL ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -405,8 +405,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="MISSION"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('MISSION', $MISSION ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="MISSION" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('MISSION', $MISSION ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -419,8 +419,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="TIME_WORKING"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('TIME_WORKING', $TIME_WORKING ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="TIME_WORKING" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('TIME_WORKING', $TIME_WORKING ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -428,13 +428,14 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Số đăng ký kinh doanh') }}</label>
+                            <label
+                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Số đăng ký kinh doanh') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="DKKD"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('DKKD', $DKKD ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="DKKD" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('DKKD', $DKKD ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -447,8 +448,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="FACEBOOK"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('FACEBOOK', $FACEBOOK ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="FACEBOOK" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('FACEBOOK', $FACEBOOK ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -462,8 +463,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="ZALO"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('ZALO', $ZALO ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="ZALO" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('ZALO', $ZALO ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -477,8 +478,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="MESSENGER"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('MESSENGER', $MESSENGER ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="MESSENGER" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('MESSENGER', $MESSENGER ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -492,8 +493,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="PRICE_QUOTE"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('PRICE_QUOTE', $PRICE_QUOTE ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="PRICE_QUOTE" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('PRICE_QUOTE', $PRICE_QUOTE ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -506,8 +507,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="GOOGLE_MAP"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('GOOGLE_MAP', $GOOGLE_MAP ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="GOOGLE_MAP" class="form-control form-control-lg form-control-solid"
+                                    placeholder="" value="">{{ old('GOOGLE_MAP', $GOOGLE_MAP ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -515,7 +516,7 @@
 
                     </div>
                     <!--end::Card body-->
-                        
+
                     <!--begin::Actions-->
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
