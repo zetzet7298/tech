@@ -111,9 +111,15 @@
                 </div>
             </div>
             <div class="contact-group-2__map">
-                <iframe
+                {{-- <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.549342791322!2d106.68165830000001!3d10.7691731!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fc10c53d2cb%3A0x5d1b2e1dd64e4f2!2zVGhp4bq_dCBL4bq_IFdlYnNpdGUgQ2h1ecOqbiBOZ2hp4buHcCB8IEPDtG5nIFR5IE1pa28gVGVjaA!5e0!3m2!1svi!2s!4v1720620369176!5m2!1svi!2s" 
+                width="600" height="450" style="border:0;" allowfullscreen="" 
+                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe> --}}
+                {!!$GOOGLE_MAP!!}
+                {{-- <iframe
                     src="{{$GOOGLE_MAP}}"
-                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}
             </div>
         </div>
     </div>
