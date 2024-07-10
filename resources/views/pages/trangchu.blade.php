@@ -255,12 +255,12 @@
                                         <div class="block">
                                             <img width="1280" height="800"
                                                 class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
-                                                src="{{ display_image($feedback->slide_1) }}" alt="Minigo shop"
-                                                data-lazy-src="{{ display_image($feedback->slide_1) }}"><noscript>
+                                                src="{{ display_image($feedback->slide_2) }}" alt="Minigo shop"
+                                                data-lazy-src="{{ display_image($feedback->slide_2) }}"><noscript>
                                                 <img width="1280" height="800"
                                                     style="width: 699px; height: 436px"
                                                     class="rounded-0 lg:rounded-tl-2xl object-cover w-full block min-h-[initial] lg:min-h-[570px] 2xl:min-h-[685px] cursor-pointer"
-                                                    src="{{ display_image($feedback->slide_1) }}"
+                                                    src="{{ display_image($feedback->slide_2) }}"
                                                     alt="Minigo shop"></noscript>
                                         </div>
                                     </div>
@@ -304,12 +304,12 @@
                                             <div class="overflow-hidden">
                                                 <img width="800" height="500"
                                                     class="block rounded-t-2xl cursor-pointer"
-                                                    src="{{ display_image($feedback->slide_2) }}" alt="Minigo shop"
-                                                    data-lazy-src="{{ display_image($feedback->slide_2) }}"><noscript><img
+                                                    src="{{ display_image($feedback->slide_1) }}" alt="Minigo shop"
+                                                    data-lazy-src="{{ display_image($feedback->slide_1) }}"><noscript><img
                                                         width="800" height="500"
                                                         style="width: 891; height: 685px"
                                                         class="block rounded-t-2xl cursor-pointer"
-                                                        src="{{ display_image($feedback->slide_2) }}"
+                                                        src="{{ display_image($feedback->slide_1) }}"
                                                         alt="Minigo shop"></noscript>
                                             </div>
                                         </div>
