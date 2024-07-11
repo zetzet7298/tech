@@ -59,6 +59,7 @@ class AppServiceProvider extends ServiceProvider
         $LOGO = $settings[config('constants.LOGO')]['value'];
         $PRICE_QUOTE = $settings[config('constants.PRICE_QUOTE')]['value'];
         $GOOGLE_MAP = $settings[config('constants.GOOGLE_MAP')]['value'];
+        
         // Share theme adapter class
         View::share('theme', $theme);
         View::share('companyNameValue', $companyNameValue);
