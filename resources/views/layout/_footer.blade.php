@@ -11,7 +11,7 @@
         <div class="footer__grid">
             <div class="footer__col">
                 <a href="{{ route('trangchu') }}" class="footer__logo footer__logo__mobile_hidden himg" rel="nofollow">
-                    <img width="120" height="100" style="margin-left:5px;" src="{{ display_image($LOGO) }}"
+                    <img width="180"  style="margin-left:5px;height:27.23px;" src="{{ display_image($LOGO) }}"
                         alt="" data-lazy-src="{{ display_image($LOGO) }}">
                 </a>
                 <span class=" footer__logo__mobile" data-id="0">

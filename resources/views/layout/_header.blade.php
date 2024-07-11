@@ -45,7 +45,7 @@
     <div class="header ">
         <div class="center-layout">
             <a href="{{ route('trangchu') }}" class="himg" rel="doffolow">
-                <img width="100" height="70" style="margin-left:5px;" src="{{ display_image($LOGO) }}"
+                <img width="180"  style="margin-left:5px;height:27.23px;" src="{{ display_image($LOGO) }}"
                     alt="" data-lazy-src="{{ display_image($LOGO) }}">
             </a>
             <div class="header__right ">
@@ -102,7 +102,7 @@
     <div class="hmmenu">
         <div class="hmmenu__header">
             <a href="{{ route('trangchu') }}" class="himg hmmenu__logo">
-                <img width="120" height="100" style="margin-left:5px;" src="{{ display_image($LOGO) }}"
+                <img width="180"  style="margin-left:5px;height:27.23px;" src="{{ display_image($LOGO) }}"
                     alt="" data-lazy-src="{{ display_image($LOGO) }}">
             </a>
         </div>
