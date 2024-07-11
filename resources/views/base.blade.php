@@ -7,6 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -18,76 +19,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
-
-
-    <style>
-        /* .about-us__desc{
-            font-size: 15px;
-        } */
-        body {
-            font-size: 16px !important;
-        }
-
-        #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
-            content: "\f160";
-            color: #02CA02;
-            top: 3px;
-        }
-
-        #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
-            transform: rotate(45deg);
-        }
-
-        .flash-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            display: none;
-            /* Không hiển thị ban đầu */
-        }
-
-        .flash-message p {
-            margin: 0;
-        }
-
-        .flash-message.success {
-            background-color: #4CAF50;
-        }
-
-        #close-flash {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            float: right;
-        }
-    </style>
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-    <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+    
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
     <meta name="description"
-        content="Tech: Dịch vụ Digital Marketing tổng thể cho doanh nghiệp cam kết chuyển đổi: Thiết kế web, Thiết kế web TMĐT, Thiết kế mobile app, tối ưu SEO,..." />
+        content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-    <link rel="canonical" href="{{ $app_url }}" />
+    <link rel="canonical" href="{{route('trangchu')}}" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
     <meta property="og:description"
-        content="Tech: Dịch vụ Digital Marketing tổng thể cho doanh nghiệp cam kết chuyển đổi: Thiết kế web, Thiết kế web TMĐT, Thiết kế mobile app, tối ưu SEO,..." />
-    <meta property="og:url" content="{{ $app_url }}" />
+        content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
+    <meta property="og:url" content="{{route('trangchu')}}" />
     <meta property="og:site_name" content="Tech" />
     <meta property="og:updated_time" content="2022-09-15T13:33:24+07:00" />
     <meta property="og:image:width" content="1024" />
@@ -99,7 +43,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
     <meta name="twitter:description"
-        content="Tech: Dịch vụ Digital Marketing tổng thể cho doanh nghiệp cam kết chuyển đổi: Thiết kế web, Thiết kế web TMĐT, Thiết kế mobile app, tối ưu SEO,..." />
+        content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
     <meta name="twitter:site" content="@seoadmin" />
     <meta name="twitter:creator" content="@seoadmin" />
     <meta name="twitter:label1" content="Written by" />
@@ -110,6 +54,61 @@
     {{-- 
 <link rel="alternate" type="application/rss+xml" title="Dòng thông tin Tech &raquo;" href="{{$app_url}}feed/" />
 <link rel="alternate" type="application/rss+xml" title="Tech &raquo; Dòng bình luận" href="{{$app_url}}comments/feed/" /> --}}
+<style>
+    /* .about-us__desc{
+        font-size: 15px;
+    } */
+    body {
+        font-size: 14px !important;
+    }
+
+    #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
+        content: "\f160";
+        color: #02CA02;
+        top: 3px;
+    }
+
+    #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
+        transform: rotate(45deg);
+    }
+
+    .flash-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+        /* Không hiển thị ban đầu */
+    }
+
+    .flash-message p {
+        margin: 0;
+    }
+
+    .flash-message.success {
+        background-color: #4CAF50;
+    }
+
+    #close-flash {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        float: right;
+    }
+</style>
     <style id='wp-emoji-styles-inline-css' type='text/css'>
         img.wp-smiley,
         img.emoji {
@@ -1220,7 +1219,7 @@
         }
 
         /* .warning-wpcp {
-            background:#ffecec url('{{ $app_url }}wp-content/plugins/wp-content-copy-protector/images/warning.png') no-repeat 10px 50%;
+            background:#ffecec url('{{route('trangchu')}}wp-content/plugins/wp-content-copy-protector/images/warning.png') no-repeat 10px 50%;
         } */
     </style>
 

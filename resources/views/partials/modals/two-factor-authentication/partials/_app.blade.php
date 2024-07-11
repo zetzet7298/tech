@@ -17,7 +17,7 @@
 
         <!--begin::QR code image-->
         <div class="pt-5 text-center">
-            <img src="{{ asset(theme()->getMediaUrlPath() . 'misc/qr.png') }}" alt="" class="mw-150px"/>
+            <img src="" alt="" class="mw-150px"/>
         </div>
         <!--end::QR code image-->
     </div>

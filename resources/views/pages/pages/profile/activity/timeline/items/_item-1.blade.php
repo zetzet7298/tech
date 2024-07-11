@@ -28,7 +28,7 @@
 
                 <!--begin::User-->
                 <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-11.jpg') }}" alt="img"/>
+                    <img src="" alt="img"/>
                 </div>
                 <!--end::User-->
             </div>
@@ -54,13 +54,13 @@
                 <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
                     <!--begin::User-->
                     <div class="symbol symbol-circle symbol-25px">
-                        <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-3.jpg') }}" alt="img"/>
+                        <img src="" alt="img"/>
                     </div>
                     <!--end::User-->
 
                     <!--begin::User-->
                     <div class="symbol symbol-circle symbol-25px">
-                        <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-11.jpg') }}" alt="img"/>
+                        <img src="" alt="img"/>
                     </div>
                     <!--end::User-->
 
@@ -100,7 +100,7 @@
                 <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
                     <!--begin::User-->
                     <div class="symbol symbol-circle symbol-25px">
-                        <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-5.jpg') }}" alt="img"/>
+                        <img src="" alt="img"/>
                     </div>
                     <!--end::User-->
 

@@ -133,7 +133,7 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-45px me-5">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . $row['user']['image']) }}" alt=""/>
+                                        <img src="" alt=""/>
                                     </div>
                                     <div class="d-flex justify-content-start flex-column">
                                         <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">{{ $row['user']['name'] }}</a>

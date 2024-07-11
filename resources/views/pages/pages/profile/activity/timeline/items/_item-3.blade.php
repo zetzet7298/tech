@@ -28,7 +28,7 @@
 
                 <!--begin::User-->
                 <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-6.jpg') }}" alt="img"/>
+                    <img src="" alt="img"/>
                 </div>
                 <!--end::User-->
             </div>
@@ -42,7 +42,7 @@
                 <!--begin::Item-->
                 <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                     <!--begin::Icon-->
-                    <img alt="" class="w-30px me-3" src="{{ asset(theme()->getMediaUrlPath() . 'svg/files/pdf.svg') }}"/>
+                    <img alt="" class="w-30px me-3" src=""/>
                     <!--end::Icon-->
 
                     <!--begin::Info-->
@@ -62,7 +62,7 @@
                 <!--begin::Item-->
                 <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                     <!--begin::Icon-->
-                    <img alt="" class="w-30px me-3" src="{{ asset(theme()->getMediaUrlPath() . 'svg/files/doc.svg') }}"/>
+                    <img alt="" class="w-30px me-3" src=""/>
                     <!--end::Icon-->
 
                     <!--begin::Info-->
@@ -82,7 +82,7 @@
                 <!--begin::Item-->
                 <div class="d-flex flex-aligns-center">
                     <!--begin::Icon-->
-                    <img alt="" class="w-30px me-3" src="{{ asset(theme()->getMediaUrlPath() . 'svg/files/css.svg') }}"/>
+                    <img alt="" class="w-30px me-3" src=""/>
                     <!--end::Icon-->
 
                     <!--begin::Info-->

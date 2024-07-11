@@ -28,7 +28,7 @@
 
                 <!--begin::User-->
                 <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-3.jpg') }}" alt="img"/>
+                    <img src="" alt="img"/>
                 </div>
                 <!--end::User-->
             </div>
@@ -43,7 +43,7 @@
                 <div class="overlay me-10">
                     <!--begin::Image-->
                     <div class="overlay-wrapper">
-                        <img alt="img" class="rounded w-200px" src="{{ asset(theme()->getMediaUrlPath() . 'demos/demo1.png') }}"/>
+                        <img alt="img" class="rounded w-200px" src=""/>
                     </div>
                     <!--end::Image-->
 
@@ -59,7 +59,7 @@
                 <div class="overlay me-10">
                     <!--begin::Image-->
                     <div class="overlay-wrapper">
-                        <img alt="img" class="rounded w-200px" src="{{ asset(theme()->getMediaUrlPath() . 'demos/demo2.png') }}"/>
+                        <img alt="img" class="rounded w-200px" src=""/>
                     </div>
                     <!--end::Image-->
 
@@ -75,7 +75,7 @@
                 <div class="overlay">
                     <!--begin::Image-->
                     <div class="overlay-wrapper">
-                        <img alt="img" class="rounded w-200px" src="{{ asset(theme()->getMediaUrlPath() . 'demos/demo3.png') }}"/>
+                        <img alt="img" class="rounded w-200px" src=""/>
                     </div>
                     <!--end::Image-->
 

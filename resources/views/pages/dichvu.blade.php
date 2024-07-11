@@ -74,7 +74,7 @@
                             <div class="text-3xl uppercase my-4 relative">{{ $item->title }}</div>
                             <div class="relative">{{ $item->summary }}</div>
                             <div class="absolute left-8 bottom-8 flex mt-4">
-                                <a href="https://mikotech.vn/thiet-ke-website/" class="hbtn"><span>Xem chi
+                                <a href="{{ route('tintuc.detail', ['slug' => $item->slug]) }}" class="hbtn"><span>Xem chi
                                         tiết</span></a>
                             </div>
                         </div>

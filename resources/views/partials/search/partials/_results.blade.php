@@ -126,7 +126,7 @@
                         <!--begin::Symbol-->
                         <div class="symbol symbol-40px me-4">
                             <span class="symbol-label bg-light">
-                                <img class="w-20px h-20px" src="{{ asset(theme()->getMediaUrlPath() . $item['logo']) }}" alt=""/>
+                                <img class="w-20px h-20px" src="" alt=""/>
                             </span>
                         </div>
                         <!--end::Symbol-->
@@ -146,7 +146,7 @@
                     <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                         <!--begin::Symbol-->
                         <div class="symbol symbol-40px me-4">
-                            <img src="{{ asset(theme()->getMediaUrlPath() . $item['avatar']) }}" alt=""/>
+                            <img src="" alt=""/>
                         </div>
                         <!--end::Symbol-->
 

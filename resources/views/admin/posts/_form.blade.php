@@ -136,7 +136,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-12 fv-row fv-plugins-icon-container">
-                                <textarea name="content" id="kt_docs_ckeditor_classic">
+                                <textarea name="content" id="kt_docs_tinymce_basic" class="tox-target">
                                     {{ isset($item) ? $item->content : '' }}
                     </textarea>
                                 <div class="fv-plugins-message-container invalid-feedback"></div>
@@ -162,17 +162,67 @@
         </div>
     </div>
     @section('scripts')
-        <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+        <script src="{{ asset('demo1/plugins/custom/tinymce/tinymce.min.js') }}"></script>
+        <script>
+            // tinymce.init(options);
+            tinymce.init({
+                selector: '#kt_docs_tinymce_basic',
+                height: 500,
+                plugins: [
+                    'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                    'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                    'insertdatetime', 'media', 'table', 'wordcount'
+                ],
+                language: 'vi',
+                toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                license_key: 'gpl'
+            });
+        </script>
+        {{-- <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
 
         <script>
             ClassicEditor
-                .create(document.querySelector('#kt_docs_ckeditor_classic'))
+                .create(document.querySelector('#kt_docs_ckeditor_classic'), {
+                    plugins: [
+                'Essentials', 'Paragraph', 'Bold', 'Italic', 'Underline', 'Strikethrough', 
+                'Link', 'List', 'Image', 'ImageToolbar', 'ImageCaption', 'ImageStyle', 
+                'ImageUpload', 'BlockQuote', 'InsertTable', 'TableToolbar', 'MediaEmbed', 
+                'Undo', 'Redo', 'Heading', 'Font', 'Alignment', 'Highlight', 'Code', 'CodeBlock',
+                'HorizontalLine', 'PageBreak', 'RemoveFormat', 'SourceEditing'
+            ],
+            toolbar: {
+                items: [
+                    'heading', '|',
+                    'bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript', 'link', '|',
+                    'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent', '|',
+                    'imageUpload', 'blockQuote', 'insertTable', 'mediaEmbed', 'horizontalLine', 'pageBreak', '|',
+                    'undo', 'redo', '|',
+                    'alignment', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                    'highlight', 'code', 'codeBlock', '|',
+                    'removeFormat', 'sourceEditing'
+                ]
+            },
+            image: {
+                toolbar: [
+                    'imageTextAlternative', 'imageStyle:full', 'imageStyle:side'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn', 'tableRow', 'mergeTableCells', 'tableCellProperties', 'tableProperties', '|',
+                    'tableToolbar'
+                ]
+            },
+                    language: 'vi',
+                    // Các cấu hình plugin khác
+                })
                 .then(editor => {
                     console.log(editor);
                 })
                 .catch(error => {
                     console.error(error);
                 });
-        </script>
+        </script> --}}
     @endsection
 </x-base-auth-layout>

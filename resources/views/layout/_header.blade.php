@@ -140,6 +140,10 @@
                                 </ul>
                             </li>
                         </ul> --}}
+                    </li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-390"><a
+                        href="{{ route('lienhe') }}">Liên hệ</a></li>
+                </ul>
             </div>
         </div>
         <div class="hmmenu__footer">Copyright © 2021 {{$companyNameValue}}</div>

@@ -59,8 +59,8 @@
 
 
     <div class="check_screen_height fixed left-0 top-0 w-[1px] z-[-1] h-[100vh]"></div>
-    @section('scripts')
+    {{-- @section('scripts')
         <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script>
         <script src="{{ asset('assets/js/nhansu.js') }}" data-minify="1" defer></script>
-    @endsection
+    @endsection --}}
 </x-base-layout>

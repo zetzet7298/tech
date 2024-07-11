@@ -31,7 +31,7 @@
 
                 <!--begin::User-->
                 <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-11.jpg') }}" alt="img"/>
+                    <img src="" alt="img"/>
                 </div>
                 <!--end::User-->
             </div>

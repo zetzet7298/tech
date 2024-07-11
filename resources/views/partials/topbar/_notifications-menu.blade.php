@@ -72,7 +72,7 @@
 <!--begin::Menu-->
 <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
 	<!--begin::Heading-->
-    <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('{{ asset(theme()->getMediaUrlPath() . 'misc/pattern-1.jpg') }}')">
+    <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('')">
         <!--begin::Title-->
         <h3 class="text-white fw-bold px-9 mt-10 mb-6">
             Notifications <span class="fs-8 opacity-75 ps-3">24 reports</span>
@@ -172,7 +172,7 @@
                 <!--end::Section-->
 
                 <!--begin::Illustration-->
-                <img class="mh-200px" alt="metronic" src="{{ asset(theme()->getIllustrationUrl('1.png')) }}"/>
+                <img class="mh-200px" alt="metronic" src=""/>
                 <!--end::Illustration-->
             </div>
             <!--end::Wrapper-->

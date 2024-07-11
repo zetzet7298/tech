@@ -45,6 +45,11 @@ class AppServiceProvider extends ServiceProvider
         $FACEBOOK = $settings[config('constants.FACEBOOK')]['value'];
         $ZALO = $settings[config('constants.ZALO')]['value'];
         $MESSENGER = $settings[config('constants.MESSENGER')]['value'];
+        $YOUTUBE = $settings['youtube']['value'];
+        $INSTAGRAM = $settings['instagram']['value'];
+        $LINKEDIN = $settings['linkedin']['value'];
+        $TIKTOK = $settings['tiktok']['value'];
+
         $DKKD = $settings[config('constants.DKKD')]['value'];
         $TIME_WORKING = $settings[config('constants.TIME_WORKING')]['value'];
         $EMAIL = $settings[config('constants.EMAIL')]['value'];
@@ -60,6 +65,10 @@ class AppServiceProvider extends ServiceProvider
         View::share('settings', $settings);
         View::share('FACEBOOK', $FACEBOOK);
         View::share('ZALO', $ZALO);
+        View::share('YOUTUBE', $YOUTUBE);
+        View::share('INSTAGRAM', $INSTAGRAM);
+        View::share('LINKEDIN', $LINKEDIN);
+        View::share('TIKTOK', $TIKTOK);
         View::share('DKKD', $DKKD);
         View::share('MESSENGER', $MESSENGER);
         View::share('TIME_WORKING', $TIME_WORKING);

@@ -55,7 +55,7 @@
                 </div>
                 <div class="d-flex justify-content-start team-box-1__view h-fadeOutDown">
                     @php $item->avatar=display_image($item->photo) @endphp
-                    <a data-fancybox data-src="#contact-modal" class="hbtn hbtn--white" id="openModalBtn" data-employee="{{ $item }}">Xem chi tiết</a>
+                    <a data-fancybox data-src="#contact-modal" class="effect-link hbtn" id="openModalBtn" data-employee="{{ $item }}"><span>Xem chi tiết</span></a>
                     {{-- <a href="javascript:;" onclick="scrollToElement('team-box-3')" class="effect-link hbtn">
                         <span>Xem chi tiết</span>
                     </a> --}}
@@ -90,8 +90,8 @@
 
     <div class="check_screen_height fixed left-0 top-0 w-[1px] z-[-1] h-[100vh]"></div>
     @section('scripts')
-        <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script>
-        <script src="{{ asset('assets/js/nhansu.js') }}" data-minify="1" defer></script>
+        {{-- <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script>
+        <script src="{{ asset('assets/js/nhansu.js') }}" data-minify="1" defer></script> --}}
         <script>
             document.addEventListener('DOMContentLoaded', function() {
     var modal = document.getElementById("contact-modal");

@@ -59,7 +59,7 @@
                             <div class="overlay overflow-hidden border border-4 {{ $id === theme()->getDemo() ? 'border-primary' : '' }} p-2 rounded">
                                 @if($demo['published'] === true)
                                     <div class="overlay-wrapper rounded">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . $demo["thumbnail"]) }}" alt="demo" class="w-100 rounded"/>
+                                        <img src="" alt="demo" class="w-100 rounded"/>
                                     </div>
 
                                     <div class="overlay-layer bg-dark bg-opacity-10">
@@ -67,7 +67,7 @@
                                     </div>
                                 @else
                                     <div class="overlay-wrapper">
-                                        <img src="{{ asset(theme()->getMediaUrlPath() . $demo["thumbnail"]) }}" alt="demo" class="w-100 rounded opacity-75"/>
+                                        <img src="" alt="demo" class="w-100 rounded opacity-75"/>
                                     </div>
 
                                     <div class="overlay-layer bg-dark bg-opacity-10">

@@ -28,7 +28,7 @@
 
                 <!--begin::User-->
                 <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-                    <img src="{{ asset(theme()->getMediaUrlPath() . 'avatars/150-14.jpg') }}" alt="img"/>
+                    <img src="" alt="img"/>
                 </div>
                 <!--end::User-->
             </div>

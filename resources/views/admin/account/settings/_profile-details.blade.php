@@ -29,7 +29,7 @@
                     <!--begin::Col-->
                     <div class="col-lg-8">
                         <!--begin::Image input-->
-                        <div class="image-input image-input-outline {{ auth()->user()->avatar    ? '' : 'image-input-empty' }}" data-kt-image-input="true" style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
+                        <div class="image-input image-input-outline )">
                             <!--begin::Preview existing avatar-->
                             <div class="image-input-wrapper w-125px h-125px" style="background-image: {{ auth()->user()->avatar ? 'url('.asset(auth()->user()->avatar).')' : 'none' }};"></div>
                             <!--end::Preview existing avatar-->
