@@ -515,7 +515,7 @@
                                 <circle cx="12" cy="15" r="1.5" />
                                 <circle cx="7" cy="15" r="1.5" />
                                 <circle cx="17" cy="15" r="1.5" />
-                            </svg> {{formatDate($items->created_at)}}</span>
+                            </svg> {{formatDate($item->created_at)}}</span>
                         <b>{{ $item->author ? $item->author->name : '' }}</b>
                     </div>
                 </article>
