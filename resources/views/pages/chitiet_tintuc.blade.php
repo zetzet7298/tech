@@ -515,8 +515,8 @@
                                 <circle cx="12" cy="15" r="1.5" />
                                 <circle cx="7" cy="15" r="1.5" />
                                 <circle cx="17" cy="15" r="1.5" />
-                            </svg> 01.05.2024</span>
-                        <b>Trần Tiến Duy</b>
+                            </svg> {{formatDate($items->created_at)}}</span>
+                        <b>{{ $item->author ? $item->author->name : '' }}</b>
                     </div>
                 </article>
 
