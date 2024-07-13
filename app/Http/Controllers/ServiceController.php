@@ -29,7 +29,7 @@ class ServiceController extends Controller
     public function create()
     {
         $action = 'create';
-        $itemName = 'tin tức';
+        $itemName = 'dịch vụ';
         $categories = Category::active()->get();
         return view('cms.services._form', compact('action', 'itemName', 'categories'));
     }
@@ -51,7 +51,7 @@ class ServiceController extends Controller
             }
             $item->save();
             DB::commit();
-            return redirect()->route('services.index')->with('success', 'Đã tạo tin tức');
+            return redirect()->route('services.index')->with('success', 'Đã tạo dịch vụ');
         } catch (\Exception $e) {
             dd($e);
             report($e);
@@ -66,7 +66,7 @@ class ServiceController extends Controller
     {
         $item = Post::findOrFail($id);
         $action = 'edit';
-        $itemName = 'tin tức';
+        $itemName = 'dịch vụ';
         $categories = Category::active()->get();
         return view('cms.services._form', compact('item', 'action', 'itemName', 'categories'));
     }
@@ -88,7 +88,7 @@ class ServiceController extends Controller
             }
             $item->save();
             DB::commit();
-            return redirect()->route('services.index')->with('success', 'Đã cập nhật tin tức');
+            return redirect()->route('services.index')->with('success', 'Đã cập nhật dịch vụ');
         } catch (\Exception $e) {
             dd($e);
             report($e);
@@ -103,6 +103,6 @@ class ServiceController extends Controller
         $item->active = false;
         $item->save();
 
-        return redirect()->route('services.index')->with('success', 'Đã xóa tin tức');
+        return redirect()->route('services.index')->with('success', 'Đã xóa dịch vụ');
     }
 }

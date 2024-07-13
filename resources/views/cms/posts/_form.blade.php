@@ -103,7 +103,7 @@
                                         <!--begin::Col-->
                                         <div class="col-lg-12 fv-row">
                                             <textarea name="summary" id="kt_docs_tinymce_basic2" class="tox-target">
-                                                {{ isset($item) ? $item->content : '' }}
+                                                {{ isset($item) ? $item->summary : '' }}
                                 </textarea>
 
                                             {{-- <textarea id="kt_docs_ckeditor_classic" required rows="3" type="text" name="summary" style="height: 200px;"

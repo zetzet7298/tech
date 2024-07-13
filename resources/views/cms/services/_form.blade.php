@@ -79,8 +79,9 @@
 
                                         <!--begin::Col-->
                                         <div class="col-lg-12 fv-row">
-                                            <textarea id="kt_docs_ckeditor_classic" required rows="3" type="text" name="summary" style="height: 200px;"
-                                                class="form-control mycustom" placeholder="" value="">{{ isset($item) ? $item->summary : '' }}</textarea>
+                                            <textarea name="summary" id="kt_docs_tinymce_basic2" class="tox-target">
+                                                {{ isset($item) ? $item->summary : '' }}
+                                </textarea>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -142,17 +143,17 @@
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
             license_key: 'gpl'
         });
-    </script>
-    <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
-
-    <script>
-        ClassicEditor
-            .create(document.querySelector('#kt_docs_ckeditor_classic'))
-            .then(editor => {
-                console.log(editor);
-            })
-            .catch(error => {
-                console.error(error);
-            });
+        tinymce.init({
+            selector: '#kt_docs_tinymce_basic2',
+            height: 200,
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'wordcount'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+            license_key: 'gpl'
+        });
     </script>
 @endsection
