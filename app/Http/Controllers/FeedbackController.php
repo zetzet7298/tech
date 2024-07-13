@@ -12,12 +12,12 @@ class FeedbackController extends Controller
     public function index()
     {
         $feedbacks = Feedback::orderBy('id', 'desc')->get();
-        return view('admin.feedbacks.index', compact('feedbacks'));
+        return view('cms.feedbacks.index', compact('feedbacks'));
     }
 
     public function create()
     {
-        return view('admin.feedbacks.create');
+        return view('cms.feedbacks.create');
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class FeedbackController extends Controller
             // $feedback->company = $request->company;
             $feedback->content = $request->content;
             $feedback->index = $request->index;
-            
+
             if (request()->hasFile('image') && $path = upload_image2('image', 'image')) {
                 $feedback->image = $path;
             }
@@ -60,7 +60,7 @@ class FeedbackController extends Controller
     public function edit($id)
     {
         $feedback = Feedback::find($id);
-        return view('admin.feedbacks.edit', compact('feedback'));
+        return view('cms.feedbacks.edit', compact('feedback'));
     }
 
     public function update(Request $request, $id)
@@ -78,7 +78,7 @@ class FeedbackController extends Controller
             // $feedback->company = $request->company;
             $feedback->content = $request->content;
             $feedback->index = $request->index;
-            
+
             if (request()->hasFile('image') && $path = upload_image2('image', 'image')) {
                 $feedback->image = $path;
             }

@@ -13,25 +13,25 @@ class SettingController extends Controller
     {
         switch ($type) {
             case 'service':
-                return view('admin.settings.dichvu', compact('type'));
+                return view('cms.settings.dichvu', compact('type'));
                 break;
             case 'recruitment':
-                return view('admin.settings.tuyendung', compact('type'));
+                return view('cms.settings.tuyendung', compact('type'));
                 break;
             case 'about':
-                return view('admin.settings.gioithieu', compact('type'));
+                return view('cms.settings.gioithieu', compact('type'));
                 break;
             case 'hr':
-                return view('admin.settings.nhansu', compact('type'));
+                return view('cms.settings.nhansu', compact('type'));
                 break;
             case 'post':
-                return view('admin.settings.tintuc', compact('type'));
+                return view('cms.settings.tintuc', compact('type'));
                 break;
             default:
                 $settings = Setting::all();
-                return view('admin.settings.trangchu', compact('type'));
+                return view('cms.settings.trangchu', compact('type'));
         }
-        // return view('admin.settings.index', compact('type'));
+        // return view('cms.settings.index', compact('type'));
     }
 
     // Hiển thị form tạo setting mới
@@ -93,6 +93,10 @@ class SettingController extends Controller
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.FACEBOOK'), $request->FACEBOOK);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.TIME_WORKING'), $request->TIME_WORKING);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.GOOGLE_MAP'), $request->GOOGLE_MAP);
+                    Setting::set(config('constants.SETTING_TYPE_COMMON'), 'vanphong', $request->VANPHONG);
+                    Setting::set(config('constants.SETTING_TYPE_COMMON'), 'diachivanphong', $request->DIACHIVANPHONG);
+                    Setting::set(config('constants.SETTING_TYPE_COMMON'), 'emailvanphong', $request->EMAILVANPHONG);
+                    Setting::set(config('constants.SETTING_TYPE_COMMON'), 'tghdvanphong', $request->TGHDVANPHONG);
 
                     Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.ABOUT_TITLE'), $request->ABOUT_TITLE);
                     Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.ABOUT_DESC'), $request->ABOUT_DESC);
@@ -227,7 +231,7 @@ class SettingController extends Controller
                         Setting::set('post', 'banner_mobile', $path);
                     }
                     break;
-                    // default: return view('admin.settings.trangchu', compact('type'));
+                    // default: return view('cms.settings.trangchu', compact('type'));
             }
 
             DB::commit();

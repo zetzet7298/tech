@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+    <title>Tuyển Dụng Việc Làm Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+@endsection
     @php
         $settings = \App\Models\Setting::getByType('recruitment');
         $title = $settings['title']['value'];
@@ -36,7 +39,7 @@
     </div>
     <div class="center-layout-2">
         @foreach($items as $item)
-        <div class="team-box-1">
+        <div class="team-box-1" style="margin-bottom:70px;">
             <div class="team-box-1__image img h-fadeOutLeft">
                 <img width="401" height="511"
                     src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20401%20511'%3E%3C/svg%3E"

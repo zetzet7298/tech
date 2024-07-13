@@ -30,7 +30,7 @@
 
                     <!--begin::Col-->
                     <div class="col-lg-10 fv-row">
-                        <input type="text" name="company" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="{{ old('company', $setting->company ?? '') }}"/>
+                        <input type="text" name="company" class="form-control mycustom" placeholder="Company name" value="{{ old('company', $setting->company ?? '') }}"/>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -38,14 +38,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tiêu đề tuyển dụng') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tiêu đề tuyển dụng') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value=""></textarea>
+                                <textarea required rows="2" type="text" name="title" class="form-control mycustom" placeholder=""
+                                    value=""></textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -53,14 +52,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tên tuyển dụng') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Tên tuyển dụng') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="name" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value=""></textarea>
+                                <textarea required rows="2" type="text" name="name" class="form-control mycustom" placeholder=""
+                                    value=""></textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -68,14 +66,13 @@
                         <!--begin::Input group-->
                         <div class="row mb-6">
                             <!--begin::Label-->
-                            <label
-                                class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Mô tả') }}</label>
+                            <label class="col-lg-2 col-form-label fw-bold fs-6">{{ __('Mô tả') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="10" type="text" name="desc"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value=""></textarea>
+                                <textarea required rows="10" type="text" name="desc" class="form-control mycustom" placeholder=""
+                                    value=""></textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -90,7 +87,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <input required type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="1"/>
+                                    class="form-control mycustom" placeholder="" value="1"/>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -102,7 +99,7 @@
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
-                            @include('partials.general._button-indicator', ['label' => __('Save Changes')])
+                            @include('partials.general._button-indicator', ['label' => __('Xác nhận')])
                         </button>
                     </div>
                     <!--end::Actions-->

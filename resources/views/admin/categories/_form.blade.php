@@ -7,7 +7,7 @@
                 aria-controls="kt_account_profile_details">
                 <!--begin::Card title-->
                 <div class="card-title m-0">
-                    <h3 class="fw-bolder m-0">{{$action == 'create'? 'Tạo' : 'Sửa'}} {{$itemName}}</h3>
+                    <h3 class="fw-bolder m-0">{{ $action == 'create' ? 'Tạo' : 'Sửa' }} {{ $itemName }}</h3>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -17,14 +17,12 @@
             <div id="kt_account_profile_details" class="collapse show">
                 <!--begin::Form-->
                 <form id="kt_account_profile_details_form" class="form" method="POST"
-                    @if(isset($item))
-                    action="{{ route('categories.update', ['category' => $item->id]) }}"
+                    @if (isset($item)) action="{{ route('categories.update', ['category' => $item->id]) }}"
                     @else
-                    action="{{ route('categories.store') }}"
-                    @endif
+                    action="{{ route('categories.store') }}" @endif
                     enctype="multipart/form-data">
                     @csrf
-                    @method(isset($item) ? 'PUT': 'POST')
+                    @method(isset($item) ? 'PUT' : 'POST')
                     <!--begin::Card body-->
                     <div class="card-body border-top p-9">
                         <!--begin::Input group-->
@@ -35,8 +33,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="name" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ isset($item) ? $item->name : '' }}</textarea>
+                                <textarea required rows="2" type="text" name="name" class="form-control mycustom" placeholder=""
+                                    value="">{{ isset($item) ? $item->name : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -49,10 +47,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <input required type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder=""
-                                    value="{{ isset($item) ? $item->index : 1}}" 
-                                    />
+                                <input required type="number" name="index" class="form-control mycustom"
+                                    placeholder="" value="{{ isset($item) ? $item->index : 1 }}" />
                             </div>
                             <!--end::Col-->
                         </div>

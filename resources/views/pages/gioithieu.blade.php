@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+    <title>Giới Thiệu Về Chúng Tôi | {{ $companyNameValue }}</title>
+@endsection
     @php
         $settings = \App\Models\Setting::getByType('about');
         $banner = $settings['banner']['value'];

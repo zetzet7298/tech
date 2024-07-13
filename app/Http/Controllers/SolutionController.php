@@ -11,13 +11,13 @@ class SolutionController extends Controller
     //
     public function index()
     {
-        $solutions = Solution::all();
-        return view('admin.solutions.index', compact('solutions'));
+        $solutions = Solution::orderBy('updated_at', 'desc')->get();
+        return view('cms.solutions.index', compact('solutions'));
     }
 
     public function create()
     {
-        return view('admin.solutions.create');
+        return view('cms.solutions.create');
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class SolutionController extends Controller
             $content->title = $request->title;
             // $content->name = $request->name;
             $content->description = $request->description;
-            if (request()->hasFile('image') && $path = upload_image2('image', 'image')) {
+            if (request()->hasFile('image') && $path = upload_image3(generateSlug($request->title), 'solution', 'image')) {
                 $content->image = $path;
             }
             $content->index = $request->index;
@@ -49,7 +49,7 @@ class SolutionController extends Controller
     public function edit($id)
     {
         $solution = Solution::findOrFail($id);
-        return view('admin.solutions.edit', compact('solution'));
+        return view('cms.solutions.edit', compact('solution'));
     }
 
     public function update(Request $request, $id)
@@ -61,7 +61,7 @@ class SolutionController extends Controller
             $content->title = $request->title;
             // $content->name = $request->name;
             $content->description = $request->description;
-            if (request()->hasFile('image') && $path = upload_image2('image', 'image')) {
+            if (request()->hasFile('image') && $path = upload_image3(generateSlug($request->title), 'solution', 'image')) {
                 $content->image = $path;
             }
             $content->index = $request->index;

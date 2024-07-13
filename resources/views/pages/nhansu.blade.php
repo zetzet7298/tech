@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+    <title>Nhân Sự Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+@endsection
     @php
         $settings = \App\Models\Setting::getByType('hr');
         $banner = $settings['banner']['value'];
@@ -37,7 +40,7 @@
     </div>
     <div class="center-layout-2">
         @foreach($items as $item)
-        <div class="team-box-1">
+        <div class="team-box-1" style="margin-bottom:70px;">
             <div class="team-box-1__image img h-fadeOutLeft">
                 <img width="401" height="511"
                     src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20401%20511'%3E%3C/svg%3E"
@@ -55,15 +58,15 @@
                 </div>
                 <div class="d-flex justify-content-start team-box-1__view h-fadeOutDown">
                     @php $item->avatar=display_image($item->photo) @endphp
-                    <a data-fancybox data-src="#contact-modal" class="effect-link hbtn" id="openModalBtn" data-employee="{{ $item }}"><span>Xem chi tiết</span></a>
-                    {{-- <a href="javascript:;" onclick="scrollToElement('team-box-3')" class="effect-link hbtn">
+                    {{-- <a data-fancybox data-src="#contact-modal" class="effect-link hbtn" id="openModalBtn" data-employee="{{ $item }}"><span>Xem chi tiết</span></a> --}}
+                    <a href="{{route('nhansu.detail', ['id' => $item->id])}}" target="_blank" class="effect-link hbtn">
                         <span>Xem chi tiết</span>
-                    </a> --}}
+                    </a>
                 </div>
             </div>
         </div>
         @endforeach
-        <div id="contact-modal" class="h-fancybox" style="width: 100%">
+        {{-- <div id="contact-modal" class="h-fancybox" style="width: 100%">
             <div class="h-fancybox__header">Thông tin nhân sự</div>
             <div class="h-fancybox__body">
 
@@ -83,7 +86,7 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 
@@ -92,7 +95,7 @@
     @section('scripts')
         {{-- <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script>
         <script src="{{ asset('assets/js/nhansu.js') }}" data-minify="1" defer></script> --}}
-        <script>
+        {{-- <script>
             document.addEventListener('DOMContentLoaded', function() {
     var modal = document.getElementById("contact-modal");
     var btn = document.getElementById("openModalBtn");
@@ -123,6 +126,6 @@
     }
 });
 
-        </script>
+        </script> --}}
     @endsection
 </x-base-layout>

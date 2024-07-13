@@ -31,7 +31,7 @@
 
                     <!--begin::Col-->
                     <div class="col-lg-10 fv-row">
-                        <input type="text" name="company" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="{{ old('company', $setting->company ?? '') }}"/>
+                        <input type="text" name="company" class="form-control mycustom" placeholder="Company name" value="{{ old('company', $setting->company ?? '') }}"/>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -102,8 +102,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ $solution->title }}</textarea>
+                                <textarea required rows="2" type="text" name="title" class="form-control mycustom" placeholder=""
+                                    value="">{{ $solution->title }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -116,8 +116,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="10" type="text" name="description"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ $solution->description }}</textarea>
+                                <textarea required rows="10" type="text" name="description" class="form-control mycustom" placeholder=""
+                                    value="">{{ $solution->description }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -130,9 +130,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <input required type="number" name="index"
-                                    class="form-control form-control-lg form-control-solid" placeholder=""
-                                    value="{{ $solution->index }}" />
+                                <input required type="number" name="index" class="form-control mycustom"
+                                    placeholder="" value="{{ $solution->index }}" />
                             </div>
                             <!--end::Col-->
                         </div>
@@ -144,7 +143,7 @@
                     <div class="card-footer d-flex justify-content-end py-6 px-9">
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
-                            @include('partials.general._button-indicator', ['label' => __('Save Changes')])
+                            @include('partials.general._button-indicator', ['label' => __('Xác nhận')])
                         </button>
                     </div>
                     <!--end::Actions-->

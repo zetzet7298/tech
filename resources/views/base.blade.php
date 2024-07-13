@@ -7,7 +7,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+    {{-- <title>Dịch Vụ Tư Vấn Pháp Luật</title> --}}
+    @yield('title')
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -21,17 +22,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-    
+    @if (Route::currentRouteName() != 'tintuc.detail')
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
+        
+    @endif
     <meta name="description"
-        content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
+        content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
     <link rel="canonical" href="{{route('trangchu')}}" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
+    <meta property="og:title" content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta property="og:description"
-        content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
+        content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta property="og:url" content="{{route('trangchu')}}" />
     <meta property="og:site_name" content="Tech" />
     <meta property="og:updated_time" content="2022-09-15T13:33:24+07:00" />
@@ -42,9 +45,9 @@
     <meta property="article:published_time" content="2022-04-04T10:39:28+07:00" />
     <meta property="article:modified_time" content="2022-09-15T13:33:24+07:00" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
+    <meta name="twitter:title" content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta name="twitter:description"
-        content="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}" />
+        content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta name="twitter:site" content="@seoadmin" />
     <meta name="twitter:creator" content="@seoadmin" />
     <meta name="twitter:label1" content="Written by" />

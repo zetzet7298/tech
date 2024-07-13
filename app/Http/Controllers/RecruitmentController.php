@@ -11,13 +11,13 @@ class RecruitmentController extends Controller
     //
     public function index()
     {
-        $recruitments = Recruitment::all();
-        return view('admin.recruitments.index', compact('recruitments'));
+        $recruitments = Recruitment::orderBy('updated_at', 'desc')->get();
+        return view('cms.recruitments.index', compact('recruitments'));
     }
 
     public function create()
     {
-        return view('admin.recruitments.create');
+        return view('cms.recruitments.create');
     }
 
     public function store(Request $request)
@@ -45,8 +45,8 @@ class RecruitmentController extends Controller
 
     public function edit($id)
     {
-        $Recruitment = Recruitment::findOrFail($id);
-        return view('admin.recruitments.edit', compact('Recruitment'));
+        $recruitment = Recruitment::findOrFail($id);
+        return view('cms.recruitments.edit', compact('recruitment'));
     }
 
     public function update(Request $request, $id)

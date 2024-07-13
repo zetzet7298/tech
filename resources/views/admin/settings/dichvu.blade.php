@@ -170,8 +170,7 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="3" type="text" name="title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('title', $title ?? '') }}</textarea>
+                                <textarea rows="3" type="text" name="title" class="form-control mycustom" placeholder="" value="">{{ old('title', $title ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -184,8 +183,7 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="description" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('description', $description ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="description" class="form-control mycustom" placeholder="" value="">{{ old('description', $description ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -198,8 +196,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('giatri_title', $giatri_title ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_title" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_title', $giatri_title ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -212,8 +210,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_description"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('giatri_description', $giatri_description ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_description" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_description', $giatri_description ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -226,8 +224,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_1" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('giatri_item_1', $giatri_item_1 ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_1" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_1', $giatri_item_1 ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -240,8 +238,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_1_val"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('giatri_item_1_val', $giatri_item_1_val ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_1_val" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_1_val', $giatri_item_1_val ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -254,8 +252,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_2" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('giatri_item_2', $giatri_item_2 ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_2" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_2', $giatri_item_2 ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -268,8 +266,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_2_val"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('giatri_item_2_val', $giatri_item_2_val ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_2_val" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_2_val', $giatri_item_2_val ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -282,8 +280,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_3" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('giatri_item_3', $giatri_item_3 ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_3" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_3', $giatri_item_3 ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -296,8 +294,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_3_val"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('giatri_item_3_val', $giatri_item_3_val ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_3_val" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_3_val', $giatri_item_3_val ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -310,8 +308,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_4" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('giatri_item_4', $giatri_item_4 ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_4" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_4', $giatri_item_4 ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -324,8 +322,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="giatri_item_4_val"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('giatri_item_4_val', $giatri_item_4_val ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="giatri_item_4_val" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('giatri_item_4_val', $giatri_item_4_val ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -397,8 +395,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="3" type="text" name="nangtam_title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('nangtam_title', $nangtam_title ?? '') }}</textarea>
+                                <textarea rows="3" type="text" name="nangtam_title" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('nangtam_title', $nangtam_title ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -411,7 +409,7 @@
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
 
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
-                            @include('partials.general._button-indicator', ['label' => __('Save Changes')])
+                            @include('partials.general._button-indicator', ['label' => __('Xác nhận')])
                         </button>
                     </div>
                     <!--end::Actions-->

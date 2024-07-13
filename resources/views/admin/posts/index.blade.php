@@ -36,11 +36,12 @@
                             </div>
                         </th> --}}
                         <th class="min-w-50px">Id</th>
-                        <th class="min-w-50px">Ảnh thumbnail</th>
+                        <th class="w-200px">Tiêu đề</th>
+                        <th class="min-w-100px">Ảnh thumbnail</th>
+                        <th class="min-w-75px">Lượt xem</th>
+                        <th class="min-w-150px">Tác giả</th>
                         <th class="min-w-75px">Danh mục</th>
-                        <th class="min-w-150px">Tiêu đề</th>
-                        <th class="min-w-250px">Mô tả</th>
-                        <th class="min-w-100px text-end">Actions</th>
+                        <th class="min-w-150px text-end">Actions</th>
                     </tr>
                 </thead>
                 <!--end::Table head-->
@@ -60,12 +61,36 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex justify-content-start flex-column">
-                                        <div class="symbol symbol-75px me-5">
+                                        <a href="#"
+                                            class="text-dark fw-bolder text-hover-primary fs-6">{{limitString($row->title, 75)}}</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex justify-content-start flex-column">
+                                        <div class="symbol symbol-50px me-5">
                                             <img src="{{ display_image($row->thumbnail) }}" class="" alt="">
                                         </div>
                                     </div>
                                 </div>
                             </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex justify-content-start flex-column">
+                                        <a href="#"
+                                            class="text-dark fw-bolder text-hover-primary fs-6">{{$row->view_count}}</a>
+                                    </div>
+                                </div>
+                            </td>
+                            {{-- <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="d-flex justify-content-start flex-column">
+                                        <a href="#"
+                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ limitString($row->summary, 100) }}</a>
+                                    </div>
+                                </div>
+                            </td> --}}
                             <td>
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex justify-content-start flex-column">
@@ -78,24 +103,16 @@
                                 <div class="d-flex align-items-center">
                                     <div class="d-flex justify-content-start flex-column">
                                         <a href="#"
-                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ $row->title }}</a>
+                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ $row->category->name }}</a>
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <div class="d-flex justify-content-start flex-column">
-                                        <a href="#"
-                                            class="text-dark fw-bolder text-hover-primary fs-6">{{ limitString($row->summary, 100) }}</a>
-                                    </div>
-                                </div>
-                            </td>
-
                             <td class="text-end">
                                 {{-- <a href="#"
                                     class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                     {!! theme()->getSvgIcon('icons/duotune/general/gen019.svg', 'svg-icon-3') !!}
                                 </a> --}}
+                                <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}" class="me-3"><span class="badge badge-success">Xem</span></a>
 
                                 <a href="{{route('posts.edit', ['post' => $row->id])}}"
                                     class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">

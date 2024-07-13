@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+        <title>{{$item->name}} | {{ $companyNameValue }}</title>
+    @endsection
     @section('styles')
         {{-- <style>
         .right-post-content {
@@ -48,12 +51,10 @@
                     <div class="blog-items-1-line-first">
                         <a href="{{ route('tintuc.detail', ['slug' => $items[0]->slug]) }}"
                             class="img blog-items__image">
-                            <img width="640" height="360"
-                            alt="{{ $items[0]->title }}"
+                            <img width="640" height="360" alt="{{ $items[0]->title }}"
                                 src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%3E%3C/svg%3E"
                                 data-lazy-src="{{ display_image($items[0]->thumbnail) }}"><noscript>
-                                <img width="640" height="360"
-                                alt="{{ $items[0]->title }}"
+                                <img width="640" height="360" alt="{{ $items[0]->title }}"
                                     src="{{ display_image($items[0]->thumbnail) }}"></noscript>
                         </a>
                         <h4 class="blog-items__name">
@@ -71,27 +72,28 @@
                     </div>
                 @endif
                 <ul class="post-related">
-                  @for ($i = 1; $i < count($items); $i++)
-                    <li>
-                        <a class="img post-related__image" href="{{ route('tintuc.detail', ['slug' => $items[$i]->slug]) }}">
-                            <img width="640" height="360"
-                                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%3E%3C/svg%3E"
-                                data-lazy-src="{{ display_image($items[$i]->thumbnail) }}"><noscript><img
-                                  alt="{{ $items[$i]->title }}"
-                                    width="640" height="360"
-                                    src="{{ display_image($items[$i]->thumbnail) }}"></noscript>
-                        </a>
-                        <div class="post-related__info">
-                            <a class="post-related__name" href="{{ route('tintuc.detail', ['slug' => $items[$i]->slug]) }}"
-                                title="{{ $items[$i]->title }}">{{ $items[$i]->title }}</a>
-                            <div class="post-related__date"><svg width="10" fill="currentColor"
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path
-                                        d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" />
-                                </svg> {{ formatDate($items[$i]->created_at) }}</div>
-                        </div>
+                    @for ($i = 1; $i < count($items); $i++)
+                        <li>
+                            <a class="img post-related__image"
+                                href="{{ route('tintuc.detail', ['slug' => $items[$i]->slug]) }}">
+                                <img width="640" height="360"
+                                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20640%20360'%3E%3C/svg%3E"
+                                    data-lazy-src="{{ display_image($items[$i]->thumbnail) }}"><noscript><img
+                                        alt="{{ $items[$i]->title }}" width="640" height="360"
+                                        src="{{ display_image($items[$i]->thumbnail) }}"></noscript>
+                            </a>
+                            <div class="post-related__info">
+                                <a class="post-related__name"
+                                    href="{{ route('tintuc.detail', ['slug' => $items[$i]->slug]) }}"
+                                    title="{{ $items[$i]->title }}">{{ $items[$i]->title }}</a>
+                                <div class="post-related__date"><svg width="10" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                        <path
+                                            d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z" />
+                                    </svg> {{ formatDate($items[$i]->created_at) }}</div>
+                            </div>
 
-                    </li>
+                        </li>
                     @endfor
                 </ul>
             </div>
@@ -100,11 +102,12 @@
         <div class="center-layout-2">
             <div class="post-detail__sub-title">Danh mục</div>
             <div class="mt-text-center">
-              @foreach ($categories as $category)
-                <div class="mt-text-center--item"><a href="{{route('tintuc.category', ['slug' => $category->slug])}}">{{$category->name}}</a>
-                </div>
+                @foreach ($categories as $category)
+                    <div class="mt-text-center--item"><a
+                            href="{{ route('tintuc.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
+                    </div>
                 @endforeach
-                
+
             </div>
         </div>
 
@@ -189,7 +192,8 @@
                             <div class="">
                                 @foreach ($categories as $category)
                                     <div class="mt-text-center--item-desktop">
-                                        <a href="{{route('tintuc.category', ['slug' => $category->slug])}}">{{ $category->name }}</a>
+                                        <a
+                                            href="{{ route('tintuc.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
                                     </div>
                                 @endforeach
                             </div>

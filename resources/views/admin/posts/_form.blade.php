@@ -107,8 +107,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ isset($item) ? $item->title : '' }}</textarea>
+                                <textarea required rows="2" type="text" name="title" class="form-control mycustom" placeholder=""
+                                    value="">{{ isset($item) ? $item->title : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -121,8 +121,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="summary" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ isset($item) ? $item->summary : '' }}</textarea>
+                                <textarea id="kt_docs_ckeditor_classic" required rows="2" type="text" name="summary"
+                                    class="form-control mycustom" placeholder="" value="">{{ isset($item) ? $item->summary : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -171,13 +171,24 @@
                 plugins: [
                     'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
                     'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                    'insertdatetime', 'media', 'table', 'wordcount'
+                    'insertdatetime', 'media', 'table', 'tableofcontents', 'wordcount'
                 ],
-                language: 'vi',
-                toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                toolbar: 'tableofcontents | undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
                 content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                 license_key: 'gpl'
             });
+        </script>
+        <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#kt_docs_ckeditor_classic'))
+                .then(editor => {
+                    console.log(editor);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         </script>
         {{-- <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
 

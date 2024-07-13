@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 // Include auth routes
-require __DIR__ . '/auth.php';
+// require __DIR__ . '/auth.php';
+require __DIR__ . '/cms.php';
+
 // Route::group(['middleware' => 'count.visitors.by.ip'], function () {
 Route::get('/', [PageController::class, 'index'])->name('trangchu')->middleware('cache.response');
 Route::get('/gioi-thieu', [PageController::class, 'gioithieu'])->name('gioithieu');
@@ -25,6 +27,8 @@ Route::get('/tuyen-dung', [PageController::class, 'tuyendung'])->name('tuyendung
 Route::get('/dich-vu', [PageController::class, 'dichvu'])->name('dichvu');
 Route::get('/tin-tuc', [PageController::class, 'tintuc'])->name('tintuc');
 Route::get('/nhan-su', [PageController::class, 'nhansu'])->name('nhansu');
+Route::get('/nhan-su/{id}', [PageController::class, 'nhansuDetail'])->name('nhansu.detail');
+Route::get('/nhan-su/frame/{id}', [PageController::class, 'nhansuDetailFrame'])->name('nhansu.frame');
 Route::get('/lien-he', [PageController::class, 'lienhe'])->name('lienhe');
 Route::post('/contact', [ContactController::class, 'frontendStore'])->middleware('throttle:5,1')->name('contact.fe.store');
 Route::get('/tin-tuc/{slug}', [PageController::class, 'postDetail'])->name('tintuc.detail');

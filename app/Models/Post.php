@@ -18,4 +18,9 @@ class Post extends Model
     public function scopeActive($q) {
         return $q->where('active', true);
     }
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }

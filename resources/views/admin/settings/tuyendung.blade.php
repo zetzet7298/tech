@@ -216,8 +216,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="3" type="text" name="title" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('title', $title ?? '') }}</textarea>
+                                <textarea rows="3" type="text" name="title" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('title', $title ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -230,8 +230,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="description" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('description', $description ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="description" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('description', $description ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -244,7 +244,7 @@
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
 
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
-                            @include('partials.general._button-indicator', ['label' => __('Save Changes')])
+                            @include('partials.general._button-indicator', ['label' => __('Xác nhận')])
                         </button>
                     </div>
                     <!--end::Actions-->

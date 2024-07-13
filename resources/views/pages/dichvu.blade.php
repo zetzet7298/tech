@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+        <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+    @endsection
     @php
         $settings = \App\Models\Setting::getByType('service');
         $title = $settings['title']['value'];
@@ -24,28 +27,27 @@
     <div class="overflow-x-hidden">
         <div class="hero">
             <div class="center-layout">
-                <div class="design-banner-contain">
-                    <div class="himg banner--desktop">
-                        <img width="1230" height="540"
-                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201230%20540'%3E%3C/svg%3E"
-                            alt="Banner tuyển dụng" data-lazy-src="{{ display_image($banner) }}"><noscript><img
-                                width="1230" height="540" src="{{ display_image($banner) }}"
-                                alt="Banner tuyển dụng"></noscript>
-                    </div>
-                    <div class="himg banner--mobile">
-                        <img width="750" height="1400" class="" data-aos="fade-up" data-aos-duration="1000"
-                            data-aos-once="true" data-aos-delay="0"
-                            src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20750%201400'%3E%3C/svg%3E"
-                            alt="banner" data-lazy-src="{{ display_image($banner_mobile) }}"><noscript><img width="750"
-                                height="1400" class="" data-aos="fade-up" data-aos-duration="1000"
-                                data-aos-once="true" data-aos-delay="0" src="{{ display_image($banner_mobile) }}"
-                                alt="banner"></noscript>
-                    </div>
-                    <div class="design-banner-info">
-                        <div class="design-banner-title" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
-                            data-aos-delay="400">{{ $title }}</div>
-                        <div class="design-banner-description" data-aos="fade-up" data-aos-duration="600"
-                            data-aos-once="true" data-aos-delay="500">{{ $description }}
+                <div class="center-layout">
+                    <div class="design-banner-contain">
+                        <div class="himg banner--desktop">
+                            <img width="1230" height="540"
+                                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201230%20540'%3E%3C/svg%3E"
+                                alt="Banner dịch vụ" data-lazy-src="{{ display_image($banner) }}"><noscript><img
+                                    width="1230" height="540" src="{{ display_image($banner) }}"
+                                    alt="Banner dịch vụ"></noscript>
+                        </div>
+                        <div class="himg banner--mobile">
+                            <img width="375" height="637" class="aos-init aos-animate entered lazyloaded"
+                                data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="0"
+                                src="{{ display_image($banner_mobile) }}" alt="banner"
+                                data-lazy-src="{{ display_image($banner_mobile) }}"
+                                data-ll-status="loaded"><noscript><img width="375" height="637" class=""
+                                    data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="0"
+                                    src="{{ display_image($banner_mobile) }}" alt="banner"></noscript>
+                        </div>
+                        <div class="design-banner-info">
+                            <div class="design-banner-title">{{ $title }}</div>
+                            <div class="design-banner-description">{{ $description }}</div>
                         </div>
                     </div>
                 </div>
@@ -72,9 +74,10 @@
                                         src="{{ display_image($item->thumbnail) }}"></noscript>
                             </div>
                             <div class="text-3xl uppercase my-4 relative">{{ $item->title }}</div>
-                            <div class="relative">{{ $item->summary }}</div>
+                            <div class="relative">{!! $item->summary !!}</div>
                             <div class="absolute left-8 bottom-8 flex mt-4">
-                                <a href="{{ route('tintuc.detail', ['slug' => $item->slug]) }}" class="hbtn"><span>Xem chi
+                                <a href="{{ route('tintuc.detail', ['slug' => $item->slug]) }}"
+                                    class="hbtn"><span>Xem chi
                                         tiết</span></a>
                             </div>
                         </div>

@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+    <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+@endsection
     @php
         $settings = \App\Models\Setting::getByType('project');
         $title = $settings['title']['value'];

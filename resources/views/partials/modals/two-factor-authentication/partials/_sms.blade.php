@@ -16,7 +16,8 @@
     <form data-kt-element="sms-form" class="form" action="#">
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
-            <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Mobile number with country code..." name="mobile"/>
+            <input type="text" class="form-control mycustom" placeholder="Mobile number with country code..."
+                name="mobile" />
         </div>
         <!--end::Input group-->
 

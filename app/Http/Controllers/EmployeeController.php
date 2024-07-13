@@ -14,15 +14,15 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $q = Employee::orderBy('updated_at', 'desc');
-        if($request->key){
+        if ($request->key) {
             $q->where('title', 'like', "%{$request->key}%");
         }
-        if($request->specialty_id){
+        if ($request->specialty_id) {
             $q->where('specialty_id', "{$request->specialty_id}");
         }
         $employees = $q->active()->paginate(10);
         $specialties = Specialty::active()->get();
-        return view('admin.employees.index', compact('employees', 'specialties', 'request'));
+        return view('cms.employees.index', compact('employees', 'specialties', 'request'));
     }
 
     public function create()
@@ -30,7 +30,7 @@ class EmployeeController extends Controller
         $action = 'create';
         $itemName = 'nhân sự';
         $specialties = Specialty::active()->get();
-        return view('admin.employees._form', compact('action', 'itemName', 'specialties'));
+        return view('cms.employees._form', compact('action', 'itemName', 'specialties'));
     }
 
     public function store(Request $request)
@@ -74,7 +74,7 @@ class EmployeeController extends Controller
         $action = 'edit';
         $itemName = 'nhân sự';
         $specialties = Specialty::active()->get();
-        return view('admin.employees._form', compact('item', 'action', 'itemName', 'specialties'));
+        return view('cms.employees._form', compact('item', 'action', 'itemName', 'specialties'));
     }
 
     public function update(Request $request, $id)
@@ -117,11 +117,10 @@ class EmployeeController extends Controller
 
         return redirect()->route('employees.index')->with('success', 'Đã xóa nhân sự');
     }
-    
+
     public function show($id)
     {
         $employee = Employee::active()->with('specialties')->findOrFail($id);
-        return view('admin.employees.show', compact('employee'));
-        
+        return view('cms.employees.show', compact('employee'));
     }
 }

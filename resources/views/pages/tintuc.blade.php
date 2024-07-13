@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+    <title>Tin tức | {{ $companyNameValue }}</title>
+@endsection
     @section('styles')
         {{-- <style>
         .right-post-content {

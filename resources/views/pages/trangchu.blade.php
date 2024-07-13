@@ -1,4 +1,7 @@
 <x-base-layout>
+    @section('title')
+    <title>Dịch Vụ Tư Vấn Pháp Luật | {{$companyNameValue}}</title>
+    @endsection
     @php
         $settings = \App\Models\Setting::getByType(config('constants.SETTING_TYPE_DASHBOARD'));
         $ABOUT_TITLE = $settings[config('constants.ABOUT_TITLE')]['value'];
@@ -13,36 +16,32 @@
         $solutions = \App\Models\Solution::orderBy('index', 'asc')->get();
     @endphp
     <div class="overflow-x-hidden">
-        <h1 class="d-none">Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</h1>
+        <h1 class="d-none">Dịch Vụ Tư Vấn Pháp Luật</h1>
         <div class="slider">
             <div class="center-layout">
                 <div class="slider-items">
                     <div class="slider-items__background"></div>
                     <div class="slider-items__text">Xin chào!</div>
                     <img width="262" height="450" class="slider-items__layer slider-items__layer--1"
-                        src="{{ display_image($SLIDER_1) }}" alt="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}"
+                        src="{{ display_image($SLIDER_1) }}" alt="Dịch Vụ Tư Vấn Pháp Luật"
                         data-lazy-src="{{ display_image($SLIDER_1) }}"><noscript>
                         <img width="262" height="450" class="slider-items__layer slider-items__layer--1"
-                            src="{{ display_image($SLIDER_1) }}"
-                            alt="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}"></noscript>
+                            src="{{ display_image($SLIDER_1) }}" alt="Dịch Vụ Tư Vấn Pháp Luật"></noscript>
                     <img width="778" height="599" class="slider-items__layer slider-items__layer--2"
                         style="width: 585px; height: 450px;" src="{{ display_image($SLIDER_2) }}"
-                        alt="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}"
-                        data-lazy-src="{{ display_image($SLIDER_2) }}"><noscript>
+                        alt="Dịch Vụ Tư Vấn Pháp Luật" data-lazy-src="{{ display_image($SLIDER_2) }}"><noscript>
                         <img width="778" height="599" class="slider-items__layer slider-items__layer--2"
-                            src="{{ display_image($SLIDER_2) }}"
-                            alt="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}"></noscript>
+                            src="{{ display_image($SLIDER_2) }}" alt="Dịch Vụ Tư Vấn Pháp Luật"></noscript>
                     <img width="542" height="255" class="slider-items__layer slider-items__layer--3"
-                        src="{{ display_image($SLIDER_3) }}" alt="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}"
+                        src="{{ display_image($SLIDER_3) }}" alt="Dịch Vụ Tư Vấn Pháp Luật"
                         data-lazy-src="{{ display_image($SLIDER_3) }}"><noscript>
                         <img width="542" height="255" class="slider-items__layer slider-items__layer--3"
-                            src="{{ display_image($SLIDER_3) }}"
-                            alt="Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}"></noscript>
+                            src="{{ display_image($SLIDER_3) }}" alt="Dịch Vụ Tư Vấn Pháp Luật"></noscript>
                 </div>
             </div>
         </div>
         <div class="about-us">
-            <div class="about-us__content">
+            <div class="about-us__content gs_reveal">
                 <div class="about-us__title gs_reveal">{{ $companyNameValue }}</div>
                 <h2 class="about-us__name gs_reveal">{{ $ABOUT_TITLE }}</h2>
                 <div class="about-us__desc gs_reveal">{{ $ABOUT_DESC }}</div>
@@ -50,38 +49,8 @@
                     <a href="gioi-thieu" class="hbtn gs_reveal"><span>Về chúng tôi</span></a>
                 </div>
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="about-us-node" xmlns:xlink="http://www.w3.org/1999/xlink"
-                width="26.256" height="26.1" viewBox="0 0 26.256 26.1">
-                <defs>
-                    <linearGradient id="a" x1="0.784" y1="-0.323" x2="0.509" y2="1.049"
-                        gradientUnits="objectBoundingBox">
-                        <stop offset="0" stop-color="#70efd1" />
-                        <stop offset="1" stop-color="#1bc1c1" />
-                    </linearGradient>
-                </defs>
-                <rect width="21.484" height="21.264" rx="6"
-                    transform="matrix(-0.966, -0.259, 0.259, -0.966, 20.752, 26.1)" fill="url(#a)" />
-            </svg>
-            <svg id="Layer_1" width="45" class="about-us-node2" data-name="Layer 1"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 51.28 51.17">
-                <defs>
-                    <style>
-                        .cls-21 {
-                            fill: url(#linear-gradient-99);
-                        }
-                    </style>
-                    <linearGradient id="linear-gradient-99" x1="-942.09" y1="590.88" x2="-942.37" y2="589.5"
-                        gradientTransform="matrix(-44.49, 0, 0, 44.26, -41886.84, -26088.02)"
-                        gradientUnits="userSpaceOnUse">
-                        <stop offset="0" stop-color="#70efd1" />
-                        <stop offset="1" stop-color="#1bc1c1" />
-                    </linearGradient>
-                </defs>
-                <title>Rectangle 18</title>
-                <rect id="Rectangle_18" data-name="Rectangle 18" class="cls-21" x="7.45" y="7.5" width="44.49"
-                    height="44.26" rx="15" transform="translate(-14.04 11.96) rotate(-25.98)" />
-            </svg>
         </div>
+
         <div class="website">
             <div class="website__left">
                 <div class="element-website__left gs_reveal gs_reveal_fromLeft"></div>
@@ -105,8 +74,8 @@
                                             <img width="1200" height="800"
                                                 src="{{ display_image($solutions[$i]->image) }}" alt=""
                                                 data-lazy-src="{{ display_image($solutions[$i]->image) }}"><noscript>
-                                                <img style="width: 470px; height: 313px" width="1200"
-                                                    height="800" src="{{ display_image($solutions[$i]->image) }}"
+                                                <img style="width: 470px; height: 313px" width="1200" height="800"
+                                                    src="{{ display_image($solutions[$i]->image) }}"
                                                     alt=""></noscript>
                                             <div class="website-items__info">
                                                 <div class="website-items__name">{{ $solutions[$i]->title }}</div>
@@ -118,8 +87,7 @@
                                         @if (isset($solutions[$i + 1]))
                                             <div class="website-items">
                                                 <img width="1200" height="800"
-                                                    src="{{ display_image($solutions[$i + 1]->image) }}"
-                                                    alt=""
+                                                    src="{{ display_image($solutions[$i + 1]->image) }}" alt=""
                                                     data-lazy-src="{{ display_image($solutions[$i + 1]->image) }}"><noscript><img
                                                         width="1200" height="800"
                                                         src="{{ display_image($solutions[$i + 1]->image) }}"
@@ -394,14 +362,16 @@
                 <div class="max-w-[610px] text-sm text-center mx-auto mt-0 mb-9 gs_reveal">Cập nhật liên tục các thông
                     tin, kiến thức và xu hướng mới nhất về website</div> --}}
                 <div class=" gs_reveal ">
-                    <div class="post__swiper1 swiper pb-12 ">
+                    <div class="post__swiper1 swiper pb-12">
                         <div class="swiper-wrapper">
                             @foreach ($items as $post)
                                 <div class="swiper-slide">
+                                    {{-- <div class="group bg-[#faf5f0] h-full p-8 rounded-2xl pb-24 relative overflow-hidden"></div> --}}
                                     <div class="font-secondary bg-[#efe9e3] rounded-2xl p-[0.813rem]">
                                         <a href="{{ route('tintuc.detail', ['slug' => $post->slug]) }}"
                                             target="_blank" rel="nofollow noopener" class="block">
                                             <img class="rounded-[0.375rem]" width="370" height="222"
+                                                style="height: 222px;"
                                                 src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20370%20222'%3E%3C/svg%3E"
                                                 data-lazy-srcset="{{ display_image($post->thumbnail) }}"
                                                 alt="{{ $post->title }}"
@@ -412,28 +382,21 @@
                                                     alt="{{ $post->title }}"></noscript>
                                         </a>
                                         <div class="px-[0.813rem] pb-4">
-                                            <div class="font-bold text-black opacity-50 text-[0.75rem] py-4">27/06/2024
+                                            <div class="font-bold text-black opacity-50 text-[0.75rem] py-4">
+                                                {{ $post->created_at }}
                                             </div>
                                             <h4 class="font-normal m-0">
                                                 <a class="block font-bold text-black text-[1.125rem] uppercase mb-4 h-[3.375rem] overflow-hidden no-underline"
                                                     href="{{ route('tintuc.detail', ['slug' => $post->slug]) }}"
-                                                    target="_blank" rel="nofollow noopener">Demographic Là Gì? Vai Trò
-                                                    Trong Marketing
-                                                    Và
-                                                    Ưu, Nhược Điểm</a>
+                                                    target="_blank" rel="nofollow noopener">{{ $post->title }}</a>
                                             </h4>
                                             <div
                                                 class="text-[0.875rem] font-normal text-black h-[5.25rem] overflow-hidden">
-                                                <p>Hiểu rõ về khách hàng là chìa khóa để xây dựng chiến lược bán hàng và
-                                                    chiến lược marketing thành công. Một trong những công cụ quan trọng
-                                                    nhất
-                                                    để đạt được điều này chính là phân tích demographic. Nhưng
-                                                    demographic
-                                                    là gì và làm sao để phân khúc khách hàng demographic? Hãy cùng Miko
-                                                    [&hellip;]</p>
+                                                <p>{!! $post->summary !!}</p>
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- </div> --}}
                                 </div>
                             @endforeach
                         </div>

@@ -10,7 +10,7 @@
         </h3>
 
         <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
-            title="Nhấp vào để thêm feedback">
+            title="Nhấp vào để tạo danh mục">
             <a href="{{ route('categories.create') }}" class="btn btn-sm btn-light-primary">
                 {!! theme()->getSvgIcon('icons/duotune/arrows/arr075.svg', 'svg-icon-3') !!}
                 Tạo danh mục

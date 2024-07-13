@@ -1,5 +1,8 @@
 <x-base-layout>
-    @php
+    @section('title')
+    <title>Liên Hệ {{ $companyNameValue }}</title>
+@endsection
+    {{-- @php
         $settings = \App\Models\Setting::getByType(config('constants.SETTING_TYPE_DASHBOARD'));
         $ABOUT_TITLE = $settings[config('constants.ABOUT_TITLE')]['value'];
         $ABOUT_DESC = $settings[config('constants.ABOUT_DESC')]['value'];
@@ -11,15 +14,15 @@
 
         $feedbacks = \App\Models\Feedback::orderBy('index', 'asc')->get();
         $solutions = \App\Models\Solution::orderBy('index', 'asc')->get();
-    @endphp
+    @endphp --}}
 
     <div class="hero">
         <div class="center-layout">
             <div class="design-banner-contain">
                 <img width="1230" height="540"
                     src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201230%20540'%3E%3C/svg%3E"
-                    alt="banner" data-lazy-src="{{ asset('image/COVER-LIENHE.webp') }}"><noscript><img width="1230"
-                        height="540" src="{{ asset('image/COVER-LIENHE.webp') }}" alt="banner"></noscript>
+                    alt="banner" data-lazy-src="{{ asset('image/COVER-LIEN-HE.webp') }}"><noscript><img width="1230"
+                        height="540" src="{{ asset('image/COVER-LIEN-HE.webp') }}" alt="banner"></noscript>
                 <div class="design-banner-info">
                     <div class="design-banner-title">Liên hệ</div>
                     <div class="design-banner-description">HÃY ĐỂ CHÚNG TÔI <br> KẾT NỐI VÀ ĐỒNG HÀNH <br> CÙNG BẠN!

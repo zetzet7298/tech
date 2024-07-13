@@ -17,27 +17,26 @@
 
         <!--begin::QR code image-->
         <div class="pt-5 text-center">
-            <img src="" alt="" class="mw-150px"/>
+            <img src="" alt="" class="mw-150px" />
         </div>
         <!--end::QR code image-->
     </div>
     <!--end::Description-->
 
-{{ theme()->getView(
-    'partials/general/_notice',
-    array(
-        'class' => "mb-10",
+    {{ theme()->getView('partials/general/_notice', [
+        'class' => 'mb-10',
         'color' => 'warning',
-        'body'  => 'If you having trouble using the QR code, select manual entry on your app, and enter your username and the code: <div class="fw-bolder text-dark pt-2">KBSS3QDAAFUMCBY63YCKI5WSSVACUMPN</div>',
-        'icon'  => "icons/duotune/general/gen044.svg"
-    )
-) }}
+        'body' =>
+            'If you having trouble using the QR code, select manual entry on your app, and enter your username and the code: <div class="fw-bolder text-dark pt-2">KBSS3QDAAFUMCBY63YCKI5WSSVACUMPN</div>',
+        'icon' => 'icons/duotune/general/gen044.svg',
+    ]) }}
 
-<!--begin::Form-->
+    <!--begin::Form-->
     <form data-kt-element="apps-form" class="form" action="#">
         <!--begin::Input group-->
         <div class="mb-10 fv-row">
-            <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Enter authentication code" name="code"/>
+            <input type="text" class="form-control mycustom" placeholder="Enter authentication code"
+                name="code" />
         </div>
         <!--end::Input group-->
 

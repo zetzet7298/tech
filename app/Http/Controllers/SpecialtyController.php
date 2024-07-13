@@ -12,15 +12,15 @@ class SpecialtyController extends Controller
     //
     public function index(Request $request)
     {
-        $specialties = Specialty::active()->paginate(15);
-        return view('admin.specialties.index', compact('specialties', 'request'));
+        $specialties = Specialty::active()->orderBy('updated_at', 'desc')->paginate(15);
+        return view('cms.specialties.index', compact('specialties', 'request'));
     }
 
     public function create()
     {
         $action = 'create';
         $itemName = 'chuyên ngành';
-        return view('admin.specialties._form', compact('action', 'itemName'));
+        return view('cms.specialties._form', compact('action', 'itemName'));
     }
 
     public function store(Request $request)
@@ -50,7 +50,7 @@ class SpecialtyController extends Controller
         $item = Specialty::active()->findOrFail($id);
         $action = 'edit';
         $itemName = 'chuyên ngành';
-        return view('admin.specialties._form', compact('item', 'action', 'itemName'));
+        return view('cms.specialties._form', compact('item', 'action', 'itemName'));
     }
 
     public function update(Request $request, $id)

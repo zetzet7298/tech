@@ -33,8 +33,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="1" type="text" name="first_name"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ isset($item) ? $item->first_name : '' }}</textarea>
+                                <textarea required rows="1" type="text" name="first_name" class="form-control mycustom" placeholder=""
+                                    value="">{{ isset($item) ? $item->first_name : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -130,8 +130,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="1" type="text" name="email" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ isset($item) ? $item->email : '' }}</textarea>
+                                <textarea required rows="1" type="text" name="email" class="form-control mycustom" placeholder=""
+                                    value="">{{ isset($item) ? $item->email : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -145,7 +145,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
                                 <input required rows="1" type="number" name="phone"
-                                    class="form-control form-control-lg form-control-solid" placeholder=""
+                                    class="form-control mycustom" placeholder=""
                                     value={{ isset($item) ? $item->phone : '' }}>
                             </div>
                             <!--end::Col-->
@@ -159,8 +159,7 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="introduction" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ isset($item) ? $item->introduction : '' }}</textarea>
+                                <textarea rows="5" type="text" name="introduction" class="form-control mycustom" placeholder="" value="">{{ isset($item) ? $item->introduction : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>

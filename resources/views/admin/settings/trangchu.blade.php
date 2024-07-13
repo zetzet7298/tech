@@ -44,7 +44,7 @@
 
                     <!--begin::Col-->
                     <div class="col-lg-10 fv-row">
-                        <input type="text" name="company" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="{{ old('company', $setting->company ?? '') }}"/>
+                        <input type="text" name="company" class="form-control mycustom" placeholder="Company name" value="{{ old('company', $setting->company ?? '') }}"/>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -291,8 +291,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="3" type="text" name="COMPANY_NAME" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('COMPANY_NAME', $companyNameValue ?? '') }}</textarea>
+                                <textarea rows="3" type="text" name="COMPANY_NAME" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('COMPANY_NAME', $companyNameValue ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -306,8 +306,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="3" type="text" name="ABOUT_TITLE" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('ABOUT_TITLE', $ABOUT_TITLE ?? '') }}</textarea>
+                                <textarea rows="3" type="text" name="ABOUT_TITLE" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('ABOUT_TITLE', $ABOUT_TITLE ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -320,8 +320,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="ABOUT_DESC" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('ABOUT_DESC', $ABOUT_DESC ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="ABOUT_DESC" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('ABOUT_DESC', $ABOUT_DESC ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -335,8 +335,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="3" type="text" name="SOLUTION_TITLE"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('SOLUTION_TITLE', $SOLUTION_TITLE ?? '') }}</textarea>
+                                <textarea rows="3" type="text" name="SOLUTION_TITLE" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('SOLUTION_TITLE', $SOLUTION_TITLE ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -349,8 +349,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="SOLUTION_DESCRIPTION"
-                                    class="form-control form-control-lg form-control-solid" placeholder="" value="">{{ old('SOLUTION_DESCRIPTION', $SOLUTION_DESCRIPTION ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="SOLUTION_DESCRIPTION" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('SOLUTION_DESCRIPTION', $SOLUTION_DESCRIPTION ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -363,8 +363,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="PHONE" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('PHONE', $PHONE ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="PHONE" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('PHONE', $PHONE ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -377,8 +377,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="ADDRESS" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('ADDRESS', $ADDRESS ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="ADDRESS" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('ADDRESS', $ADDRESS ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -391,8 +391,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="EMAIL" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('EMAIL', $EMAIL ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="EMAIL" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('EMAIL', $EMAIL ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -405,8 +405,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="MISSION" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('MISSION', $MISSION ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="MISSION" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('MISSION', $MISSION ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -419,8 +419,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="TIME_WORKING" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('TIME_WORKING', $TIME_WORKING ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="TIME_WORKING" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('TIME_WORKING', $TIME_WORKING ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -434,8 +434,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="DKKD" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('DKKD', $DKKD ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="DKKD" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('DKKD', $DKKD ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -448,8 +448,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="FACEBOOK" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('FACEBOOK', $FACEBOOK ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="FACEBOOK" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('FACEBOOK', $FACEBOOK ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -463,8 +463,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="ZALO" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('ZALO', $ZALO ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="ZALO" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('ZALO', $ZALO ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -478,8 +478,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="MESSENGER" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('MESSENGER', $MESSENGER ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="MESSENGER" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('MESSENGER', $MESSENGER ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -493,8 +493,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="PRICE_QUOTE" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('PRICE_QUOTE', $PRICE_QUOTE ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="PRICE_QUOTE" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('PRICE_QUOTE', $PRICE_QUOTE ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -507,8 +507,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea rows="5" type="text" name="GOOGLE_MAP" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ old('GOOGLE_MAP', $GOOGLE_MAP ?? '') }}</textarea>
+                                <textarea rows="5" type="text" name="GOOGLE_MAP" class="form-control mycustom" placeholder=""
+                                    value="">{{ old('GOOGLE_MAP', $GOOGLE_MAP ?? '') }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -522,7 +522,7 @@
                         {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
 
                         <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
-                            @include('partials.general._button-indicator', ['label' => __('Save Changes')])
+                            @include('partials.general._button-indicator', ['label' => __('Xác nhận')])
                         </button>
                     </div>
                     <!--end::Actions-->

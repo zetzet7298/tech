@@ -1,14 +1,15 @@
 <x-auth-layout>
 
     <!--begin::Signin Form-->
-    <form method="POST" action="{{ theme()->getPageUrl('login') }}" class="form w-100" novalidate="novalidate" id="kt_sign_in_form">
-    @csrf
+    <form method="POST" action="{{ theme()->getPageUrl('login') }}" class="form w-100" novalidate="novalidate"
+        id="kt_sign_in_form">
+        @csrf
 
-    <!--begin::Heading-->
+        <!--begin::Heading-->
         <div class="text-center mb-10">
             <!--begin::Title-->
             <h1 class="text-dark mb-3">
-                {{ __('Sign In to Metronic') }}
+                {{ __('Đăng nhập vào hệ thống') }}
             </h1>
             <!--end::Title-->
 
@@ -24,7 +25,10 @@
         </div>
         <!--begin::Heading-->
 
-        <div class="mb-10 bg-light-info p-8 rounded"><div class="text-info"> Use account <strong>admin@demo.com</strong> and password <strong>demo</strong> to continue. </div></div>
+        {{-- <div class="mb-10 bg-light-info p-8 rounded">
+            <div class="text-info"> Use account <strong>admin@demo.com</strong> and password <strong>demo</strong> to
+                continue. </div>
+        </div> --}}
 
         <!--begin::Input group-->
         <div class="fv-row mb-10">
@@ -33,7 +37,8 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" value="{{ old('email', 'admin@admin.com') }}" required autofocus/>
+            <input class="form-control mycustom" type="text" name="email" autocomplete="off"
+                value="{{ old('email', 'admin@admin.com') }}" required autofocus />
             <!--end::Input-->
         </div>
         <!--end::Input group-->
@@ -44,7 +49,7 @@
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input class="form-control form-control-lg form-control-solid" type="email" name="email" autocomplete="off" value="{{ old('email', 'admin@admin.com') }}" required autofocus/>
+            <input class="form-control mycustom" type="email" name="email" autocomplete="off" value="{{ old('email', 'admin@admin.com') }}" required autofocus/>
             <!--end::Input-->
         </div>
         <!--end::Input group--> --}}
@@ -54,7 +59,7 @@
             <!--begin::Wrapper-->
             <div class="d-flex flex-stack mb-2">
                 <!--begin::Label-->
-                <label class="form-label fw-bolder text-dark fs-6 mb-0">{{ __('Password') }}</label>
+                <label class="form-label fw-bolder text-dark fs-6 mb-0">{{ __('Mật khẩu') }}</label>
                 <!--end::Label-->
 
                 <!--begin::Link-->
@@ -62,13 +67,14 @@
                     <a href="{{ theme()->getPageUrl('password.request') }}" class="link-primary fs-6 fw-bolder">
                         {{ __('Forgot Password ?') }}
                     </a>
-            @endif
-            <!--end::Link-->
+                @endif
+                <!--end::Link-->
             </div>
             <!--end::Wrapper-->
 
             <!--begin::Input-->
-            <input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="off" value="admin" required/>
+            <input class="form-control mycustom" type="password" name="password" autocomplete="off" value="admin"
+                required />
             <!--end::Input-->
         </div>
         <!--end::Input group-->
@@ -76,9 +82,9 @@
         <!--begin::Input group-->
         <div class="fv-row mb-10">
             <label class="form-check form-check-custom form-check-solid">
-                <input class="form-check-input" type="checkbox" name="remember"/>
-                <span class="form-check-label fw-bold text-gray-700 fs-6">{{ __('Remember me') }}
-            </span>
+                <input class="form-check-input" type="checkbox" name="remember" />
+                <span class="form-check-label fw-bold text-gray-700 fs-6">{{ __('Ghi nhớ') }}
+                </span>
             </label>
         </div>
         <!--end::Input group-->
@@ -87,7 +93,7 @@
         <div class="text-center">
             <!--begin::Submit button-->
             <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-                @include('partials.general._button-indicator', ['label' => __('Continue')])
+                @include('partials.general._button-indicator', ['label' => __('Đăng nhập')])
             </button>
             <!--end::Submit button-->
 

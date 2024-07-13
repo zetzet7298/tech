@@ -43,6 +43,27 @@ if (!function_exists('formatDate')) {
         return \Carbon\Carbon::parse($date)->format('d/m/Y');
     }
 }
+if (!function_exists('filterContent')) {
+    function filterContent($content) {
+// Biểu thức chính quy để khớp với các thẻ heading
+$pattern = '/<h([1-6])[^>]*>(.*?)<\/h\1>/is';
+
+// Mảng để lưu các kết quả khớp
+$matches = [];
+
+// Tìm tất cả các thẻ heading trong nội dung
+preg_match_all($pattern, $content, $matches, PREG_SET_ORDER);
+// dd($matches);
+// In các thẻ heading đã tìm thấy
+foreach ($matches as $match) {
+    echo 'Found heading: ' . $match[0] . PHP_EOL;
+    echo 'Heading level: h' . $match[1] . PHP_EOL;
+    echo 'Heading content: ' . $match[2] . PHP_EOL;
+    echo PHP_EOL;
+}
+        return $content;
+    }
+}
 if (!function_exists('limitString')) {
     function limitString($string, $limit) {
         // Kiểm tra độ dài của chuỗi
@@ -55,7 +76,10 @@ if (!function_exists('limitString')) {
     }
 }
 if (!function_exists('upload_image2')) {
-    function upload_image2($folder = 'images', $key = 'avatar', $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes')
+    function upload_image2($folder = 'images',
+     $key = 'avatar', 
+     $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes'
+     )
     {
         request()->validate([$key => $validation]);
 
@@ -85,6 +109,44 @@ if (!function_exists('upload_image2')) {
             $file = $folder . '/' . $webp_file_name; // Đường dẫn đầy đủ của file WebP
         }
         // dd($file);
+        return $file;
+    }
+}
+if (!function_exists('upload_image3')) {
+    function upload_image3(
+        $name,
+        $folder = 'images',
+     $key = 'avatar', 
+     $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes'
+     )
+    {
+        request()->validate([$key => $validation]);
+
+        $file = null;
+
+        if (request()->hasFile($key)) {
+            $uploadedFile = request()->file($key);
+            
+            // Generate unique file name
+            $file_extension = $uploadedFile->getClientOriginalExtension();
+            $file_name = $name . '.' . $file_extension;
+            
+            // Save original image
+            $original_path = $uploadedFile->storeAs($folder, $file_name, 'public');
+            
+            // Convert to WebP
+            $webp_file_name = pathinfo($file_name, PATHINFO_FILENAME) . '.webp';
+            // dd($webp_file_name);
+            $webp_file_path = Storage::disk('public')->path($folder . '/' . $webp_file_name);
+            // Delete the original uploaded file
+            if($file_extension != 'webp'){
+                
+                Image::make($uploadedFile)->encode('webp', 75)->save($webp_file_path);
+                Storage::disk('public')->delete($original_path);
+            }
+            
+            $file = $folder . '/' . $webp_file_name; // Đường dẫn đầy đủ của file WebP
+        }
         return $file;
     }
 }

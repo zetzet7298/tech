@@ -1,10 +1,11 @@
 <x-auth-layout>
 
     <!--begin::Reset Password Form-->
-    <form method="POST" action="{{ theme()->getPageUrl('password.update') }}" class="form w-100" novalidate="novalidate" id="kt_new_password_form">
-    @csrf
+    <form method="POST" action="{{ theme()->getPageUrl('password.update') }}" class="form w-100" novalidate="novalidate"
+        id="kt_new_password_form">
+        @csrf
 
-    <!-- Password Reset Token -->
+        <!-- Password Reset Token -->
         <input type="hidden" name="token" value="{{ $request->theme()->getPageUrl('token') }}">
 
         <!--begin::Heading-->
@@ -26,7 +27,8 @@
         <!--begin::Input group-->
         <div class="fv-row mb-10">
             <label class="form-label fw-bolder text-gray-900 fs-6">{{ __('Email') }}</label>
-            <input class="form-control form-control-solid" type="email" name="email" autocomplete="off" value="{{ old('email', $request->email) }}" required/>
+            <input class="form-control form-control-solid" type="email" name="email" autocomplete="off"
+                value="{{ old('email', $request->email) }}" required />
         </div>
         <!--end::Input group-->
 
@@ -42,9 +44,10 @@
 
                 <!--begin::Input wrapper-->
                 <div class="position-relative mb-3">
-                    <input class="form-control form-control-lg form-control-solid" type="password" name="password" autocomplete="new-password"/>
+                    <input class="form-control mycustom" type="password" name="password" autocomplete="new-password" />
 
-                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                    <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2"
+                        data-kt-password-meter-control="visibility">
                         <i class="bi bi-eye-slash fs-2"></i>
                         <i class="bi bi-eye fs-2 d-none"></i>
                     </span>
@@ -73,7 +76,8 @@
         <!--begin::Input group-->
         <div class="fv-row mb-10">
             <label class="form-label fw-bolder text-gray-900 fs-6">{{ __('Confirm Password') }}</label>
-            <input class="form-control form-control-solid" type="password" name="password_confirmation" autocomplete="off" required/>
+            <input class="form-control form-control-solid" type="password" name="password_confirmation"
+                autocomplete="off" required />
         </div>
         <!--end::Input group-->
 
@@ -83,7 +87,8 @@
                 @include('partials.general._button-indicator')
             </button>
 
-            <a href="{{ theme()->getPageUrl('login') }}" class="btn btn-lg btn-light-primary fw-bolder">{{ __('Cancel') }}</a>
+            <a href="{{ theme()->getPageUrl('login') }}"
+                class="btn btn-lg btn-light-primary fw-bolder">{{ __('Cancel') }}</a>
         </div>
         <!--end::Actions-->
     </form>

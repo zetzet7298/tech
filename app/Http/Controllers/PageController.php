@@ -15,7 +15,7 @@ class PageController extends Controller
     //
     public function index(Request $request)
     {
-        $items = Post::active()->where('category_id','<>',1)->orderBy('created_at', 'desc')->limit(6)->get();
+        $items = Post::active()->with('author')->where('category_id','<>',1)->orderBy('created_at', 'desc')->limit(6)->get();
         return view('pages.trangchu', compact('items'));
     }
     public function tuyendung(Request $request)
@@ -25,13 +25,13 @@ class PageController extends Controller
     }
     public function dichvu(Request $request)
     {
-        $items = Post::active()->where('category_id',1)->where('category_id', 1)->paginate(10);
+        $items = Post::active()->with('author')->where('category_id',1)->where('category_id', 1)->paginate(10);
         $feedbacks = \App\Models\Feedback::orderBy('index', 'asc')->get();
         return view('pages.dichvu', compact('items', 'feedbacks'));
     }
     public function tintuc(Request $request)
     {
-        $items = Post::active()->where('category_id','<>',1)->orderBy('created_at', 'desc')->paginate(10);
+        $items = Post::active()->with('author')->where('category_id','<>',1)->orderBy('created_at', 'desc')->paginate(10);
         $categories = Category::active()->where('slug', '<>', 'dich-vu')->orderBy('index','asc')->get();
         return view('pages.tintuc', compact('items', 'categories'));
     }
@@ -40,13 +40,23 @@ class PageController extends Controller
         $items = Employee::orderBy('created_at', 'desc')->paginate(10);
         return view('pages.nhansu', compact('items'));
     }
+    public function nhansuDetail($id)
+    {
+        // $item = Employee::findOrFail($id);
+        return view('pages.chitiet_nhansu', compact('id'));
+    }
+    public function nhansuDetailFrame($id)
+    {
+        $item = Employee::findOrFail($id);
+        return view('pages.chitiet_nhansu_frame', compact('item'));
+    }
     public function lienhe(Request $request)
     {
         return view('pages.lienhe');
     }
     public function gioithieu(Request $request)
     {
-        $services = Post::active()->where('category_id','=',1)->where('category_id', 1)->limit(10)->get();
+        $services = Post::active()->with('author')->where('category_id','=',1)->where('category_id', 1)->limit(10)->get();
         return view('pages.gioithieu', compact('services'));
     }
     public function json(Request $request)
@@ -63,7 +73,7 @@ class PageController extends Controller
 
     public function postDetail($slug)
     {
-        $item = Post::active()->where('category_id','<>',1)->where('slug', $slug)->first();
+        $item = Post::active()->with('author')->where('category_id','<>',1)->where('slug', $slug)->first();
         if(empty($item)){
             abort(404);
         }
@@ -76,8 +86,8 @@ class PageController extends Controller
         if(empty($item)){
             abort(404);
         }
-        $items = Post::active()->where('category_id','<>',1)->where('category_id', $item->id)->orderBy('created_at', 'desc')->paginate(2);
+        $items = Post::active()->with('author')->where('category_id','<>',1)->where('category_id', $item->id)->orderBy('created_at', 'desc')->paginate(2);
         $categories = Category::active()->where('slug', '<>', 'dich-vu')->orderBy('index','asc')->get();
-        return view('pages.danhmuc_tintuc', compact('items', 'categories'));
+        return view('pages.danhmuc_tintuc', compact('items', 'categories', 'item'));
     }
 }

@@ -39,7 +39,7 @@
                                 <th class="min-w-125px">Authors</th>
                                 <th class="min-w-125px">Email</th>
                                 <th class="min-w-75px">Phone</th>
-                                <th class="min-w-100px text-end">Actions</th>
+                                <th class="w-150px text-end">Actions</th>
                             </tr>
                         </thead>
                         <!--end::Table head-->
@@ -59,7 +59,7 @@
                                     <td>
                                         <div class="d-flex align-items-center">
                                             <div class="symbol symbol-45px me-5">
-                                                <img src="{{display_image($row->photo)}}" alt="">
+                                                <img src="{{ display_image($row->photo) }}" alt="">
                                             </div>
                                             <div class="d-flex justify-content-start flex-column">
                                                 <a href="#"
@@ -94,24 +94,26 @@
                                     class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                     {!! theme()->getSvgIcon('icons/duotune/general/gen019.svg', 'svg-icon-3') !!}
                                 </a> --}}
-                                <div>
-                                <a target="_blank" href="{{ route('employees.show', $row->id) }}" class="me-3">Xem chi tiết</a>
-                                        <a href="{{ route('employees.edit', ['employee' => $row->id]) }}"
-                                            class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
-                                            {!! theme()->getSvgIcon('icons/duotune/art/art005.svg', 'svg-icon-3') !!}
-                                        </a>
-                                        <form action="{{ route('employees.destroy', $row->id) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            {{-- <button type="submit">Xóa</button> --}}
-                                            <button
-                                                type="submit"
-                                                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
-                                                onclick="return confirm('Bạn chắc chắn muốn xóa?');">
-                                                {!! theme()->getSvgIcon('icons/duotune/general/gen027.svg', 'svg-icon-3') !!}
-                                            </button>
-                                        </form>
-                                    </div>
+                                        <div>
+
+                                            
+                                            <form action="{{ route('employees.destroy', $row->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a target="_blank" href="{{ route('employees.show', $row->id) }}"
+                                                    class="me-3"><span class="badge badge-success">Xem</span></a>
+                                                <a href="{{ route('employees.edit', ['employee' => $row->id]) }}"
+                                                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
+                                                    {!! theme()->getSvgIcon('icons/duotune/art/art005.svg', 'svg-icon-3') !!}
+                                                </a>
+                                                {{-- <button type="submit">Xóa</button> --}}
+                                                <button type="submit"
+                                                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
+                                                    onclick="return confirm('Bạn chắc chắn muốn xóa?');">
+                                                    {!! theme()->getSvgIcon('icons/duotune/general/gen027.svg', 'svg-icon-3') !!}
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

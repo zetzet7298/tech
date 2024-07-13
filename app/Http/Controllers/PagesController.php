@@ -24,7 +24,7 @@ class PagesController extends Controller
         //     return view('admin/pages.'.$view);
         // }
         // abort(404);
-        return view('admin.index');
+        return view('cms.home');
     }
 
     /**

@@ -79,8 +79,7 @@
                         <div class="row">
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row">
-                                <input type="text" name="first_name"
-                                    class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                <input type="text" name="first_name" class="form-control mycustom mb-3 mb-lg-0"
                                     placeholder="First name"
                                     value="{{ old('first_name', auth()->user()->first_name ?? '') }}" />
                             </div>
@@ -88,8 +87,8 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-6 fv-row">
-                                <input type="text" name="last_name"
-                                    class="form-control form-control-lg form-control-solid" placeholder="Last name"
+                                <input type="text" name="last_name" class="form-control mycustom"
+                                    placeholder="Last name"
                                     value="{{ old('last_name', auth()->user()->last_name ?? '') }}" />
                             </div>
                             <!--end::Col-->
@@ -113,7 +112,7 @@
 
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <input type="tel" name="phone" class="form-control form-control-lg form-control-solid" placeholder="Phone number" value="{{ old('phone', $info->phone ?? '') }}"/>
+                        <input type="tel" name="phone" class="form-control mycustom" placeholder="Phone number" value="{{ old('phone', $info->phone ?? '') }}"/>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -179,7 +178,7 @@
                 <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button>
 
                 <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
-                    @include('partials.general._button-indicator', ['label' => __('Save Changes')])
+                    @include('partials.general._button-indicator', ['label' => __('Xác nhận')])
                 </button>
             </div>
             <!--end::Actions-->

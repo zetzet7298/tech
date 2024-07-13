@@ -17,24 +17,24 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-        $q = Post::orderBy('updated_at', 'desc');
+        $q = Post::with('author')->orderBy('updated_at', 'desc');
         if($request->key){
             $q->where('title', 'like', "%{$request->key}%");
         }
         if($request->category_id){
             $q->where('category_id', "{$request->category_id}");
         }
-        $posts = $q->active()->paginate(10);
-        $categories = Category::active()->get();
-        return view('admin.posts.index', compact('posts', 'categories', 'request'));
+        $posts = $q->where('category_id', '<>', 1)->active()->paginate(10);
+        $categories = Category::where('id','<>',1)->active()->get();
+        return view('cms.posts.index', compact('posts', 'categories', 'request'));
     }
     
     public function create()
     {
         $action = 'create';
         $itemName = 'tin tức';
-        $categories = Category::active()->get();
-        return view('admin.posts._form', compact('action', 'itemName', 'categories'));
+        $categories = Category::where('id','<>',1)->active()->get();
+        return view('cms.posts._form', compact('action', 'itemName', 'categories'));
     }
 
     public function store(Request $request)
@@ -48,7 +48,8 @@ class PostController extends Controller
             $item->slug = generateSlug($item->title);
             $item->summary = $request->summary;
             $item->content = $request->content;
-            if (request()->hasFile('thumbnail') && $path = upload_image2('thumbnail', 'thumbnail')) {
+            $item->author_id = auth()->id();
+            if (request()->hasFile('thumbnail') && $path = upload_image3($item->slug, 'thumbnail', 'thumbnail')) {
                 $item->thumbnail = $path;
             }
             $item->save();
@@ -69,8 +70,9 @@ class PostController extends Controller
         $item = Post::findOrFail($id);
         $action = 'edit';
         $itemName = 'tin tức';
-        $categories = Category::active()->get();
-        return view('admin.posts._form', compact('item', 'action', 'itemName', 'categories'));
+        $categories = Category::where('id','<>',1)->active()->get();
+        $item->author_id = auth()->id();
+        return view('cms.posts._form', compact('item', 'action', 'itemName', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -84,8 +86,8 @@ class PostController extends Controller
             $item->slug = generateSlug($item->title);
             $item->summary = $request->summary;
             $item->content = $request->content;
-
-            if (request()->hasFile('thumbnail') && $path = upload_image2('thumbnail', 'thumbnail')) {
+            $item->author_id = auth()->id();
+            if (request()->hasFile('thumbnail') && $path = upload_image3($item->slug, 'thumbnail', 'thumbnail')) {
                 $item->thumbnail = $path;
             }
             $item->save();

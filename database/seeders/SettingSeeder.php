@@ -127,10 +127,14 @@ class SettingSeeder extends Seeder
 
             // ['key' => 'title', 'value' => 'Liên hệ', 'type' => 'post'],
             // ['key' => 'description', 'value' => 'HÃY ĐỂ CHÚNG TÔI KẾT NỐI VÀ ĐỒNG HÀNH CÙNG BẠN!', 'type' => 'post'],
-            ['key' => 'youtube', 'value' => '', 'type' => 'common'],
-            ['key' => 'instagram', 'value' => '', 'type' => 'common'],
-            ['key' => 'linkedin', 'value' => '', 'type' => 'common'],
-            ['key' => 'tiktok', 'value' => '', 'type' => 'common'],
+            // ['key' => 'youtube', 'value' => '', 'type' => 'common'],
+            // ['key' => 'instagram', 'value' => '', 'type' => 'common'],
+            // ['key' => 'linkedin', 'value' => '', 'type' => 'common'],
+            // ['key' => 'tiktok', 'value' => '', 'type' => 'common'],
+            ['key' => 'vanphong', 'value' => 'Văn phòng ABC', 'type' => 'common'],
+            ['key' => 'diachivanphong', 'value' => '68 Circular Road, #02-01, Singapore', 'type' => 'common'],
+            ['key' => 'emailvanphong', 'value' => 'vanphong@gmail.com', 'type' => 'common'],
+            ['key' => 'tghdvanphong', 'value' => '9h00 - 18h00 từ Thứ 2 - Thứ 6', 'type' => 'common'],
 
         ];
 

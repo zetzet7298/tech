@@ -12,15 +12,15 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::orderBy('updated_at', 'desc')->active()->paginate(10);
-        return view('admin.categories.index', compact('categories'));
+        $categories = Category::where('id', '<>', 1)->orderBy('updated_at', 'desc')->active()->paginate(10);
+        return view('cms.categories.index', compact('categories'));
     }
-    
+
     public function create()
     {
         $action = 'create';
         $itemName = 'danh mục';
-        return view('admin.categories._form', compact('action', 'itemName'));
+        return view('cms.categories._form', compact('action', 'itemName'));
     }
 
     public function store(Request $request)
@@ -47,10 +47,10 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $item = Category::findOrFail($id);
+        $item = Category::where('id', '<>', 1)->findOrFail($id);
         $action = 'edit';
         $itemName = 'danh mục';
-        return view('admin.categories._form', compact('item', 'action', 'itemName'));
+        return view('cms.categories._form', compact('item', 'action', 'itemName'));
     }
 
     public function update(Request $request, $id)
@@ -58,7 +58,7 @@ class CategoryController extends Controller
         DB::beginTransaction();
 
         try {
-            $item = Category::findOrFail($id);
+            $item = Category::where('id', '<>', 1)->findOrFail($id);
             $item->name = $request->name;
             $item->slug = generateSlug($item->name);
             $item->index = $request->index;
@@ -75,7 +75,7 @@ class CategoryController extends Controller
 
     public function show($id)
     {
-        $item = Category::findOrFail($id);
+        $item = Category::where('id', '<>', 1)->findOrFail($id);
         $item->active = false;
         $item->save();
 

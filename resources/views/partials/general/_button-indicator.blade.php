@@ -7,8 +7,8 @@
 <span class="indicator-label">
     {{ $label }}
 </span>
-<span class="indicator-progress">
+{{-- <span class="indicator-progress">
     {{ $message }}
     <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-</span>
+</span> --}}
 <!--end::Indicator-->

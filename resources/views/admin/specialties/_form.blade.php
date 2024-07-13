@@ -33,13 +33,13 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <textarea required rows="2" type="text" name="name" class="form-control form-control-lg form-control-solid"
-                                    placeholder="" value="">{{ isset($item) ? $item->name : '' }}</textarea>
+                                <textarea required rows="2" type="text" name="name" class="form-control mycustom" placeholder=""
+                                    value="">{{ isset($item) ? $item->name : '' }}</textarea>
                             </div>
                             <!--end::Col-->
                         </div>
                         <!--end::Input group-->
-                       
+
                     </div>
                     <!--end::Card body-->
 
@@ -58,6 +58,6 @@
         </div>
     </div>
     @section('scripts')
-    </script>
-@endsection
+        </script>
+    @endsection
 </x-base-auth-layout>
