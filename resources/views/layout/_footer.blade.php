@@ -28,7 +28,7 @@
                     </div>
                 </div> --}}
                 <div class="footer__title mt-3">
-                    <a class="footer__logo  himg" rel="nofollow">
+                    <a class="footer__logo  himg" href="{{route('trangchu')}}" rel="nofollow">
                         <img width="180" style="margin-left:5px;height:27.23px;" src="{{ display_image($LOGO) }}"
                             alt="" data-lazy-src="{{ display_image($LOGO) }}">
                     </a>
