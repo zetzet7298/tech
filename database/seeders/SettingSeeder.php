@@ -137,13 +137,13 @@ class SettingSeeder extends Seeder
             // ['key' => 'emailvanphong', 'value' => 'vanphong@gmail.com', 'type' => 'common'],
             // ['key' => 'tghdvanphong', 'value' => '9h00 - 18h00 từ Thứ 2 - Thứ 6', 'type' => 'common'],
 
-            // ['key' => 'bocongthuong_link', 'value' => '', 'type' => 'common'],
-            // ['key' => 'h1', 'value' => '', 'type' => 'service'],
-            // ['key' => 'h1', 'value' => '', 'type' => 'recruitment'],
-            // ['key' => 'h1', 'value' => '', 'type' => 'about'],
-            // ['key' => 'h1', 'value' => '', 'type' => 'hr'],
-            // ['key' => 'h1', 'value' => '', 'type' => 'post'],
-            // ['key' => 'h1', 'value' => '', 'type' => 'dashboard'],
+            ['key' => 'bocongthuong_link', 'value' => '', 'type' => 'common'],
+            ['key' => 'h1', 'value' => '', 'type' => 'service'],
+            ['key' => 'h1', 'value' => '', 'type' => 'recruitment'],
+            ['key' => 'h1', 'value' => '', 'type' => 'about'],
+            ['key' => 'h1', 'value' => '', 'type' => 'hr'],
+            ['key' => 'h1', 'value' => '', 'type' => 'post'],
+            ['key' => 'h1', 'value' => '', 'type' => 'dashboard'],
             
         ];
         User::where('id', 1)->update([

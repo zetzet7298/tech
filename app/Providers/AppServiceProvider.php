@@ -54,7 +54,7 @@ class AppServiceProvider extends ServiceProvider
         $DIACHIVANPHONG = $settings['diachivanphong']['value'];
         $EMAILVANPHONG = $settings['emailvanphong']['value'];
         $TGHDVANPHONG = $settings['tghdvanphong']['value'];
-        $bocongthuong_link = $settings['bocongthuong_link']['value'];
+        // $bocongthuong_link = $settings['bocongthuong_link']['value'];
 
         $DKKD = $settings[config('constants.DKKD')]['value'];
         $TIME_WORKING = $settings[config('constants.TIME_WORKING')]['value'];
@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
         $PRICE_QUOTE = $settings[config('constants.PRICE_QUOTE')]['value'];
         $GOOGLE_MAP = $settings[config('constants.GOOGLE_MAP')]['value'];
         
-        $offices = Office::all();
+        // $offices = Office::all();
         // Share theme adapter class
         View::share('theme', $theme);
         View::share('companyNameValue', $companyNameValue);
@@ -91,8 +91,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('DIACHIVANPHONG', $DIACHIVANPHONG);
         View::share('EMAILVANPHONG', $EMAILVANPHONG);
         View::share('TGHDVANPHONG', $TGHDVANPHONG);
-        View::share('offices', $offices);
-        View::share('bocongthuong_link', $bocongthuong_link);
+        // View::share('offices', $offices);
+        // View::share('bocongthuong_link', $bocongthuong_link);
 
         // Set demo globally
         $theme->setDemo(request()->input('demo', 'demo1'));
