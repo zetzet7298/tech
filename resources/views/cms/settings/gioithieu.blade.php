@@ -1,5 +1,7 @@
 @php
     $settings = \App\Models\Setting::getByType('about');
+    $h1 = $settings['h1']['value'];
+    $h1 = $settings['h1']['value'];
     $banner = $settings['banner']['value'];
     $dichvu_banner = $settings['dichvu_banner']['value'];
     $banner_mobile = $settings['banner_mobile']['value'];
@@ -56,10 +58,26 @@
 
                                 <!--begin::Card body-->
                                 <div class="card-body border-top p-9">
+<!--begin::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="row mt-3">
+                                        <!--begin::Label-->
+                                        <label for="example-textarea" class="form-label">{{ __('Nội dung thẻ h1') }}</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Col-->
+                                        <div class="col-lg-12 fv-row">
+                                            <textarea rows="3" type="text" name="h1" class="form-control" id="example-textarea" placeholder=""
+                                                value="">{{ old('h1', $h1 ?? '') }}</textarea>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::Input group-->
                                     <!--end::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label for="example-textarea" class="form-label">{{ __('Banner') }}</label>
+                                        <label for="example-textarea"
+                                            class="form-label">{{ __('Banner (1230x540)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -69,8 +87,9 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($banner) }})"></div>
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($banner) }});width:1230px; height:540px;">
+                                                </div>
                                                 <!--end::Preview existing avatar-->
 
                                                 <!--begin::Label-->
@@ -118,7 +137,8 @@
                                     <!--end::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label for="example-textarea" class="form-label">{{ __('Banner Mobile') }}</label>
+                                        <label for="example-textarea"
+                                            class="form-label">{{ __('Banner Mobile (375x700)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -128,8 +148,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($banner_mobile) }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($banner_mobile) }});width:375px; height:700px;">
                                                 </div>
                                                 <!--end::Preview existing avatar-->
 
@@ -196,8 +216,8 @@
 
                                         <!--begin::Col-->
                                         <div class="col-lg-12 fv-row">
-                                            <textarea rows="5" type="text" name="description" class="form-control" id="example-textarea" placeholder=""
-                                                value="">{{ old('description', $description ?? '') }}</textarea>
+                                            <textarea rows="5" type="text" name="description" class="form-control" id="example-textarea"
+                                                placeholder="" value="">{{ old('description', $description ?? '') }}</textarea>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -236,7 +256,7 @@
                                     <div class="row mt-3">
                                         <!--begin::Label-->
                                         <label for="example-textarea"
-                                            class="form-label">{{ __('Banner dịch vụ') }}</label>
+                                            class="form-label">{{ __('Banner dịch vụ (543x360)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -246,8 +266,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($dichvu_banner) }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($dichvu_banner) }});width:543px; height:360px;">
                                                 </div>
                                                 <!--end::Preview existing avatar-->
 
@@ -293,36 +313,8 @@
                                         <!--end::Col-->
                                     </div>
                                     <!--begin::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <!--begin::Label-->
-                                        <label for="example-textarea"
-                                            class="form-label">{{ __('Tiêu đề Banner') }}</label>
-                                        <!--end::Label-->
 
-                                        <!--begin::Col-->
-                                        <div class="col-lg-12 fv-row">
-                                            <textarea rows="3" type="text" name="title" class="form-control" id="example-textarea" placeholder=""
-                                                value="">{{ old('title', $title ?? '') }}</textarea>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <!--begin::Label-->
-                                        <label for="example-textarea"
-                                            class="form-label">{{ __('Tiêu đề Banner') }}</label>
-                                        <!--end::Label-->
 
-                                        <!--begin::Col-->
-                                        <div class="col-lg-12 fv-row">
-                                            <textarea rows="3" type="text" name="title" class="form-control" id="example-textarea" placeholder=""
-                                                value="">{{ old('title', $title ?? '') }}</textarea>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Input group-->
                                     <!--begin::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
@@ -353,21 +345,7 @@
                                         <!--end::Col-->
                                     </div>
                                     <!--end::Input group-->
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <!--begin::Label-->
-                                        <label for="example-textarea"
-                                            class="form-label">{{ __('Tiêu đề Banner') }}</label>
-                                        <!--end::Label-->
 
-                                        <!--begin::Col-->
-                                        <div class="col-lg-12 fv-row">
-                                            <textarea rows="3" type="text" name="title" class="form-control" id="example-textarea" placeholder=""
-                                                value="">{{ old('title', $title ?? '') }}</textarea>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Input group-->
                                     <!--begin::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
@@ -520,7 +498,8 @@
                                     <!--begin::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label for="example-textarea" class="form-label">{{ __('Avatar video') }}</label>
+                                        <label for="example-textarea"
+                                            class="form-label">{{ __('Avatar video (891x501))') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -530,8 +509,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($video_avatar) }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($video_avatar) }});width:891px; height:501px;">
                                                 </div>
                                                 <!--end::Preview existing avatar-->
 
@@ -579,7 +558,8 @@
                                     <!--end::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label for="example-textarea" class="form-label">{{ __('Video') }}</label>
+                                        <label for="example-textarea"
+                                            class="form-label">{{ __('Video (891x501)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -588,8 +568,8 @@
                                             <div class="video-input video-input-outline {{ $video ? '' : 'video-input-empty' }}"
                                                 data-kt-video-input="true">
                                                 <!--begin::Preview existing video-->
-                                                <div class="video-input-wrapper w-250px h-250px">
-                                                    <video id="videoPreview" width="250" height="250" controls>
+                                                <div class="video-input-wrapper">
+                                                    <video id="videoPreview" width="891" height="501" controls>
                                                         <source id="videoSource" src="{{ display_video($video) }}"
                                                             type="video/mp4">
                                                         Your browser does not support the video tag.
@@ -671,7 +651,7 @@
                                     <div class="row mt-3">
                                         <!--begin::Label-->
                                         <label for="example-textarea"
-                                            class="form-label">{{ __('Banner chiến lợi phẩm') }}</label>
+                                            class="form-label">{{ __('Banner chiến lợi phẩm(543x726)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -681,8 +661,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($chienloipham_banner) }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($chienloipham_banner) }});width:543px; height:726px;">
                                                 </div>
                                                 <!--end::Preview existing avatar-->
 
@@ -747,7 +727,7 @@
                                     <div class="row mt-3">
                                         <!--begin::Label-->
                                         <label for="example-textarea"
-                                            class="form-label">{{ __('Banner Điểm đa dạng') }}</label>
+                                            class="form-label">{{ __('Banner Điểm đa dạng (1900x1135)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -757,8 +737,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($diemdadang_banner) }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($diemdadang_banner) }});width:1200px; height:735px;">
                                                 </div>
                                                 <!--end::Preview existing avatar-->
 

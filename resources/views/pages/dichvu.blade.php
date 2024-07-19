@@ -9,6 +9,7 @@
         $giatri_title = $settings['giatri_title']['value'];
         $giatri_description = $settings['giatri_description']['value'];
         $banner = $settings['banner']['value'];
+        $h1 = $settings['h1']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
         $nangtam_banner = $settings['nangtam_banner']['value'];
         $nangtam_title = $settings['nangtam_title']['value'];
@@ -26,6 +27,7 @@
     @endphp
     <div class="overflow-x-hidden">
         <div class="hero">
+            <h1 class="d-none">{{ $h1 }}</h1>
             <div class="center-layout">
                 <div class="center-layout">
                     <div class="design-banner-contain">
@@ -46,8 +48,8 @@
                                     src="{{ display_image($banner_mobile) }}" alt="banner"></noscript>
                         </div>
                         <div class="design-banner-info">
-                            <div class="design-banner-title">{{ $title }}</div>
-                            <div class="design-banner-description">{{ $description }}</div>
+                            <h1 class="design-banner-title">{{ $title }}</h1>
+                            <h2 class="design-banner-description">{{ $description }}</h2>
                         </div>
                     </div>
                 </div>
@@ -73,8 +75,8 @@
                                         height="385" alt="THIẾT KẾ WEBSITE" class="block w-full"
                                         src="{{ display_image($item->thumbnail) }}"></noscript>
                             </div>
-                            <div class="text-3xl uppercase my-4 relative">{{ $item->title }}</div>
-                            <div class="relative">{!! $item->summary !!}</div>
+                            <h2 class="text-3xl uppercase my-4 relative">{{ $item->title }}</h2>
+                            <h3 class="relative">{!! $item->summary !!}</h3>
                             <div class="absolute left-8 bottom-8 flex mt-4">
                                 <a href="{{ route('tintuc.detail', ['slug' => $item->slug]) }}"
                                     class="hbtn"><span>Xem chi
@@ -93,10 +95,10 @@
         <div class="team-box-2">
             <div class="center-layout-2">
                 <div class="team-box-2__left">
-                    <div class="team-box-2__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
-                        data-aos-delay="0">{{ $giatri_title }}</div>
-                    <div class="team-box-2__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
-                        data-aos-delay="0">{{ $giatri_description }}</div>
+                    <h2 class="team-box-2__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
+                        data-aos-delay="0">{{ $giatri_title }}</h2>
+                    <h3 class="team-box-2__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
+                        data-aos-delay="0">{{ $giatri_description }}</h3>
                 </div>
                 <div class="team-box-2__right">
                     <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-left"
@@ -152,9 +154,9 @@
                     <div class="swiper-pagination service-group-4__swiper-pagination"></div>
                 </div>
                 <div class="service-group-4__right">
-                    <div class="service-group-4__title">
+                    <h2 class="service-group-4__title">
                         {{ $nangtam_title }}
-                    </div>
+                    </h2>
                     <div class="d-flex">
                         <a data-fancybox data-src="#contact-modal" class="hbtn hbtn--white">Liên hệ ngay</a>
                     </div>

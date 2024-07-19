@@ -33,12 +33,12 @@
         <!--begin::Input group-->
         <div class="fv-row mb-10">
             <!--begin::Label-->
-            <label class="form-label fs-6 fw-bolder text-dark">{{ __('Email') }}</label>
+            <label class="form-label fs-6 fw-bolder text-dark">{{ __('Username') }}</label>
             <!--end::Label-->
 
             <!--begin::Input-->
-            <input class="form-control mycustom" type="text" name="email" autocomplete="off"
-                value="{{ old('email', 'admin@admin.com') }}" required autofocus />
+            <input class="form-control mycustom" type="text" name="phone" autocomplete="off"
+                value="{{ old('phone', '0123456789') }}" required autofocus />
             <!--end::Input-->
         </div>
         <!--end::Input group-->
@@ -73,7 +73,7 @@
             <!--end::Wrapper-->
 
             <!--begin::Input-->
-            <input class="form-control mycustom" type="password" name="password" autocomplete="off" value="admin"
+            <input class="form-control mycustom" type="password" name="password" autocomplete="off" value=""
                 required />
             <!--end::Input-->
         </div>

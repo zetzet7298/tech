@@ -9,7 +9,7 @@
                 data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
                 <!--begin::Card title-->
                 <div class="card-title m-0">
-                    <h3 class="fw-bolder m-0">{{ __('Tạo giải pháp') }}</h3>
+                    <h3 class="fw-bolder m-0">{{ __('Sửa giải pháp') }}</h3>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -50,8 +50,8 @@
                                     data-kt-image-input="true"
                                     style="background-image: url({{ display_image($solution->image) }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"
-                                        style="background-image: url({{ display_image($solution->image) }})"></div>
+                                    <div class="image-input-wrapper"
+                                        style="background-image: url({{ display_image($solution->image) }});width:470px; height:313px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->

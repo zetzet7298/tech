@@ -5,16 +5,17 @@
     @php
         $settings = \App\Models\Setting::getByType('hr');
         $banner = $settings['banner']['value'];
+        $h1 = $settings['h1']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
         $title = $settings['title']['value'];
         $description = $settings['description']['value'];
 
     @endphp
     @section('styles')
- 
     @endsection
     <div class="center-layout-2">
-        <iframe class=" left-0 top-0 w-full h-full iframe-project" style="height: 500px;" src="{{route('nhansu.frame', ['id' => $id])}}"></iframe>
+        <iframe class=" left-0 top-0 w-full h-full iframe-project" style="height: 500px;"
+            src="{{ route('nhansu.frame', ['id' => $id]) }}"></iframe>
     </div>
 
 

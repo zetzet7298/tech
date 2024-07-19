@@ -41,7 +41,7 @@
                         <!--begin::Input group-->
                         <div class="row mt-3">
                             <!--begin::Label-->
-                            <label class="form-label">{{ __('Avatar KH') }}</label>
+                            <label class="form-label">{{ __('Avatar KH (80x106)') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -50,7 +50,7 @@
                                 <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
                                     style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"></div>
+                                    <div class="image-input-wrapper" style="width:80px; height:106px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -103,7 +103,7 @@
                                 <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
                                     style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"></div>
+                                    <div class="image-input-wrapper" style="width:699px; height:436px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -156,7 +156,7 @@
                                 <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
                                     style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"></div>
+                                    <div class="image-input-wrapper" style="width:891px; height:685px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->

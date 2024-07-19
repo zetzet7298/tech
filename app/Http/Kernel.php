@@ -13,6 +13,9 @@ class Kernel extends HttpKernel
         // Các middleware khác...
         'cache.response' => CacheResponse::class,
         'throttle' => \App\Http\Middleware\ThrottleRequests::class,
+        'trailing.slash' => \App\Http\Middleware\TrailingSlashMiddleware::class,
+        'check.role' => \App\Http\Middleware\CheckRole::class,
+        'check.admin' => \App\Http\Middleware\CheckAdmin::class,
     ];
 
     /**

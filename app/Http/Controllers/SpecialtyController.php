@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 
 class SpecialtyController extends Controller
 {
-    //
-    //
     public function index(Request $request)
     {
         $specialties = Specialty::active()->orderBy('updated_at', 'desc')->paginate(15);

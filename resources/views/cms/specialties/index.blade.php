@@ -52,12 +52,18 @@
                                 </td>
                                 <td class="text-end">
                                     {{-- <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a> --}}
+                                    @if (checkPermission('specialty', 'PUT'))
                                     <a href="{{ route('specialties.edit', ['specialty' => $row->id]) }}"
                                         href="javascript:void(0);" class="action-icon"> <i
                                             class="mdi mdi-square-edit-outline"></i></a>
+                                    @endif
+                                    @if (checkPermission('specialty', 'DELETE'))
                                     <a href="{{ route('specialties.destroy', ['specialty' => $row->id]) }}"
                                         onclick="return confirm('Bạn chắc chắn muốn xóa?');" href="javascript:void(0);"
                                         class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    @endif
+                                   
+
                                 </td>
                             </tr>
                         @endforeach

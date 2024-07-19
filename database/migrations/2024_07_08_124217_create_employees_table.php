@@ -17,9 +17,9 @@ return new class extends Migration
             // $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone');
+            $table->string('photo')->nullable();
             $table->boolean('active')->default(true);
             $table->text('introduction')->nullable();
-            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

@@ -335,7 +335,7 @@ return array(
         // ),
         array(
             'role' => 'admin|member',
-            'title'      => 'Tin tức',
+            'title'      => 'Bài viết',
             'icon'       => array(
                 'svg'  => theme()->getSvgIcon("demo1/media/icons/duotune/communication/com006.svg", "svg-icon-2"),
                 'font' => '<i class="bi bi-person fs-2"></i>',
@@ -349,7 +349,7 @@ return array(
                 'items' => array(
                     array(
                         'role' => 'admin|member',
-                        'title'  => 'Danh sách tin tức',
+                        'title'  => 'Danh sách bài viết',
                         'path'   => 'admin/posts',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),

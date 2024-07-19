@@ -1,10 +1,11 @@
 <x-base-layout>
     @section('title')
-    <title>Giới Thiệu Về Chúng Tôi | {{ $companyNameValue }}</title>
-@endsection
+        <title>Giới Thiệu Về Chúng Tôi | {{ $companyNameValue }}</title>
+    @endsection
     @php
         $settings = \App\Models\Setting::getByType('about');
         $banner = $settings['banner']['value'];
+        $h1 = $settings['h1']['value'];
         $dichvu_banner = $settings['dichvu_banner']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
         $title = $settings['title']['value'];
@@ -37,6 +38,7 @@
 
     @endphp
     <div class="hero">
+        <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
             <div class="design-banner-contain">
                 <div class="himg banner--desktop">
@@ -58,11 +60,8 @@
                             alt="banner"></noscript>
                 </div>
                 <div class="design-banner-info">
-                    <div class="design-banner-title" data-aos="fade-up" data-aos-duration="600" data-aos-once="true"
-                        data-aos-delay="400">{{ $title }}</div>
-                    <div class="design-banner-description" data-aos="fade-up" data-aos-duration="600"
-                        data-aos-once="true" data-aos-delay="500">{{ $description }}
-                    </div>
+                    <h2 class="design-banner-title">{{ $title }}</h2>
+                    <h3 class="design-banner-description">{{ $description }}</h3>
                 </div>
             </div>
         </div>
@@ -75,20 +74,20 @@
                     width="2251" height="1036"
                     src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/sec-2@2x.png"></noscript></div> --}}
         <div style="margin-top: 150px;" class="about-group-2__content">
-            <div class="about-group-2__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                {{ $gioithieu_title }}</div>
-            <div class="about-group-2__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                {{ $gioithieu_description }}</div>
+            <h2 class="about-group-2__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                {{ $gioithieu_title }}</h2>
+            <h3 class="about-group-2__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                {{ $gioithieu_description }}</h3>
         </div>
     </div>
     <div class="about-group-3">
         <div class="center-layout-2">
             <div class="about-group-3__left">
-                <div class="about-group-3__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Những
-                    dịch vụ nổi bật</div>
+                <h2 class="about-group-3__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Những
+                    dịch vụ nổi bật</h2>
                 {{-- <div class="about-group-3__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">Làm
                     việc tận tâm <br> đã tạo nên uy tín <br> cho Mikotech</div> --}}
-                <ul class="about-group-3__list">
+                <ul class="about-group-3__list" style="padding-left:1px;">
                     @foreach ($services as $service)
                         <li class="" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
                             data-aos-delay="100" data-trigger=".about-group-3__list">{{ $service->title }}</li>
@@ -97,11 +96,11 @@
                 <a href="{{ route('dichvu') }}" class="hbtn" data-aos="fade-up" data-aos-duration="1000"
                     data-aos-once="true"><span>Xem tất cả dịch vụ</span></a>
             </div>
-            <div class="about-group-3__right" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+            <div class="about-group-3__right" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                 <div class="about-group-3__image">
-                    <img src="{{display_image($dichvu_banner)}}"
-                        data-lazy-src="{{display_image($dichvu_banner)}}"><noscript><img
-                            src="{{display_image($dichvu_banner)}}"></noscript>
+                    <img src="{{ display_image($dichvu_banner) }}"
+                        data-lazy-src="{{ display_image($dichvu_banner) }}"><noscript><img
+                            src="{{ display_image($dichvu_banner) }}"></noscript>
                 </div>
             </div>
         </div>
@@ -123,13 +122,13 @@
     <div class="team-box-2">
         <div class="center-layout-2">
             <div class="team-box-2__left">
-                <div class="team-box-2__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
-                    data-aos-delay="0">{{ $giatri_title }}</div>
-                <div class="team-box-2__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
-                    data-aos-delay="0">{{ $giatri_description }}</div>
+                <h2 class="team-box-2__title" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
+                    data-aos-delay="0">{{ $giatri_title }}</h2>
+                <h3 class="team-box-2__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true"
+                    data-aos-delay="0">{{ $giatri_description }}</h3>
             </div>
             <div class="team-box-2__right">
-                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-left"
+                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-up"
                     data-aos-duration="1000" data-aos-once="true" data-aos-delay="500">
                     <div class="value-item__number">01</div>
                     <div class="value-item__name">{{ $giatri_item_1 }}</div>
@@ -137,7 +136,7 @@
                         <p>{{ $giatri_item_1_val }}</p>
                     </div>
                 </div>
-                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-left"
+                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-up"
                     data-aos-duration="1000" data-aos-once="true" data-aos-delay="500">
                     <div class="value-item__number">02</div>
                     <div class="value-item__name">{{ $giatri_item_2 }}</div>
@@ -145,7 +144,7 @@
                         <p>{{ $giatri_item_2_val }}</p>
                     </div>
                 </div>
-                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-left"
+                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-up"
                     data-aos-duration="1000" data-aos-once="true" data-aos-delay="500">
                     <div class="value-item__number">03</div>
                     <div class="value-item__name">{{ $giatri_item_3 }}</div>
@@ -153,7 +152,7 @@
                         <p>{{ $giatri_item_3_val }}</p>
                     </div>
                 </div>
-                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-left"
+                <div class="value-item" data-trigger=".team-box-2__right" data-aos="fade-up"
                     data-aos-duration="1000" data-aos-once="true" data-aos-delay="500">
                     <div class="value-item__number">04</div>
                     <div class="value-item__name">{{ $giatri_item_4 }}</div>
@@ -171,11 +170,12 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="overflow-hidden relative rounded-2xl">
-                                <video id="video-ads" width="809" height="455" height="auto" controls >
+                                <video id="video-ads" width="809" height="455" height="auto" controls>
                                     <source src="{{ display_video($video) }}" type="video/mp4">
                                 </video>
-                                <img id="video-thumbnail" class="v-control absolute left-0 top-0 w-full z-10 rounded-2xl" width="537"
-                                height="537" src="{{ display_image($video_avatar) }}" alt="icon">
+                                <img id="video-thumbnail"
+                                    class="v-control absolute left-0 top-0 w-full z-10 rounded-2xl" width="537"
+                                    height="537" src="{{ display_image($video_avatar) }}" alt="icon">
 
                                 <svg class="v-control absolute left-1/2 top-1/2 h-[60px] w-[60px] -translate-x-1/2 -translate-y-1/2 z-20"
                                     xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="70"
@@ -190,24 +190,24 @@
                 </div>
             </div>
             <div class="team-box-6__content">
-                <div class="team-box-6__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                    {{ $video_title }}</div>
-                <div class="team-box-6__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                    {{ $video_description }}</div>
+                <h2 class="team-box-6__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    {{ $video_title }}</h2>
+                <h3 class="team-box-6__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    {{ $video_description }}</h3>
             </div>
         </div>
     </div>
-    
+
     <div class="about-group-5">
         <div class="center-layout-2">
             <div class="about-group-5__left">
-                <div class="about-group-5__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                    {{ $chienloipham_title }}</div>
-                <div class="about-group-5__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-                    {{ $chienloipham_description }}</div>
+                <h2 class="about-group-5__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    {{ $chienloipham_title }}</h2>
+                <h3 class="about-group-5__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                    {{ $chienloipham_description }}</h3>
                 <a href="" class="hbtn"><span>Xem thêm</span></a>
             </div>
-            <div class="about-group-5__right" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+            <div class="about-group-5__right" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                 <div class="about-group-5__image">
                     <img width="550" height="735" src="{{ display_image($chienloipham_banner) }}"
                         data-lazy-src="{{ display_image($chienloipham_banner) }}"><noscript><img width="550"
@@ -233,8 +233,8 @@
         <div class="about-group-6__content">
             <div class="center-layout-2">
                 <div class="about-group-6__main">
-                    <div class="about-group-6__title" data-aos="fade-up" data-aos-duration="1000"
-                        data-aos-once="true"><span>{{ $diemdadang_title }}</span></div>
+                    <h2 class="about-group-6__title" data-aos="fade-up" data-aos-duration="1000"
+                        data-aos-once="true"><span>{{ $diemdadang_title }}</span></h2>
                     <div class="about-group-6-items" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-once="true">{{ $diemdadang_item_1 }}</div>
                     <div class="about-group-6-items" data-aos="fade-up" data-aos-duration="1000"
@@ -253,7 +253,7 @@
                         công của bạn
                         bằng
                         cách trò chuyện với chúng tôi</div>
-                    <a href="{{route('lienhe')}}" class="hbtn hbtn--white"><span>Liên hệ ngay</span></a>
+                    <a href="{{ route('lienhe') }}" class="hbtn hbtn--white"><span>Liên hệ ngay</span></a>
                 </div>
             </div>
         </div>
@@ -265,22 +265,21 @@
         <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script>
         <script src="{{ asset('assets/js/about.js') }}" data-minify="1" defer></script>
         <script>
-//             document.addEventListener('DOMContentLoaded', function() {
-//     var video = document.getElementById('video-ads');
-//     var thumbnail = document.getElementById('video-thumbnail');
-//     var playButton = document.getElementById('play-button');
+            //             document.addEventListener('DOMContentLoaded', function() {
+            //     var video = document.getElementById('video-ads');
+            //     var thumbnail = document.getElementById('video-thumbnail');
+            //     var playButton = document.getElementById('play-button');
 
-//     function hideThumbnailAndPlayVideo() {
-//         thumbnail.style.display = 'none';
-//         playButton.style.display = 'none';
-//         video.style.display = 'block';
-//         video.play();
-//     }
+            //     function hideThumbnailAndPlayVideo() {
+            //         thumbnail.style.display = 'none';
+            //         playButton.style.display = 'none';
+            //         video.style.display = 'block';
+            //         video.play();
+            //     }
 
-//     thumbnail.addEventListener('click', hideThumbnailAndPlayVideo);
-//     playButton.addEventListener('click', hideThumbnailAndPlayVideo);
-// });
-
+            //     thumbnail.addEventListener('click', hideThumbnailAndPlayVideo);
+            //     playButton.addEventListener('click', hideThumbnailAndPlayVideo);
+            // });
         </script>
     @endsection
 </x-base-layout>

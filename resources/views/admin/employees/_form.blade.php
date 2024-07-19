@@ -144,7 +144,7 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-10 fv-row">
-                                <input required rows="1" type="number" name="phone"
+                                <input required rows="1" type="text" name="phone"
                                     class="form-control mycustom" placeholder=""
                                     value={{ isset($item) ? $item->phone : '' }}>
                             </div>

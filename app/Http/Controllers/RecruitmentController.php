@@ -76,4 +76,6 @@ class RecruitmentController extends Controller
 
         return redirect()->route('recruitments.index')->with('success', 'Đã xóa tin tuyển dụng');
     }
+
+   
 }

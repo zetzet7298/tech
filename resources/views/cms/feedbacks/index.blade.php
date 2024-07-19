@@ -63,13 +63,20 @@
                                         <span class="fw-bold text-gray-800 d-block fs-7">{{ $row->index }}</span>
                                     </td>
                                     <td class="text-end">
+                                        @if (checkPermission('feedback', 'PUT'))
+                                            <a href="{{ route('feedbacks.edit', ['feedback' => $row->id]) }}"
+                                                href="javascript:void(0);" class="action-icon"> <i
+                                                    class="mdi mdi-square-edit-outline"></i></a>
+                                        @endif
+                                        @if (checkPermission('feedback', 'DELETE'))
+                                            <a href="{{ route('feedbacks.destroy', ['feedback' => $row->id]) }}"
+                                                onclick="return confirm('Bạn chắc chắn muốn xóa?');"
+                                                href="javascript:void(0);" class="action-icon"> <i
+                                                    class="mdi mdi-delete"></i></a>
+                                        @endif
                                         {{-- <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a> --}}
-                                        <a href="{{ route('feedbacks.edit', ['feedback' => $row->id]) }}"
-                                            href="javascript:void(0);" class="action-icon"> <i
-                                                class="mdi mdi-square-edit-outline"></i></a>
-                                        <a href="{{ route('feedbacks.destroy', ['feedback' => $row->id]) }}"
-                                            onclick="return confirm('Bạn chắc chắn muốn xóa?');" href="javascript:void(0);"
-                                            class="action-icon"> <i class="mdi mdi-delete"></i></a>
+
+
                                     </td>
                                 </tr>
                             @endforeach

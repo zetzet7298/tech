@@ -10,7 +10,7 @@
                 data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
                 <!--begin::Card title-->
                 <div class="card-title m-0">
-                    <h3 class="fw-bolder m-0">{{ __('Tạo Feedback') }}</h3>
+                    <h3 class="fw-bolder m-0">{{ __('Sửa Feedback') }}</h3>
                 </div>
                 <!--end::Card title-->
             </div>
@@ -41,7 +41,7 @@
                         <!--begin::Input group-->
                         <div class="row mt-3">
                             <!--begin::Label-->
-                            <label class="form-label">{{ __('Avatar KH') }}</label>
+                            <label class="form-label">{{ __('Avatar KH (80x106)') }}</label>
                             <!--end::Label-->
 
                             <!--begin::Col-->
@@ -51,8 +51,8 @@
                                     data-kt-image-input="true"
                                     style="background-image: url({{ display_image($feedback->image) }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"
-                                        style="background-image: url({{ display_image($feedback->image) }})"></div>
+                                    <div class="image-input-wrapper"
+                                        style="background-image: url({{ display_image($feedback->image) }});width:80px; height:106px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -103,9 +103,9 @@
                             <div class="col-lg-12">
                                 <!--begin::Image input-->
                                 <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
-                                    style="background-image: url({{ display_image($feedback->slide_1) }})">
+                                    style="background-image: url({{ display_image($feedback->slide_1) }}); width:699px; height:436px;">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"></div>
+                                    <div class="image-input-wrapper" style="width:699px; height:436px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->
@@ -156,9 +156,9 @@
                             <div class="col-lg-12">
                                 <!--begin::Image input-->
                                 <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
-                                    style="background-image: url({{ display_image($feedback->slide_2) }})"">
+                                    style="background-image: url({{ display_image($feedback->slide_2) }}); width:891px; height:685px;">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"></div>
+                                    <div class="image-input-wrapper" style="width:891px; height:685px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->

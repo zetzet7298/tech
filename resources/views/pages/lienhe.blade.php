@@ -1,7 +1,7 @@
 <x-base-layout>
     @section('title')
-    <title>Liên Hệ {{ $companyNameValue }}</title>
-@endsection
+        <title>Liên Hệ {{ $companyNameValue }}</title>
+    @endsection
     {{-- @php
         $settings = \App\Models\Setting::getByType(config('constants.SETTING_TYPE_DASHBOARD'));
         $ABOUT_TITLE = $settings[config('constants.ABOUT_TITLE')]['value'];
@@ -17,6 +17,7 @@
     @endphp --}}
 
     <div class="hero">
+        {{-- <h1 class="d-none">{{ $h1 }}</h1> --}}
         <div class="center-layout">
             <div class="design-banner-contain">
                 <img width="1230" height="540"
@@ -105,12 +106,12 @@
             <div class="contact-group-2__content">
                 <div class="contact-group-2__name">Email</div>
                 <div class="contact-group-2__desc">
-                    <span>{{$EMAIL}}</span>
+                    <span>{{ $EMAIL }}</span>
                 </div>
                 <div class="contact-group-2__name">Hotline</div>
-                <div class="contact-group-2__desc">{{$PHONE}}</div>
+                <div class="contact-group-2__desc">{{ $PHONE }}</div>
                 <div class="contact-group-2__name">Trụ sở</div>
-                <div class="contact-group-2__desc">{{$ADDRESS}}
+                <div class="contact-group-2__desc">{{ $ADDRESS }}
                 </div>
             </div>
             <div class="contact-group-2__map">
@@ -119,7 +120,7 @@
                 width="600" height="450" style="border:0;" allowfullscreen="" 
                 loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe> --}}
-                {!!$GOOGLE_MAP!!}
+                {!! $GOOGLE_MAP !!}
                 {{-- <iframe
                     src="{{$GOOGLE_MAP}}"
                     style="border:0;" allowfullscreen="" loading="lazy"></iframe> --}}
@@ -130,6 +131,5 @@
     @section('scripts')
         <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script>
         <script src="{{ asset('assets/js/lienhe.js') }}" data-minify="1" defer></script>
-
     @endsection
 </x-base-layout>

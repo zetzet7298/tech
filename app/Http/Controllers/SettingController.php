@@ -12,6 +12,9 @@ class SettingController extends Controller
     public function index($type)
     {
         switch ($type) {
+            case 'common':
+                return view('cms.settings.chung', compact('type'));
+                break;
             case 'service':
                 return view('cms.settings.dichvu', compact('type'));
                 break;
@@ -79,7 +82,7 @@ class SettingController extends Controller
         DB::beginTransaction();
         try {
             switch ($type) {
-                case 'dashboard':
+                case 'common':
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.COMPANY_NAME'), $request->COMPANY_NAME);
                     // Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.LOGO'), $request->LOGO);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.PRICE_QUOTE'), $request->PRICE_QUOTE);
@@ -97,11 +100,17 @@ class SettingController extends Controller
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), 'diachivanphong', $request->DIACHIVANPHONG);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), 'emailvanphong', $request->EMAILVANPHONG);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), 'tghdvanphong', $request->TGHDVANPHONG);
-
+                    Setting::set(config('constants.SETTING_TYPE_COMMON'), 'bocongthuong_link', $request->bocongthuong_link);
+                    if (request()->hasFile('LOGO') && $path = upload_image2('LOGO', 'LOGO')) {
+                        Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.LOGO'), $path);
+                    }
+                case 'dashboard':
                     Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.ABOUT_TITLE'), $request->ABOUT_TITLE);
                     Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.ABOUT_DESC'), $request->ABOUT_DESC);
                     Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SOLUTION_TITLE'), $request->SOLUTION_TITLE);
                     Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SOLUTION_DESCRIPTION'), $request->SOLUTION_DESCRIPTION);
+                    // dd(Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), 'h1', $request->h1));
+                    Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), 'h1', $request->h1);
 
                     if (request()->hasFile('SLIDER_1') && $path = upload_image2('SLIDER_1', 'SLIDER_1')) {
                         Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SLIDER_1'), $path);
@@ -111,9 +120,6 @@ class SettingController extends Controller
                     }
                     if (request()->hasFile('SLIDER_3') && $path = upload_image2('SLIDER_3', 'SLIDER_3')) {
                         Setting::set(config('constants.SETTING_TYPE_DASHBOARD'), config('constants.SLIDER_3'), $path);
-                    }
-                    if (request()->hasFile('LOGO') && $path = upload_image2('LOGO', 'LOGO')) {
-                        Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.LOGO'), $path);
                     }
                     break;
                 case 'service':
@@ -126,7 +132,7 @@ class SettingController extends Controller
                     if (request()->hasFile('nangtam_banner') && $path = upload_image2('nangtam_banner', 'nangtam_banner')) {
                         Setting::set('service', 'nangtam_banner', $path);
                     }
-
+                    Setting::set('service', 'h1', $request->h1);
                     Setting::set('service', 'title', $request->title);
                     Setting::set('service', 'description', $request->description);
                     Setting::set('service', 'nangtam_title', $request->nangtam_title);
@@ -163,6 +169,7 @@ class SettingController extends Controller
                     }
                     Setting::set('recruitment', 'title', $request->title);
                     Setting::set('recruitment', 'description', $request->description);
+                    Setting::set('recruitment', 'h1', $request->h1);
                     break;
                 case 'about':
                     if (request()->hasFile('banner') && $path = upload_image2('banner', 'banner')) {
@@ -209,7 +216,7 @@ class SettingController extends Controller
                     Setting::set('about', 'diemdadang_item_2', $request->diemdadang_item_2);
                     Setting::set('about', 'diemdadang_item_3', $request->diemdadang_item_3);
                     Setting::set('about', 'diemdadang_item_4', $request->diemdadang_item_4);
-
+                    Setting::set('about', 'h1', $request->h1);
                     break;
                 case 'hr':
                     Setting::set('hr', 'title', $request->title);
@@ -220,6 +227,7 @@ class SettingController extends Controller
                     if (request()->hasFile('banner_mobile') && $path = upload_image2('banner_mobile', 'banner_mobile')) {
                         Setting::set('hr', 'banner_mobile', $path);
                     }
+                    Setting::set('hr', 'h1', $request->h1);
                     break;
                 case 'post':
                     Setting::set('post', 'title', $request->title);
@@ -230,6 +238,7 @@ class SettingController extends Controller
                     if (request()->hasFile('banner_mobile') && $path = upload_image2('banner_mobile', 'banner_mobile')) {
                         Setting::set('post', 'banner_mobile', $path);
                     }
+                    Setting::set('post', 'h1', $request->h1);
                     break;
                     // default: return view('cms.settings.trangchu', compact('type'));
             }

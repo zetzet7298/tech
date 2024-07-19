@@ -101,14 +101,19 @@
                                     </div>
                                 </td>
                                 <td class="text-end">
-                                    <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
-                                    <a href="{{ route('posts.edit', ['post' => $row->id]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <a
-                                    href="{{ route('posts.destroy', ['post' => $row->id]) }}"
-                                    onclick="return confirm('Bạn chắc chắn muốn xóa?');"
-                                    href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}"
+                                        href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a>
+                                    @if (checkPermission('post', 'PUT'))
+                                        <a href="{{ route('posts.edit', ['post' => $row->id]) }}" href="javascript:void(0);"
+                                            class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                    @endif
+                                    @if (checkPermission('post', 'DELETE'))
+                                        <a href="{{ route('posts.destroy', ['post' => $row->id]) }}"
+                                            onclick="return confirm('Bạn chắc chắn muốn xóa?');" href="javascript:void(0);"
+                                            class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    @endif
                                 </td>
-                                
+
                             </tr>
                         @endforeach
                     </tbody>

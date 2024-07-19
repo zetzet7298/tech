@@ -1,13 +1,14 @@
 <x-base-layout>
     @section('title')
-    <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
-@endsection
+        <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
+    @endsection
     @php
         $settings = \App\Models\Setting::getByType('project');
         $title = $settings['title']['value'];
         $description = $settings['description']['value'];
     @endphp
     <div class="hero">
+        <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
             <div class="design-banner-contain">
                 <img width="1230" height="540" class="hidden sm:block w-full"
@@ -3118,6 +3119,7 @@
     </div>
     </div>
     <div class="contttt" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="0">
+        <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
             <img width="2596" height="397"
                 src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202596%20397'%3E%3C/svg%3E"

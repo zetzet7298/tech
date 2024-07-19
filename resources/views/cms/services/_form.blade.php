@@ -22,7 +22,7 @@
                                     <!--begin::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label class="form-label">Ảnh Thumbnail</label>
+                                        <label class="form-label">Ảnh Thumbnail (320x222)</label>
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-12">
@@ -30,8 +30,8 @@
                                             <div class="image-input image-input-outline" data-kt-image-input="true"
                                                 style="background-image: url(assets/media/avatars/blank.png)">
                                                 <!--begin::Preview existing thumbnail-->
-                                                <div class="image-input-wrapper w-125px h-125px"
-                                                    style="background-image: url({{ display_image($item->thumbnail ?? '') }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($item->thumbnail ?? '') }});width:320px; height:222px;">
                                                 </div>
                                                 <!--end::Preview existing thumbnail-->
                                                 <!--begin::Label-->

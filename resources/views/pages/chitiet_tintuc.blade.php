@@ -1,10 +1,32 @@
 <x-base-layout>
     @section('title')
-        <title>Tin tức | {{ $companyNameValue }}</title>
+        <title>Bài viết | {{ $companyNameValue }}</title>
     @endsection
     @section('styles')
         <link rel="stylesheet" href="{{ asset('assets/css/app2.css') }}" media="all" data-minify="1" />
         <style>
+            blockquote {
+                font-size: 1.2em;
+                font-style: italic;
+                color: #555;
+                border-left: 4px solid #ccc;
+                padding-left: 15px;
+                margin: 20px 0;
+                background-color: #f9f9f9;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            blockquote p {
+                margin: 0;
+            }
+
+            blockquote footer {
+                margin-top: 10px;
+                font-size: 0.9em;
+                color: #777;
+            }
+
             .ez-toc-heading-level-3 {
                 padding-left: 20px;
             }
@@ -15,6 +37,24 @@
 
             .header__right #menu-menu-chinh>li>a {
                 color: #fff
+            }
+
+            h2 {
+                font-size: 28px !important;
+            }
+
+            h2 {
+                font-size: 24px !important;
+            }
+
+            h4,
+            h5,
+            h6 {
+                font-size: 20px !important;
+            }
+
+            a {
+                text-decoration: none;
             }
 
             /* Đặt lại các thuộc tính cơ bản cho tất cả các thẻ con */
@@ -439,26 +479,23 @@
         // $title = $settings['title']['value'];
         // $description = $settings['description']['value'];
         // $banner = $settings['banner']['value'];
+        // $h1 = $settings['h1']['value'];
         // $banner_mobile = $settings['banner_mobile']['value'];
     @endphp
     <div class="center-layout-2">
         <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
             <p><a href="{{ route('trangchu') }}">Trang chủ</a><span class="separator"> &raquo; </span><a
-                    href="{{ route('tintuc') }}">Tin tức</a><span class="separator"> &raquo; </span><span
+                    href="{{ route('tintuc') }}">Bài viết</a><span class="separator"> &raquo; </span><span
                     class="last">{{ $item->title }}</span></p>
         </nav>
     </div>
-    <div class="content">
+    <div class="content" style="text-align: justify;">
         <div class="post-detail center-layout">
-            <div class="post-detail__left">
+            <div class="post-detail__left" style="min-width: 77%">
                 <article id="post-3253"
                     class="post-3253 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-kien-thuc-website category-website">
 
-                    <h1 class="entry-title">{{ $item->title }}</h1> <a class="post-detail__google-new"
-                        href="https://news.google.com/publications/CAAqBwgKMJL0qwswj__DAw?hl=en-US&gl=US&ceid=US:en"
-                        target="_blank" rel="nofollow">
-
-                    </a>
+                    <h1 class="entry-title">{{ $item->title }}</h1>
                     <div class="entry-content">
                         <div>
                             {!! $item->summary !!}
@@ -515,14 +552,14 @@
                                 <circle cx="12" cy="15" r="1.5" />
                                 <circle cx="7" cy="15" r="1.5" />
                                 <circle cx="17" cy="15" r="1.5" />
-                            </svg> {{formatDate($item->created_at)}}</span>
+                            </svg> {{ formatDate($item->created_at) }}</span>
                         <b>{{ $item->author ? $item->author->name : '' }}</b>
                     </div>
                 </article>
 
 
             </div>
-            <div class="post-detail__right">
+            <div class="post-detail__right" style="min-width: 25%">
                 <div class='post-detail-service-list'>
                     <div class="post-detail__sub-title">Danh mục</div>
                     <div class="blog-items-desk-mt pd075 mgb-2">

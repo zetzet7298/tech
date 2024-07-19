@@ -50,8 +50,9 @@
 
                             <!--begin::Col-->
                             <div class="col-lg-12 fv-row">
-                                <textarea required rows="10" type="text" name="desc" class="form-control mycustom" placeholder=""
-                                    value=""></textarea>
+                                <textarea name="desc" id="kt_docs_tinymce_basic" class="tox-target">
+                                    
+                                </textarea>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -73,4 +74,26 @@
             <!--end::Content-->
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('demo1/plugins/custom/tinymce/tinymce.min.js') }}"></script>
+
+    <script>
+        // tinymce.init(options);
+        tinymce.init({
+            selector: '#kt_docs_tinymce_basic',
+            entity_encoding: 'raw', // Prevent encoding characters into entities
+            entities: '160,nbsp,38,amp,60,lt,62,gt',
+            encoding: 'UTF-8', // Ensure UTF-8 encoding
+            height: 500,
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'wordcount'
+            ],
+            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+            license_key: 'gpl'
+        });
+    </script>
 @endsection

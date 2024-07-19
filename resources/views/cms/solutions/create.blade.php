@@ -50,7 +50,7 @@
                                 <div class="image-input image-input-outline image-input-empty" data-kt-image-input="true"
                                     style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-250px h-250px"></div>
+                                    <div class="image-input-wrapper" style="width:470px; height:313px;"></div>
                                     <!--end::Preview existing avatar-->
 
                                     <!--begin::Label-->

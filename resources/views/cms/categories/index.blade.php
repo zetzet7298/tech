@@ -54,12 +54,17 @@
                                     <span class="fw-bold text-gray-800 d-block fs-7">{{ $row->index }}</span>
                                 </td>
                                 <td class="text-end">
-                                    {{-- <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a> --}}
+                                    @if (checkPermission('category', 'PUT'))
                                     <a href="{{ route('categories.edit', ['category' => $row->id]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
+                                    @endif
+                                    @if (checkPermission('category', 'DELETE'))
+                                    {{-- <a target="_blank" href="{{ route('tintuc', ['slug' => $row->slug]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a> --}}
                                     <a
                                     href="{{ route('categories.destroy', ['category' => $row->id]) }}"
                                     onclick="return confirm('Bạn chắc chắn muốn xóa?');"
                                     href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    @endif
+
                                 </td>
                              
                             </tr>

@@ -1,6 +1,6 @@
 <x-base-layout>
     @section('title')
-        <title>{{$item->name}} | {{ $companyNameValue }}</title>
+        <title>{{ $item->name }} | {{ $companyNameValue }}</title>
     @endsection
     @section('styles')
         {{-- <style>
@@ -17,9 +17,11 @@
         $title = $settings['title']['value'];
         $description = $settings['description']['value'];
         $banner = $settings['banner']['value'];
+        $h1 = $settings['h1']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
     @endphp
     <div class="hero">
+        <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
             <div class="design-banner-contain">
                 <div class="himg banner--desktop">

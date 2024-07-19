@@ -1,6 +1,9 @@
 <?php
+
 use Intervention\Image\Facades\Image;
-function generateSlug($string) {
+
+function generateSlug($string)
+{
     // Mảng ánh xạ các ký tự có dấu thành không dấu
     $vietnameseMap = [
         'a' => ['à', 'á', 'ạ', 'ả', 'ã', 'â', 'ầ', 'ấ', 'ậ', 'ẩ', 'ẫ', 'ă', 'ằ', 'ắ', 'ặ', 'ẳ', 'ẵ'],
@@ -26,46 +29,70 @@ function generateSlug($string) {
 
     // Chuyển đổi chuỗi thành chữ thường
     $string = mb_strtolower($string, 'UTF-8');
-    
+
     // Loại bỏ các ký tự không phải là chữ và số
     $string = preg_replace('/[^a-z0-9\s-]/u', '', $string);
-    
+
     // Thay thế khoảng trắng và các ký tự đặc biệt bằng dấu gạch ngang
     $string = preg_replace('/[\s-]+/', '-', $string);
-    
+
     // Loại bỏ các dấu gạch ngang thừa
     $string = trim($string, '-');
-    
+
     return $string;
 }
 if (!function_exists('formatDate')) {
-    function formatDate($date) {
+    function formatDate($date)
+    {
         return \Carbon\Carbon::parse($date)->format('d/m/Y');
     }
 }
 if (!function_exists('filterContent')) {
-    function filterContent($content) {
-// Biểu thức chính quy để khớp với các thẻ heading
-$pattern = '/<h([1-6])[^>]*>(.*?)<\/h\1>/is';
+    function filterContent($content)
+    {
+        // Biểu thức chính quy để khớp với các thẻ heading
+        $pattern = '/<h([1-6])[^>]*>(.*?)<\/h\1>/is';
 
-// Mảng để lưu các kết quả khớp
-$matches = [];
+        // Mảng để lưu các kết quả khớp
+        $matches = [];
 
-// Tìm tất cả các thẻ heading trong nội dung
-preg_match_all($pattern, $content, $matches, PREG_SET_ORDER);
-// dd($matches);
-// In các thẻ heading đã tìm thấy
-foreach ($matches as $match) {
-    echo 'Found heading: ' . $match[0] . PHP_EOL;
-    echo 'Heading level: h' . $match[1] . PHP_EOL;
-    echo 'Heading content: ' . $match[2] . PHP_EOL;
-    echo PHP_EOL;
-}
+        // Tìm tất cả các thẻ heading trong nội dung
+        preg_match_all($pattern, $content, $matches, PREG_SET_ORDER);
+        // dd($matches);
+        // In các thẻ heading đã tìm thấy
+        foreach ($matches as $match) {
+            echo 'Found heading: ' . $match[0] . PHP_EOL;
+            echo 'Heading level: h' . $match[1] . PHP_EOL;
+            echo 'Heading content: ' . $match[2] . PHP_EOL;
+            echo PHP_EOL;
+        }
         return $content;
     }
 }
+if (!function_exists('checkPermission')) {
+    function checkPermission($role, $method = 'GET', $user=null)
+    {
+        if($user){
+            $roles = $user->roles;
+        }else{
+            $roles = Auth::user()->roles;
+        }
+        if ($roles == null) return false;
+
+        $roles = json_decode($roles);
+        if(in_array($method, ['POST', 'PUT'])){
+            if (!in_array('edit', $roles)) return False;
+        }elseif($method == `DELETE`){
+            if (!in_array('delete', $roles)) return False;
+        }
+
+        if (in_array($role, $roles)) return true;
+        return False;
+    }
+}
 if (!function_exists('limitString')) {
-    function limitString($string, $limit) {
+    function limitString($string, $limit)
+    {
         // Kiểm tra độ dài của chuỗi
         if (strlen($string) <= $limit) {
             return $string; // Nếu chuỗi ngắn hơn hoặc bằng giới hạn, trả về chuỗi gốc
@@ -76,36 +103,36 @@ if (!function_exists('limitString')) {
     }
 }
 if (!function_exists('upload_image2')) {
-    function upload_image2($folder = 'images',
-     $key = 'avatar', 
-     $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes'
-     )
-    {
+    function upload_image2(
+        $folder = 'images',
+        $key = 'avatar',
+        $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes'
+    ) {
         request()->validate([$key => $validation]);
 
         $file = null;
 
         if (request()->hasFile($key)) {
             $uploadedFile = request()->file($key);
-            
+
             // Generate unique file name
             $file_extension = $uploadedFile->getClientOriginalExtension();
             $file_name = time() . '.' . $file_extension;
-            
+
             // Save original image
             $original_path = $uploadedFile->storeAs($folder, $file_name, 'public');
-            
+
             // Convert to WebP
             $webp_file_name = pathinfo($file_name, PATHINFO_FILENAME) . '.webp';
             // dd($webp_file_name);
             $webp_file_path = Storage::disk('public')->path($folder . '/' . $webp_file_name);
             // Delete the original uploaded file
-            if($file_extension != 'webp'){
-                
+            if ($file_extension != 'webp') {
+
                 Image::make($uploadedFile)->encode('webp', 75)->save($webp_file_path);
                 Storage::disk('public')->delete($original_path);
             }
-            
+
             $file = $folder . '/' . $webp_file_name; // Đường dẫn đầy đủ của file WebP
         }
         // dd($file);
@@ -116,35 +143,34 @@ if (!function_exists('upload_image3')) {
     function upload_image3(
         $name,
         $folder = 'images',
-     $key = 'avatar', 
-     $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes'
-     )
-    {
+        $key = 'avatar',
+        $validation = 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048|sometimes'
+    ) {
         request()->validate([$key => $validation]);
 
         $file = null;
 
         if (request()->hasFile($key)) {
             $uploadedFile = request()->file($key);
-            
+
             // Generate unique file name
             $file_extension = $uploadedFile->getClientOriginalExtension();
             $file_name = $name . '.' . $file_extension;
-            
+
             // Save original image
             $original_path = $uploadedFile->storeAs($folder, $file_name, 'public');
-            
+
             // Convert to WebP
             $webp_file_name = pathinfo($file_name, PATHINFO_FILENAME) . '.webp';
             // dd($webp_file_name);
             $webp_file_path = Storage::disk('public')->path($folder . '/' . $webp_file_name);
             // Delete the original uploaded file
-            if($file_extension != 'webp'){
-                
+            if ($file_extension != 'webp') {
+
                 Image::make($uploadedFile)->encode('webp', 75)->save($webp_file_path);
                 Storage::disk('public')->delete($original_path);
             }
-            
+
             $file = $folder . '/' . $webp_file_name; // Đường dẫn đầy đủ của file WebP
         }
         return $file;
@@ -159,18 +185,18 @@ if (!function_exists('upload_video')) {
 
         if (request()->hasFile($key)) {
             $uploadedFile = request()->file($key);
-            
+
             // Generate unique file name
             $file_extension = $uploadedFile->getClientOriginalExtension();
             $file_name = time() . '.' . $file_extension;
-            
+
             // Save original video
             $original_path = $uploadedFile->storeAs($folder, $file_name, 'public');
-            
+
             // No need to convert video to another format
             $file = $folder . '/' . $file_name; // Đường dẫn đầy đủ của file video
         }
-        
+
         return $file;
     }
 }
@@ -189,19 +215,22 @@ if (!function_exists('upload_video')) {
 //     }
 // }
 if (!function_exists('display_image')) {
-    function display_image($path, $type = 'posts') {
+    function display_image($path, $type = 'posts')
+    {
         // TODO leave this line in production.
         return $path && Storage::disk('public')->exists($path) ? asset('storage/' . $path) : asset('demo1/media/default.jpg');
     }
 }
 if (!function_exists('display_video')) {
-    function display_video($path, $type = 'videos') {
+    function display_video($path, $type = 'videos')
+    {
         return $path && Storage::disk('public')->exists($path) ? asset('storage/' . $path) : asset('path/to/default/video.mp4');
     }
 }
 
 if (!function_exists('display_default_image')) {
-    function display_default_image() {
+    function display_default_image()
+    {
         // TODO leave this /dline in production.
         return asset('assets/media/default-image.jpg');
     }

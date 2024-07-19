@@ -2,6 +2,7 @@
     $settings = \App\Models\Setting::getByType('hr');
     $title = $settings['title']['value'];
     $description = $settings['description']['value'];
+    $h1 = $settings['h1']['value'];
     $banner = $settings['banner']['value'];
     $banner_mobile = $settings['banner_mobile']['value'];
 @endphp
@@ -44,7 +45,22 @@
                                     <!--begin::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label for="example-textarea" class="form-label">{{ __('Banner') }}</label>
+                                        <label for="example-textarea" class="form-label">{{ __('Nội dung thẻ h1') }}</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Col-->
+                                        <div class="col-lg-12 fv-row">
+                                            <textarea rows="3" type="text" name="h1" class="form-control" id="example-textarea" placeholder=""
+                                                value="">{{ old('h1', $h1 ?? '') }}</textarea>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="row mt-3">
+                                        <!--begin::Label-->
+                                        <label for="example-textarea"
+                                            class="form-label">{{ __('Banner (1230x540)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -54,8 +70,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($banner) }})"></div>
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($banner) }});width:1230px; height:540px;"></div>
                                                 <!--end::Preview existing avatar-->
 
                                                 <!--begin::Label-->
@@ -103,7 +119,8 @@
                                     <!--end::Input group-->
                                     <div class="row mt-3">
                                         <!--begin::Label-->
-                                        <label for="example-textarea" class="form-label">{{ __('Banner Mobile') }}</label>
+                                        <label for="example-textarea"
+                                            class="form-label">{{ __('Banner Mobile (375x700)') }}</label>
                                         <!--end::Label-->
 
                                         <!--begin::Col-->
@@ -113,8 +130,8 @@
                                                 data-kt-image-input="true"
                                                 style="background-image: url({{ asset(theme()->getMediaUrlPath() . 'avatars/blank.png') }})">
                                                 <!--begin::Preview existing avatar-->
-                                                <div class="image-input-wrapper w-250px h-250px"
-                                                    style="background-image: url({{ display_image($banner_mobile) }})">
+                                                <div class="image-input-wrapper"
+                                                    style="background-image: url({{ display_image($banner_mobile) }});width:375px; height:700px;">
                                                 </div>
                                                 <!--end::Preview existing avatar-->
 
@@ -182,8 +199,8 @@
 
                                         <!--begin::Col-->
                                         <div class="col-lg-12 fv-row">
-                                            <textarea rows="5" type="text" name="description" class="form-control" id="example-textarea" placeholder=""
-                                                value="">{{ old('description', $description ?? '') }}</textarea>
+                                            <textarea rows="5" type="text" name="description" class="form-control" id="example-textarea"
+                                                placeholder="" value="">{{ old('description', $description ?? '') }}</textarea>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -195,7 +212,8 @@
                                 <div class="card-footer d-flex justify-content-end py-6 px-9">
                                     {{-- <button type="reset" class="btn btn-white btn-active-light-primary me-2">{{ __('Discard') }}</button> --}}
 
-                                    <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">
+                                    <button type="submit" class="btn btn-primary"
+                                        id="kt_account_profile_details_submit">
                                         @include('partials.general._button-indicator', [
                                             'label' => __('Xác Nhận'),
                                         ])

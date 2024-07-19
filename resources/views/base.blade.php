@@ -22,7 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
-    @if (Route::currentRouteName() != 'tintuc.detail')
+    @if (!in_array(Route::currentRouteName(), ['tintuc.detail', 'tuyendung.chitiet']))
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
         
     @endif
@@ -63,6 +63,7 @@
         font-size: 15px;
     } */
     body {
+        
         font-size: 14px !important;
     }
 
@@ -1161,7 +1162,7 @@
     @yield('styles')
 </head>
 
-<body class="home page-template page-template-index page-template-index-php page page-id-264 unselectable">
+<body style="overflow-x: hidden !important;width: 100%;" class="home page-template page-template-index page-template-index-php page page-id-264 unselectable">
     @if (session('success'))
         <div id="flash-message" class="flash-message success">
             <p>{{ session('success') }}</p>

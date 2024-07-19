@@ -1,11 +1,12 @@
 <x-base-layout>
     @section('title')
-    <title>Dịch Vụ Tư Vấn Pháp Luật | {{$companyNameValue}}</title>
+        <title>Dịch Vụ Tư Vấn Pháp Luật | {{ $companyNameValue }}</title>
     @endsection
     @php
         $settings = \App\Models\Setting::getByType(config('constants.SETTING_TYPE_DASHBOARD'));
         $ABOUT_TITLE = $settings[config('constants.ABOUT_TITLE')]['value'];
         $ABOUT_DESC = $settings[config('constants.ABOUT_DESC')]['value'];
+        $h1 = $settings['h1']['value'];
         $SLIDER_1 = $settings[config('constants.SLIDER_1')]['value'];
         $SLIDER_2 = $settings[config('constants.SLIDER_2')]['value'];
         $SLIDER_3 = $settings[config('constants.SLIDER_3')]['value'];
@@ -16,7 +17,7 @@
         $solutions = \App\Models\Solution::orderBy('index', 'asc')->get();
     @endphp
     <div class="overflow-x-hidden">
-        <h1 class="d-none">Dịch Vụ Tư Vấn Pháp Luật</h1>
+        <h1 class="d-none">{{ $h1 }}</h1>
         <div class="slider">
             <div class="center-layout">
                 <div class="slider-items">
@@ -57,7 +58,7 @@
                 <div class="website__left__content gs_reveal" data-delay="0.5">
                     <div class="website__title">Giải pháp</div>
                     <h2 class="website__name">{{ $SOLUTION_TITLE }}</h2>
-                    <div class="website__desc">{{ $SOLUTION_DESCRIPTION }}</div>
+                    <h3 class="website__desc">{{ $SOLUTION_DESCRIPTION }}</h3>
                     <div class="d-flex justify-content-start">
                         <a href="{{ route('dichvu') }}" class="hbtn hbtn--white">Tìm hiểu ngay</a>
                     </div>
@@ -353,7 +354,7 @@
             <div class="center-layout">
                 <h3
                     class="text-2xl text-[#7f7f7f] text-center font-bold uppercase mb-[0.25rem] cursor-pointer gs_reveal">
-                    Tin tức mới
+                    Bài viết mới
                 </h3>
                 {{-- <div
                     class=" text-3xl font-bold sm:text-4xl text-black text-center uppercase cursor-pointer mb-4 gs_reveal">

@@ -90,14 +90,20 @@
                                             <a target="_blank" href="{{ route('employees.show', $row->id) }}"
                                                 href="javascript:void(0);" class="action-icon"> <i
                                                     class="mdi mdi-eye"></i></a>
-                                            <a href="{{ route('employees.edit', ['employee' => $row->id]) }}"
-                                                href="javascript:void(0);" class="action-icon"> <i
-                                                    class="mdi mdi-square-edit-outline"></i></a>
-                                            <button type="submit"
-                                                class="btn action-icon btn-icon btn-bg-light btn-active-color-primary btn-sm mb-1"
-                                                onclick="return confirm('Bạn chắc chắn muốn xóa?');">
-                                                <i class="mdi mdi-delete"></i>
-                                            </button>
+                                                    @if (checkPermission('employee', 'PUT'))
+                                                    <a href="{{ route('employees.edit', ['employee' => $row->id]) }}"
+                                                        href="javascript:void(0);" class="action-icon"> <i
+                                                            class="mdi mdi-square-edit-outline"></i></a>
+                                                    @endif
+                                                    @if (checkPermission('employee', 'DELETE'))
+                                                    <button type="submit"
+                                                    class="btn action-icon btn-icon btn-bg-light btn-active-color-primary btn-sm mb-1"
+                                                    onclick="return confirm('Bạn chắc chắn muốn xóa?');">
+                                                    <i class="mdi mdi-delete"></i>
+                                                </button>
+                                                    @endif
+                                          
+                                          
                                         </form>
                                     </td>
 

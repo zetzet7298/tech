@@ -71,7 +71,29 @@ License: {{ theme()->getOption('product', 'license') }}
 
 {{-- begin::Body --}}
 <body {!! theme()->printHtmlAttributes('body') !!} {!! theme()->printHtmlClasses('body') !!} {!! theme()->printCssVariables('body') !!}>
-  
+    @if ($errors->any())
+    @foreach ($errors->all() as $error)
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <div class="alert alert-dismissible bg-danger w-350px">
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-column text-light pe-0 pe-sm-10 ">
+                    <!--begin::Title-->
+                    <h4 class="mb-2 light">Alert</h4>
+                    <!--end::Title-->
+                    <!--begin::Content-->
+                    <span>{{ $error }}</span>
+                    <!--end::Content-->
+                </div>
+                <!--end::Wrapper-->
+            </div>
+        </div>
+    </div>
+
+        {{ $error }}
+    @endforeach
+@endif
     @if (session('success'))
     <!--begin::Alert-->
     <div class="row">

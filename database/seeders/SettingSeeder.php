@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Setting;
+use App\Models\User;
 
 class SettingSeeder extends Seeder
 {
@@ -131,13 +132,39 @@ class SettingSeeder extends Seeder
             // ['key' => 'instagram', 'value' => '', 'type' => 'common'],
             // ['key' => 'linkedin', 'value' => '', 'type' => 'common'],
             // ['key' => 'tiktok', 'value' => '', 'type' => 'common'],
-            ['key' => 'vanphong', 'value' => 'Văn phòng ABC', 'type' => 'common'],
-            ['key' => 'diachivanphong', 'value' => '68 Circular Road, #02-01, Singapore', 'type' => 'common'],
-            ['key' => 'emailvanphong', 'value' => 'vanphong@gmail.com', 'type' => 'common'],
-            ['key' => 'tghdvanphong', 'value' => '9h00 - 18h00 từ Thứ 2 - Thứ 6', 'type' => 'common'],
+            // ['key' => 'vanphong', 'value' => 'Văn phòng ABC', 'type' => 'common'],
+            // ['key' => 'diachivanphong', 'value' => '68 Circular Road, #02-01, Singapore', 'type' => 'common'],
+            // ['key' => 'emailvanphong', 'value' => 'vanphong@gmail.com', 'type' => 'common'],
+            // ['key' => 'tghdvanphong', 'value' => '9h00 - 18h00 từ Thứ 2 - Thứ 6', 'type' => 'common'],
 
+            // ['key' => 'bocongthuong_link', 'value' => '', 'type' => 'common'],
+            // ['key' => 'h1', 'value' => '', 'type' => 'service'],
+            // ['key' => 'h1', 'value' => '', 'type' => 'recruitment'],
+            // ['key' => 'h1', 'value' => '', 'type' => 'about'],
+            // ['key' => 'h1', 'value' => '', 'type' => 'hr'],
+            // ['key' => 'h1', 'value' => '', 'type' => 'post'],
+            // ['key' => 'h1', 'value' => '', 'type' => 'dashboard'],
+            
         ];
-
+        User::where('id', 1)->update([
+            'roles' => json_encode([
+            'common',
+            'service',
+            'recruitment',
+            'about',
+            'hr',
+            'post',
+            'dashboard',
+            'feedback',
+            'solution',
+            'office',
+            'specialty',
+            'employee',
+            'category',
+            'edit',
+            'delete',
+        ]), 'phone' => '0123456789'
+    ]);
         foreach ($settings as $setting) {
             Setting::create($setting);
         }

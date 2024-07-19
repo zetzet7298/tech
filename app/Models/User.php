@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'phone',
         'email',
         'password',
     ];
@@ -46,5 +47,14 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class, 'author_id');
+    }
+
+    public function scopeActive($q) {
+        return $q->where('active', true);
+    }
+
+    protected function username()
+    {
+        return 'phone';
     }
 }

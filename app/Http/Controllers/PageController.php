@@ -73,13 +73,15 @@ class PageController extends Controller
 
     public function postDetail($slug)
     {
-        $item = Post::active()->with('author')->where('category_id','<>',1)->where('slug', $slug)->first();
+        $slug = explode('.', $slug);
+        $item = Post::active()->with('author')->where('category_id','<>',1)->where('slug', $slug[0])->first();
         if(empty($item)){
             abort(404);
         }
         $categories = Category::active()->where('slug', '<>', 'dich-vu')->orderBy('index','asc')->get();
         return view('pages.chitiet_tintuc', compact('item', 'categories'));
     }
+
     public function category($slug)
     {
         $item = Category::active()->where('slug', '<>', 'dich-vu')->orderBy('index','asc')->where('slug', $slug)->first();
@@ -89,5 +91,15 @@ class PageController extends Controller
         $items = Post::active()->with('author')->where('category_id','<>',1)->where('category_id', $item->id)->orderBy('created_at', 'desc')->paginate(2);
         $categories = Category::active()->where('slug', '<>', 'dich-vu')->orderBy('index','asc')->get();
         return view('pages.danhmuc_tintuc', compact('items', 'categories', 'item'));
+    }
+
+    public function chitietTuyenDung($id)
+    {
+        $item = Recruitment::findOrFail($id);
+        // $item = Recruitment::active()->first();
+        if(empty($item)){
+            abort(404);
+        }
+        return view('pages.chitiet_tuyendung', compact('item'));
     }
 }

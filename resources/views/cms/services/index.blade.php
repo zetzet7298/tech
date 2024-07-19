@@ -89,11 +89,17 @@
                                 </td>
                                 <td class="text-end">
                                     {{-- <a target="_blank" href="{{ route('dichvu.index') }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-eye"></i></a> --}}
-                                    <a href="{{ route('services.edit', ['service' => $row->id]) }}" href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>
-                                    <a
-                                    href="{{ route('services.destroy', ['service' => $row->id]) }}"
-                                    onclick="return confirm('Bạn chắc chắn muốn xóa?');"
-                                    href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    @if (checkPermission('service', 'PUT'))
+                                        <a href="{{ route('services.edit', ['service' => $row->id]) }}"
+                                            href="javascript:void(0);" class="action-icon"> <i
+                                                class="mdi mdi-square-edit-outline"></i></a>
+                                    @endif
+                                    @if (checkPermission('service', 'DELETE'))
+                                        <a href="{{ route('services.destroy', ['service' => $row->id]) }}"
+                                            onclick="return confirm('Bạn chắc chắn muốn xóa?');" href="javascript:void(0);"
+                                            class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                                    @endif
+
                                 </td>
                             </tr>
                         @endforeach
