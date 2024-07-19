@@ -158,7 +158,7 @@
                         {{ $nangtam_title }}
                     </h2>
                     <div class="d-flex">
-                        <a data-fancybox data-src="#contact-modal" class="hbtn hbtn--white">Liên hệ ngay</a>
+                        <a href="#" data-fancybox data-src="#contact-modal" class="hbtn hbtn--white">Liên hệ ngay</a>
                     </div>
                 </div>
                 <div id="contact-modal" class="h-fancybox">
