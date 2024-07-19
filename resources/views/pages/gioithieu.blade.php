@@ -98,8 +98,8 @@
             </div>
             <div class="about-group-3__right" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                 <div class="about-group-3__image">
-                    <img src="{{ display_image($dichvu_banner) }}"
-                        data-lazy-src="{{ display_image($dichvu_banner) }}"><noscript><img
+                    <img src="{{ display_image($dichvu_banner) }}" alt="Dịch vụ nổi bật"
+                        data-lazy-src="{{ display_image($dichvu_banner) }}"><noscript><img alt="Dịch vụ nổi bật"
                             src="{{ display_image($dichvu_banner) }}"></noscript>
                 </div>
             </div>
@@ -210,7 +210,9 @@
             <div class="about-group-5__right" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                 <div class="about-group-5__image">
                     <img width="550" height="735" src="{{ display_image($chienloipham_banner) }}"
+                    alt="Dịch vụ nổi bật"
                         data-lazy-src="{{ display_image($chienloipham_banner) }}"><noscript><img width="550"
+                            alt="Dịch vụ nổi bật"
                             height="735" src="{{ display_image($chienloipham_banner) }}"></noscript>
                 </div>
             </div>
