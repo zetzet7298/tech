@@ -167,8 +167,9 @@
         const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.withCredentials = false;
-            xhr.open('POST', '/cms/upload');
-            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+            xhr.open('POST', '/~hongnha1/public/cms/upload');
+            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute(
+                'content'));
             xhr.upload.onprogress = (e) => {
                 progress(e.loaded / e.total * 100);
             };
@@ -222,7 +223,7 @@
             toolbar: 'image code | undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
             license_key: 'gpl',
-            images_upload_url: '/cms/upload',
+            images_upload_url: '/~hongnha1/public/cms/upload',
             automatic_uploads: true,
             language: 'vi',
             images_upload_handler: example_image_upload_handler
