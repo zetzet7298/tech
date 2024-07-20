@@ -1,7 +1,11 @@
 @extends('cms.layouts.master')
 
 @section('title', 'CMS Dịch vụ tư vấn pháp luật')
+@section('styles')
+    <link href="{{ asset('hyper/vendor/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="row mt-3">
         <div class="col-12">
             <div class="card">
@@ -82,6 +86,9 @@
                                             <textarea name="summary" id="kt_docs_tinymce_basic2" class="tox-target">
                                                 {{ isset($item) ? $item->summary : '' }}
                                 </textarea>
+
+                                            {{-- <textarea id="kt_docs_ckeditor_classic" required rows="3" type="text" name="summary" style="height: 200px;"
+                                                class="form-control mycustom" placeholder="" value="">{{ isset($item) ? $item->summary : '' }}</textarea> --}}
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -127,33 +134,109 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{ asset('hyper/vendor/select2/js/select2.min.js') }}"></script>
+
+
     <script src="{{ asset('demo1/plugins/custom/tinymce/tinymce.min.js') }}"></script>
 
     <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+
+        const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            xhr.withCredentials = false;
+            xhr.open('POST', '/cms/upload');
+            xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').getAttribute('content'));
+            xhr.upload.onprogress = (e) => {
+                progress(e.loaded / e.total * 100);
+            };
+
+            xhr.onload = () => {
+                if (xhr.status === 403) {
+                    reject({
+                        message: 'HTTP Error: ' + xhr.status,
+                        remove: true
+                    });
+                    return;
+                }
+
+                if (xhr.status < 200 || xhr.status >= 300) {
+                    reject('HTTP Error: ' + xhr.status);
+                    return;
+                }
+
+                const json = JSON.parse(xhr.responseText);
+
+                if (!json || typeof json.location != 'string') {
+                    reject('Invalid JSON: ' + xhr.responseText);
+                    return;
+                }
+
+                resolve(json.location);
+            };
+
+            xhr.onerror = () => {
+                reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+            };
+
+            const formData = new FormData();
+            formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+            xhr.send(formData);
+        });
+
         // tinymce.init(options);
         tinymce.init({
             selector: '#kt_docs_tinymce_basic',
+            entity_encoding: 'raw',
+            entities: '160,nbsp,38,amp,60,lt,62,gt',
+            encoding: 'UTF-8',
             height: 500,
             plugins: [
                 'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
                 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
                 'insertdatetime', 'media', 'table', 'wordcount'
             ],
-            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
+            toolbar: 'image code | undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-            license_key: 'gpl'
+            license_key: 'gpl',
+            images_upload_url: '/cms/upload',
+            automatic_uploads: true,
+            language: 'vi',
+            images_upload_handler: example_image_upload_handler
         });
+
+
+
         tinymce.init({
             selector: '#kt_docs_tinymce_basic2',
+            entity_encoding: 'raw', // Prevent encoding characters into entities
+            entities: '160,nbsp,38,amp,60,lt,62,gt',
+            encoding: 'UTF-8', // Ensure UTF-8 encoding
             height: 200,
             plugins: [
                 'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
                 'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
                 'insertdatetime', 'media', 'table', 'wordcount'
             ],
+            language: 'vi',
             toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent',
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
             license_key: 'gpl'
         });
     </script>
+    {{-- <script src="{{ asset('demo1/plugins/custom/ckeditor/ckeditor-classic.bundle.js') }}"></script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#kt_docs_ckeditor_classic'))
+            .then(editor => {
+                console.log(editor);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    </script> --}}
 @endsection
