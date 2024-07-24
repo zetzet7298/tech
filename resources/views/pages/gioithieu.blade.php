@@ -224,12 +224,12 @@
     <div class="about-group-6">
         <div class="about-group-6-img">
             <div class="himg banner--desktop">
-                <img width="1900" height="1135" src="{{ display_image($diemdadang_banner) }}"
+                <img width="1900" height="1135" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201900%201135'%3E%3C/svg%3E"
                     data-lazy-src="{{ display_image($diemdadang_banner) }}"><noscript><img width="1900"
                         height="1135" src="{{ display_image($diemdadang_banner) }}"></noscript>
             </div>
             <div class="himg banner--mobile">
-                <img width="375" height="812" class="gs_reveal" src="{{ display_image($diemdadang_banner) }}"
+                <img width="375" height="812" class="gs_reveal" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201900%201135'%3E%3C/svg%3E"
                     alt="banner" data-lazy-src="{{ display_image($diemdadang_banner) }}"><noscript><img
                         width="375" height="812" class="gs_reveal"
                         src="{{ display_image($diemdadang_banner) }}" alt="banner"></noscript>

@@ -4423,10 +4423,10 @@ html :where(.is-position-sticky) {
 }
 @media screen and (max-width: 600px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
-    .feedback-wrapper{
-        margin-bottom: -150px;
+    .feedback-wrapper {
+        margin-bottom: -50px;
     }
     html :where(.is-position-sticky) {
         --wp-admin--admin-bar--position-offset: 0px;
@@ -10160,7 +10160,6 @@ body:not(.is-using-mouse) .fancybox__container :focus {
     display: none;
 }
 
-
 .slick-next,
 .slick-prev {
     font-size: 0;
@@ -10746,93 +10745,7 @@ body:not(.is-using-mouse) .fancybox__container :focus {
     color: #000;
     margin-bottom: 3rem;
 }
-.about-group-6 {
-    position: relative;
-    text-align: right;
-}
-.about-group-6-img {
-    position: relative;
-    margin: 0;
-    display: block;
-    text-align: right;
-}
-.about-group-6-img::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: -moz-linear-gradient(
-        90deg,
-        #faf5f0 30%,
-        rgba(112, 239%, 209%, 70%) 50%,
-        rgba(112, 239, 209, 0) 100%
-    );
-    background: -webkit-gradient(
-        linear,
-        90deg,
-        color-stop(30%, FAF5F0),
-        color-stop(50%, 70efd1),
-        color-stop(100%, 70efd1)
-    );
-    background: -webkit-linear-gradient(
-        90deg,
-        #faf5f0 30%,
-        rgba(112, 239%, 209%, 70%) 50%,
-        rgba(112, 239, 209, 0) 100%
-    );
-    background: -o-linear-gradient(
-        90deg,
-        #faf5f0 30%,
-        rgba(112, 239%, 209%, 70%) 50%,
-        rgba(112, 239, 209, 0) 100%
-    );
-    background: -ms-linear-gradient(
-        90deg,
-        #faf5f0 30%,
-        rgba(112, 239%, 209%, 70%) 50%,
-        rgba(112, 239, 209, 0) 100%
-    );
-    background: linear-gradient(
-        90deg,
-        #faf5f0 30%,
-        rgba(112, 239%, 209%, 70%) 50%,
-        rgba(112, 239, 209, 0) 100%
-    );
-}
-.about-group-6__content {
-    position: absolute;
-    top: 0;
-    text-align: left;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-}
-.about-group-6__title {
-    font-family: var(--miko-font);
-    font-size: 36px;
-    font-weight: 100;
-    color: #000;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-}
-.about-group-6__main {
-    display: inline-block;
-    max-width: 40%;
-    margin-top: 6rem;
-}
-.about-group-6-items {
-    background: #fff;
-    border-radius: 40px;
-    margin-bottom: 12px;
-    font-size: 18px;
-    font-weight: 700;
-    color: #1fc1c1;
-    font-family: Montserrat;
-    text-align: center;
-    padding: 10px 5px;
-}
+.about-group-6{position:relative;text-align:right}.about-group-6-img{position:relative;margin:0;display:block;text-align:right}.about-group-6-img::after{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:-moz-linear-gradient(90deg,#faf5f0 30%,rgba(112,239,209,70%) 50%,rgba(112,239,209,0%) 100%);background:-webkit-gradient(linear,90deg,color-stop(30%,FAF5F0),color-stop(50%,70efd1),color-stop(100%,70efd1));background:-webkit-linear-gradient(90deg,#faf5f0 30%,rgba(112,239,209,70%) 50%,rgba(112,239,209,0%) 100%);background:-o-linear-gradient(90deg,#faf5f0 30%,rgba(112,239,209,70%) 50%,rgba(112,239,209,0%) 100%);background:-ms-linear-gradient(90deg,#faf5f0 30%,rgba(112,239,209,70%) 50%,rgba(112,239,209,0%) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1301FE',endColorstr='#F4F60C',GradientType='1');background:linear-gradient(90deg,#faf5f0 30%,rgba(112,239,209,70%) 50%,rgba(112,239,209,0%) 100%)}.about-group-6__content{position:absolute;top:0;text-align:left;width:100%;height:100%;z-index:999}.about-group-6__title{font-family:var(--miko-font);font-size:36px;font-weight:100;color:#000;margin-bottom:2rem;text-transform:uppercase}.about-group-6__main{display:inline-block;max-width:40%;margin-top:6rem}.about-group-6-items{background:#fff;border-radius:40px;margin-bottom:12px;font-size:18px;font-weight:700;color:#1fc1c1;font-family:"Montserrat";text-align:center;padding:10px 5px}
 .about-group-7 {
     position: absolute;
     width: 100%;
@@ -17168,7 +17081,7 @@ a.single-language span.size24 {
 }
 .contttt {
     position: relative;
-    bottom: -5rem; 
+    bottom: -5rem;
 }
 .contttt .center-layout:before {
     content: "";
@@ -19860,7 +19773,7 @@ h5 {
 }
 @media screen and (max-width: 768px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
     .service-sticky {
         position: relative;
@@ -20736,7 +20649,7 @@ h5 {
 }
 @media screen and (max-width: 576px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
     .feedback-items__content {
         min-height: 520px;
@@ -21054,7 +20967,7 @@ h5 {
 }
 @media screen and (max-width: 475px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
     .about-group-4__grid {
         display: grid;
@@ -21099,7 +21012,7 @@ h5 {
 }
 @media screen and (max-width: 400px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
     .web-design-block-5__left {
         height: 500px;
@@ -26489,8 +26402,8 @@ video {
     }
 }
 @media screen and (max-width: 768px) {
-    .feedback-wrapper{
-        margin-bottom: -150px;
+    .feedback-wrapper {
+        margin-bottom: -50px;
     }
     .web-banhang .swiper-slide {
         width: calc(100% - 50px);
@@ -26498,10 +26411,10 @@ video {
 }
 @media screen and (max-width: 640px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
-    .feedback-wrapper{
-        margin-bottom: -150px;
+    .feedback-wrapper {
+        margin-bottom: -50px;
     }
     .service-group-4 {
         padding-bottom: 1px !important;
@@ -26528,10 +26441,10 @@ video {
 }
 @media screen and (max-width: 500px) {
     .contttt {
-        margin-bottom: -10rem; 
+        margin-bottom: 2rem;
     }
-    .feedback-wrapper{
-        margin-bottom: -150px;
+    .feedback-wrapper {
+        margin-bottom: -50px;
     }
     .service-group-4 {
         padding-bottom: 1px !important;
@@ -29722,8 +29635,8 @@ textarea.span4 {
         0 1px 2px rgba(0, 0, 0, 0.05);
 }
 @media screen and (max-width: 576px) {
-    .feedback-wrapper{
-        margin-bottom: -150px;
+    .feedback-wrapper {
+        margin-bottom: -50px;
     }
     .result1,
     .result2 {
