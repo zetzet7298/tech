@@ -15,7 +15,11 @@
 
         $feedbacks = \App\Models\Feedback::orderBy('index', 'asc')->get();
         $solutions = \App\Models\Solution::orderBy('index', 'asc')->get();
+        $seoMeta = \App\Models\Seo::where('canonical', route('trangchu'))->first();
     @endphp
+    @section('meta')
+        @include('pages.page_meta', ['seoMeta' => $seoMeta])
+    @endsection
     <div class="overflow-x-hidden">
         <h1 class="d-none">{{ $h1 }}</h1>
         <div class="slider">
@@ -138,7 +142,7 @@
                 class="text-[1.8rem] sm:text-[2rem] xl:text-[2.25rem] font-normal text-black uppercase relative left-auto top-auto mb-8 lg:mb-0 px-[30px] lg:px-0 lg:absolute lg:left-14 lg:top-20 xl:top-28 gs_reveal gs_reveal_fromLeft">
                 Khách hàng <br> nói về {{ $companyNameValue }}</h2>
             <div
-                class="w-[100%] px-[30px] lg:px-0 lg:w-[44%] overflow-hidden relative before:w-full before:absolute before:left-0 before:top-0 before:bg-[#efe9e3] before:content-[''] before:rounded-l-0 before:rounded-t-2xl lg:before:rounded-t-0 lg:before:rounded-l-2xl  before:min-h-[475px] lg:before:min-h-[475px] xl:before:min-h-[442px] 2xl:before:min-h-[542px] gs_reveal gs_reveal_fromLeft">
+                class="feedback-wrapper w-[100%] px-[30px] lg:px-0 lg:w-[44%] overflow-hidden relative before:w-full before:absolute before:left-0 before:top-0 before:bg-[#efe9e3] before:content-[''] before:rounded-l-0 before:rounded-t-2xl lg:before:rounded-t-0 lg:before:rounded-l-2xl  before:min-h-[475px] lg:before:min-h-[475px] xl:before:min-h-[442px] 2xl:before:min-h-[542px] gs_reveal gs_reveal_fromLeft">
                 <div class="swiper feedback__content__swiper">
                     <div class="swiper-wrapper">
                         @if ($feedbacks->isNotEmpty())
@@ -407,7 +411,7 @@
             </div>
         </div>
 
-        <div class="contttt gs_reveal">
+        <div class="contttt gs_reveal" style="margin-bottom:100px; margin-top:-50px;">
             <div class="center-layout">
                 <img width="2596" height="397"
                     src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202596%20397'%3E%3C/svg%3E"
@@ -417,9 +421,8 @@
                         src="https://mikotech.vn/wp-content/themes/mikotech/assets/images/home/wave.webp"
                         alt="Mikotech" class="contttt__image"></noscript>
                 <div class="contact">
-                    <div class="contact__desc">Ngay bây giờ chính là thời điểm sớm nhất <br> Bước gần hơn đến thành
-                        công của bạn bằng
-                        cách trò chuyện với chúng tôi</div>
+                    <div class="contact__desc">Bạn đang gặp khó khăn về pháp lý<br>
+                        Hãy liên hệ ngay chúng tôi, chúng tôi sẽ hỗ trợ giải quyết vấn đề của bạn một cách nhanh chóng</div>
                     <a data-fancybox data-src="#contact-modal" class="hbtn hbtn--white">Liên hệ ngay</a>
                 </div>
             </div>

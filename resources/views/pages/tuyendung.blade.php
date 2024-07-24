@@ -10,7 +10,11 @@
         $h1 = $settings['h1']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
         $avatar_post = $settings['avatar_post']['value'];
+        $seoMeta = \App\Models\Seo::where('canonical', route('tuyendung'))->first();
     @endphp
+    @section('meta')
+        @include('pages.page_meta', ['seoMeta' => $seoMeta])
+    @endsection
     <div class="hero">
         <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
@@ -53,7 +57,7 @@
                     <div class="d-flex justify-content-start team-box-1__view h-fadeOutDown">
                         @php $item->avatar=display_image($item->photo) @endphp
                         {{-- <a data-fancybox data-src="#contact-modal" class="effect-link hbtn" id="openModalBtn" data-employee="{{ $item }}"><span>Xem chi tiết</span></a> --}}
-                        <a href="{{ route('tuyendung.chitiet', ['id' => $item->id]) }}"
+                        <a href="{{ route('tuyendung.chitiet', ['slug' => $item->slug ?? '1']) }}"
                             class="effect-link hbtn">
                             <span>Xem chi tiết</span>
                         </a>

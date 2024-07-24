@@ -19,7 +19,11 @@
         $banner = $settings['banner']['value'];
         $h1 = $settings['h1']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
+        $seoMeta = \App\Models\Seo::where('canonical', route('tintuc'))->first();
     @endphp
+    @section('meta')
+        @include('pages.page_meta', ['seoMeta' => $seoMeta])
+    @endsection
     <div class="hero">
         <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">

@@ -3119,7 +3119,6 @@
     </div>
     </div>
     <div class="contttt" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="0">
-        <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
             <img width="2596" height="397"
                 src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202596%20397'%3E%3C/svg%3E"

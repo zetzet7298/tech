@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Setting;
 use DB;
 use Illuminate\Http\Request;
-
+use App\Models\Store;
 class SettingController extends Controller
 {
     // Hiển thị danh sách settings
@@ -26,6 +26,19 @@ class SettingController extends Controller
                 break;
             case 'hr':
                 return view('cms.settings.nhansu', compact('type'));
+                break;
+            case 'chitietbaiviet':
+                return view('cms.settings.chitietbaiviet', compact('type'));
+                break;
+            case 'localbusiness':
+                $settings = \App\Models\Setting::getByType('localbusiness');
+
+                // dd($settings);
+                $store = new Store();
+                foreach($settings as $k => $setting){
+                    $store->$k = $setting['value'];
+                }
+                return view('cms.settings.localbusiness', compact('type', 'store'));
                 break;
             case 'post':
                 return view('cms.settings.tintuc', compact('type'));
@@ -239,6 +252,29 @@ class SettingController extends Controller
                         Setting::set('post', 'banner_mobile', $path);
                     }
                     Setting::set('post', 'h1', $request->h1);
+                    break;
+                case 'chitietbaiviet':
+                    if (request()->hasFile('banner') && $path = upload_image2('banner', 'banner')) {
+                        Setting::set('chitietbaiviet', 'banner', $path);
+                    }
+                    if (request()->hasFile('banner_mobile') && $path = upload_image2('banner_mobile', 'banner_mobile')) {
+                        Setting::set('chitietbaiviet', 'banner_mobile', $path);
+                    }
+                    break;
+                case 'localbusiness':
+                    Setting::set('localbusiness', 'name', $request->name);
+                    Setting::set('localbusiness', 'images', $request->images);
+                    Setting::set('localbusiness', 'street_address', $request->street_address);
+                    Setting::set('localbusiness', 'address_locality', $request->address_locality);
+                    Setting::set('localbusiness', 'address_region', $request->address_region);
+                    Setting::set('localbusiness', 'postal_code', $request->postal_code);
+                    Setting::set('localbusiness', 'address_country', $request->address_country);
+                    Setting::set('localbusiness', 'latitude', $request->latitude);
+                    Setting::set('localbusiness', 'longitude', $request->longitude);
+                    Setting::set('localbusiness', 'url', $request->url);
+                    Setting::set('localbusiness', 'price_range', $request->price_range);
+                    Setting::set('localbusiness', 'telephone', $request->telephone);
+                    Setting::set('localbusiness', 'opening_hours', $request->opening_hours);
                     break;
                     // default: return view('cms.settings.trangchu', compact('type'));
             }

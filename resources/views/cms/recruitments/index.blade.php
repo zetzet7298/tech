@@ -25,7 +25,7 @@
                                 <th class="min-w-100px">Tiêu đề</th>
                                 <th class="min-w-100px">Tên tuyển dụng</th>
                                 {{-- <th class="min-w-140px">Ảnh</th> --}}
-                                <th class="min-w-150px">Mô tả</th>
+                                {{-- <th class="min-w-150px">Mô tả</th> --}}
                                 {{-- <th class="min-w-50px">Vị trí</th> --}}
                                 <th class="min-w-100px text-end">Actions</th>
                             </tr>
@@ -66,10 +66,10 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <span
                                             class="fw-bold text-gray-800 d-block fs-7">{{ limitString($row->desc, 150) }}</span>
-                                    </td>
+                                    </td> --}}
                                     {{-- <td>
                                 <span
                                 class="fw-bold text-gray-800 d-block fs-7">{{ $row->index }}</span>

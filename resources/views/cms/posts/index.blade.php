@@ -18,7 +18,7 @@
                 {{-- <div class="card-toolbar">
                     <a href="{{ route('posts.create') }}" class="btn btn-sm btn-success">
                         {!! theme()->getSvgIcon('icons/duotune/arrows/arr075.svg', 'svg-icon-3') !!}
-                        Tạo tin tức
+                        Tạo bài viết
                     </a>
                 </div> --}}
             </div>

@@ -9,8 +9,11 @@
         $banner_mobile = $settings['banner_mobile']['value'];
         $title = $settings['title']['value'];
         $description = $settings['description']['value'];
-
+        $seoMeta = \App\Models\Seo::where('canonical', route('nhansu'))->first();
     @endphp
+    @section('meta')
+        @include('pages.page_meta', ['seoMeta' => $seoMeta])
+    @endsection
     <div class="hero">
         <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
@@ -64,14 +67,14 @@
                             <span style="font-weight: 500; width:40%">Email: </span>
                             <span class="">{{$item->email}}</span>
                         </div>
-                        <div class="mt-3 flex">
+                        <div class="mt-3 flex mb-8">
                             <span style="font-weight: 500; width:40%">Điện thoại: </span>
                             <span class="">{{$item->phone}}</span>
                         </div>
-                        <div class="mt-3 flex mb-8">
+                        {{-- <div class="mt-3 flex mb-8">
                             <span style="font-weight: 500; width:40%">Giới thiệu bản thân: </span>
                             <span class="">{{$item->introduction}}</span>
-                        </div>
+                        </div> --}}
                         {{-- <div class="team-box-1__name h-fadeOutDown">{{$item->name}}</div> --}}
                         {{-- <div class="team-box-1__desc h-fadeOutDown">
                             {{ implode(', ', $item->specialties->pluck('name')->toArray()) }}
@@ -79,7 +82,7 @@
                         <div class="d-flex justify-content-start team-box-1__view h-fadeOutDown">
                             @php $item->avatar=display_image($item->photo) @endphp
                             {{-- <a data-fancybox data-src="#contact-modal" class="effect-link hbtn" id="openModalBtn" data-employee="{{ $item }}"><span>Xem chi tiết</span></a> --}}
-                            <a href="{{ route('nhansu.detail', ['id' => $item->id]) }}"
+                            <a href="{{ route('nhansu.detail', ['slug' => $item->slug ?? '1']) }}"
                                 class="effect-link hbtn">
                                 <span>Xem chi tiết</span>
                             </a>

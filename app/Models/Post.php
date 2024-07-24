@@ -23,4 +23,13 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'author_id');
     }
+
+    public function seoMeta()
+    {
+        return $this->hasOne(SeoMeta::class);
+    }
+    public function structuredData()
+    {
+        return $this->hasOne(StructuredData::class);
+    }
 }

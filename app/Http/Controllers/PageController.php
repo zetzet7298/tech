@@ -40,14 +40,14 @@ class PageController extends Controller
         $items = Employee::orderBy('created_at', 'desc')->paginate(10);
         return view('pages.nhansu', compact('items'));
     }
-    public function nhansuDetail($id)
+    public function nhansuDetail($slug)
     {
-        // $item = Employee::findOrFail($id);
-        return view('pages.chitiet_nhansu', compact('id'));
+        $item = Employee::with('seoMeta')->where('slug', $slug)->firstOrFail();
+        return view('pages.chitiet_nhansu', compact('item'));
     }
-    public function nhansuDetailFrame($id)
+    public function nhansuDetailFrame($slug)
     {
-        $item = Employee::findOrFail($id);
+        $item = Employee::where('slug', $slug)->firstOrFail();
         return view('pages.chitiet_nhansu_frame', compact('item'));
     }
     public function lienhe(Request $request)
@@ -74,7 +74,7 @@ class PageController extends Controller
     public function postDetail($slug)
     {
         $slug = explode('.', $slug);
-        $item = Post::active()->with('author')->where('category_id','<>',1)->where('slug', $slug[0])->first();
+        $item = Post::active()->with(['author', 'structuredData'])->where('slug', $slug[0])->first();
         if(empty($item)){
             abort(404);
         }
@@ -93,9 +93,9 @@ class PageController extends Controller
         return view('pages.danhmuc_tintuc', compact('items', 'categories', 'item'));
     }
 
-    public function chitietTuyenDung($id)
+    public function chitietTuyenDung($slug)
     {
-        $item = Recruitment::findOrFail($id);
+        $item = Recruitment::where('slug', $slug)->firstOrFail();
         // $item = Recruitment::active()->first();
         if(empty($item)){
             abort(404);

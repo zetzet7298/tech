@@ -26,4 +26,9 @@ class Employee extends Model
     public function scopeActive($q) {
         return $q->where('active', true);
     }
+
+    public function seoMeta()
+    {
+        return $this->hasOne(SeoMeta::class);
+    }
 }

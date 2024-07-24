@@ -295,7 +295,7 @@ return array(
                     ),
                     array(
                         'role' => 'admin|member',
-                        'title'  => 'Cấu hình tin tức',
+                        'title'  => 'Cấu hình bài viết',
                         'path'   => 'admin/settings/post',
                         'bullet' => '<span class="bullet bullet-dot"></span>',
                     ),

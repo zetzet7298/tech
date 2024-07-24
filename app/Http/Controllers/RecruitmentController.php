@@ -28,6 +28,7 @@ class RecruitmentController extends Controller
             $content = new Recruitment();
             $content->title = $request->title;
             $content->name = $request->name;
+            $content->slug = generateSlug($request->name);
             $content->desc = $request->desc;
             // $content->index = $request->index;
             $content->save();
@@ -57,6 +58,7 @@ class RecruitmentController extends Controller
             $content = Recruitment::findOrFail($id);
             $content->title = $request->title;
             $content->name = $request->name;
+            $content->slug = generateSlug($request->name);
             $content->desc = $request->desc;
             $content->save();
             DB::commit();

@@ -93,7 +93,7 @@
                             </ul> --}}
                         </li>
                     </ul>
-                </div> <a class="effect-link header__button " href="{{ route('lienhe') }}">Liên hệ</a>
+                </div> <a class="effect-link header__button " href="{{ route('lienhe') }}" style="color: #fff">Liên hệ</a>
             </div>
         </div>
     </div>
@@ -105,7 +105,7 @@
     <div class="hmmenu">
         <div class="hmmenu__header">
             <a href="{{ route('trangchu') }}" class="himg hmmenu__logo">
-                <img width="180" style="margin-left:5px;height:27.23px;" src="{{ display_image($LOGO) }}"
+                <img width="240" style="margin-left:5px;height:46px;" src="{{ display_image($LOGO) }}"
                     alt="" data-lazy-src="{{ display_image($LOGO) }}">
             </a>
         </div>

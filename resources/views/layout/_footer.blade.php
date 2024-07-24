@@ -6,7 +6,7 @@
         });
     </script>
 @endif
-<div class="footer">
+<div class="footer chitiet-footer">
     <div class="center-layout pd0__mobile_layout">
         <div class="footer__grid">
             <div class="footer__col">
@@ -29,7 +29,7 @@
                 </div> --}}
                 <div class="footer__title mt-3">
                     <a class="footer__logo  himg" href="{{route('trangchu')}}" rel="nofollow">
-                        <img width="180" style="margin-left:5px;height:27.23px;" src="{{ display_image($LOGO) }}"
+                        <img width="240" style="margin-left:5px;height:46px;" src="{{ display_image($LOGO) }}"
                             alt="" data-lazy-src="{{ display_image($LOGO) }}">
                     </a>
                     <span class="footer-xemthem-btn" data-id="10">
@@ -242,18 +242,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="footer-view-mobile">
+                    <div class="footer-view-mobile" style="">
                         <div class="footer__title mt-3">Kết nối với chúng tôi
-                            <span class="footer-xemthem-btn" data-id="3"><svg version="1.1" id="Layer_1"
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;"
-                                    xml:space="preserve">
-                                    <path id="XMLID_225_"
-                                        d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z">
-                                    </path>
-                                </svg></span>
+
+
                         </div>
-                        <div class="footer-mobile-hidden" id="footer-mobile-hidden-3" style="height: 0px;">
+                        <div class="" id="" style="">
                             <div class="footer-mobile-hidden--content">
                                 <div class="d-flex flex-wrap">
                                     @if ($FACEBOOK)
@@ -316,18 +310,26 @@
                                     @endif
                                 </div>
                                 <div class="footer__col ">
+                                    <div class="payment text-start mt-10" style="margin-top:10px;">
+                                        <b>Chấp nhận thanh toán</b>
+                                        <div class="d-flex flex-wrap ">
+                                            <img src="{{asset('image/visa.png')}}" alt="visa-payment" width="70" height="70" style="margin-right: 5px;">
+                                            <img src="{{asset('image/master.png')}}" alt="master-payment" width="70" height="70" style="margin-right: 5px;">
+                                            <img src="{{asset('image/paypal.png')}}" alt="paypal-payment" width="70" height="70" style="margin-right: 5px;">
+                                        </div>
+                                    </div>
                                     @if ($bocongthuong_link)
                                     <div class="d-flex align-items-center mt-4 box-cert">
                                         <a href="{{$bocongthuong_link}}"
                                             class="himg mr-4 cert-img" target="_blank" rel="nofollow noopener">
-                                            <img width="132" height="50"
+                                            <img width="132" height="70"
                                                 src="{{ asset('image/bocongthuong.webp') }}"
                                                 data-lazy-srcset="{{ asset('image/bocongthuong.webp') }} 576w, {{ asset('image/bocongthuong.webp') }} 992w, {{ asset('image/bocongthuong.webp') }} 1440w"
                                                 alt="Bộ công thương"
                                                 data-lazy-src="{{ asset('image/bocongthuong.webp') }}"
                                                 data-ll-status="loaded" class="entered lazyloaded"
                                                 srcset="{{ asset('image/bocongthuong.webp') }} 576w, {{ asset('image/bocongthuong.webp') }} 992w, {{ asset('image/bocongthuong.webp') }} 1440w"><noscript><img
-                                                    width="132" height="50"
+                                                    width="132" height="70"
                                                     src="{{ asset('image/bocongthuong.webp') }}"
                                                     srcset="{{ asset('image/bocongthuong.webp') }} 576w, {{ asset('image/bocongthuong.webp') }} 992w, {{ asset('image/bocongthuong.webp') }} 1440w"
                                                     alt="Bộ công thương"></noscript>
@@ -335,14 +337,7 @@
                                     </div>
                                     @endif
                                  
-                                    <div class="payment text-start mt-3">
-                                        <b>Chấp nhận thanh toán</b>
-                                        <div class="d-flex flex-wrap ">
-                                            <img src="{{asset('image/visa.png')}}" alt="visa-payment" width="70" height="50" style="margin-right: 5px;">
-                                            <img src="{{asset('image/master.png')}}" alt="master-payment" width="70" height="50" style="margin-right: 5px;">
-                                            <img src="{{asset('image/paypal.png')}}" alt="paypal-payment" width="70" height="50" style="margin-right: 5px;">
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -351,11 +346,12 @@
 
 
             </div>
-            <div class="footer__col" style="margin-left: 50px;">
+            <div class="footer__col" style="display: flex; flex-direction: column; align-items: center; margin-left: 50px;">
                 <div class="footer-mobile-hidden">
                     <div class="footer__title">Kết nối với chúng tôi</div>
 
                     <div class="d-flex flex-wrap">
+                    {{-- <div class="d-flex flex-wrap" style="flex-direction: column; align-items: center;"> --}}
                         @if ($FACEBOOK)
                             <a target="_blank" href="{{ $FACEBOOK }}" class="footer__social"
                                 rel="nofollow noopener">
@@ -414,33 +410,34 @@
                             </a>
                         @endif
                     </div>
-                    <div class="footer__col non-view-mobile mt-5">
+                    <div class="footer__col non-view-mobile" style="margin-top: 15px;">
+                        <div class="payment text-start mt-3">
+                            <b>Chấp nhận thanh toán</b>
+                            <div class="d-flex flex-wrap ">
+                                <img src="{{asset('image/visa.png')}}" alt="visa-payment" width="70" height="70" style="margin-right: 5px;">
+                                <img src="{{asset('image/master.png')}}" alt="master-payment" width="70" height="70" style="margin-right: 5px;">
+                                <img src="{{asset('image/paypal.png')}}" alt="paypal-payment" width="70" height="70" style="margin-right: 5px;">
+                            </div>
+                        </div>
                         @if ($bocongthuong_link)
-                        <div class="d-flex align-items-center mt-4 box-cert">
+                        <div class="d-flex align-items-center box-cert" style="margin-top: 10px; ">
                             <a href="{{$bocongthuong_link}}"
                                 class="himg mr-4 cert-img" target="_blank" rel="nofollow noopener">
-                                <img width="132" height="50"
+                                <img width="132" height="70"
                                     src="{{ asset('image/bocongthuong.webp') }}"
                                     data-lazy-srcset="{{ asset('image/bocongthuong.webp') }} 576w, {{ asset('image/bocongthuong.webp') }} 992w, {{ asset('image/bocongthuong.webp') }} 1440w"
                                     alt="Bộ công thương"
                                     data-lazy-src="{{ asset('image/bocongthuong.webp') }}"
                                     data-ll-status="loaded" class="entered lazyloaded"
                                     srcset="{{ asset('image/bocongthuong.webp') }} 576w, {{ asset('image/bocongthuong.webp') }} 992w, {{ asset('image/bocongthuong.webp') }} 1440w"><noscript><img
-                                        width="132" height="50"
+                                        width="132" height="70"
                                         src="{{ asset('image/bocongthuong.webp') }}"
                                         srcset="{{ asset('image/bocongthuong.webp') }} 576w, {{ asset('image/bocongthuong.webp') }} 992w, {{ asset('image/bocongthuong.webp') }} 1440w"
                                         alt="Bộ công thương"></noscript>
                             </a>
                         </div>
                         @endif
-                        <div class="payment text-start mt-3">
-                            <b>Chấp nhận thanh toán</b>
-                            <div class="d-flex flex-wrap ">
-                                <img src="{{asset('image/visa.png')}}" alt="visa-payment" width="70" height="50" style="margin-right: 5px;">
-                                <img src="{{asset('image/master.png')}}" alt="master-payment" width="70" height="50" style="margin-right: 5px;">
-                                <img src="{{asset('image/paypal.png')}}" alt="paypal-payment" width="70" height="50" style="margin-right: 5px;">
-                            </div>
-                        </div>
+                   
                         {{-- <div class="d-flex policy" >
                             <a style="color:rgb(149, 149, 224) !important;" href="https://mikotech.vn/chinh-sach/dieu-khoan-dich-vu/" rel="nofollow">
             <span>Điều khoản sử dụng</span>

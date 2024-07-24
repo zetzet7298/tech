@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Seo;
 use Illuminate\Database\Seeder;
 use App\Models\Setting;
 use App\Models\User;
@@ -16,157 +17,315 @@ class SettingSeeder extends Seeder
     public function run()
     {
         $settings = [
-            // ['key' => 'company-name', 'value' => '{{$companyNameValue}}', 'type' => 'common'],
-            // ['key' => 'logo', 'value' => '', 'type' => 'common'],
-            // ['key' => 'mission', 'value' => '', 'type' => 'common'],
-            // ['key' => 'address', 'value' => 'Tầng G, 485B Nguyễn Đình Chiểu, Phường 2, Quận 3, Thành phố Hồ Chí Minh, Việt Nam', 'type' => 'common'],
-            // ['key' => 'phone', 'value' => '028 3636 8805 - 0909 326 456', 'type' => 'common'],
-            // ['key' => 'email', 'value' => '', 'type' => 'common'],
-            // ['key' => 'price_quote', 'value' => 'MIKO TECH luôn tư vấn dịch vụ miễn phí. Chúng tôi sẽ liên hệ báo giá theo thông tin mà bạn để lại.', 'type' => 'common'],
-            // ['key' => 'time-working', 'value' => 'Thứ 2 - Thứ 6 từ 8h30 - 17h30|Thứ 7 từ 8h30 - 12h30', 'type' => 'common'],
-            // ['key' => 'dkkd', 'value' => 'Số ĐKKD 0316887797 do Sở KH và ĐT TP Hồ Chí Minh cấp ngày 01/06/2021', 'type' => 'common'],
-            // ['key' => 'facebook', 'value' => '', 'type' => 'common'],
-            // ['key' => 'zalo', 'value' => '', 'type' => 'common'],
-            // ['key' => 'messenger', 'value' => '', 'type' => 'common'],
-            // ['key' => 'google_map', 'value' => 'https://www.google.com/maps?cid=419312923473929458', 'type' => 'common'],
+            ['key' => 'company-name', 'value' => '{{$companyNameValue}}', 'type' => 'common'],
+            ['key' => 'logo', 'value' => '', 'type' => 'common'],
+            ['key' => 'mission', 'value' => '', 'type' => 'common'],
+            ['key' => 'address', 'value' => 'Tầng G, 485B Nguyễn Đình Chiểu, Phường 2, Quận 3, Thành phố Hồ Chí Minh, Việt Nam', 'type' => 'common'],
+            ['key' => 'phone', 'value' => '028 3636 8805 - 0909 326 456', 'type' => 'common'],
+            ['key' => 'email', 'value' => '', 'type' => 'common'],
+            ['key' => 'price_quote', 'value' => 'MIKO TECH luôn tư vấn dịch vụ miễn phí. Chúng tôi sẽ liên hệ báo giá theo thông tin mà bạn để lại.', 'type' => 'common'],
+            ['key' => 'time-working', 'value' => 'Thứ 2 - Thứ 6 từ 8h30 - 17h30|Thứ 7 từ 8h30 - 12h30', 'type' => 'common'],
+            ['key' => 'dkkd', 'value' => 'Số ĐKKD 0316887797 do Sở KH và ĐT TP Hồ Chí Minh cấp ngày 01/06/2021', 'type' => 'common'],
+            ['key' => 'facebook', 'value' => '', 'type' => 'common'],
+            ['key' => 'zalo', 'value' => '', 'type' => 'common'],
+            ['key' => 'messenger', 'value' => '', 'type' => 'common'],
+            ['key' => 'google_map', 'value' => 'https://www.google.com/maps?cid=419312923473929458', 'type' => 'common'],
+        
+            ['key' => 'about-title', 'value' => 'Chúng tôi mang đến giải pháp Marketing SÁNG TẠO, TỐI ƯU VÀ HIỆU QUẢ', 'type' => 'dashboard'],
+            ['key' => 'about-desc', 'value' => 'Liệu thương hiệu của bạn có đủ lực để chiến tiếp trên thương trường trong thời kỳ chuyển đổi số? Làm sao để tối ưu nguồn lực và đẩy mạnh thương hiệu cho doanh nghiệp của bạn? Miko Tech ở đây để cùng bạn dựng xây và phát triển thương hiệu thông qua dịch vụ thiết kế website và các giải pháp Marketing tổng thể: sáng tạo nội dung, quản trị website, SEO tổng thể, giải pháp thương mại điện tử, thiết kế app, thiết kế nhận diện thương hiệu, quảng cáo đa nền tảng...', 'type' => 'dashboard'],
+            ['key' => 'slider-1', 'value' => 'media/default-image.jpg', 'type' => 'dashboard'],
+            ['key' => 'slider-2', 'value' => 'media/default-image.jpg', 'type' => 'dashboard'],
+            ['key' => 'slider-3', 'value' => 'media/default-image.jpg', 'type' => 'dashboard'],
+            ['key' => 'solution-title', 'value' => 'Thiết kế website và dịch vụ Marketing', 'type' => 'dashboard'],
+            ['key' => 'solution-description', 'value' => 'Không chỉ thiết kế website chuẩn giao diện và trải nghiệm người dùng, Miko Tech với hệ sinh thái các giải pháp Marketing toàn diện sẽ là điểm tựa vững chắc giúp doanh nghiệp của bạn phát triển lâu dài và bền vững.', 'type' => 'dashboard'],
+        
+            ['key' => 'title', 'value' => 'Tin hay', 'type' => 'post'],
+            ['key' => 'description', 'value' => 'Cùng Miko Tech cập nhật những thông tin "nóng sốt" nhất về lĩnh vực Digital Media', 'type' => 'post'],
+            ['key' => 'banner', 'value' => '', 'type' => 'post'],
+            ['key' => 'banner_mobile', 'value' => '', 'type' => 'post'],
+        
+            ['key' => 'title', 'value' => 'GÓC CHIÊU MỘ', 'type' => 'hr'],
+            ['key' => 'description', 'value' => 'TRỞ THÀNH CHIẾN BINH CỦA ĐỘI QUÂN MIKO TECH', 'type' => 'hr'],
+            ['key' => 'banner', 'value' => '', 'type' => 'hr'],
+            ['key' => 'banner_mobile', 'value' => '', 'type' => 'hr'],
+        
+            ['key' => 'title', 'value' => 'GÓC CHIÊU MỘ', 'type' => 'recruitment'],
+            ['key' => 'description', 'value' => 'TRỞ THÀNH CHIẾN BINH CỦA ĐỘI QUÂN MIKO TECH', 'type' => 'recruitment'],
+            ['key' => 'banner', 'value' => '', 'type' => 'recruitment'],
+            ['key' => 'banner_mobile', 'value' => '', 'type' => 'recruitment'],
+            ['key' => 'avatar_post', 'value' => '', 'type' => 'recruitment'],
+        
+            ['key' => 'banner', 'value' => '', 'type' => 'service'],
+            ['key' => 'banner_mobile', 'value' => '', 'type' => 'service'],
+            ['key' => 'title', 'value' => 'Dịch vụ', 'type' => 'service'],
+            ['key' => 'description', 'value' => 'THIẾT KẾ WEBSITE VÀ MARKETING', 'type' => 'service'],
+            ['key' => 'nangtam_banner', 'value' => '', 'type' => 'service'],
+            ['key' => 'nangtam_title', 'value' => 'NÂNG TẦM VỊ THẾ THƯƠNG HIỆU CỦA BẠN VỚI ', 'type' => 'service'],
+            ['key' => 'giatri_title', 'value' => 'Giá trị khác biệt tại Miko Tech', 'type' => 'service'],
+            ['key' => 'giatri_description', 'value' => 'Miko Tech sở hữu đội ngũ chiến binh dày dặn kinh nghiệm thực chiến trên thị trường Marketing. Chúng tôi luôn trong tâm thế sẵn sàng tham gia bất kỳ cuộc chiến nào cùng với doanh nghiệp bạn.', 'type' => 'service'],
+            ['key' => 'giatri_item_1', 'value' => 'sáng tạo', 'type' => 'service'],
+            ['key' => 'giatri_item_2', 'value' => 'kinh nghiệm', 'type' => 'service'],
+            ['key' => 'giatri_item_3', 'value' => 'thấu hiểu', 'type' => 'service'],
+            ['key' => 'giatri_item_4', 'value' => 'Đa dạng', 'type' => 'service'],
+            ['key' => 'giatri_item_1_val', 'value' => 'Sáng tạo trong phong cách thiết kế và luôn cập nhật xu hướng mới thường xuyên. Sản phẩm bạn nhận được là sự hội tụ của sáng tạo, chất lượng và độc đáo', 'type' => 'service'],
+            ['key' => 'giatri_item_2_val', 'value' => 'Kinh nghiệm chiến đấu nhiều năm trên chiến trường Marketing, đội ngũ chiến binh MIKO TECH sẽ giúp bạn giải quyết vấn đề một cách dễ dàng và tiết kiệm.', 'type' => 'service'],
+            ['key' => 'giatri_item_3_val', 'value' => 'Trải qua nhiều cuộc chiến, Miko Tech dễ dàng nhìn nhận và thấu hiểu vấn đề một cách nhanh chóng', 'type' => 'service'],
+            ['key' => 'giatri_item_4_val', 'value' => 'Miko Tech có hệ sinh thái Marketing đa dịch vụ hỗ trợ lẫn nhau, bền vững và lâu dài', 'type' => 'service'],
+        
+            ['key' => 'banner', 'value' => '', 'type' => 'about'],
+            ['key' => 'banner_mobile', 'value' => '', 'type' => 'about'],
+            ['key' => 'title', 'value' => 'Chúng tôi', 'type' => 'about'],
+            ['key' => 'description', 'value' => 'Sở hữu những chiến binh giàu kinh nghiệm thực chiến', 'type' => 'about'],
+            ['key' => 'gioithieu_title', 'value' => 'Chúng tôi', 'type' => 'about'],
+            ['key' => 'gioithieu_description', 'value' => 'Đội ngũ Mikotech với kinh nghiệm tham gia nhiều cuộc chiến trong nhiều năm liền ở thị trường Marketing, giờ đây chúng tôi chính thức là một đội quân hùng mạnh với mong muốn đồng hành và phát triển cùng bạn trong những cuộc chiến sắp tới, thông qua các dịch vụ và giải pháp Marketing mà chúng tôi cung cấp.', 'type' => 'about'],
+            ['key' => 'camnhan_title', 'value' => 'Cảm nhận từ khách hàng', 'type' => 'about'],
+            ['key' => 'camnhan_description', 'value' => 'Khách hàng luôn tin tưởng và hài lòng với dịch vụ của Miko Tech', 'type' => 'about'],
 
-            // ['key' => 'about-title', 'value' => 'Chúng tôi mang đến giải pháp Marketing SÁNG TẠO, TỐI ƯU VÀ HIỆU QUẢ', 'type' => 'dashboard'],
-            // ['key' => 'about-desc', 'value' => 'Liệu thương hiệu của bạn có đủ lực để chiến tiếp trên thương trường trong thời kỳ chuyển đổi số? 
-            // Làm sao để tối ưu nguồn lực và đẩy mạnh thương hiệu cho doanh nghiệp của bạn? Miko Tech ở đây  để cùng 
-            // bạn dựng xây và phát triển thương hiệu thông qua dịch vụ thiết kế website và các giải pháp  Marketing tổng thể: 
-            // sáng tạo nội dung, quản trị website, SEO tổng thể, giải pháp thương mại điện tử,  thiết kế app, thiết kế nhận diện thương hiệu, 
-            // quảng cáo đa nền tảng...', 'type' => 'dashboard'],
-            // ['key' => 'slider-1', 'value' => 'media/default-image.jpg', 'type' => 'dashboard'],
-            // ['key' => 'slider-2', 'value' => 'media/default-image.jpg', 'type' => 'dashboard'],
-            // ['key' => 'slider-3', 'value' => 'media/default-image.jpg', 'type' => 'dashboard'],
-            // ['key' => 'solution-title', 'value' => 'Thiết kế website và dịch vụ Marketing', 'type' => 'dashboard'],
-            // ['key' => 'solution-description', 'value' => 'Không chỉ thiết kế website chuẩn giao diện và trải nghiệm người dùng, Miko Tech với hệ
-            // sinh thái các giải pháp Marketing toàn diện sẽ là điểm tựa vững chắc giúp doanh nghiệp của bạn phát triển lâu
-            // dài và bền vững.', 'type' => 'dashboard'],
+            ['key' => 'banner', 'value' => '', 'type' => 'chitietbaiviet'],
+            ['key' => 'banner_mobile', 'value' => '', 'type' => 'chitietbaiviet'],
 
-            // ['key' => 'title', 'value' => 'Tin hay', 'type' => 'post'],
-            // ['key' => 'description', 'value' => 'Cùng Miko Tech cập nhật những thông tin "nóng sốt" nhất về lĩnh vực Digital Media', 'type' => 'post'],
-            // ['key' => 'banner', 'value' => '', 'type' => 'post'],
-            // ['key' => 'banner_mobile', 'value' => '', 'type' => 'post'],
-
-            // ['key' => 'title', 'value' => 'GÓC CHIÊU MỘ', 'type' => 'hr'],
-            // ['key' => 'description', 'value' => 'TRỞ THÀNH CHIẾN BINH CỦA ĐỘI QUÂN MIKO TECH', 'type' => 'hr'],
-            // ['key' => 'banner', 'value' => '', 'type' => 'hr'],
-            // ['key' => 'banner_mobile', 'value' => '', 'type' => 'hr'],
-
-            // ['key' => 'title', 'value' => 'GÓC CHIÊU MỘ', 'type' => 'recruitment'],
-            // ['key' => 'description', 'value' => 'TRỞ THÀNH CHIẾN BINH CỦA ĐỘI QUÂN MIKO TECH', 'type' => 'recruitment'],
-            // ['key' => 'banner', 'value' => '', 'type' => 'recruitment'],
-            // ['key' => 'banner_mobile', 'value' => '', 'type' => 'recruitment'],
-            // ['key' => 'avatar_post', 'value' => '', 'type' => 'recruitment'],
-
-            // // ['key' => 'title', 'value' => 'Sản phẩm nổi bật', 'type' => 'project'],
-            // // ['key' => 'description', 'value' => 'Hơn bất cứ giá trị nào, những sản phẩm khiến khách hàng hài lòng luôn là điều tuyệt vời nhất', 'type' => 'project'],
-
-            // ['key' => 'banner', 'value' => '', 'type' => 'service'],
-            // ['key' => 'banner_mobile', 'value' => '', 'type' => 'service'],
-            // ['key' => 'title', 'value' => 'Dịch vụ', 'type' => 'service'],
-            // ['key' => 'description', 'value' => 'THIẾT KẾ WEBSITE VÀ MARKETING', 'type' => 'service'],
-            // ['key' => 'nangtam_banner', 'value' => '', 'type' => 'service'],
-            // ['key' => 'nangtam_title', 'value' => 'NÂNG TẦM VỊ THẾ THƯƠNG HIỆU CỦA BẠN VỚI ', 'type' => 'service'],
-            // ['key' => 'giatri_title', 'value' => 'Giá trị khác biệt tại Miko Tech', 'type' => 'service'],
-            // ['key' => 'giatri_description', 'value' => 'Miko Tech sở hữu đội ngũ chiến binh dày dặn kinh nghiệm thực chiến trên
-            // thị trường Marketing. Chúng tôi luôn trong tâm thế sẵn sàng tham gia bất kỳ cuộc chiến nào cùng với doanh nghiệp
-            // bạn.', 'type' => 'service'],
-            // ['key' => 'giatri_item_1', 'value' => 'sáng tạo', 'type' => 'service'],
-            // ['key' => 'giatri_item_2', 'value' => 'kinh nghiệm', 'type' => 'service'],
-            // ['key' => 'giatri_item_3', 'value' => 'thấu hiểu', 'type' => 'service'],
-            // ['key' => 'giatri_item_4', 'value' => 'Đa dạng', 'type' => 'service'],
-            // ['key' => 'giatri_item_1_val', 'value' => 'Sáng tạo trong phong cách thiết kế và luôn cập nhật xu hướng mới thường xuyên. Sản phẩm bạn
-            // nhận được là sự
-            // hội tụ của sáng tạo, chất lượng và độc đáo', 'type' => 'service'],
-            // ['key' => 'giatri_item_2_val', 'value' => 'Kinh nghiệm chiến đấu nhiều năm trên chiến trường Marketing, đội ngũ chiến binh MIKO TECH sẽ
-            // giúp bạn giải
-            // quyết vấn đề một cách dễ dàng và tiết kiệm.', 'type' => 'service'],
-            // ['key' => 'giatri_item_3_val', 'value' => 'Trải qua nhiều cuộc chiến, Miko Tech dễ dàng nhìn nhận và thấu hiểu vấn đề một cách nhanh
-            // chóng', 'type' => 'service'],
-            // ['key' => 'giatri_item_4_val', 'value' => 'Miko Tech có hệ sinh thái Marketing đa dịch vụ hỗ trợ lẫn nhau, bền vững và lâu dài', 'type' => 'service'],
-
-            // ['key' => 'banner', 'value' => '', 'type' => 'about'],
-            // ['key' => 'banner_mobile', 'value' => '', 'type' => 'about'],
-            // ['key' => 'title', 'value' => 'Chúng tôi', 'type' => 'about'],
-            // ['key' => 'description', 'value' => 'Sở hữu những chiến binh giàu kinh nghiệm thực chiến', 'type' => 'about'],
-            // ['key' => 'gioithieu_title', 'value' => 'Chúng tôi', 'type' => 'about'],
-            // ['key' => 'gioithieu_description', 'value' => 'Đội ngũ Mikotech với kinh nghiệm tham gia nhiều cuộc chiến trong nhiềunăm liền ở thị trường Marketing, giờ đây chúng tôi chính thức là một đội quân hùng mạnh với mong muốnđồng hành và phát triển cùng bạn trong những cuộc chiến sắp tới, thông qua các dịch vụ và giải pháp Marketing hiệu
-            // quả. ', 'type' => 'about'],
-            // ['key' => 'dichvu_banner', 'value' => '', 'type' => 'about'],
-            // ['key' => 'giatri_title', 'value' => 'Giá trị khác biệt tại Miko Tech', 'type' => 'about'],
-            // ['key' => 'giatri_description', 'value' => 'Miko Tech sở hữu đội ngũ chiến binh dày dặn kinh nghiệm thực chiến trên
-            // thị trường Marketing. Chúng tôi luôn trong tâm thế sẵn sàng tham gia bất kỳ cuộc chiến nào cùng với doanh nghiệp
-            // bạn.', 'type' => 'about'],
-            // ['key' => 'giatri_item_1', 'value' => 'sáng tạo', 'type' => 'about'],
-            // ['key' => 'giatri_item_2', 'value' => 'kinh nghiệm', 'type' => 'about'],
-            // ['key' => 'giatri_item_3', 'value' => 'thấu hiểu', 'type' => 'about'],
-            // ['key' => 'giatri_item_4', 'value' => 'Đa dạng', 'type' => 'about'],
-            // ['key' => 'giatri_item_1_val', 'value' => 'Sáng tạo trong phong cách thiết kế và luôn cập nhật xu hướng mới thường xuyên. Sản phẩm bạn
-            // nhận được là sự
-            // hội tụ của sáng tạo, chất lượng và độc đáo', 'type' => 'about'],
-            // ['key' => 'giatri_item_2_val', 'value' => 'Kinh nghiệm chiến đấu nhiều năm trên chiến trường Marketing, đội ngũ chiến binh MIKO TECH sẽ
-            // giúp bạn giải
-            // quyết vấn đề một cách dễ dàng và tiết kiệm.', 'type' => 'about'],
-            // ['key' => 'giatri_item_3_val', 'value' => 'Trải qua nhiều cuộc chiến, Miko Tech dễ dàng nhìn nhận và thấu hiểu vấn đề một cách nhanh
-            // chóng', 'type' => 'about'],
-            // ['key' => 'giatri_item_4_val', 'value' => 'Miko Tech có hệ sinh thái Marketing đa dịch vụ hỗ trợ lẫn nhau, bền vững và lâu dài', 'type' => 'about'],
-            // ['key' => 'video', 'value' => '', 'type' => 'about'],
-            // ['key' => 'video_avatar', 'value' => '', 'type' => 'about'],
-            // ['key' => 'video_title', 'value' => 'Không ngừng nỗ lực nâng cao chất lượng dịch vụ', 'type' => 'about'],
-            // ['key' => 'video_description', 'value' => 'Chiến binh của chúng tôi không ngừng nỗ lực mang đến cho bạn những trảinghiệm dịch vụ tốt nhất. Sẵn sàng hỗ trợ bạn 24/7 để giải đáp những thắc mắc và giải quyết các khókhăn bạn gặpphải trong quá trình sử dụng dịch vụ.', 'type' => 'about'],
-            // ['key' => 'chienloipham_banner', 'value' => '', 'type' => 'about'],
-            // ['key' => 'chienloipham_title', 'value' => '', 'type' => 'about'],
-            // ['key' => 'chienloipham_description', 'value' => '', 'type' => 'about'],
-            // ['key' => 'diemdadang_banner', 'value' => '', 'type' => 'about'],
-            // ['key' => 'diemdadang_title', 'value' => '', 'type' => 'about'],
-            // ['key' => 'diemdadang_item_1', 'value' => 'Sử dụng nhiều ngôn ngữ lập trình', 'type' => 'about'],
-            // ['key' => 'diemdadang_item_2', 'value' => 'Nhiều đối tác liên kết', 'type' => 'about'],
-            // ['key' => 'diemdadang_item_3', 'value' => 'Hệ sinh thái Marketing', 'type' => 'about'],
-            // ['key' => 'diemdadang_item_4', 'value' => 'Sáng tạo trong thiết kế', 'type' => 'about'],
-
-            // ['key' => 'title', 'value' => 'Liên hệ', 'type' => 'post'],
-            // ['key' => 'description', 'value' => 'HÃY ĐỂ CHÚNG TÔI KẾT NỐI VÀ ĐỒNG HÀNH CÙNG BẠN!', 'type' => 'post'],
-            // ['key' => 'youtube', 'value' => '', 'type' => 'common'],
-            // ['key' => 'instagram', 'value' => '', 'type' => 'common'],
-            // ['key' => 'linkedin', 'value' => '', 'type' => 'common'],
-            // ['key' => 'tiktok', 'value' => '', 'type' => 'common'],
-            // ['key' => 'vanphong', 'value' => 'Văn phòng ABC', 'type' => 'common'],
-            // ['key' => 'diachivanphong', 'value' => '68 Circular Road, #02-01, Singapore', 'type' => 'common'],
-            // ['key' => 'emailvanphong', 'value' => 'vanphong@gmail.com', 'type' => 'common'],
-            // ['key' => 'tghdvanphong', 'value' => '9h00 - 18h00 từ Thứ 2 - Thứ 6', 'type' => 'common'],
-
-            ['key' => 'bocongthuong_link', 'value' => '', 'type' => 'common'],
-            ['key' => 'h1', 'value' => '', 'type' => 'service'],
-            ['key' => 'h1', 'value' => '', 'type' => 'recruitment'],
-            ['key' => 'h1', 'value' => '', 'type' => 'about'],
-            ['key' => 'h1', 'value' => '', 'type' => 'hr'],
-            ['key' => 'h1', 'value' => '', 'type' => 'post'],
-            ['key' => 'h1', 'value' => '', 'type' => 'dashboard'],
-            
+            ['key' => 'name', 'value' => 'Department Store', 'type' => 'localbusiness'],
+            ['key' => 'images', 'value' => '[
+                "https://example.com/photos/1x1/photo.jpg",
+                "https://example.com/photos/4x3/photo.jpg",
+                "https://example.com/photos/16x9/photo.jpg"
+               ]', 'type' => 'localbusiness'],
+            ['key' => 'street_address', 'value' => '1600 Saratoga Ave', 'type' => 'localbusiness'],
+            ['key' => 'address_locality', 'value' => 'San Jose', 'type' => 'localbusiness'],
+            ['key' => 'address_region', 'value' => 'CA', 'type' => 'localbusiness'],
+            ['key' => 'postal_code', 'value' => '95129', 'type' => 'localbusiness'],
+            ['key' => 'address_country', 'value' => 'US', 'type' => 'localbusiness'],
+            ['key' => 'latitude', 'value' => '37.293058', 'type' => 'localbusiness'],
+            ['key' => 'longitude', 'value' => '-121.988331', 'type' => 'localbusiness'],
+            ['key' => 'url', 'value' => 'https://www.example.com/store-locator/sl/San-Jose-Westgate-Store/1427', 'type' => 'localbusiness'],
+            ['key' => 'price_range', 'value' => '$$$', 'type' => 'localbusiness'],
+            ['key' => 'telephone', 'value' => '+14088717984', 'type' => 'localbusiness'],
+            ['key' => 'opening_hours', 'value' => '[
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "08:00",
+                  "closes": "23:59"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "Sunday",
+                  "opens": "08:00",
+                  "closes": "23:00"
+                }
+              ]', 'type' => 'localbusiness'],
         ];
-        User::where('id', 1)->update([
-            'roles' => json_encode([
-            'common',
-            'service',
-            'recruitment',
-            'about',
-            'hr',
-            'post',
-            'dashboard',
-            'feedback',
-            'solution',
-            'office',
-            'specialty',
-            'employee',
-            'category',
-            'edit',
-            'delete',
-        ]), 'phone' => '0123456789'
-    ]);
+        // foreach ($settings as $setting) {
+        //     \App\Models\Setting::updateOrCreate(
+        //         ['key' => $setting['key'], 'type' => $setting['type']], 
+        //         ['value' => $setting['value']]
+        //     );
+        // }
         foreach ($settings as $setting) {
-            Setting::create($setting);
+            $existingSetting = \App\Models\Setting::where('key', $setting['key'])->first();
+            if (!$existingSetting) {
+                \App\Models\Setting::create($setting);
+            }
+        }
+        
+        $seos = [
+            [
+                'meta_title' => 'Trang Chủ',
+                'meta_description' => 'Trang chủ của chúng tôi',
+                'meta_url' => route('trangchu'),
+                'meta_keywords' => 'trang chủ, home',
+                'meta_site_name' => 'Trang Chủ',
+                'meta_image_alt' => 'Trang Chủ',
+                'og_title' => 'Trang Chủ',
+                'og_description' => 'Trang chủ của chúng tôi',
+                'og_url' => route('trangchu'),
+                'og_image' => 'path/to/image1.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Trang Chủ',
+                'twitter_description' => 'Trang chủ của chúng tôi',
+                'twitter_image' => 'path/to/twitter_image1.jpg',
+                'canonical' => route('trangchu'),
+                'meta_robots' => 'index, follow',
+            ],
+            [
+                'meta_title' => 'Giới Thiệu',
+                'meta_description' => 'Giới thiệu về chúng tôi',
+                'meta_url' => route('gioithieu'),
+                'meta_keywords' => 'giới thiệu, about us',
+                'meta_site_name' => 'Giới Thiệu',
+                'meta_image_alt' => 'Giới Thiệu',
+                'og_title' => 'Giới Thiệu',
+                'og_description' => 'Giới thiệu về chúng tôi',
+                'og_url' => route('gioithieu'),
+                'og_image' => 'path/to/image2.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Giới Thiệu',
+                'twitter_description' => 'Giới thiệu về chúng tôi',
+                'twitter_image' => 'path/to/twitter_image2.jpg',
+                'canonical' => route('gioithieu'),
+                'meta_robots' => 'index, follow',
+            ],
+            [
+                'meta_title' => 'Tuyển Dụng',
+                'meta_description' => 'Thông tin tuyển dụng',
+                'meta_url' => route('tuyendung'),
+                'meta_keywords' => 'tuyển dụng, jobs',
+                'meta_site_name' => 'Tuyển Dụng',
+                'meta_image_alt' => 'Tuyển Dụng',
+                'og_title' => 'Tuyển Dụng',
+                'og_description' => 'Thông tin tuyển dụng',
+                'og_url' => route('tuyendung'),
+                'og_image' => 'path/to/image3.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Tuyển Dụng',
+                'twitter_description' => 'Thông tin tuyển dụng',
+                'twitter_image' => 'path/to/twitter_image3.jpg',
+                'canonical' => route('tuyendung'),
+                'meta_robots' => 'index, follow',
+            ],
+            [
+                'meta_title' => 'Dịch Vụ',
+                'meta_description' => 'Các dịch vụ của chúng tôi',
+                'meta_url' => route('dichvu'),
+                'meta_keywords' => 'dịch vụ, services',
+                'meta_site_name' => 'Dịch Vụ',
+                'meta_image_alt' => 'Dịch Vụ',
+                'og_title' => 'Dịch Vụ',
+                'og_description' => 'Các dịch vụ của chúng tôi',
+                'og_url' => route('dichvu'),
+                'og_image' => 'path/to/image4.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Dịch Vụ',
+                'twitter_description' => 'Các dịch vụ của chúng tôi',
+                'twitter_image' => 'path/to/twitter_image4.jpg',
+                'canonical' => route('dichvu'),
+                'meta_robots' => 'index, follow',
+            ],
+            [
+                'meta_title' => 'Bài Viết',
+                'meta_description' => 'Các bài viết',
+                'meta_url' => route('tintuc'),
+                'meta_keywords' => 'bài viết, articles',
+                'meta_site_name' => 'Bài Viết',
+                'meta_image_alt' => 'Bài Viết',
+                'og_title' => 'Bài Viết',
+                'og_description' => 'Các bài viết',
+                'og_url' => route('tintuc'),
+                'og_image' => 'path/to/image5.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Bài Viết',
+                'twitter_description' => 'Các bài viết',
+                'twitter_image' => 'path/to/twitter_image5.jpg',
+                'canonical' => route('tintuc'),
+                'meta_robots' => 'index, follow',
+            ],
+            [
+                'meta_title' => 'Nhân Sự',
+                'meta_description' => 'Thông tin nhân sự',
+                'meta_url' => route('nhansu'),
+                'meta_keywords' => 'nhân sự, personnel',
+                'meta_site_name' => 'Nhân Sự',
+                'meta_image_alt' => 'Nhân Sự',
+                'og_title' => 'Nhân Sự',
+                'og_description' => 'Thông tin nhân sự',
+                'og_url' => route('nhansu'),
+                'og_image' => 'path/to/image6.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Nhân Sự',
+                'twitter_description' => 'Thông tin nhân sự',
+                'twitter_image' => 'path/to/twitter_image6.jpg',
+                'canonical' => route('nhansu'),
+                'meta_robots' => 'index, follow',
+            ],
+            [
+                'meta_title' => 'Liên Hệ',
+                'meta_description' => 'Liên hệ với chúng tôi',
+                'meta_url' => route('lienhe'),
+                'meta_keywords' => 'liên hệ, contact',
+                'meta_site_name' => 'Liên Hệ',
+                'meta_image_alt' => 'Liên Hệ',
+                'og_title' => 'Liên Hệ',
+                'og_description' => 'Liên hệ với chúng tôi',
+                'og_url' => route('lienhe'),
+                'og_image' => 'path/to/image7.jpg',
+                'og_type' => 'website',
+                'twitter_title' => 'Liên Hệ',
+                'twitter_description' => 'Liên hệ với chúng tôi',
+                'twitter_image' => 'path/to/twitter_image7.jpg',
+                'canonical' => route('lienhe'),
+                'meta_robots' => 'index, follow',
+            ],
+            // [
+            //     'meta_title' => 'Chi Tiết Bài Viết',
+            //     'meta_description' => 'Chi tiết bài viết',
+            //     'meta_url' => route('tintuc.detail', ['slug' => 'example-slug']),
+            //     'meta_keywords' => 'bài viết, chi tiết bài viết',
+            //     'meta_site_name' => 'Chi Tiết Bài Viết',
+            //     'meta_image_alt' => 'Chi Tiết Bài Viết',
+            //     'og_title' => 'Chi Tiết Bài Viết',
+            //     'og_description' => 'Chi tiết bài viết',
+            //     'og_url' => route('tintuc.detail', ['slug' => 'example-slug']),
+            //     'og_image' => 'path/to/image8.jpg',
+            //     'og_type' => 'article',
+            //     'twitter_title' => 'Chi Tiết Bài Viết',
+            //     'twitter_description' => 'Chi tiết bài viết',
+            //     'twitter_image' => 'path/to/twitter_image8.jpg',
+            //     'canonical' => route('tintuc.detail', ['slug' => 'example-slug']),
+            //     'meta_robots' => 'index, follow',
+            // ],
+            // [
+            //     'meta_title' => 'Danh Mục Bài Viết',
+            //     'meta_description' => 'Danh mục bài viết',
+            //     'meta_url' => route('tintuc.category', ['slug' => 'example-category']),
+            //     'meta_keywords' => 'bài viết, danh mục',
+            //     'meta_site_name' => 'Danh Mục Bài Viết',
+            //     'meta_image_alt' => 'Danh Mục Bài Viết',
+            //     'og_title' => 'Danh Mục Bài Viết',
+            //     'og_description' => 'Danh mục bài viết',
+            //     'og_url' => route('tintuc.category', ['slug' => 'example-category']),
+            //     'og_image' => 'path/to/image9.jpg',
+            //     'og_type' => 'article',
+            //     'twitter_title' => 'Danh Mục Bài Viết',
+            //     'twitter_description' => 'Danh mục bài viết',
+            //     'twitter_image' => 'path/to/twitter_image9.jpg',
+            //     'canonical' => route('tintuc.category', ['slug' => 'example-category']),
+            //     'meta_robots' => 'index, follow',
+            // ],
+            // [
+            //     'meta_title' => 'Chi Tiết Tuyển Dụng',
+            //     'meta_description' => 'Chi tiết tuyển dụng',
+            //     'meta_url' => route('tuyendung.chitiet', ['id' => 1]),
+            //     'meta_keywords' => 'tuyển dụng, chi tiết tuyển dụng',
+            //     'meta_site_name' => 'Chi Tiết Tuyển Dụng',
+            //     'meta_image_alt' => 'Chi Tiết Tuyển Dụng',
+            //     'og_title' => 'Chi Tiết Tuyển Dụng',
+            //     'og_description' => 'Chi tiết tuyển dụng',
+            //     'og_url' => route('tuyendung.chitiet', ['id' => 1]),
+            //     'og_image' => 'path/to/image10.jpg',
+            //     'og_type' => 'article',
+            //     'twitter_title' => 'Chi Tiết Tuyển Dụng',
+            //     'twitter_description' => 'Chi tiết tuyển dụng',
+            //     'twitter_image' => 'path/to/twitter_image10.jpg',
+            //     'canonical' => route('tuyendung.chitiet', ['id' => 1]),
+            //     'meta_robots' => 'index, follow',
+            // ],
+        ];
+
+        foreach ($seos as $seo) {
+            // Kiểm tra xem bản ghi đã tồn tại chưa
+            $existingSeo = Seo::where('meta_url', $seo['meta_url'])->first();
+            
+            // Nếu không tồn tại, thêm mới bản ghi
+            if (!$existingSeo) {
+                Seo::create($seo);
+            }
         }
     }
 }

@@ -57,7 +57,7 @@
                                             </div>
                                             <div class="d-flex justify-content-start flex-column">
                                                 <a href="#"
-                                                    class="text-dark fw-bolder text-hover-primary fs-6">{{ $row->first_name }}</a>
+                                                    class="text-dark fw-bolder text-hover-primary fs-6">{{$row->prefix_name}} {{ $row->first_name }}</a>
                                                 <span class="text-muted fw-bold text-muted d-block fs-7">
                                                     @foreach ($row->specialties as $specialty)
                                                         {{ $specialty->name }},

@@ -1,14 +1,48 @@
 <x-base-layout>
-    @section('title')
+    {{-- @section('title')
         <title>Bài viết | {{ $companyNameValue }}</title>
+    @endsection --}}
+    @php
+        $settings = \App\Models\Setting::getByType('chitietbaiviet');
+        $banner = $settings['banner']['value'];
+        $banner_mobile = $settings['banner_mobile']['value'];
+    @endphp
+    @section('meta')
+        @include('pages.meta', ['seoMeta' => $item->seoMeta])
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "NewsArticle",
+            "headline": "{{ $item->title }}",
+            "image": [
+                "{{env('APP_URL')}}storage/{{ $item->thumbnail }}"
+               ],
+            "datePublished": "{{ $item->created_at->toIso8601String() }}",
+            "dateModified": "{{ $item->updated_at->toIso8601String() }}",
+            "author": [{
+                "@type": "Person",
+                "name": "{{$item->author->name}}",
+                "url": ""
+              }]
+            
+        }
+        </script>
     @endsection
     @section('styles')
         <link rel="stylesheet" href="{{ asset('assets/css/app2.css') }}" media="all" data-minify="1" />
         <style>
+            .entry-content {
+                font-size: 17.5px !important;
+                font-family: Roboto, sans-serif !important;
+                font-weight: 370 !important;
+            }
+
             blockquote {
-                font-size: 1.2em;
+                font-size: 17.5px;
+                font-family: Roboto, sans-serif;
+                font-weight: 370;
+                color: #000;
                 font-style: italic;
-                color: #555;
                 border-left: 4px solid #ccc;
                 padding-left: 15px;
                 margin: 20px 0;
@@ -31,13 +65,13 @@
                 padding-left: 20px;
             }
 
-            .header {
-                background: var(--miko-gradient) !important;
-            }
+            /* .header {
+                                                        background: var(--miko-gradient) !important;
+                                                    }
 
-            .header__right #menu-menu-chinh>li>a {
-                color: #fff
-            }
+                                                    .header__right #menu-menu-chinh>li>a {
+                                                        color: #fff
+                                                    } */
 
             h2 {
                 font-size: 28px !important;
@@ -71,7 +105,7 @@
             /* revert sẽ đặt lại padding về giá trị mặc định (thường là 0) */
             /* } */
         </style>
-        <style id="rank-math-toc-block-style-inline-css" type="text/css">
+        {{-- <style id="rank-math-toc-block-style-inline-css" type="text/css">
             .wp-block-rank-math-toc-block nav ol {
                 counter-reset: item
             }
@@ -84,8 +118,8 @@
                 content: counters(item, ".") ". ";
                 counter-increment: item
             }
-        </style>
-        <style id="classic-theme-styles-inline-css" type="text/css">
+        </style> --}}
+        {{-- <style id="classic-theme-styles-inline-css" type="text/css">
             /*! This file is auto-generated */
             .wp-block-button__link {
                 color: #fff;
@@ -102,8 +136,8 @@
                 color: #fff;
                 text-decoration: none
             }
-        </style>
-        <style id="global-styles-inline-css" type="text/css">
+        </style> --}}
+        {{-- <style id="global-styles-inline-css" type="text/css">
             body {
                 --wp--preset--color--black: #000000;
                 --wp--preset--color--cyan-bluish-gray: #abb8c3;
@@ -423,8 +457,8 @@
             .wp-block-pullquote {
                 font-size: 1.5em;
                 line-height: 1.6;
-            }
-        </style>
+            } 
+        </style> --}}
         <style id="ez-toc-inline-css" type="text/css">
             div#ez-toc-container .ez-toc-title {
                 font-size: 100%;
@@ -472,6 +506,80 @@
             .ez-toc-list-level-3 {
                 padding-left: 20px;
             }
+
+            .footer {
+                /* font-size: 1.2rem; */
+                font-size: 16.5px !important;
+                font-family: Roboto, sans-serif !important;
+                font-weight: 370 !important;
+            }
+
+            /* .entry-content{
+                                                        font-size: 17.5px !important;
+
+                                                    } */
+            /* .chitiet-footer div{
+                                                        font-weight:bolder;
+                                                    } */
+            @media screen and (max-width: 600px) {
+                .design-banner-contain {
+                    position: relative;
+                    text-align: center;
+                }
+
+                .design-banner-info {
+                    width: 100% !important;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                }
+
+                .design-banner-description {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .entry-title {
+                    margin: 0;
+                    padding: 20px;
+                    background: rgba(0, 0, 0, 0.5);
+                    color: #fff;
+                    border-radius: 10px;
+                }
+            }
+
+            @media screen and (max-width: 475px) {
+                .design-banner-contain {
+                    position: relative;
+                    text-align: center;
+                }
+
+                .design-banner-info {
+                    width: 100% !important;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 100%;
+                }
+
+                .design-banner-description {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .entry-title {
+                    margin: 0;
+                    padding: 20px;
+                    background: rgba(0, 0, 0, 0.5);
+                    color: #fff;
+                    border-radius: 10px;
+                }
+            }
         </style>
     @endsection
     @php
@@ -482,20 +590,63 @@
         // $h1 = $settings['h1']['value'];
         // $banner_mobile = $settings['banner_mobile']['value'];
     @endphp
-    <div class="center-layout-2">
+
+    {{-- <div class="center-layout-2 display_mobile" style="margin-bottom: -19px;">
         <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
             <p><a href="{{ route('trangchu') }}">Trang chủ</a><span class="separator"> &raquo; </span><a
                     href="{{ route('tintuc') }}">Bài viết</a><span class="separator"> &raquo; </span><span
                     class="last">{{ $item->title }}</span></p>
         </nav>
-    </div>
+    </div> --}}
     <div class="content" style="text-align: justify;">
         <div class="post-detail center-layout">
             <div class="post-detail__left" style="min-width: 77%">
                 <article id="post-3253"
                     class="post-3253 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-kien-thuc-website category-website">
-
-                    <h1 class="entry-title">{{ $item->title }}</h1>
+                    {{-- <h1 class="entry-title">{{ $item->title }}</h1> --}}
+                    <div class="design-banner-contain">
+                        <div class="himg banner--desktop">
+                            <img width="1230" height="540"
+                                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201230%20540'%3E%3C/svg%3E"
+                                alt="banner" data-lazy-src="{{ display_image($banner) }}"><noscript><img
+                                    width="1230" height="540" class="" data-aos="fade-up"
+                                    data-aos-duration="1000" data-aos-once="true" data-aos-delay="1500"
+                                    src="{{ display_image($banner) }}" alt="banner"></noscript>
+                        </div>
+                        <div class="himg banner--mobile" style="height:100%">
+                            <img width="375" height="700"
+                                src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20375%20700'%3E%3C/svg%3E"
+                                alt="banner" data-lazy-src="{{ display_image($banner_mobile) }}"><noscript><img
+                                    width="375" height="700" class="" data-aos="fade-up"
+                                    data-aos-duration="1000" data-aos-once="true" data-aos-delay="1500"
+                                    src="{{ display_image($banner_mobile) }}" alt="banner"></noscript>
+                        </div>
+                        <div class="design-banner-info" style="width: 50%;">
+                            <div class="design-banner-description">
+                                <h1 class="entry-title">{{ $item->title }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="hero display_desktop">
+                        <div class="design-banner-contain" style="height: 150px;">
+                            <div class="design-banner-info" style="width: 70%;top: 39.5%;margin-left: -30px;">
+                                <div class="design-banner-description">
+                                    <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+                                        <p style="font-weight: 700; font-size:9px;">
+                                            <a href="{{ route('trangchu') }}">Trang chủ</a>
+                                            <span class="separator"> &raquo; </span>
+                                            <a href="{{ route('tintuc') }}">Bài viết</a>
+                                            <span class="separator"> &raquo;
+                                            </span><span class="last">{{ $item->title }}</span>
+                                        </p>
+                                    </nav>
+                                </div>
+                                <div class="design-banner-description">
+                                    <h1 style="font-size: 22.5px;" class="entry-title">{{ $item->title }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
                     <div class="entry-content">
                         <div>
                             {!! $item->summary !!}
@@ -559,7 +710,7 @@
 
 
             </div>
-            <div class="post-detail__right" style="min-width: 25%">
+            <div class="post-detail__right" style="min-width: 25%; margin-top:-60px;">
                 <div class='post-detail-service-list'>
                     <div class="post-detail__sub-title">Danh mục</div>
                     <div class="blog-items-desk-mt pd075 mgb-2">

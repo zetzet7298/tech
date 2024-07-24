@@ -35,8 +35,11 @@
         $diemdadang_item_2 = $settings['diemdadang_item_2']['value'];
         $diemdadang_item_3 = $settings['diemdadang_item_3']['value'];
         $diemdadang_item_4 = $settings['diemdadang_item_4']['value'];
-
+        $seoMeta = \App\Models\Seo::where('canonical', route('gioithieu'))->first();
     @endphp
+    @section('meta')
+        @include('pages.page_meta', ['seoMeta' => $seoMeta])
+    @endsection
     <div class="hero">
         <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
@@ -201,7 +204,7 @@
     <div class="about-group-5">
         <div class="center-layout-2">
             <div class="about-group-5__left">
-                <h2 class="about-group-5__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+                <h2 class="team-box-6__name" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                     {{ $chienloipham_title }}</h2>
                 <h3 class="about-group-5__desc" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                     {{ $chienloipham_description }}</h3>
@@ -236,7 +239,9 @@
             <div class="center-layout-2">
                 <div class="about-group-6__main">
                     <h2 class="about-group-6__title" data-aos="fade-up" data-aos-duration="1000"
-                        data-aos-once="true"><span>{{ $diemdadang_title }}</span></h2>
+                        data-aos-once="true">
+                        <span>{{ $diemdadang_title }}</span>
+                    </h2>
                     <div class="about-group-6-items" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-once="true">{{ $diemdadang_item_1 }}</div>
                     <div class="about-group-6-items" data-aos="fade-up" data-aos-duration="1000"
@@ -248,13 +253,11 @@
                 </div>
             </div>
         </div>
-        <div class="contttt" style="position: absolute; left: 0; bottom: -5rem; width: 100%;">
+        <div class="contttt" style="position: absolute; left: 0; width: 100%;">
             <div class="center-layout">
                 <div class="contact" style="margin: 0;">
-                    <div class="contact__desc">Ngay bây giờ chính là thời điểm sớm nhất <br> Bước gần hơn đến thành
-                        công của bạn
-                        bằng
-                        cách trò chuyện với chúng tôi</div>
+                    <div class="contact__desc">Bạn đang gặp khó khăn về pháp lý<br>
+Hãy liên hệ ngay chúng tôi, chúng tôi sẽ hỗ trợ giải quyết vấn đề của bạn một cách nhanh chóng</div>
                     <a href="{{ route('lienhe') }}" class="hbtn hbtn--white"><span>Liên hệ ngay</span></a>
                 </div>
             </div>

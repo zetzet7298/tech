@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Income;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\SeoMeta;
 use App\Models\User;
 use App\Models\Withdrawal;
 use DB;
@@ -18,14 +19,14 @@ class ServiceController extends Controller
     public function index(Request $request)
     {
         $q = Post::with('author')->where('category_id', 1)->orderBy('updated_at', 'desc');
-        if($request->key){
+        if ($request->key) {
             $q->where('title', 'like', "%{$request->key}%");
         }
         $services = $q->active()->paginate(10);
         $categories = Category::active()->get();
         return view('cms.services.index', compact('services', 'categories', 'request'));
     }
-    
+
     public function create()
     {
         $action = 'create';
@@ -49,7 +50,30 @@ class ServiceController extends Controller
             if (request()->hasFile('thumbnail') && $path = upload_image3($item->slug, 'thumbnail', 'thumbnail')) {
                 $item->thumbnail = $path;
             }
+
             $item->save();
+
+            // Save SEO Meta
+            $seoMeta = new SeoMeta();
+            $seoMeta->post_id = $item->id;
+            $seoMeta->meta_title = $request->meta_title;
+            $seoMeta->meta_description = $request->meta_description;
+            $seoMeta->meta_url = $request->meta_url;
+            $seoMeta->meta_keywords = $request->meta_keywords;
+            $seoMeta->meta_site_name = $request->meta_site_name;
+            $seoMeta->meta_image_alt = $request->meta_image_alt;
+            $seoMeta->og_title = $request->og_title;
+            $seoMeta->og_description = $request->og_description;
+            $seoMeta->og_url = $request->og_url;
+            $seoMeta->og_image = $request->og_image;
+            $seoMeta->og_type = $request->og_type;
+            $seoMeta->twitter_title = $request->twitter_title;
+            $seoMeta->twitter_description = $request->twitter_description;
+            $seoMeta->twitter_image = $request->twitter_image;
+            $seoMeta->canonical = $request->canonical;
+            $seoMeta->meta_robots = $request->meta_robots;
+            $seoMeta->save();
+
             DB::commit();
             return redirect()->route('services.index')->with('success', 'Đã tạo dịch vụ');
         } catch (\Exception $e) {
@@ -65,6 +89,23 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $item = Post::findOrFail($id);
+        $item->canonical = $item->seoMeta->canonical ?? '';
+        $item->meta_robots = $item->seoMeta->meta_robots ?? '';
+        $item->meta_title = $item->seoMeta->meta_title ?? '';
+        $item->meta_description = $item->seoMeta->meta_description ?? '';
+        $item->meta_url = $item->seoMeta->meta_url ?? '';
+        $item->meta_keywords = $item->seoMeta->meta_keywords ?? '';
+        $item->meta_site_name = $item->seoMeta->meta_site_name ?? '';
+        $item->meta_image_alt = $item->seoMeta->meta_image_alt ?? '';
+        $item->og_title = $item->seoMeta->og_title ?? '';
+        $item->og_description = $item->seoMeta->og_description ?? '';
+        $item->og_url = $item->seoMeta->og_url ?? '';
+        $item->og_image = $item->seoMeta->og_image ?? '';
+        $item->og_type = $item->seoMeta->og_type ?? '';
+        $item->twitter_title = $item->seoMeta->twitter_title ?? '';
+        $item->twitter_description = $item->seoMeta->twitter_description ?? '';
+        $item->twitter_image = $item->seoMeta->twitter_image ?? '';
+        
         $action = 'edit';
         $itemName = 'dịch vụ';
         $categories = Category::active()->get();
@@ -86,6 +127,31 @@ class ServiceController extends Controller
             if (request()->hasFile('thumbnail') && $path = upload_image3($item->slug, 'thumbnail', 'thumbnail')) {
                 $item->thumbnail = $path;
             }
+
+            // Save SEO Meta
+            $seoMeta = SeoMeta::where('post_id', $item->id)->first();
+            if(empty($seoMeta)){
+                $seoMeta = new SeoMeta();
+            }
+            $seoMeta->post_id = $item->id;
+            $seoMeta->meta_title = $request->meta_title;
+            $seoMeta->meta_description = $request->meta_description;
+            $seoMeta->meta_url = $request->meta_url;
+            $seoMeta->meta_keywords = $request->meta_keywords;
+            $seoMeta->meta_site_name = $request->meta_site_name;
+            $seoMeta->meta_image_alt = $request->meta_image_alt;
+            $seoMeta->og_title = $request->og_title;
+            $seoMeta->og_description = $request->og_description;
+            $seoMeta->og_url = $request->og_url;
+            $seoMeta->og_image = $request->og_image;
+            $seoMeta->og_type = $request->og_type;
+            $seoMeta->twitter_title = $request->twitter_title;
+            $seoMeta->twitter_description = $request->twitter_description;
+            $seoMeta->twitter_image = $request->twitter_image;
+            $seoMeta->canonical = $request->canonical;
+            $seoMeta->meta_robots = $request->meta_robots;
+            $seoMeta->save();
+
             $item->save();
             DB::commit();
             return redirect()->route('services.index')->with('success', 'Đã cập nhật dịch vụ');

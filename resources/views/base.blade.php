@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     {{-- <title>Dịch Vụ Tư Vấn Pháp Luật</title> --}}
-    @yield('title')
+    {{-- @yield('title') --}}
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -23,19 +23,19 @@
     <meta name="format-detection" content="telephone=no">
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
     @if (!in_array(Route::currentRouteName(), ['tintuc.detail', 'tuyendung.chitiet']))
-    <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
-        
+        <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
     @endif
-    <meta name="description"
+    <meta property="og:url" content="{{ route('trangchu') }}" />
+    <link rel="canonical" href="{{ route('trangchu') }}" />
+    @yield('meta')
+    {{-- <meta name="description"
         content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
-    <link rel="canonical" href="{{route('trangchu')}}" />
     <meta property="og:locale" content="vi_VN" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta property="og:description"
         content="Dịch Vụ Tư Vấn Pháp Luật" />
-    <meta property="og:url" content="{{route('trangchu')}}" />
     <meta property="og:site_name" content="Tech" />
     <meta property="og:updated_time" content="2022-09-15T13:33:24+07:00" />
     <meta property="og:image:width" content="1024" />
@@ -53,67 +53,75 @@
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Tech" />
     <meta name="twitter:label2" content="Time to read" />
-    <meta name="twitter:data2" content="Less than a minute" />
+    <meta name="twitter:data2" content="Less than a minute" /> --}}
+
     <!-- /Rank Math WordPress SEO plugin -->
     {{-- 
 <link rel="alternate" type="application/rss+xml" title="Dòng thông tin Tech &raquo;" href="{{$app_url}}feed/" />
 <link rel="alternate" type="application/rss+xml" title="Tech &raquo; Dòng bình luận" href="{{$app_url}}comments/feed/" /> --}}
-<style>
-    /* .about-us__desc{
+    <style>
+        /* .about-us__desc{
         font-size: 15px;
     } */
-    body {
-        
-        font-size: 14px !important;
-    }
+        body {
 
-    #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
-        content: "\f160";
-        color: #02CA02;
-        top: 3px;
-    }
+            font-size: 14px !important;
+        }
 
-    #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
-        transform: rotate(45deg);
-    }
+        .footer {
+            /* font-size: 1.2rem; */
+            font-size: 17.5px !important;
+            font-family: Roboto, sans-serif !important;
+            font-weight: 370 !important;
+        }
 
-    .flash-message {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #4CAF50;
-        color: white;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        display: none;
-        /* Không hiển thị ban đầu */
-    }
+        #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon:before {
+            content: "\f160";
+            color: #02CA02;
+            top: 3px;
+        }
 
-    .flash-message p {
-        margin: 0;
-    }
+        #wpadminbar #wp-admin-bar-wccp_free_top_button .ab-icon {
+            transform: rotate(45deg);
+        }
 
-    .flash-message.success {
-        background-color: #4CAF50;
-    }
+        .flash-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none;
+            /* Không hiển thị ban đầu */
+        }
 
-    #close-flash {
-        background-color: #f44336;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        float: right;
-    }
-</style>
+        .flash-message p {
+            margin: 0;
+        }
+
+        .flash-message.success {
+            background-color: #4CAF50;
+        }
+
+        #close-flash {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+    </style>
     <style id='wp-emoji-styles-inline-css' type='text/css'>
         img.wp-smiley,
         img.emoji {
@@ -1162,7 +1170,8 @@
     @yield('styles')
 </head>
 
-<body style="overflow-x: hidden !important;width: 100%;" class="home page-template page-template-index page-template-index-php page page-id-264 unselectable">
+<body style="overflow-x: hidden !important;width: 100%;"
+    class="home page-template page-template-index page-template-index-php page page-id-264 unselectable">
     @if (session('success'))
         <div id="flash-message" class="flash-message success">
             <p>{{ session('success') }}</p>
@@ -1224,10 +1233,41 @@
         }
 
         /* .warning-wpcp {
-            background:#ffecec url('{{route('trangchu')}}wp-content/plugins/wp-content-copy-protector/images/warning.png') no-repeat 10px 50%;
+            background:#ffecec url('{{ route('trangchu') }}wp-content/plugins/wp-content-copy-protector/images/warning.png') no-repeat 10px 50%;
         } */
     </style>
-
+    @php
+        $settings = \App\Models\Setting::getByType('localbusiness');
+        $store = new \App\Models\Store();
+                foreach($settings as $k => $setting){
+                    $store->$k = $setting['value'];
+                }
+    @endphp
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Store",
+      "image":{!! $store->images !!},
+      "name": "{{ $store->name }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ $store->street_address }}",
+        "addressLocality": "{{ $store->address_locality }}",
+        "addressRegion": "{{ $store->address_region }}",
+        "postalCode": "{{ $store->postal_code }}",
+        "addressCountry": "{{ $store->address_country }}"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": {{ $store->latitude }},
+        "longitude": {{ $store->longitude }}
+      },
+      "url": "{{ $store->url }}",
+      "priceRange": "{{ $store->price_range }}",
+      "telephone": "{{ $store->telephone }}",
+      "openingHoursSpecification": {!! $store->opening_hours !!}
+    }
+    </script>
 
     <!-- Meta Pixel Event Code -->
 
@@ -1318,8 +1358,7 @@
     </script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery.min.js') }}" id=" jquery-js-js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/gsap.min.js') }}" id=" gsap-js-js"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/ScrollToPlugin.min.js') }}" id=" ScrollToPlugin-js-js">
-    </script>
+    <script type="text/javascript" src="{{ asset('assets/js/ScrollToPlugin.min.js') }}" id=" ScrollToPlugin-js-js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/ScrollTrigger.min.js') }}" id=" ScrollTrigger-js-js"></script>
     <script type="text/javascript" src="{{ asset('assets/js/wow.min.js') }}" id=" wow-js-js"></script>
     {{-- <script type="text/javascript" src="{{ asset('assets/js/aos.js') }}"" id=" aos-js-js"></script> --}}

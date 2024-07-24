@@ -11,6 +11,14 @@
 }
 
       </style> --}}
+      <style>
+        .blog-group-1__date{
+            font-family: Montserrat;
+            font-weight: 700;
+            color: rgb(0 0 0 / 16%);
+            margin: 10px 0;
+        }
+        </style>
     @endsection
     @php
         $settings = \App\Models\Setting::getByType('post');
@@ -19,7 +27,11 @@
         $banner = $settings['banner']['value'];
         $h1 = $settings['h1']['value'];
         $banner_mobile = $settings['banner_mobile']['value'];
+        $seoMeta = \App\Models\Seo::where('canonical', route('tintuc'))->first();
     @endphp
+    @section('meta')
+        @include('pages.page_meta', ['seoMeta' => $seoMeta])
+    @endsection
     <div class="hero">
         <h1 class="d-none">{{ $h1 }}</h1>
         <div class="center-layout">
@@ -66,15 +78,15 @@
                                 href="{{ route('tintuc.detail', ['slug' => $items[$i]->slug.'.html']) }}">{{ $items[$i]->title }}</a>
                         </h2>
                          <div style="display: flex; align-items: center;" class="blog-group-1__date">
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
                               </svg>
-                            <span style="margin-left: 5x; margin-right:15px;">{{ $items[0]->category->name }}</span>
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <span style="margin-left: 10x; font-size:14px; margin-right:15px;">{{ $items[0]->category->name }}</span>
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M5 8a4 4 0 1 1 7.796 1.263l-2.533 2.534A4 4 0 0 1 5 8Zm4.06 5H7a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h2.172a2.999 2.999 0 0 1-.114-1.588l.674-3.372a3 3 0 0 1 .82-1.533L9.06 13Zm9.032-5a2.907 2.907 0 0 0-2.056.852L9.967 14.92a1 1 0 0 0-.273.51l-.675 3.373a1 1 0 0 0 1.177 1.177l3.372-.675a1 1 0 0 0 .511-.273l6.07-6.07a2.91 2.91 0 0 0-.944-4.742A2.907 2.907 0 0 0 18.092 8Z" clip-rule="evenodd"/>
                             </svg>
-                            <span style="margin-left: 5x; margin-right:15px;">{{ $items[0]->author ? $items[0]->author->name : '' }}</span>
-                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <span style="margin-left: 10x; font-size:14px; margin-right:15px;">{{ $items[0]->author ? $items[0]->author->name : '' }}</span>
+                            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                 <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                               </svg>
                               
@@ -123,17 +135,17 @@
             <div class="mt-text-center">
                 @foreach ($categories as $category)
                     <div class="mt-text-center--item"><a
-                            href="{{ route('tintuc.category', ['slug' => $category->slug.'.html']) }}">{{$category->name}}</a>
+                            href="{{ route('tintuc.category', ['slug' => $category->slug]) }}">{{$category->name}}</a>
                     </div>
                 @endforeach
 
             </div>
         </div>
 
-        <div class="center-layout-2 pd-20">
+        {{-- <div class="center-layout-2 pd-20">
 
 
-        </div>
+        </div> --}}
 
     </div>
 
@@ -158,15 +170,15 @@
                                             href="{{ route('tintuc.detail', ['slug' => $items[0]->slug.'.html']) }}">{{ $items[0]->title }}</a>
                                     </h2>
                                     <div style="display: flex; align-items: center;" class="blog-group-1__date">
-                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
                                           </svg>
-                                        <span style="margin-left: 5x; margin-right:15px;">{{ $items[0]->category->name }}</span>
-                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <span style="margin-left: 10x; font-size:14px; margin-right:15px;">{{ $items[0]->category->name }}</span>
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd" d="M5 8a4 4 0 1 1 7.796 1.263l-2.533 2.534A4 4 0 0 1 5 8Zm4.06 5H7a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h2.172a2.999 2.999 0 0 1-.114-1.588l.674-3.372a3 3 0 0 1 .82-1.533L9.06 13Zm9.032-5a2.907 2.907 0 0 0-2.056.852L9.967 14.92a1 1 0 0 0-.273.51l-.675 3.373a1 1 0 0 0 1.177 1.177l3.372-.675a1 1 0 0 0 .511-.273l6.07-6.07a2.91 2.91 0 0 0-.944-4.742A2.907 2.907 0 0 0 18.092 8Z" clip-rule="evenodd"/>
                                         </svg>
-                                        <span style="margin-left: 5x; margin-right:15px;">{{ $items[0]->author ? $items[0]->author->name : '' }}</span>
-                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                        <span style="margin-left: 10x; font-size:14px; margin-right:15px;">{{ $items[0]->author ? $items[0]->author->name : '' }}</span>
+                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                                           </svg>
                                           
@@ -200,15 +212,15 @@
                                             href="{{ route('tintuc.detail', ['slug' => $items[$i]->slug.'.html']) }}">
                                             {{ $items[$i]->title }}</a></h2>
                                             <div style="display: flex; align-items: center;" class="blog-group-1__date">
-                                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                                     <path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
                                                   </svg>
-                                                <span style="margin-left: 5x; margin-right:15px;">{{ $items[0]->category->name }}</span>
-                                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <span style="margin-left: 10x; font-size:14px; margin-right:15px;">{{ $items[0]->category->name }}</span>
+                                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                                     <path fill-rule="evenodd" d="M5 8a4 4 0 1 1 7.796 1.263l-2.533 2.534A4 4 0 0 1 5 8Zm4.06 5H7a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h2.172a2.999 2.999 0 0 1-.114-1.588l.674-3.372a3 3 0 0 1 .82-1.533L9.06 13Zm9.032-5a2.907 2.907 0 0 0-2.056.852L9.967 14.92a1 1 0 0 0-.273.51l-.675 3.373a1 1 0 0 0 1.177 1.177l3.372-.675a1 1 0 0 0 .511-.273l6.07-6.07a2.91 2.91 0 0 0-.944-4.742A2.907 2.907 0 0 0 18.092 8Z" clip-rule="evenodd"/>
                                                 </svg>
-                                                <span style="margin-left: 5x; margin-right:15px;">{{ $items[0]->author ? $items[0]->author->name : '' }}</span>
-                                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                                <span style="margin-left: 10x; font-size:14px; margin-right:15px;">{{ $items[0]->author ? $items[0]->author->name : '' }}</span>
+                                                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                                                     <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                                                   </svg>
                                                   
@@ -249,7 +261,7 @@
                                 @foreach ($categories as $category)
                                     <div class="mt-text-center--item-desktop">
                                         <a
-                                            href="{{ route('tintuc.category', ['slug' => $category->slug.'.html']) }}">{{ $category->name }}</a>
+                                            href="{{ route('tintuc.category', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
                                     </div>
                                 @endforeach
                             </div>
@@ -260,7 +272,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
         <div class="check_screen_height fixed left-0 top-0 w-[1px] z-[-1] h-[100vh]"></div>
 
         @section('scripts')

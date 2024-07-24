@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Recruitment extends Model
 {
     use HasFactory;
+
+    public function seoMeta()
+    {
+        return $this->hasOne(SeoMeta::class);
+    }
 }

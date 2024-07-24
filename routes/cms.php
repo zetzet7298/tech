@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RecruitmentController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\SpecialtyController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TwoFactorController;
 use App\Http\Controllers\UserController;
 
@@ -94,6 +96,12 @@ Route::prefix('cms')->group(function () {
         Route::resource('employees', EmployeeController::class)->middleware('check.role:employee');
         Route::resource('specialties', SpecialtyController::class)->middleware('check.role:specialty');
         Route::resource('offices', OfficeController::class)->middleware('check.role:office');
+        Route::resource('seo', SeoController::class);
+        Route::resource('stores', StoreController::class);
+        Route::resource('articles', StoreController::class);
+        Route::resource('seos', SeoController::class)
+        // ->middleware('check.role:seo')
+        ;
         Route::resource('users', UserController::class)->middleware('check.admin');
         Route::get('enable-2fa', [TwoFactorController::class, 'enableTwoFactor'])->name('enableTwoFactor');
         Route::post('verify-2fa', [TwoFactorController::class, 'verifyTwoFactor'])->name('verifyTwoFactor');
@@ -107,9 +115,11 @@ Route::prefix('cms')->group(function () {
         // Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
 
         Route::resource('posts', PostController::class)->middleware('check.role:post');
+        // Route::post('posts/meta/update', [PostController::class, 'updateMeta'])->name('posts.update_meta');
+        // Route::post('posts/meta/create', [PostController::class, 'updateMeta'])->name('posts.store_meta');
         Route::resource('services', ServiceController::class)->middleware('check.role:service');
-        Route::get('post/approve/{post}', [PostController::class, 'approve'])->name('post.approve')->middleware('check.role:edit');
-        Route::get('post/delete/{post}', [PostController::class, 'delete'])->name('post.delete')->middleware('check.role:delete');
-        Route::get('post/set-featured/{post}', [PostController::class, 'setFeatured'])->name('post.set_featured')->middleware('check.role:edit');
+        // Route::get('post/approve/{post}', [PostController::class, 'approve'])->name('post.approve')->middleware('check.role:edit');
+        // Route::get('post/delete/{post}', [PostController::class, 'delete'])->name('post.delete')->middleware('check.role:delete');
+        // Route::get('post/set-featured/{post}', [PostController::class, 'setFeatured'])->name('post.set_featured')->middleware('check.role:edit');
     });
 });

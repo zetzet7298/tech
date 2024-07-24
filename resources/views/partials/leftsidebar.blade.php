@@ -89,8 +89,19 @@
                                         <a href="{{ route('settings.index', ['type' => 'hr']) }}">Cấu hình nhân sự</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('settings.index', ['type' => 'post']) }}">Cấu hình tin
-                                            tức</a>
+                                        <a href="{{ route('settings.index', ['type' => 'post']) }}">Cấu hình bài
+                                            viết</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('settings.index', ['type' => 'chitietbaiviet']) }}">Cấu hình
+                                            chi tiết bài viết</a>
+                                    </li>
+                                    {{-- <li>
+                                        <a href="{{ route('settings.index', ['type' => 'article']) }}">Schema Article</a>
+                                    </li> --}}
+                                    <li>
+                                        <a href="{{ route('settings.index', ['type' => 'localbusiness']) }}">Schema Local Business
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -110,7 +121,7 @@
                                 <ul class="side-nav-second-level">
                                     @if (checkPermission('post'))
                                         <li>
-                                            <a href="{{ route('posts.create') }}">Tạo tin tức</a>
+                                            <a href="{{ route('posts.create') }}">Tạo bài viết</a>
                                         </li>
                                         <li>
                                             <a href="{{ route('posts.index') }}">Danh sách bài viết</a>
@@ -258,6 +269,26 @@
                             </div>
                         </li>
                     @endif
+
+                    <li class="side-nav-item">
+                        <a href="{{ route('seos.index') }}" class="side-nav-link">
+                            <i class="uil-home-alt"></i>
+                            <span> SEO </span>
+                        </a>
+                    </li>
+                    {{-- <li class="side-nav-item">
+                        <a href="{{ route('stores.index') }}" class="side-nav-link">
+                            <i class="uil-home-alt"></i>
+                            <span> Schema Local Business </span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href="{{ route('articles.index') }}" class="side-nav-link">
+                            <i class="uil-home-alt"></i>
+                            <span> Schema Article </span>
+                        </a>
+                    </li> --}}
+
                     {{-- 
                     <!-- Help Box -->
                     <div class="help-box text-white text-center">
