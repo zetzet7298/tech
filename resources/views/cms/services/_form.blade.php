@@ -294,9 +294,9 @@
         $(document).ready(function() {
             $('.select2').select2();
             var editor = CKEDITOR.replace('ckeditor', {
-                filebrowserBrowseUrl: '/ckfinder/browser',
-                filebrowserUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Files&_token={{ csrf_token() }}',
-                filebrowserImageUploadUrl: '/ckfinder/connector?command=QuickUpload&type=Images&_token={{ csrf_token() }}'
+                filebrowserBrowseUrl: '{{env("APP_URL")}}ckfinder/browser',
+                filebrowserUploadUrl: '{{env("APP_URL")}}ckfinder/connector?command=QuickUpload&type=Files&_token={{ csrf_token() }}',
+                filebrowserImageUploadUrl: '{{env("APP_URL")}}ckfinder/connector?command=QuickUpload&type=Images&_token={{ csrf_token() }}'
             })
 
         });
