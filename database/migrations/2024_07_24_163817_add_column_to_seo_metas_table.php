@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('og_site_name')->nullable()->after('fb_app_id');
             $table->string('og_image_secure_url')->nullable()->after('og_image');
             $table->string('fb_admins')->nullable()->after('og_image_secure_url');
-            $table->string('og_image_type')->default('image/jpeg')->after('fb_admins');
-            $table->string('twitter_card')->default('summary')->after('twitter_image');
+            $table->string('og_image_type')->nullable()->default('image/jpeg')->after('fb_admins');
+            $table->string('twitter_card')->nullable()->default('summary')->after('twitter_image');
             $table->string('twitter_site')->nullable()->after('twitter_card');
             $table->string('twitter_creator')->nullable()->after('twitter_site');
             $table->string('alternate_hreflang')->nullable()->after('canonical');
