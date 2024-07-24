@@ -73,31 +73,41 @@
                                     @method('PUT')
                                     <div class="card-body border-top p-9">
                                         @foreach ([
-            'meta_title' => 'Tiêu đề SEO',
-            'meta_description' => 'Mô tả SEO',
-            'meta_url' => 'URL SEO',
-            'meta_keywords' => 'Từ khóa SEO',
-            'meta_site_name' => 'Tên trang web',
-            'meta_image_alt' => 'Alt hình ảnh',
-            'og_title' => 'OG Title',
-            'og_description' => 'OG Description',
-            'og_url' => 'OG URL',
-            'og_image' => 'OG Image',
-            'og_type' => 'OG Type',
-            'twitter_title' => 'Twitter Title',
-            'twitter_description' => 'Twitter Description',
-            'twitter_image' => 'Twitter Image',
-            'meta_robots' => 'Meta Robots',
-        ] as $field => $label)
+                                            'meta_robots' => 'Meta Robots',
+                                            'alternate_hreflang' => 'Alternate Hreflang',
+                                            'canonical' => 'Canonical URL',
+                                            'meta_title' => 'Tiêu đề SEO',
+                                            'meta_description' => 'Mô tả SEO',
+                                            'meta_url' => 'URL SEO',
+                                            'meta_keywords' => 'Từ khóa SEO',
+                                            'meta_site_name' => 'Tên trang web',
+                                            'meta_image_alt' => 'Alt hình ảnh',
+                                            'og_locale' => 'OG Locale',
+                                            'fb_app_id' => 'Facebook App ID',
+                                            'og_type' => 'OG Type',
+                                            'og_title' => 'OG Title',
+                                            'og_description' => 'OG Description',
+                                            'og_url' => 'OG URL',
+                                            'og_site_name' => 'OG Site Name',
+                                            'og_image' => 'OG Image',
+                                            'og_image_secure_url' => 'OG Image Secure URL',
+                                            'fb_admins' => 'Facebook Admins',
+                                            'og_image_type' => 'OG Image Type',
+                                            'twitter_card' => 'Twitter Card',
+                                            'twitter_site' => 'Twitter Site',
+                                            'twitter_title' => 'Twitter Title',
+                                            'twitter_description' => 'Twitter Description',
+                                            'twitter_image' => 'Twitter Image',
+                                            'twitter_creator' => 'Twitter Creator',
+
+                                        ] as $field => $label)
                                             <div class="row mt-3">
                                                 <label class="form-label">{{ $label }}</label>
                                                 <div class="col-lg-12 fv-row">
                                                     @if (in_array($field, ['meta_description', 'og_description', 'twitter_description']))
                                                         <textarea rows="3" type="text" name="{{ $field }}" class="form-control mycustom" placeholder="">{{ $page->$field }}</textarea>
                                                     @else
-                                                        <input type="text" name="{{ $field }}"
-                                                            class="form-control mycustom" placeholder=""
-                                                            value="{{ $page->$field }}" />
+                                                        <input type="text" name="{{ $field }}" class="form-control mycustom" placeholder="" value="{{ $page->$field }}" />
                                                     @endif
                                                 </div>
                                             </div>

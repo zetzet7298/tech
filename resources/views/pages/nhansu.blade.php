@@ -54,7 +54,7 @@
                                 alt="Nhân sự"></noscript>
                     </div>
                     <div class="team-box-1__right">
-                        <div class="team-box-1__title h-fadeOutDown">{{ $item->first_name }}</div>
+                        <h3 class="team-box-1__title h-fadeOutDown">{{ $item->first_name }}</h3>
                         <div class="d-flex">
                             <span style="font-weight: 500; width:40%">Chuyên ngành: </span>
                             <ul class="about-group-3__list" style="margin-bottom: 0px;padding-left:0px;">

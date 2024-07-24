@@ -25,9 +25,9 @@
                     alt="banner" data-lazy-src="{{ asset('image/COVER-LIEN-HE.webp') }}"><noscript><img width="1230"
                         height="540" src="{{ asset('image/COVER-LIEN-HE.webp') }}" alt="banner"></noscript>
                 <div class="design-banner-info">
-                    <div class="design-banner-title">Liên hệ</div>
-                    <div class="design-banner-description">HÃY ĐỂ CHÚNG TÔI <br> KẾT NỐI VÀ ĐỒNG HÀNH <br> CÙNG BẠN!
-                    </div>
+                    <h1 class="design-banner-title">Liên hệ</h1>
+                    <h2 class="design-banner-description">HÃY ĐỂ CHÚNG TÔI <br> KẾT NỐI VÀ ĐỒNG HÀNH <br> CÙNG BẠN!
+                    </h2>
                 </div>
             </div>
         </div>
@@ -35,9 +35,9 @@
     <div class="center-layout-2">
         <div class="contact-group-1">
             <div class="contact-group-1__form">
-                <div class="contact-group-1__title">Chúng tôi sẽ liên hệ với bạn theo thông tin bạn gửi, vui lòng điền
+                <h3 class="contact-group-1__title">Chúng tôi sẽ liên hệ với bạn theo thông tin bạn gửi, vui lòng điền
                     vào khung
-                    thông tin bên dưới.</div>
+                    thông tin bên dưới.</h3>
 
                 <div class="wp-block-contact-form-7-contact-form-selector">
                     <div class="wpcf7 no-js" id="wpcf7-f64-o1" lang="en-US" dir="ltr">

@@ -6,9 +6,8 @@
 <html lang="vi" prefix="og: https://ogp.me/ns#">
 
 <head>
-    <meta charset="UTF-8">
-    {{-- <title>Dịch Vụ Tư Vấn Pháp Luật</title> --}}
-    {{-- @yield('title') --}}
+    @yield('meta')
+    
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -18,16 +17,12 @@
     <link rel="shortcut icon" href="{{ display_image($LOGO) }}" />
     {{-- <link rel="prifile" href="http://gmgp.org/xfn/11"> --}}
     {{-- <link rel="pingback" href="{{$app_url}}xmlrpc.php"> --}}
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
     <!-- Search Engine Optimization by Rank Math - https://rankmath.com/ -->
     @if (!in_array(Route::currentRouteName(), ['tintuc.detail', 'tuyendung.chitiet']))
         <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" media="all" data-minify="1" />
     @endif
-    <meta property="og:url" content="{{ route('trangchu') }}" />
-    <link rel="canonical" href="{{ route('trangchu') }}" />
-    @yield('meta')
+    {{-- <meta property="og:url" content="{{ route('trangchu') }}" />
+    <link rel="canonical" href="{{ route('trangchu') }}" /> --}}
     {{-- <meta name="description"
         content="Dịch Vụ Tư Vấn Pháp Luật" />
     <meta name="robots" content="follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />

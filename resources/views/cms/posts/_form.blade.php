@@ -121,161 +121,260 @@
                                 <!--begin::Card body-->
                                 <div class="card-body border-top p-9">
                                     <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta Title') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="meta_title" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->meta_title : '' }}">
-                                        </div>
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Alternate Hreflang') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="alternate_hreflang" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->alternate_hreflang : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta Description') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <textarea name="meta_description" class="form-control mycustom">{{ isset($item) ? $item->meta_description : '' }}</textarea>
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Canonical') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="canonical" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->canonical : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta URL') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="meta_url" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->meta_url : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta Robots') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="meta_robots" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->meta_robots : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
+                                
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta Title') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="meta_title" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->meta_title : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta Keywords') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="meta_keywords" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->meta_keywords : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta Description') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <textarea name="meta_description" class="form-control mycustom">{{ isset($item) ? $item->meta_description : '' }}</textarea>
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta Site Name') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="meta_site_name" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->meta_site_name : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta URL') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="meta_url" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->meta_url : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta Image Alt') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="meta_image_alt" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->meta_image_alt : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta Keywords') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="meta_keywords" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->meta_keywords : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('OG Title') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="og_title" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->og_title : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta Site Name') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="meta_site_name" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->meta_site_name : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('OG Description') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <textarea name="og_description" class="form-control mycustom">{{ isset($item) ? $item->og_description : '' }}</textarea>
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Meta Image Alt') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="meta_image_alt" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->meta_image_alt : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('OG URL') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="og_url" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->og_url : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Locale') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_locale" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_locale : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('OG Image') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="og_image" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->og_image : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Facebook App ID') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="fb_app_id" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->fb_app_id : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('OG Type') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="og_type" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->og_type : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Type') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_type" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_type : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Twitter Title') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="twitter_title" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->twitter_title : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Title') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_title" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_title : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Twitter Description') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <textarea name="twitter_description" class="form-control mycustom">{{ isset($item) ? $item->twitter_description : '' }}</textarea>
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Description') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <textarea name="og_description" class="form-control mycustom">{{ isset($item) ? $item->og_description : '' }}</textarea>
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Twitter Image') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="twitter_image" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->twitter_image : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG URL') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_url" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_url : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Site Name') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_site_name" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_site_name : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Canonical') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="canonical" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->canonical : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Image') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_image" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_image : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
 
-                                    <!--begin::Input group-->
-                                    <div class="row mt-3">
-                                        <label class="form-label">{{ __('Meta Robots') }}</label>
-                                        <div class="col-lg-12 fv-row">
-                                            <input type="text" name="meta_robots" class="form-control mycustom"
-                                                value="{{ isset($item) ? $item->meta_robots : '' }}">
-                                        </div>
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Image Secure URL') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_image_secure_url" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_image_secure_url : '' }}">
                                     </div>
-                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Facebook Admins') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="fb_admins" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->fb_admins : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('OG Image Type') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="og_image_type" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->og_image_type : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Twitter Card') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="twitter_card" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->twitter_card : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Twitter Site') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="twitter_site" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->twitter_site : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Twitter Title') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="twitter_title" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->twitter_title : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Twitter Description') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <textarea name="twitter_description" class="form-control mycustom">{{ isset($item) ? $item->twitter_description : '' }}</textarea>
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Twitter Image') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="twitter_image" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->twitter_image : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+
+                                <!--begin::Input group-->
+                                <div class="row mt-3">
+                                    <label class="form-label">{{ __('Twitter Creator') }}</label>
+                                    <div class="col-lg-12 fv-row">
+                                        <input type="text" name="twitter_creator" class="form-control mycustom"
+                                            value="{{ isset($item) ? $item->twitter_creator : '' }}">
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
                                 </div>
                                 <!--end::Card body-->
                             </div>
