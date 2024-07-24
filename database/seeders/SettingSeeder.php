@@ -129,7 +129,7 @@ class SettingSeeder extends Seeder
         //     );
         // }
         foreach ($settings as $setting) {
-            $existingSetting = \App\Models\Setting::where('key', $setting['key'])->first();
+            $existingSetting = \App\Models\Setting::where(['key' => $setting['key'], 'type' => $setting['type']])->first();
             if (!$existingSetting) {
                 \App\Models\Setting::create($setting);
             }
