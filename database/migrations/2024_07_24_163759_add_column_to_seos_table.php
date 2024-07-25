@@ -24,6 +24,13 @@ return new class extends Migration
             $table->string('twitter_creator')->nullable()->after('twitter_site');
             $table->string('alternate_hreflang')->nullable()->after('canonical');
         });
+        Schema::table('seos', function (Blueprint $table) {
+            $table->string('meta_title')->nullable()->change();
+            $table->text('meta_description')->nullable()->change();
+            $table->string('meta_url')->nullable()->change();
+            $table->string('meta_site_name')->nullable()->change();
+            $table->string('meta_image_alt')->nullable()->change();
+        });
     }
 
     /**
