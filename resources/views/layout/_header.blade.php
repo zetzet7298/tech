@@ -52,7 +52,7 @@
                 <div class="header__nav_container">
                     <ul id="menu-menu-chinh" class="header__nav">
                         <li id="menu-item-385"
-                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home @currentMenuItem('trangchu')"">
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home @currentMenuItem('trangchu')">
                             <a href="{{ route('trangchu') }}" aria-current="page">Trang chủ</a>
                         </li>
                         <li id="menu-item-391"
