@@ -1,10 +1,10 @@
 <!-- site -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" />
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" >
 <meta name="robots" content="{{ $seoMeta->meta_robots ?? 'index, follow' }}">
 <link rel="canonical" href="{{ $seoMeta->canonical ?? '' }}">
-<link rel="alternate" hreflang="vi" href="{{ $seoMeta->alternate_hreflang ?? '' }}" />
+<link rel="alternate" hreflang="vi" href="{{ $seoMeta->alternate_hreflang ?? '' }}" >
 <meta name="description" content="{{ $seoMeta->meta_description ?? '' }}">
 <meta name="keywords" content="{{ $seoMeta->meta_keywords ?? '' }}"> 
 <title>{{ $seoMeta->meta_title ?? '' }}</title>     
