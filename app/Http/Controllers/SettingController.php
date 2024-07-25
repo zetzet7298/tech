@@ -114,6 +114,7 @@ class SettingController extends Controller
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), 'emailvanphong', $request->EMAILVANPHONG);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), 'tghdvanphong', $request->TGHDVANPHONG);
                     Setting::set(config('constants.SETTING_TYPE_COMMON'), 'bocongthuong_link', $request->bocongthuong_link);
+                    Setting::set(config('constants.SETTING_TYPE_COMMON'), 'loading-text', $request->loadingText);
                     if (request()->hasFile('LOGO') && $path = upload_image2('LOGO', 'LOGO')) {
                         Setting::set(config('constants.SETTING_TYPE_COMMON'), config('constants.LOGO'), $path);
                     }

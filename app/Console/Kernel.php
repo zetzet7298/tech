@@ -7,6 +7,11 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        Commands\GenerateSitemap::class,
+        Commands\GenerateRobotsTxt::class,
+    ];
+
     /**
      * Define the application's command schedule.
      */

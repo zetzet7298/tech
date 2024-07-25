@@ -1,5 +1,25 @@
 <div class="loading-icon">
-
+    <div class="design-banner-info" style="z-index:99999;width: 100% !important;
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;">
+        <div class="design-banner-description"
+        style="                    display: flex;
+        justify-content: center;
+        align-items: center;"
+        >
+            <div style="      margin: 0;
+            /* background: rgba(0, 0, 0, 0.5); */
+            color: #fff;
+            border-radius: 10px;
+            font-weight:bolder;
+            font-size:60px;
+            text-align:center;
+            ">{{$loadingText}}</div>
+        </div>
+    </div>
   </div>
 
   {{-- <svg id="Layer_1" width="300" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 828.64 125.09">

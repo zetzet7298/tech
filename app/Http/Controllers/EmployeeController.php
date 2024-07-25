@@ -156,7 +156,7 @@ class EmployeeController extends Controller
             if (empty($seoMeta)) {
                 $seoMeta = new SeoMeta();
             }
-            $seoMeta->post_id = $post->id;
+            $seoMeta->employee_id = $content->id;
             $seoMeta->meta_title = $request->meta_title;
             $seoMeta->meta_description = $request->meta_description;
             $seoMeta->meta_url = $request->meta_url;

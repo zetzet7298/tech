@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /privacy-policy
 Disallow: /assets/
-Sitemap: https://hongnhanbinhhung.com/sitemap.xml
+Sitemap: http://tech.local:3333/sitemap.xml

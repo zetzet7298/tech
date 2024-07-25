@@ -55,6 +55,7 @@ class AppServiceProvider extends ServiceProvider
         $EMAILVANPHONG = $settings['emailvanphong']['value'];
         $TGHDVANPHONG = $settings['tghdvanphong']['value'];
         $bocongthuong_link = $settings['bocongthuong_link']['value'];
+        $loadingText = $settings['loading-text']['value'];
 
         $DKKD = $settings[config('constants.DKKD')]['value'];
         $TIME_WORKING = $settings[config('constants.TIME_WORKING')]['value'];
@@ -93,6 +94,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('TGHDVANPHONG', $TGHDVANPHONG);
         View::share('offices', $offices);
         View::share('bocongthuong_link', $bocongthuong_link);
+        View::share('loadingText', $loadingText);
 
         // Set demo globally
         $theme->setDemo(request()->input('demo', 'demo1'));

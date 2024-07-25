@@ -280,7 +280,7 @@
                                                     src="{{ display_image($feedback->slide_1) }}" alt="Minigo shop"
                                                     data-lazy-src="{{ display_image($feedback->slide_1) }}"><noscript><img
                                                         width="800" height="500"
-                                                        style="width: 891; height: 685px"
+                                                        style="width: 891px; height: 685px"
                                                         class="block rounded-t-2xl cursor-pointer"
                                                         src="{{ display_image($feedback->slide_1) }}"
                                                         alt="Minigo shop"></noscript>

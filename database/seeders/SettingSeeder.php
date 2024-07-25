@@ -17,7 +17,8 @@ class SettingSeeder extends Seeder
     public function run()
     {
         $settings = [
-            ['key' => 'company-name', 'value' => '{{$companyNameValue}}', 'type' => 'common'],
+            ['key' => 'loading-text', 'value' => 'APOLO', 'type' => 'common'],
+            ['key' => 'company-name', 'value' => 'APOLO', 'type' => 'common'],
             ['key' => 'logo', 'value' => '', 'type' => 'common'],
             ['key' => 'mission', 'value' => '', 'type' => 'common'],
             ['key' => 'address', 'value' => 'Tầng G, 485B Nguyễn Đình Chiểu, Phường 2, Quận 3, Thành phố Hồ Chí Minh, Việt Nam', 'type' => 'common'],

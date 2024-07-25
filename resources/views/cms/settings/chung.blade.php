@@ -97,6 +97,20 @@
                                     <!--begin::Input group-->
                                     <div class="mb-3">
                                         <!--begin::Label-->
+                                        <label for="example-textarea" class="form-label">{{ __('Loading Text') }}</label>
+                                        <!--end::Label-->
+
+                                        <!--begin::Col-->
+                                        <div class="col-lg-12 fv-row">
+                                            <textarea rows="1" type="text" name="loadingText" class="form-control" id="example-textarea">
+{{ old('loadingText', $loadingText ?? '') }}</textarea>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="mb-3">
+                                        <!--begin::Label-->
                                         <label for="example-textarea" class="form-label">{{ __('Tên công ty') }}</label>
                                         <!--end::Label-->
 

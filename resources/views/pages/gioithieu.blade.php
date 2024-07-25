@@ -238,9 +238,9 @@
         <div class="about-group-6__content">
             <div class="center-layout-2">
                 <div class="about-group-6__main">
-                    <h2 class="about-group-6__title" data-aos="fade-up" data-aos-duration="1000"
+                    <h2 class="team-box-6__name" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-once="true">
-                        <span>{{ $diemdadang_title }}</span>
+                        {{ $diemdadang_title }}
                     </h2>
                     <div class="about-group-6-items" data-aos="fade-up" data-aos-duration="1000"
                         data-aos-once="true">{{ $diemdadang_item_1 }}</div>
